@@ -3,6 +3,7 @@ import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/splash.dart';
 import 'package:mobileapplication/profile_page.dart';
 import 'Searchplaces.dart';
+import 'destinantion_screen.dart';
 import 'eventPlannerForm.dart';
 import 'home.dart';
 import 'login.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/destinationScreen',
         routes: {
           '/': (context) => Splash(),
           '/login': (context) => Login(),
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
           'home': (context) => Home(),
           '/Searchplaces': (context) => SearchPage(),
           '/evenetPlannerForm': (context) => Eventform(),
+          '/destinationScreen': (context) => DestinationScreen(),
         });
   }
 }

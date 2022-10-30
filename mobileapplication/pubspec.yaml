@@ -64,12 +64,10 @@ flutter:
   assets:
     - assets/Egypt.jpg
     - assets/temple.jpg
-<<<<<<< Updated upstream
     - assets/Logo.jpeg
     # - google_fonts/
     #  - assets/egy1.jpg
     # - images/a_dot_ham.jpeg
-=======
     - assets/pic1.jpg
     - assets/empty-sea-beach-background.jpg
     - assets/welcome.jpg
@@ -81,8 +79,8 @@ flutter:
     - assets/kyaking.jpg
     - assets/pyramids.jpg
     - assets/luxor.jpg
-    #- assets/egy1.jpg
->>>>>>> Stashed changes
+
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

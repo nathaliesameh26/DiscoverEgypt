@@ -13,7 +13,6 @@ class _LoginState extends State<Login> {
   String name = "";
   @override
   Widget build(BuildContext context) {
-
     final double height = MediaQuery.of(context).size.height;
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -79,7 +78,7 @@ class _LoginState extends State<Login> {
                             ),
                             validator: (value) {
                               if (value!.isEmpty ||
-                                  !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                                  !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
                                 return "Enter name";
                               } else {
                                 return null;

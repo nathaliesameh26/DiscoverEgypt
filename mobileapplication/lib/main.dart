@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/destinationScreen',
+        initialRoute: '/evenetPlannerForm',
         routes: {
           '/': (context) => Splash(),
           '/login': (context) => Login(),

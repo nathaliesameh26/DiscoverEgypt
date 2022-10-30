@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobileapplication/data/loginData.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -7,10 +8,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final user = LoginUser.Luser;
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
   @override
   Widget build(BuildContext context) {
+
     final double height = MediaQuery.of(context).size.height;
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/splash.dart';
+import 'package:mobileapplication/profile_page.dart';
 import 'Searchplaces.dart';
 import 'eventPlannerForm.dart';
 import 'home.dart';
@@ -21,15 +22,13 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/eventPlannerForm',
+        initialRoute: '/register',
         routes: {
           '/': (context) => Splash(),
           '/login': (context) => Login(),
           '/register': (context) => Register(),
           'home': (context) => Home(),
           '/Searchplaces': (context) => SearchPage(),
-          // '/detailspage': (context) => MyCustomForm(),
-          '/eventPlannerForm': (context) => Eventform(),
         });
   }
 }

@@ -64,6 +64,18 @@ flutter:
   assets:
     - assets/Egypt.jpg
     - assets/temple.jpg
+    - assets/pic1.jpg
+    - assets/empty-sea-beach-background.jpg
+    - assets/welcome.jpg
+    - assets/lake.jpg
+    - assets/seen.jpg
+    - assets/profile.jpg
+    - assets/images.jpeg
+    - assets/kamel.jpg
+    - assets/kyaking.jpg
+    - assets/pyramids.jpg
+    - assets/luxor.jpg
+
     # - google_fonts/
     
     # - images/a_dot_ham.jpeg

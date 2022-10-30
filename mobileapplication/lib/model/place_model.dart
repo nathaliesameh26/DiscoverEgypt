@@ -30,14 +30,6 @@ List places = [
           'Enjoy a camel ride at Giza Pyramids for 2 hours during the sun rise or sun set. Mount a camel and ride it through the desert to the base of the Great Pyramid.',
       price: 150),
   PlaceInfo(
-      image: 'assets/kamel.jpg',
-      location: 'Giza',
-      time: 1,
-      name: 'Riding kamels&hourses',
-      desc:
-          'Enjoy a camel ride at Giza Pyramids for 2 hours during the sun rise or sun set. Mount a camel and ride it through the desert to the base of the Great Pyramid.',
-      price: 150),
-  PlaceInfo(
       image: 'assets/luxor.jpg',
       location: 'luxor',
       time: 1,

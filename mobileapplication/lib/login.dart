@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobileapplication/data/loginData.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -7,6 +8,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final user = LoginUser.Luser;
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
   @override
@@ -76,7 +78,7 @@ class _LoginState extends State<Login> {
                             ),
                             validator: (value) {
                               if (value!.isEmpty ||
-                                  !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                                  !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
                                 return "Enter name";
                               } else {
                                 return null;

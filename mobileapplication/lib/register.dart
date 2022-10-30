@@ -37,7 +37,7 @@ class _RegisterState extends State<Register> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
-                    image: AssetImage('assets/temple.jpg'),
+                    image: const AssetImage('assets/temple.jpg'),
                     colorFilter: ColorFilter.mode(
                       Colors.white.withOpacity(0.5),
                       BlendMode.modulate,
@@ -46,7 +46,8 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 child: SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  // ignore: prefer_const_constructors
                   padding: EdgeInsets.symmetric(
                       // horizontal: 25,
                       // vertical: 120,
@@ -83,7 +84,7 @@ class _RegisterState extends State<Register> {
                               ),
                               validator: (value) {
                                 if (value!.isEmpty ||
-                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
                                   return "first name must contain characters";
                                 } else {
                                   return null;
@@ -100,7 +101,7 @@ class _RegisterState extends State<Register> {
                               ),
                               validator: (value) {
                                 if (value!.isEmpty ||
-                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
                                   return "first name must contain characters";
                                 } else {
                                   return null;
@@ -118,7 +119,7 @@ class _RegisterState extends State<Register> {
                               validator: (value) {
                                 if (value!.isEmpty ||
                                     !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                        .hasMatch(value!)) {
+                                        .hasMatch(value)) {
                                   return "Enter the email correctly";
                                 } else {
                                   return null;
@@ -139,7 +140,7 @@ class _RegisterState extends State<Register> {
                                 } else if (value.length != 10) {
                                   return "The phone number isn't correct";
                                 } else if (!RegExp(r"^[1-10]+")
-                                    .hasMatch(value!)) {
+                                    .hasMatch(value)) {
                                   return "The phone number don't have to include characters or /%^";
                                 } else {
                                   return null;
@@ -172,7 +173,7 @@ class _RegisterState extends State<Register> {
                               ),
                               validator: (value) {
                                 if (value!.isEmpty ||
-                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
                                   return "Enter the email correctly";
                                 } else {
                                   return null;

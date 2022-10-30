@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/model/place_model.dart';
+import 'package:mobileapplication/widget/navigation_bar.dart';
 
 import '../../widget/category_card.dart';
 import '../../widget/category_card.dart';
@@ -166,7 +167,7 @@ class RecommendedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 5,
+      //elevation: 5,
       child: Container(
         height: 210,
         width: 200,
@@ -176,7 +177,7 @@ class RecommendedCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 150,
+              height: 100,
               // width: double.infinity,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -206,6 +207,7 @@ class RecommendedCard extends StatelessWidget {
           ],
         ),
       ),
+      //  bottomNavigationBar: NavigationBarTheme
     );
   }
 }

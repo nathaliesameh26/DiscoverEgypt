@@ -1,11 +1,12 @@
 import 'activity_model.dart';
+//import 'destinantion_screen.dart';
 
 class Destination {
-  String imageUrl;
+  final String imageUrl;
   String city;
-  String country;
-  String description;
-  List<Activity> activities;
+  final String country;
+  final String description;
+  final List<Activity> activities;
 
   Destination({
     required this.imageUrl,

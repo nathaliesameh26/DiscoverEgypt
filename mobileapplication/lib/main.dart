@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/register.dart';
+import 'package:mobileapplication/screens/home/home_screen.dart';
 import 'package:mobileapplication/splash.dart';
 import 'package:mobileapplication/profile_page.dart';
 import 'Searchplaces.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
           'home': (context) => Home(),
           '/Searchplaces': (context) => SearchPage(),
           '/evenetPlannerForm': (context) => Eventform(),
-          '/destinationScreen': (context) => DestinationScreen(),
+          '/homescreen': (context) => HomeScreen(),
+          //'/destinationScreen': (context) => DestinationScreen(destination:),
         });
   }
 }

@@ -17,7 +17,7 @@ class EPformState extends State<Eventform> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(0, 9, 9, 9),
+          backgroundColor: Colors.orange,
           elevation: 10,
           title: const Text("Add your event"),
         ),
@@ -155,54 +155,3 @@ class EPformState extends State<Eventform> {
             )));
   }
 }
-  // String? _name;
-  // String? _desc;
-  // String? _location;
-  // String? _startdate;
-  // String? _enddate;
-  // String? _price;
-  // String? _opentime;
-  // String? _closetime;
-
-  // final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  // Widget? buildName() {
-  //   return null;
-  // }
-
-  //  Widget? buildDesc() {
-  //   return null;
-  // }
-  //  Widget? buildLocation() {
-  //   return null;
-  // }
-  // Widget? buildStartdate() {
-  //   return null;
-  // }
-
-  //  Widget? buildEneddate() {
-  //   return null;
-  // }
-
-  //  Widget? buildPrice() {
-  //   return null;
-  // }
-  //  Widget? buildOpentime() {
-  //   return null;
-  // }
-
-  //  Widget? buildClosetime() {
-  //   return null;
-  // }
-            // Column(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: <Widget>[
-            //     buildName(),
-            //     buildDesc(),
-            //     buildLocation(),
-            //     buildEneddate(),
-            //     buildPrice(),
-            //     buildOpentime(),
-            //     buildClosetime(),
-            //     SizedBox(height: 100,)
-            //   ],
-            // ),

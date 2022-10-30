@@ -71,7 +71,7 @@ class EPformState extends State<Eventform> {
                 SizedBox(height: height * 0.04),
                 const Text("Add Your Event Details",
                     style: TextStyle(
-                        fontSize: 30, color: Color.fromARGB(15, 171, 15, 15))),
+                        fontSize: 30, color: Color.fromARGB(15, 208, 19, 19))),
                 SizedBox(height: height * 0.05),
                 TextFormField(
                     decoration:

@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           'home': (context) => Home(),
           '/Searchplaces': (context) => SearchPage(),
           '/evenetPlannerForm': (context) => Eventform(),
-          '/destinationScreen': (context) => DestinationScreen(),
+          //'/destinationScreen': (context) => DestinationScreen(destination:),
         });
   }
 }

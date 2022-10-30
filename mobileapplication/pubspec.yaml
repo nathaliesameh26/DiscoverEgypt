@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/Egypt.jpg
     - assets/temple.jpg
+<<<<<<< HEAD
     - assets/pic1.jpg
     - assets/empty-sea-beach-background.jpg
     - assets/welcome.jpg
@@ -77,8 +78,10 @@ flutter:
     - assets/luxor.jpg
     - assets/egy1.jpg
 
+=======
+>>>>>>> 57ef79b6b39e04e3fae2611a0040555886cfb813
     # - google_fonts/
-    
+     - assets/egy1.jpg
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

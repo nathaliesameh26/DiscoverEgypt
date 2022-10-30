@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/splash.dart';
+import 'package:mobileapplication/profile_page.dart';
 import 'Searchplaces.dart';
 import 'home.dart';
 import 'login.dart';
@@ -19,13 +20,14 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/login',
+        initialRoute: '/profile_page',
         routes: {
           '/': (context) => Splash(),
           '/login': (context) => Login(),
           '/register': (context) => Register(),
           'home': (context) => Home(),
           '/Searchplaces': (context) => SearchPage(),
+          '/profile_page': (context) => ProfilePage(),
         });
   }
 }

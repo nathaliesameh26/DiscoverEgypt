@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/splash.dart';
+import 'package:mobileapplication/profile_page.dart';
 import 'Searchplaces.dart';
+import 'eventPlannerForm.dart';
 import 'home.dart';
 import 'login.dart';
 import 'splash.dart';
+//import 'detailspage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +29,7 @@ class MyApp extends StatelessWidget {
           '/register': (context) => Register(),
           'home': (context) => Home(),
           '/Searchplaces': (context) => SearchPage(),
+          '/evenetPlannerForm': (context) => Eventform(),
         });
   }
 }

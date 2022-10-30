@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/Egypt.jpg
     - assets/temple.jpg
+    - assets/egy1.jpg
     # - google_fonts/
     
     # - images/a_dot_ham.jpeg

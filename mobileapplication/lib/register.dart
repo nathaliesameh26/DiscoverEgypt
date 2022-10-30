@@ -83,7 +83,7 @@ class _RegisterState extends State<Register> {
                               ),
                               validator: (value) {
                                 if (value!.isEmpty ||
-                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value!)) {
+                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
                                   return "first name must contain characters";
                                 } else {
                                   return null;

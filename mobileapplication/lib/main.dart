@@ -22,13 +22,14 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/register',
+        initialRoute: '/evenetPlannerForm',
         routes: {
           '/': (context) => Splash(),
           '/login': (context) => Login(),
           '/register': (context) => Register(),
           'home': (context) => Home(),
           '/Searchplaces': (context) => SearchPage(),
+          '/evenetPlannerForm': (context) => Eventform(),
         });
   }
 }

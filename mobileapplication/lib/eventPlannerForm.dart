@@ -10,45 +10,6 @@ class Eventform extends StatefulWidget {
 class EPformState extends State<Eventform> {
   final formkey = GlobalKey<FormState>();
   String name = "";
-  // String? _name;
-  // String? _desc;
-  // String? _location;
-  // String? _startdate;
-  // String? _enddate;
-  // String? _price;
-  // String? _opentime;
-  // String? _closetime;
-
-  // final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  // Widget? buildName() {
-  //   return null;
-  // }
-
-  //  Widget? buildDesc() {
-  //   return null;
-  // }
-  //  Widget? buildLocation() {
-  //   return null;
-  // }
-  // Widget? buildStartdate() {
-  //   return null;
-  // }
-
-  //  Widget? buildEneddate() {
-  //   return null;
-  // }
-
-  //  Widget? buildPrice() {
-  //   return null;
-  // }
-  //  Widget? buildOpentime() {
-  //   return null;
-  // }
-
-  //  Widget? buildClosetime() {
-  //   return null;
-  // }
-
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -90,6 +51,44 @@ class EPformState extends State<Eventform> {
     );
   }
 }
+  // String? _name;
+  // String? _desc;
+  // String? _location;
+  // String? _startdate;
+  // String? _enddate;
+  // String? _price;
+  // String? _opentime;
+  // String? _closetime;
+
+  // final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  // Widget? buildName() {
+  //   return null;
+  // }
+
+  //  Widget? buildDesc() {
+  //   return null;
+  // }
+  //  Widget? buildLocation() {
+  //   return null;
+  // }
+  // Widget? buildStartdate() {
+  //   return null;
+  // }
+
+  //  Widget? buildEneddate() {
+  //   return null;
+  // }
+
+  //  Widget? buildPrice() {
+  //   return null;
+  // }
+  //  Widget? buildOpentime() {
+  //   return null;
+  // }
+
+  //  Widget? buildClosetime() {
+  //   return null;
+  // }
             // Column(
             //   mainAxisAlignment: MainAxisAlignment.center,
             //   children: <Widget>[

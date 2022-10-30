@@ -11,27 +11,27 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  // @override
-  // void initState() {
-  //   startTimer();
-  //   super.initState();
-  // }
+//   @override
+//   void initState() {
+//     startTimer();
+//     super.initState();
+//   }
 
-  // startTimer() {
-  //   var duration = Duration(seconds: 2);
-  //   return Timer(duration, route);
-  // }
+//   startTimer() {
+//     var duration = Duration(seconds: 2);
+//     return Timer(duration, route);
+//   }
 
-  // route() {
-  //   Navigator.of(context).pushReplacementNamed('/login');
-  // }
+//   route() {
+//     Navigator.of(context).pushReplacementNamed('/login');
+//   }
 
 //   @override
 //   Widget build(BuildContext context) {
 //     return Container(
 //       child: Image.asset('assets/Egypt.jpg'),
 //       // ignore: prefer_const_constructors
-//       Padding(
+//        Padding(
 //         padding: const EdgeInsets.all(8.0),
 //         child: const Text("""
 // Explore New Places With Us!"""),

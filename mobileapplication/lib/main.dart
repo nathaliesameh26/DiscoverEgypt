@@ -8,6 +8,7 @@ import 'eventPlannerForm.dart';
 import 'home.dart';
 import 'login.dart';
 import 'splash.dart';
+
 //import 'detailspage.dart';
 
 void main() {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/homescreen',
+        // initialRoute: '/test',
         routes: {
           '/': (context) => Splash(),
           '/login': (context) => Login(),

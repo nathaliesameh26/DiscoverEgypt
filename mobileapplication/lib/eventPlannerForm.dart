@@ -17,7 +17,7 @@ class EPformState extends State<Eventform> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(0, 9, 9, 9),
+          backgroundColor: Colors.orange,
           elevation: 10,
           title: const Text("Add your event"),
         ),
@@ -155,4 +155,3 @@ class EPformState extends State<Eventform> {
             )));
   }
 }
-  

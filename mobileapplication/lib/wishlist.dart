@@ -95,7 +95,7 @@ class _WishListState extends State<WishList> {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/homescreen');
               },
             ),
           ),

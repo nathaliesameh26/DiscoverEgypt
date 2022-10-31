@@ -4,6 +4,8 @@ import 'package:mobileapplication/model/place_model.dart';
 import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/screens/home/home_screen.dart';
 import 'package:mobileapplication/screens/detailsscreen/detail_screen.dart';
+import 'package:mobileapplication/adminpanel.dart';
+import 'package:mobileapplication/addevent.dart';
 import 'package:mobileapplication/splash.dart';
 import 'package:mobileapplication/profile_page.dart';
 import 'package:mobileapplication/wishlist.dart';
@@ -90,6 +92,20 @@ class _MainPageState extends State<MyHomePage> {
                 );
               }),
           ListTile(title: Text('LogOut')),
+          ListTile(
+              title: const Text('AdminSide - edit events'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => adminpanel()),
+                );
+              }),
+          ListTile(
+              title: const Text('AdminSide - add places'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => placeform()),
+                );
+              }),
         ],
       )),
       body: screens[index],

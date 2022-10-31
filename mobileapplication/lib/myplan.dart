@@ -96,7 +96,9 @@ class _MyPlanState extends State<MyPlans> {
                 "Add Plans Now",
                 style: TextStyle(color: Colors.white),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/homescreen');
+              },
             ),
           ),
         ]),

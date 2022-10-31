@@ -11,7 +11,6 @@ class adminpanelState extends State<adminpanel> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "Test App",
         home: Scaffold(
             body: Center(
               child: Column(

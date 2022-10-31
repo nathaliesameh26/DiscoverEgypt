@@ -41,50 +41,50 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       )
                     ]),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
+                  //borderRadius: BorderRadius.circular(30.0),
                   child: Image.asset(
                     'assets/Egypt.jpg',
                     fit: BoxFit.cover,
-                    height: 350,
+                    height: 100,
                     width: 430,
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 10.0, vertical: 40.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      iconSize: 30.0,
-                      color: Colors.black,
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                    Row(
-                      children: <Widget>[
-                        IconButton(
-                          icon: Icon(Icons.search),
-                          iconSize: 30.0,
-                          color: Colors.black,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            IconButton(
-                              icon: Icon(Icons.sort),
-                              iconSize: 25.0,
-                              color: Colors.black,
-                              onPressed: () => Navigator.pop(context),
-                            ),
-                          ],
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(
+              //       horizontal: 10.0, vertical: 40.0),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: <Widget>[
+              //       IconButton(
+              //         icon: Icon(Icons.arrow_back),
+              //         iconSize: 30.0,
+              //         color: Colors.black,
+              //         onPressed: () => Navigator.pop(context),
+              //       ),
+              //       Row(
+              //         children: <Widget>[
+              //           IconButton(
+              //             icon: Icon(Icons.search),
+              //             iconSize: 30.0,
+              //             color: Colors.black,
+              //             onPressed: () => Navigator.pop(context),
+              //           ),
+              //           Row(
+              //             children: <Widget>[
+              //               IconButton(
+              //                 icon: Icon(Icons.sort),
+              //                 iconSize: 25.0,
+              //                 color: Colors.black,
+              //                 onPressed: () => Navigator.pop(context),
+              //               ),
+              //             ],
+              //           )
+              //         ],
+              //       )
+              //     ],
+              //   ),
+              // ),
               Positioned(
                 left: 20.0,
                 bottom: 20.0,
@@ -183,20 +183,20 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        const Text(
-                                          'per pax',
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 22.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
+                                        // const Text(
+                                        //   'per pax',
+                                        //   style: TextStyle(
+                                        //     color: Colors.grey,
+                                        //     fontSize: 22.0,
+                                        //     fontWeight: FontWeight.w600,
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
                                   ],
                                 ),
                                 Text(activity.type, style: TextStyle()),
-                                _buildRatingStars(activity.rating),
+                                //_buildRatingStars(activity.rating),
                                 SizedBox(
                                   height: 10.0,
                                 ),

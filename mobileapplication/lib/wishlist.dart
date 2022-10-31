@@ -64,29 +64,6 @@ class _WishListState extends State<WishList> {
           child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: Column(children: [
-          // Row(
-          //   children: [
-          //     const CircleAvatar(
-          //       radius: 27,
-          //       backgroundImage: AssetImage("assets/profile.jpg"),
-          //     ),
-          //     const SizedBox(
-          //       width: 15,
-          //     ),
-          //     RichText(
-          //         text: const TextSpan(
-          //             text: "Hello",
-          //             style: TextStyle(color: Colors.black),
-          //             children: [
-          //           TextSpan(
-          //               text: ",Remon",
-          //               style: TextStyle(
-          //                 fontWeight: FontWeight.bold,
-          //                 fontSize: 18,
-          //               ))
-          //         ]))
-          //   ],
-          // ),
           const SizedBox(
             height: 15,
           ),
@@ -95,7 +72,6 @@ class _WishListState extends State<WishList> {
           const SizedBox(
             height: 20,
           ),
-
           Container(
             height: 200,
             decoration: const BoxDecoration(
@@ -103,6 +79,24 @@ class _WishListState extends State<WishList> {
                 image: AssetImage("assets/wishlist.jpeg"),
                 fit: BoxFit.cover,
               ),
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: TextButton(
+              child: const Text(
+                "Add Now",
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
             ),
           ),
         ]),

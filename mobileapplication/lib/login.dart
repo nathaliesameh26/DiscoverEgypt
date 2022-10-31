@@ -119,7 +119,8 @@ class _LoginState extends State<Login> {
                                             context, '/register');
                                       },
                                       style: TextButton.styleFrom(
-                                          backgroundColor: Color(0xFF363f93)),
+                                          backgroundColor:
+                                              Color.fromARGB(255, 255, 115, 0)),
                                       child: const Text(
                                         "Sign Up ",
                                         style: TextStyle(color: Colors.white),
@@ -136,7 +137,8 @@ class _LoginState extends State<Login> {
                                     }
                                   },
                                   style: TextButton.styleFrom(
-                                      backgroundColor: Color(0xFF363f93)),
+                                      backgroundColor:
+                                          Color.fromARGB(255, 255, 115, 0)),
                                   child: const Text(
                                     "Login ",
                                     style: TextStyle(color: Colors.white),

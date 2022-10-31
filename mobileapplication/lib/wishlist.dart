@@ -95,119 +95,16 @@ class _WishListState extends State<WishList> {
           const SizedBox(
             height: 20,
           ),
-          Material(
-              borderRadius: BorderRadius.circular(100),
-              elevation: 7,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(100)),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          decoration: const InputDecoration(
-                              hintText: "search",
-                              prefixIcon: Icon(Icons.search),
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none),
-                        ),
-                      ),
-                      // const CircleAvatar(
-                      //   backgroundColor: Colors.orange,
-                      //   child: Icon(
-                      //     Icons.sort_by_alpha_sharp,
-                      //     color: Colors.white,
-                      //   ),
-                      // )
-                      Column(children: <Widget>[
-                        SizedBox(height: 5.0),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context)
-                                .pushReplacementNamed('/Searchplaces');
-                          },
-                          child: CircleAvatar(
-                              backgroundColor: Colors.orange,
-                              //radius: 10.0,
-                              child: Icon(
-                                Icons.sort_by_alpha_sharp,
-                                color: Colors.white,
-                              )),
-                        ),
-                      ]),
-                    ],
-                  ),
-                ),
-              )),
-          const SizedBox(
-            height: 80,
-          ),
-          Row(
-            children: const [
-              Text("places",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
+
           Container(
-            height: 60,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Row(
-                  children: [
-                    CategoryCard(
-                      press: () {},
-                      image: "assets/lake.jpg",
-                      title: "Events",
-                    ),
-                    CategoryCard(
-                      press: () {},
-                      image: "assets/seen.jpg",
-                      title: "Sights",
-                    ),
-                  ],
-                ),
-              ],
+            height: 200,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/wishlist.jpeg"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          //recomend
-          const SizedBox(
-            height: 80,
-          ),
-          Row(
-            children: const [
-              Text("Recommendations",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-              height: 200,
-              child: ListView.builder(
-                  itemCount: places.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 5, right: 15),
-                      child: Row(
-                        children: [
-                          RecommendedCard(
-                            placeInfo: places[index],
-                            press: () {},
-                          )
-                        ],
-                      ),
-                    );
-                  }))
         ]),
       )),
       bottomNavigationBar: NavigationBarTheme(

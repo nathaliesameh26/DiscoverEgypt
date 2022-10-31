@@ -49,7 +49,7 @@ class _SearchPageState extends State<SearchPage> {
         title: const Text(''), // You can add title here
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.grey),
-          onPressed: () => Navigator.of(context).pop(''),
+          onPressed: () => Navigator.of(context).pop('homes_creen'),
         ),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         elevation: 0.0,

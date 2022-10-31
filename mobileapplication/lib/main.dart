@@ -75,23 +75,10 @@ class _MainPageState extends State<MyHomePage> {
       endDrawer: Drawer(
           child: ListView(
         children: [
-          // DrawerHeader(
-          //   child: Text('Drawer Header'),
-          //   decoration: BoxDecoration(color: Colors.orange),
-          // ),
           ListTile(title: Text('LogOut')),
-          //ListTile(title: Text('item2')),
         ],
       )),
       body: screens[index],
-      // body: Container(
-      //     decoration: BoxDecoration(
-      //         image: DecorationImage(
-      //   image: NetworkImage(backgroundimage),
-      //   fit: BoxFit.cover,
-
-      // ))),
-
       bottomNavigationBar: NavigationBarTheme(
           data: NavigationBarThemeData(
               indicatorColor: Colors.orange,

@@ -60,6 +60,7 @@ class _MainPageState extends State<MyHomePage> {
   int index = 0;
   final screens = [
     HomeScreen(),
+    //DetailSreen(placeInfo: places[0]),
     DestinationScreen(
       destination: destinations[0],
     ),

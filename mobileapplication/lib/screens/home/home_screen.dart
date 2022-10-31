@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapplication/Searchplaces.dart';
 import 'package:mobileapplication/model/place_model.dart';
+import 'package:mobileapplication/screens/detailsscreen/detail_screen.dart';
 import 'package:mobileapplication/widget/navigation_bar.dart';
 import 'package:mobileapplication/wishlist.dart';
 
@@ -132,8 +134,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(height: 5.0),
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context)
-                                .pushReplacementNamed('/Searchplaces');
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => SearchPage()),
+                            );
                           },
                           child: CircleAvatar(
                               backgroundColor: Colors.orange,
@@ -207,7 +211,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           RecommendedCard(
                             placeInfo: places[index],
-                            press: () {},
+                            press: () {
+                              DetailSreen(
+                                placeInfo: places[0],
+                              );
+                            },
                           )
                         ],
                       ),

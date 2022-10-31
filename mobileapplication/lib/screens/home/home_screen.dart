@@ -14,56 +14,56 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int index = 0;
-  final screens = [
-    Center(
-      child: Text(
-        'Page 1',
-        style: TextStyle(fontSize: 72),
-      ),
-    ),
-    Center(
-      child: Text(
-        'Page 2',
-        style: TextStyle(fontSize: 72),
-      ),
-    ),
-    WishList(),
-    Center(
-      child: Text(
-        'Page 4',
-        style: TextStyle(fontSize: 72),
-      ),
-    ),
-    Center(
-      child: Text(
-        'Page 5',
-        style: TextStyle(fontSize: 72),
-      ),
-    ),
-  ];
+  // int index = 0;
+  // final screens = [
+  //   Center(
+  //     child: Text(
+  //       'Page 1',
+  //       style: TextStyle(fontSize: 72),
+  //     ),
+  //   ),
+  //   Center(
+  //     child: Text(
+  //       'Page 2',
+  //       style: TextStyle(fontSize: 72),
+  //     ),
+  //   ),
+  //   WishList(),
+  //   Center(
+  //     child: Text(
+  //       'Page 4',
+  //       style: TextStyle(fontSize: 72),
+  //     ),
+  //   ),
+  //   Center(
+  //     child: Text(
+  //       'Page 5',
+  //       style: TextStyle(fontSize: 72),
+  //     ),
+  //   ),
+  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange,
-        //titleTextStyle: TextStyle(color: Colors.black),
-        title: Text(
-          "EgyMania",
-          textAlign: TextAlign.right,
-        ),
-      ),
-      drawer: Drawer(
-          child: ListView(
-        children: [
-          DrawerHeader(
-            child: Text('Drawer Header'),
-            decoration: BoxDecoration(color: Colors.orange),
-          ),
-          ListTile(title: Text('item1')),
-          ListTile(title: Text('item2')),
-        ],
-      )),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.orange,
+      //   //titleTextStyle: TextStyle(color: Colors.black),
+      //   title: Text(
+      //     "EgyMania",
+      //     textAlign: TextAlign.right,
+      //   ),
+      // ),
+      // drawer: Drawer(
+      //     child: ListView(
+      //   children: [
+      //     DrawerHeader(
+      //       child: Text('Drawer Header'),
+      //       decoration: BoxDecoration(color: Colors.orange),
+      //     ),
+      //     ListTile(title: Text('item1')),
+      //     ListTile(title: Text('item2')),
+      //   ],
+      // )),
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Padding(
@@ -215,42 +215,42 @@ class _HomeScreenState extends State<HomeScreen> {
                   }))
         ]),
       )),
-      bottomNavigationBar: NavigationBarTheme(
-          data: NavigationBarThemeData(
-              indicatorColor: Colors.orange,
-              labelTextStyle: MaterialStateProperty.all(
-                TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-              )),
-          child: NavigationBar(
-            height: 60,
-            backgroundColor: Colors.transparent,
-            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-            selectedIndex: index,
-            onDestinationSelected: (index) =>
-                setState(() => this.index = index),
-            destinations: [
-              NavigationDestination(
-                  icon: Icon(Icons.tour_outlined),
-                  selectedIcon: Icon(Icons.tour_rounded),
-                  label: 'Explore'),
-              NavigationDestination(
-                  icon: Icon(Icons.event_available_outlined),
-                  selectedIcon: Icon(Icons.event_available_rounded),
-                  label: 'Events'),
-              NavigationDestination(
-                  icon: Icon(Icons.favorite_border_outlined),
-                  selectedIcon: Icon(Icons.favorite),
-                  label: 'Wish List'),
-              NavigationDestination(
-                  icon: Icon(Icons.map_outlined),
-                  selectedIcon: Icon(Icons.map),
-                  label: 'My Plans'),
-              NavigationDestination(
-                  icon: Icon(Icons.account_box_outlined),
-                  selectedIcon: Icon(Icons.account_box_rounded),
-                  label: 'Account'),
-            ],
-          )),
+      // bottomNavigationBar: NavigationBarTheme(
+      //     data: NavigationBarThemeData(
+      //         indicatorColor: Colors.orange,
+      //         labelTextStyle: MaterialStateProperty.all(
+      //           TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+      //         )),
+      //     child: NavigationBar(
+      //       height: 60,
+      //       backgroundColor: Colors.transparent,
+      //       labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      //       selectedIndex: index,
+      //       onDestinationSelected: (index) =>
+      //           setState(() => this.index = index),
+      //       destinations: [
+      //         NavigationDestination(
+      //             icon: Icon(Icons.tour_outlined),
+      //             selectedIcon: Icon(Icons.tour_rounded),
+      //             label: 'Explore'),
+      //         NavigationDestination(
+      //             icon: Icon(Icons.event_available_outlined),
+      //             selectedIcon: Icon(Icons.event_available_rounded),
+      //             label: 'Events'),
+      //         NavigationDestination(
+      //             icon: Icon(Icons.favorite_border_outlined),
+      //             selectedIcon: Icon(Icons.favorite),
+      //             label: 'Wish List'),
+      //         NavigationDestination(
+      //             icon: Icon(Icons.map_outlined),
+      //             selectedIcon: Icon(Icons.map),
+      //             label: 'My Plans'),
+      //         NavigationDestination(
+      //             icon: Icon(Icons.account_box_outlined),
+      //             selectedIcon: Icon(Icons.account_box_rounded),
+      //             label: 'Account'),
+      //       ],
+      //     )),
     );
   }
 }

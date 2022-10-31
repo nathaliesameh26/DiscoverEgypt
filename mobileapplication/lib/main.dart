@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapplication/destination_model.dart';
 import 'package:mobileapplication/model/place_model.dart';
 import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/screens/home/home_screen.dart';
@@ -57,8 +58,8 @@ class _MainPageState extends State<MyHomePage> {
   int index = 0;
   final screens = [
     HomeScreen(),
-    DetailSreen(
-      placeInfo: places[0],
+    DestinationScreen(
+      destination: destinations[0],
     ),
     WishList(),
     MyPlans(),

@@ -75,6 +75,20 @@ class _MainPageState extends State<MyHomePage> {
       endDrawer: Drawer(
           child: ListView(
         children: [
+          ListTile(
+              title: const Text('LogIn'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Login()),
+                );
+              }),
+          ListTile(
+              title: const Text('Register'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Register()),
+                );
+              }),
           ListTile(title: Text('LogOut')),
         ],
       )),

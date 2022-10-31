@@ -40,7 +40,9 @@ class adminpanelState extends State<adminpanel> {
                 ],
               ),
             ),
-            appBar: AppBar(title: const Text("Sight seeing places ")),
+            appBar: AppBar(
+                backgroundColor: Colors.orange,
+                title: const Text("Sight seeing places ")),
             floatingActionButton: Wrap(
                 //will break to another line on overflow
                 direction:

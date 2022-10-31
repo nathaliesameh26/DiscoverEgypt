@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/model/place_model.dart';
 import 'package:mobileapplication/widget/navigation_bar.dart';
-import 'package:mobileapplication/wishlist.dart';
+import 'package:mobileapplication/screens/home/home_screen.dart';
 
 import '../../widget/category_card.dart';
 import '../../widget/category_card.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class WishList extends StatefulWidget {
+  const WishList({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<WishList> createState() => _WishListState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _WishListState extends State<WishList> {
   int index = 0;
   final screens = [
-    Center(
-      child: Text(
-        'Page 1',
-        style: TextStyle(fontSize: 72),
-      ),
-    ),
+    HomeScreen(),
     Center(
       child: Text(
         'Page 2',
@@ -95,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(
             height: 15,
           ),
-          const Text("Explore Egypt",
+          const Text("Your WishList",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
           const SizedBox(
             height: 20,
@@ -307,7 +302,6 @@ class RecommendedCard extends StatelessWidget {
           ],
         ),
       ),
-      //  bottomNavigationBar: NavigationBarTheme
     );
   }
 }

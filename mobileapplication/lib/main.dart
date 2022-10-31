@@ -3,6 +3,7 @@ import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/screens/home/home_screen.dart';
 import 'package:mobileapplication/splash.dart';
 import 'package:mobileapplication/profile_page.dart';
+import 'package:mobileapplication/wishlist.dart';
 import 'Searchplaces.dart';
 import 'destinantion_screen.dart';
 import 'eventPlannerForm.dart';
@@ -25,16 +26,17 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/homescreen',
+        initialRoute: '/wishList',
         // initialRoute: '/test',
         routes: {
-          '/': (context) => Splash(),
+          '/': (context) => HomeScreen(),
           '/login': (context) => Login(),
           '/register': (context) => Register(),
           'home': (context) => Home(),
           '/Searchplaces': (context) => SearchPage(),
           '/evenetPlannerForm': (context) => Eventform(),
           '/homescreen': (context) => HomeScreen(),
+          '/wishList': (context) => WishList(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
         });
   }

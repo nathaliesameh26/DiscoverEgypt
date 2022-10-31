@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:mobileapplication/model/place_model.dart';
 import 'package:mobileapplication/widget/navigation_bar.dart';
 import 'package:mobileapplication/screens/home/home_screen.dart';
@@ -9,26 +7,31 @@ import 'package:mobileapplication/wishlist.dart';
 import '../../widget/category_card.dart';
 import '../../widget/category_card.dart';
 
-class MyPlan extends StatefulWidget {
-  const MyPlan({super.key});
+class MyPlans extends StatefulWidget {
+  const MyPlans({super.key});
 
   @override
-  State<MyPlan> createState() => _MyPlanState();
+  State<MyPlans> createState() => _MyPlanState();
 }
 
-class _MyPlanState extends State<MyPlan> {
+class _MyPlanState extends State<MyPlans> {
   int index = 0;
   final screens = [
-    HomeScreen(),
-    Center(
+    const HomeScreen(),
+    const Center(
       child: Text(
         'Page 2',
         style: TextStyle(fontSize: 72),
       ),
     ),
-    WishList(),
-    MyPlan(),
-    Center(
+    const WishList(),
+    const Center(
+      child: Text(
+        'Page 4',
+        style: TextStyle(fontSize: 72),
+      ),
+    ),
+    const Center(
       child: Text(
         'Page 5',
         style: TextStyle(fontSize: 72),
@@ -41,20 +44,21 @@ class _MyPlanState extends State<MyPlan> {
       appBar: AppBar(
         backgroundColor: Colors.orange,
         //titleTextStyle: TextStyle(color: Colors.black),
-        title: Text(
+        title: const Text(
           "EgyMania",
           textAlign: TextAlign.right,
         ),
       ),
       drawer: Drawer(
           child: ListView(
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             child: Text('Drawer Header'),
             decoration: BoxDecoration(color: Colors.orange),
           ),
-          ListTile(title: Text('item1')),
-          ListTile(title: Text('item2')),
+          const ListTile(title: Text('item1')),
+          const ListTile(title: Text('item2')),
         ],
       )),
       backgroundColor: Colors.white,
@@ -62,29 +66,6 @@ class _MyPlanState extends State<MyPlan> {
           child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: Column(children: [
-          // Row(
-          //   children: [
-          //     const CircleAvatar(
-          //       radius: 27,
-          //       backgroundImage: AssetImage("assets/profile.jpg"),
-          //     ),
-          //     const SizedBox(
-          //       width: 15,
-          //     ),
-          //     RichText(
-          //         text: const TextSpan(
-          //             text: "Hello",
-          //             style: TextStyle(color: Colors.black),
-          //             children: [
-          //           TextSpan(
-          //               text: ",Remon",
-          //               style: TextStyle(
-          //                 fontWeight: FontWeight.bold,
-          //                 fontSize: 18,
-          //               ))
-          //         ]))
-          //   ],
-          // ),
           const SizedBox(
             height: 15,
           ),
@@ -93,119 +74,31 @@ class _MyPlanState extends State<MyPlan> {
           const SizedBox(
             height: 20,
           ),
-          Material(
-              borderRadius: BorderRadius.circular(100),
-              elevation: 7,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(100)),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          decoration: const InputDecoration(
-                              hintText: "search",
-                              prefixIcon: Icon(Icons.search),
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none),
-                        ),
-                      ),
-                      // const CircleAvatar(
-                      //   backgroundColor: Colors.orange,
-                      //   child: Icon(
-                      //     Icons.sort_by_alpha_sharp,
-                      //     color: Colors.white,
-                      //   ),
-                      // )
-                      Column(children: <Widget>[
-                        SizedBox(height: 5.0),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context)
-                                .pushReplacementNamed('/Searchplaces');
-                          },
-                          child: CircleAvatar(
-                              backgroundColor: Colors.orange,
-                              //radius: 10.0,
-                              child: Icon(
-                                Icons.sort_by_alpha_sharp,
-                                color: Colors.white,
-                              )),
-                        ),
-                      ]),
-                    ],
-                  ),
-                ),
-              )),
-          const SizedBox(
-            height: 80,
-          ),
-          Row(
-            children: const [
-              Text("places",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
           Container(
-            height: 60,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Row(
-                  children: [
-                    CategoryCard(
-                      press: () {},
-                      image: "assets/lake.jpg",
-                      title: "Events",
-                    ),
-                    CategoryCard(
-                      press: () {},
-                      image: "assets/seen.jpg",
-                      title: "Sights",
-                    ),
-                  ],
-                ),
-              ],
+            height: 200,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/myplans.jpeg"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          //recomend
-          const SizedBox(
-            height: 80,
-          ),
-          Row(
-            children: const [
-              Text("Recommendations",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 40,
           ),
           Container(
-              height: 200,
-              child: ListView.builder(
-                  itemCount: places.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 5, right: 15),
-                      child: Row(
-                        children: [
-                          RecommendedCard(
-                            placeInfo: places[index],
-                            press: () {},
-                          )
-                        ],
-                      ),
-                    );
-                  }))
+            padding: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: TextButton(
+              child: const Text(
+                "Add Plans Now",
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {},
+            ),
+          ),
         ]),
       )),
       bottomNavigationBar: NavigationBarTheme(

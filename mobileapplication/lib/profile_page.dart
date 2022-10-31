@@ -20,6 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
         body: ListView(
       physics: BouncingScrollPhysics(),
       children: [
+        const SizedBox(height: 24),
         ProfileWidget(
           imagePath: user.imagePath,
           onClicked: () {

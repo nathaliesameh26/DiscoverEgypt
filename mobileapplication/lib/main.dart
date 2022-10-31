@@ -9,6 +9,7 @@ import 'destinantion_screen.dart';
 import 'eventPlannerForm.dart';
 import 'home.dart';
 import 'login.dart';
+import 'myplan.dart';
 import 'splash.dart';
 
 //import 'detailspage.dart';
@@ -26,17 +27,18 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/wishList',
+        initialRoute: '/myplans',
         // initialRoute: '/test',
         routes: {
-          '/': (context) => HomeScreen(),
-          '/login': (context) => Login(),
-          '/register': (context) => Register(),
+          '/': (context) => const HomeScreen(),
+          '/login': (context) => const Login(),
+          '/register': (context) => const Register(),
           'home': (context) => Home(),
-          '/Searchplaces': (context) => SearchPage(),
+          '/Searchplaces': (context) => const SearchPage(),
           '/evenetPlannerForm': (context) => Eventform(),
-          '/homescreen': (context) => HomeScreen(),
-          '/wishList': (context) => WishList(),
+          '/homescreen': (context) => const HomeScreen(),
+          '/wishList': (context) => const WishList(),
+          '/myplans': (context) => const MyPlans(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
         });
   }

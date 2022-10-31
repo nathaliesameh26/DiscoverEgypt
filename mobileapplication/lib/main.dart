@@ -106,6 +106,13 @@ class _MainPageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => placeform()),
                 );
               }),
+          ListTile(
+              title: const Text('EventPlannerSide - add Event'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Eventform()),
+                );
+              }),
         ],
       )),
       body: screens[index],

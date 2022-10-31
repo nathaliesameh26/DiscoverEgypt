@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/homescreen',
         routes: {
           '/': (context) => Splash(),
           '/login': (context) => Login(),

@@ -186,27 +186,27 @@ class _RegisterState extends State<Register> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Expanded(
-                                    child: ElevatedButton(
-                                  // "Sign Up",
-                                  // style: TextStyle(fontSize: 22, color: Color(0xFF363f93)),
-                                  onPressed: () {
-                                    // if (formKey.currentState!.validate()) {
-                                    //   const snackBar = SnackBar(
-                                    //       content: Text('Submitting form'));
-                                    //   ScaffoldMessenger.of(context)
-                                    //       .showSnackBar(snackBar);
-                                    // }
-                                    // Navigator.pushNamed(context, '/register');
-                                  },
-                                  child: null,
-                                  // style: TextButton.styleFrom(
-                                  //     backgroundColor: Color(0xFF363f93)),
-                                  // child: const Text(
-                                  //  "Sign Up ",
-                                  //   style: TextStyle(color: Colors.white),
-                                  // )
-                                )),
+                                // Expanded(
+                                //     child: ElevatedButton(
+                                //   // "Sign Up",
+                                //   // style: TextStyle(fontSize: 22, color: Color(0xFF363f93)),
+                                //   onPressed: () {
+                                //     // if (formKey.currentState!.validate()) {
+                                //     //   const snackBar = SnackBar(
+                                //     //       content: Text('Submitting form'));
+                                //     //   ScaffoldMessenger.of(context)
+                                //     //       .showSnackBar(snackBar);
+                                //     // }
+                                //     // Navigator.pushNamed(context, '/register');
+                                //   },
+                                //   child: null,
+                                //   // style: TextButton.styleFrom(
+                                //   //     backgroundColor: Color(0xFF363f93)),
+                                //   // child: const Text(
+                                //   //  "Sign Up ",
+                                //   //   style: TextStyle(color: Colors.white),
+                                //   // )
+                                // )),
                                 Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: ElevatedButton(
@@ -219,7 +219,8 @@ class _RegisterState extends State<Register> {
                                       }
                                     },
                                     style: TextButton.styleFrom(
-                                        backgroundColor: Color(0xFF363f93)),
+                                        backgroundColor:
+                                            Color.fromARGB(255, 255, 115, 0)),
                                     child: const Text(
                                       "Sign Up ",
                                       style: TextStyle(color: Colors.white),

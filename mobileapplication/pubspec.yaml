@@ -31,6 +31,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  carousel_slider: ^4.1.1
+  smooth_page_indicator: ^1.0.0+2
     
 
 
@@ -78,6 +80,18 @@ flutter:
     - assets/Logo.jpeg
     - assets/wishlist.jpeg
     - assets/myplans.jpeg
+    - assets/EgyptW.jpg
+    - assets/PyramidsW.jpg
+    - assets/LuxorW.jpg
+    - assets/desert.jpg
+    - assets/next.png
+    - assets/right-arrow.png
+    - assets/py.png
+    - assets/pyram.jpg
+    - assets/Luxe.jpg
+    - assets/see.jpg
+
+
 
 
   

@@ -10,61 +10,41 @@ class adminpanel extends StatefulWidget {
 class adminpanelState extends State<adminpanel> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            body: Center(
-              child: Column(
-                children: <Widget>[
-                  Image.asset('assets/kyaking.jpg'),
-                  const Text(
-                    ' great event that can be done in the nile',
-                    style: TextStyle(fontSize: 20.0),
-                  ),
-                  const Text(
-                    'location : Alzamalek',
-                    style: TextStyle(fontSize: 20.0),
-                  ),
-                  const Text(
-                    'opening time : 9:00 am',
-                    style: TextStyle(fontSize: 20.0),
-                  ),
-                  const Text(
-                    'closing time : 5:00 pm',
-                    style: TextStyle(fontSize: 20.0),
-                  ),
-                  const Text(
-                    'Cost : 250',
-                    style: TextStyle(fontSize: 20.0),
-                  )
-                ],
-              ),
-            ),
-            appBar: AppBar(
-                backgroundColor: Colors.orange,
-                title: const Text("Sight seeing places ")),
-            floatingActionButton: Wrap(
-                //will break to another line on overflow
-                direction:
-                    Axis.horizontal, //use vertical to show  on vertical axis
-                children: <Widget>[
-                  Container(
-                      margin: const EdgeInsets.all(10),
-                      child: FloatingActionButton(
-                        onPressed: () {
-                          //action code for button 1
-                        },
-                        child: const Text('Edit'),
-                      )), //button first
-
-                  Container(
-                      margin: const EdgeInsets.all(10),
-                      child: FloatingActionButton(
-                        onPressed: () {
-                          //action code for button 2
-                        },
-                        backgroundColor: Colors.deepPurpleAccent,
-                        child: const Text('Delete'),
-                      )), // button second
-                ])));
+    return Scaffold(
+        body: Stack(
+      alignment: Alignment.center,
+      children: [
+        buildCoverImage(),
+        //   Positioned(
+        //     top: top,
+        //     child : buildProfileImage(),
+        //   )
+        //   buildProfileImage(),
+      ],
+    ));
   }
 }
+
+Widget buildCoverImage() => Container(
+      // decoration: const BoxDecoration(
+      //   image: DecorationImage(
+      //     image: AssetImage("assets/backgound.jpg"),
+      //   ),
+      // ),
+
+      // child: Image.network(
+      //   'https://picsum.photos/id/1074/400/400',
+      child: Image.asset(
+        'assets/kyaking.jpg',
+        width: double.infinity,
+        height: 280,
+        fit: BoxFit.cover,
+      ),
+    );
+Widget buildProfileImage() => CircleAvatar(
+      radius: 144 / 2,
+      backgroundColor: Colors.grey.shade800,
+      backgroundImage: NetworkImage(
+        'https://picsum.photos/id/1074/400/400',
+      ),
+    );

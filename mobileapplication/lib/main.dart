@@ -35,22 +35,23 @@ class MyApp extends StatelessWidget {
     //
     // ignore: prefer_const_constructors
     return MaterialApp(
-      debugShowCheckedModeBanner: false, initialRoute: '/',
-      // initialRoute: '/test',
-      home: Welcome(),
-      // routes: {
-      //   '/': (context) => const HomeScreen(),
-      //   '/login': (context) => const Login(),
-      //   '/register': (context) => const Register(),
-      //   'home': (context) => Home(),
-      //   '/Searchplaces': (context) => const SearchPage(),
-      //   '/evenetPlannerForm': (context) => Eventform(),
-      //   '/homescreen': (context) => const HomeScreen(),
-      //   '/wishList': (context) => const WishList(),
-      //   '/myplans': (context) => const MyPlans(),
-      //   //'/destinationScreen': (context) => DestinationScreen(destination:),
-      // }
-    );
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/welcome',
+        // initialRoute: '/test',
+        //home: Welcome(),
+        routes: {
+          '/': (context) => const HomeScreen(),
+          '/login': (context) => const Login(),
+          '/register': (context) => const Register(),
+          'home': (context) => Home(),
+          '/Searchplaces': (context) => const SearchPage(),
+          '/evenetPlannerForm': (context) => Eventform(),
+          '/homescreen': (context) => const HomeScreen(),
+          '/wishList': (context) => const WishList(),
+          '/myplans': (context) => const MyPlans(),
+          '/welcome': (context) => const Welcome(),
+          //'/destinationScreen': (context) => DestinationScreen(destination:),
+        });
   }
 }
 

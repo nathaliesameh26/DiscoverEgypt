@@ -8,6 +8,7 @@ import 'package:mobileapplication/adminpanel.dart';
 import 'package:mobileapplication/addevent.dart';
 import 'package:mobileapplication/splash.dart';
 import 'package:mobileapplication/profile_page.dart';
+import 'package:mobileapplication/welcome.dart';
 import 'package:mobileapplication/wishlist.dart';
 import 'package:mobileapplication/myplan.dart';
 import 'Searchplaces.dart';
@@ -32,10 +33,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     //
+    // ignore: prefer_const_constructors
     return MaterialApp(
       debugShowCheckedModeBanner: false, initialRoute: '/',
       // initialRoute: '/test',
-      home: MyHomePage(),
+      home: Welcome(),
       // routes: {
       //   '/': (context) => const HomeScreen(),
       //   '/login': (context) => const Login(),

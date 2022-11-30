@@ -82,7 +82,7 @@ class _LoginState extends State<Login> {
                             validator: (value) {
                               if (value!.isEmpty ||
                                   !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
-                                return "Enter name";
+                                return "Enter your name";
                               } else {
                                 return null;
                               }

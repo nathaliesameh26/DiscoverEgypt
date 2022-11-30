@@ -13,19 +13,31 @@ class ResponsiveButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 50,
-        ),
+        // SizedBox(
+        //   height: 50,
+        // ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: OutlinedButton.icon(
-            // <-- OutlinedButton
+          padding: const EdgeInsets.only(bottom: 90.0),
+          child: ElevatedButton(
             onPressed: () {},
-            icon: Icon(
-              Icons.download,
-              size: 24.0,
+            // ignore: prefer_const_constructors
+            style: ElevatedButton.styleFrom(
+              primary: Colors.white54, // Background color
             ),
-            label: Text('Lets Get Started'),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                const Text('Lets Get Started!'),
+                SizedBox(
+                  width: 5,
+                ),
+                Icon(
+                  Icons.arrow_forward,
+                  size: 24.0,
+                ),
+              ],
+            ),
           ),
         ),
       ],

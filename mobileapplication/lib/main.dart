@@ -5,7 +5,7 @@ import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/screens/home/home_screen.dart';
 import 'package:mobileapplication/screens/detailsscreen/detail_screen.dart';
 import 'package:mobileapplication/adminpanel.dart';
-import 'package:mobileapplication/addevent.dart';
+import 'package:mobileapplication/addPlace.dart';
 import 'package:mobileapplication/splash.dart';
 import 'package:mobileapplication/profile_page.dart';
 import 'package:mobileapplication/welcome.dart';
@@ -145,7 +145,7 @@ class _MainPageState extends State<MyHomePage> {
               NavigationDestination(
                   icon: Icon(Icons.favorite_border_outlined),
                   selectedIcon: Icon(Icons.favorite),
-                  label: 'Wish List'),
+                  label: 'WishList'),
               NavigationDestination(
                   icon: Icon(Icons.map_outlined),
                   selectedIcon: Icon(Icons.map),

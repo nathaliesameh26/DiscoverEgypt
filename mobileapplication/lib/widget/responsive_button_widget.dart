@@ -19,7 +19,9 @@ class ResponsiveButton extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 90.0),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/homescreen');
+            },
             // ignore: prefer_const_constructors
             style: ElevatedButton.styleFrom(
               primary: Colors.white54, // Background color

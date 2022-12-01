@@ -18,7 +18,7 @@ import 'home.dart';
 import 'login.dart';
 import 'myplan.dart';
 import 'splash.dart';
-
+import 'pendingList.dart';
 
 void main() {
   runApp(const MyApp());

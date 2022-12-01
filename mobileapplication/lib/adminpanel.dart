@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mobileapplication/addPlace.dart';
 
 class adminpanel extends StatefulWidget {
   @override
@@ -23,14 +24,14 @@ class adminpanelState extends State<adminpanel> {
 
   Widget buildContent() => Column(
         children: [
-          const SizedBox(height: 8),
+          const SizedBox(height: 15),
           const Text(
             'Fahd Willams',
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
           const Text(
-            'Flutter software engnieer',
+            'Flutter software engineer and developer',
             style: TextStyle(fontSize: 20, height: 1.4, color: Colors.black),
           ),
           const SizedBox(
@@ -51,7 +52,9 @@ class adminpanelState extends State<adminpanel> {
                     color: const Color.fromARGB(255, 64, 185, 255),
                     child: InkWell(
                       splashColor: Color.fromARGB(255, 235, 240, 235),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/placeform');
+                      },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[

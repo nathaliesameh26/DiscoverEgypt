@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobileapplication/addPlace.dart';
 
 class pendinglist extends StatefulWidget {
   @override

@@ -19,6 +19,7 @@ import 'login.dart';
 import 'myplan.dart';
 import 'splash.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
           '/welcome': (context) => const Welcome(),
           '/adminMain': (context) => adminpanel(),
           '/placeform': (context) => placeform(),
-          //'/destinationScreen': (context) => DestinationScreen(destination:),
+          'pendinglist': (context) => pendinglist(),
         });
   }
 }

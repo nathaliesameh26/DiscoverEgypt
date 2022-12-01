@@ -14,10 +14,7 @@ class pendinglistState extends State<pendinglist> {
     return Scaffold(
         body: ListView(
       padding: EdgeInsets.zero,
-      children: <Widget>[
-        // buildTop(),
-        // buildContent(),
-      ],
+      children: <Widget>[],
     ));
   }
 }

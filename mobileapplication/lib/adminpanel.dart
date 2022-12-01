@@ -26,84 +26,29 @@ class adminpanelState extends State<adminpanel> {
   Widget buildContent() => Column(
         children: [
           const SizedBox(height: 8),
-          Text(
+          const Text(
             'Fahd Willams',
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
-          Text(
+          const Text(
             'Flutter software engnieer',
             style: TextStyle(fontSize: 20, height: 1.4, color: Colors.black),
           ),
           const SizedBox(
             height: 16,
           ),
-          // Container(
-          //   // height: 200.0,
-          //   decoration: new BoxDecoration(
-          //     color: Colors.white,
-          //     shape: BoxShape.circle,
-          //   ),
-          //   child: Center(
-          //     child: Stack(
-          //       // alignment: Alignment.center,
-          //       children: <Widget>[
-          //         Icon(
-          //           Icons.play_arrow,
-          //           color: Colors.black,
-          //           size: 100.0,
-          //         ),
-          //         Text(
-          //           "Play",
-          //           style: TextStyle(fontSize: 18, color: Colors.black),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                children: [
-                  SizedBox(
-                    width: 50,
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.download,
-                      size: 15.0,
-                    ),
-                    label: Text('Download'),
-                  ),
-                  TextButton.icon(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.download,
-                      size: 15.0,
-                    ),
-                    label: Text('Download'),
-                  ),
-                  OutlinedButton.icon(
-                    onPressed: () {},
-                    // ignore: prefer_const_constructors
-                    icon: Icon(
-                      Icons.download,
-                      size: 15.0,
-                    ),
-                    label: Text('Download'),
-                  ),
-                ],
-              )
-              // ElevatedButton.icon(
-              //   onPressed: () {},
-              //   icon: Icon(
-              //     Icons.download,
-              //     size: 20.0,
-              //   ),
-              //   label: Text('Evente'),
-              // ),
+              ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.add,
+                  size: 20.0,
+                ),
+                label: const Text('Evente'),
+              ),
               // buildSocialIcon(FontAwesomeIcons.plane),
               // const SizedBox(height: 12),
               // // buildSocialIcon(FontAwesomeIcons.plane),
@@ -113,23 +58,36 @@ class adminpanelState extends State<adminpanel> {
             ],
           ),
           const SizedBox(height: 16),
-          Divider(),
+          const Divider(),
           const SizedBox(height: 16),
           NumbersWidget(),
           const SizedBox(height: 16),
-          // buildAbout(),
+          buildAbout(),
         ],
+      );
+  Widget buildAbout() => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 48),
+        // ignore: prefer_const_literals_to_create_immutables
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const Text('About',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 16),
+          // ignore: prefer_const_constructors
+          Text(
+            'In here you can find everything you can do like adding sightseeing places , approving or disapproving events , application users and more',
+            style: TextStyle(fontSize: 18, height: 1.4),
+          )
+        ]),
       );
 
   Widget buildSocialIcon(IconData icon) => CircleAvatar(
       radius: 25,
       child: Material(
-          shape: CircleBorder(),
+          shape: const CircleBorder(),
           clipBehavior: Clip.hardEdge,
           color: Colors.transparent,
           child: InkWell(
             onTap: () {},
-            // child: Center(child: Text()),
           )));
 
   Widget buildTop() {
@@ -138,7 +96,7 @@ class adminpanelState extends State<adminpanel> {
       alignment: Alignment.center,
       children: [
         Container(
-          margin: EdgeInsets.only(bottom: 30),
+          margin: const EdgeInsets.only(bottom: 30),
           child: buildCoverImage(),
         ),
         Positioned(
@@ -159,16 +117,16 @@ class adminpanelState extends State<adminpanel> {
       );
 
   Widget buildProfileImage() => CircleAvatar(
-      radius: 144 / 2,
-      backgroundColor: Colors.grey.shade800,
-      child: Image.asset(
-        'assets/profile.jpg',
-        width: double.infinity,
-        height: double.infinity,
-      )
-      // backgroundImage: NetworkImage(
-      //   'https://picsum.photos/id/1074/400/400',
-      // ),
+        radius: 144 / 2,
+        backgroundColor: Colors.grey.shade800,
+        // child: Image.asset(
+        //   'assets/profile.jpg',
+        //   width: double.infinity,
+        //   height: double.infinity,
+        // )
+        backgroundImage: NetworkImage(
+          'https://picsum.photos/id/1074/400/400',
+        ),
       );
 }
 
@@ -187,7 +145,7 @@ class NumbersWidget extends StatelessWidget {
 
 Widget buildDivider() => Container(
       height: 24,
-      child: VerticalDivider(),
+      child: const VerticalDivider(),
     );
 
 Widget buildButton({
@@ -195,7 +153,7 @@ Widget buildButton({
   required int value,
 }) =>
     MaterialButton(
-        padding: EdgeInsets.symmetric(vertical: 4),
+        padding: const EdgeInsets.symmetric(vertical: 4),
         onPressed: () {},
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         child: Column(
@@ -204,11 +162,12 @@ Widget buildButton({
             children: <Widget>[
               Text(
                 '$value',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
               ),
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               Text(
                 text,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
             ]));

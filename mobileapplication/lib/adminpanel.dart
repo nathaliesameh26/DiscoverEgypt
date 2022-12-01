@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mobileapplication/widget/numbers_widget.dart';
 
 class adminpanel extends StatefulWidget {
   @override
@@ -36,32 +34,78 @@ class adminpanelState extends State<adminpanel> {
             style: TextStyle(fontSize: 20, height: 1.4, color: Colors.black),
           ),
           const SizedBox(
-            height: 16,
+            height: 2,
           ),
+          const SizedBox(height: 5),
+          const Divider(),
+          const SizedBox(height: 5),
+          NumbersWidget(),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton.icon(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.add,
-                  size: 20.0,
+              SizedBox.fromSize(
+                size: const Size(70, 70),
+                child: ClipOval(
+                  child: Material(
+                    color: const Color.fromARGB(255, 64, 185, 255),
+                    child: InkWell(
+                      splashColor: Color.fromARGB(255, 235, 240, 235),
+                      onTap: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Icon(Icons.add), // <-- Icon
+                          const Text("Place"), // <-- Text
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-                label: const Text('Evente'),
               ),
-              // buildSocialIcon(FontAwesomeIcons.plane),
-              // const SizedBox(height: 12),
-              // // buildSocialIcon(FontAwesomeIcons.plane),
-              // // const SizedBox(height: 12),
-              // // buildSocialIcon(FontAwesomeIcons.cartArrowDown),
-              // // const SizedBox(height: 12),
+              SizedBox.fromSize(
+                size: const Size(70, 70),
+                child: ClipOval(
+                  child: Material(
+                    color: const Color.fromARGB(255, 64, 185, 255),
+                    child: InkWell(
+                      splashColor: Color.fromARGB(255, 235, 240, 235),
+                      onTap: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Icon(Icons.list),
+                          const Text("Pending List",
+                              style: TextStyle(
+                                fontSize: 10,
+                              )),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox.fromSize(
+                size: const Size(70, 70),
+                child: ClipOval(
+                  child: Material(
+                    color: const Color.fromARGB(255, 64, 185, 255),
+                    child: InkWell(
+                      splashColor: Color.fromARGB(255, 235, 240, 235),
+                      onTap: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Icon(Icons.person),
+                          const Text("Users"),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
-          const SizedBox(height: 16),
-          const Divider(),
-          const SizedBox(height: 16),
-          NumbersWidget(),
-          const SizedBox(height: 16),
           buildAbout(),
         ],
       );
@@ -75,20 +119,10 @@ class adminpanelState extends State<adminpanel> {
           // ignore: prefer_const_constructors
           Text(
             'In here you can find everything you can do like adding sightseeing places , approving or disapproving events , application users and more',
-            style: TextStyle(fontSize: 18, height: 1.4),
+            style: const TextStyle(fontSize: 18, height: 1.4),
           )
         ]),
       );
-
-  Widget buildSocialIcon(IconData icon) => CircleAvatar(
-      radius: 25,
-      child: Material(
-          shape: const CircleBorder(),
-          clipBehavior: Clip.hardEdge,
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: () {},
-          )));
 
   Widget buildTop() {
     return Stack(
@@ -124,7 +158,7 @@ class adminpanelState extends State<adminpanel> {
         //   width: double.infinity,
         //   height: double.infinity,
         // )
-        backgroundImage: NetworkImage(
+        backgroundImage: const NetworkImage(
           'https://picsum.photos/id/1074/400/400',
         ),
       );
@@ -138,7 +172,7 @@ class NumbersWidget extends StatelessWidget {
         buildDivider(),
         buildButton(text: 'Planners', value: 30),
         buildDivider(),
-        buildButton(text: 'Places&Events', value: 500000),
+        buildButton(text: 'Places and Events', value: 50000),
         buildDivider(),
       ]);
 }
@@ -165,9 +199,54 @@ Widget buildButton({
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
               ),
-              const SizedBox(height: 2),
+              const SizedBox(height: 1),
               Text(
                 text,
                 style: const TextStyle(fontSize: 16),
               ),
             ]));
+
+
+  // Widget buildSocialIcon(IconData icon) => CircleAvatar(
+  //     radius: 25,
+  //     child: Material(
+  //         shape: const CircleBorder(),
+  //         clipBehavior: Clip.hardEdge,
+  //         color: Colors.transparent,
+  //         child: InkWell(
+  //           onTap: () {},
+  //         )));
+
+
+
+              // ElevatedButton.icon(
+              //   onPressed: () {},
+              //   icon: const Icon(
+              //     Icons.add,
+              //     size: 20.0,
+              //   ),
+              //   label: const Text('Event'),
+              // ),
+              // ElevatedButton.icon(
+              //   onPressed: () {},
+              //   icon: const Icon(
+              //     Icons.list,
+              //     size: 20.0,
+              //   ),
+              //   label: const Text('Pending List'),
+              // ),
+              // ElevatedButton.icon(
+              //   onPressed: () {},
+              //   icon: const Icon(
+              //     Icons.add,
+              //     size: 20.0,
+              //   ),
+              //   label: const Text('Sight'),
+              // ),
+
+              // buildSocialIcon(FontAwesomeIcons.plane),
+              // const SizedBox(height: 12),
+              // // buildSocialIcon(FontAwesomeIcons.plane),
+              // // const SizedBox(height: 12),
+              // // buildSocialIcon(FontAwesomeIcons.cartArrowDown),
+              // // const SizedBox(height: 12),

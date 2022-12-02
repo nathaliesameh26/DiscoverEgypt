@@ -58,8 +58,11 @@ class adminpanelState extends State<adminpanel> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          const Icon(Icons.add), // <-- Icon
-                          const Text("Place"), // <-- Text
+                          const Icon(Icons.add),
+                          const Text("Add Place",
+                              style: TextStyle(
+                                fontSize: 10,
+                              )),
                         ],
                       ),
                     ),
@@ -73,7 +76,9 @@ class adminpanelState extends State<adminpanel> {
                     color: const Color.fromARGB(255, 64, 185, 255),
                     child: InkWell(
                       splashColor: Color.fromARGB(255, 235, 240, 235),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/pendingList');
+                      },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -99,14 +104,39 @@ class adminpanelState extends State<adminpanel> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          const Icon(Icons.person),
-                          const Text("Users"),
+                          const Icon(Icons.add),
+                          const Text("Add Events",
+                              style: TextStyle(
+                                fontSize: 10,
+                              )),
                         ],
                       ),
                     ),
                   ),
                 ),
-              )
+              ),
+              SizedBox.fromSize(
+                size: const Size(70, 70),
+                child: ClipOval(
+                  child: Material(
+                    color: const Color.fromARGB(255, 64, 185, 255),
+                    child: InkWell(
+                      splashColor: Color.fromARGB(255, 235, 240, 235),
+                      onTap: () {},
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Icon(Icons.person),
+                          const Text("Users",
+                              style: TextStyle(
+                                fontSize: 10,
+                              )),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
           buildAbout(),
@@ -118,7 +148,7 @@ class adminpanelState extends State<adminpanel> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Text('About',
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 16),
+          const SizedBox(height: 5),
           // ignore: prefer_const_constructors
           Text(
             'In here you can find everything you can do like adding sightseeing places , approving or disapproving events , application users and more',
@@ -146,7 +176,7 @@ class adminpanelState extends State<adminpanel> {
 
   Widget buildCoverImage() => Container(
         child: Image.asset(
-          'assets/background.jpg',
+          'assets/background4.jpg',
           width: double.infinity,
           height: 280,
           fit: BoxFit.cover,
@@ -161,9 +191,9 @@ class adminpanelState extends State<adminpanel> {
         //   width: double.infinity,
         //   height: double.infinity,
         // )
-        backgroundImage: const NetworkImage(
-          'https://picsum.photos/id/1074/400/400',
-        ),
+        // backgroundImage: const NetworkImage(
+        //   'https://picsum.photos/id/1074/400/400',
+        // ),
       );
 }
 

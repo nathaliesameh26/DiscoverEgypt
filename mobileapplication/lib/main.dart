@@ -11,7 +11,7 @@ import 'package:mobileapplication/welcome.dart';
 import 'package:mobileapplication/wishlist.dart';
 import 'Searchplaces.dart';
 import 'destinantion_screen.dart';
-import 'eventPlannerForm.dart';
+import 'addEvent.dart';
 import 'home.dart';
 import 'login.dart';
 import 'myplan.dart';

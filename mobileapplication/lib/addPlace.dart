@@ -19,7 +19,7 @@ class placeformState extends State<placeform> {
         appBar: AppBar(
           backgroundColor: Colors.orange,
           elevation: 10,
-          title: const Text("Add an sightseeing place"),
+          title: const Text("Add A Sightseeing Place"),
         ),
         body: Container(
             height: double.infinity,

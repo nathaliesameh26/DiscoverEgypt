@@ -100,12 +100,14 @@ class adminpanelState extends State<adminpanel> {
                     color: const Color.fromARGB(255, 64, 185, 255),
                     child: InkWell(
                       splashColor: Color.fromARGB(255, 235, 240, 235),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/evenetPlannerForm');
+                      },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           const Icon(Icons.add),
-                          const Text("Add Events",
+                          const Text("Add Event",
                               style: TextStyle(
                                 fontSize: 10,
                               )),
@@ -147,12 +149,13 @@ class adminpanelState extends State<adminpanel> {
         // ignore: prefer_const_literals_to_create_immutables
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Text('About',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 5),
+              style: TextStyle(
+                  height: 2, fontSize: 28, fontWeight: FontWeight.bold)),
+          // const SizedBox(height: 5),
           // ignore: prefer_const_constructors
           Text(
             'In here you can find everything you can do like adding sightseeing places , approving or disapproving events , application users and more',
-            style: const TextStyle(fontSize: 18, height: 1.4),
+            style: const TextStyle(fontSize: 18, height: 1.1),
           )
         ]),
       );
@@ -184,16 +187,17 @@ class adminpanelState extends State<adminpanel> {
       );
 
   Widget buildProfileImage() => CircleAvatar(
-        radius: 144 / 2,
-        backgroundColor: Colors.grey.shade800,
-        // child: Image.asset(
-        //   'assets/profile.jpg',
-        //   width: double.infinity,
-        //   height: double.infinity,
-        // )
-        // backgroundImage: const NetworkImage(
-        //   'https://picsum.photos/id/1074/400/400',
-        // ),
+      radius: 144 / 2,
+      backgroundColor: Colors.grey.shade800,
+      child: Image.asset(
+        'assets/profile.jpg',
+        width: 120,
+        height: 120,
+        //  radius: 144 / 2,
+      )
+      // backgroundImage: const NetworkImage(
+      //   'file:///C:/Users/DELL/Pictures/AAPM0968.JPG',
+      // ),
       );
 }
 

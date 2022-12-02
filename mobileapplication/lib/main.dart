@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapplication/destination_model.dart';
+import 'package:mobileapplication/model/destination_model.dart';
 import 'package:mobileapplication/model/place_model.dart';
 import 'package:mobileapplication/register.dart';
 import 'package:mobileapplication/screens/home/home_screen.dart';

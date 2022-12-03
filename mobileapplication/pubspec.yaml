@@ -65,36 +65,36 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets #kda hay2ra kol elle f el assets
-    # - assets/Egypt.jpg
-    # - assets/temple.jpg
-    # - assets/pic1.jpg
-    # - assets/empty-sea-beach-background.jpg
-    # - assets/welcome.jpg
-    # - assets/lake.jpg
-    # - assets/seen.jpg
-    # - assets/profile.jpg
-    # - assets/images.jpeg
-    # - assets/kamel.jpg
-    # - assets/kyaking.jpg
-    # - assets/pyramids.jpg
-    # - assets/luxor.jpg
-    # - assets/Logo.jpeg
-    # - assets/wishlist.jpeg
-    # - assets/myplans.jpeg
-    # - assets/EgyptW.jpg
-    # - assets/PyramidsW.jpg
-    # - assets/LuxorW.jpg
-    # - assets/desert.jpg
-    # - assets/next.png
-    # - assets/right-arrow.png
-    # - assets/py.png
-    # - assets/pyram.jpg
-    # - assets/Luxe.jpg
-    # - assets/see.jpg
-    # - assets/background.jpg
-    # - assets/background4.jpg
-    # - assets/bg.jpg
+    #- assets #kda hay2ra kol elle f el assets
+    - assets/Egypt.jpg
+    - assets/temple.jpg
+    - assets/pic1.jpg
+    - assets/empty-sea-beach-background.jpg
+    - assets/welcome.jpg
+    - assets/lake.jpg
+    - assets/seen.jpg
+    - assets/profile.jpg
+    - assets/images.jpeg
+    - assets/kamel.jpg
+    - assets/kyaking.jpg
+    - assets/pyramids.jpg
+    - assets/luxor.jpg
+    - assets/Logo.jpeg
+    - assets/wishlist.jpeg
+    - assets/myplans.jpeg
+    - assets/EgyptW.jpg
+    - assets/PyramidsW.jpg
+    - assets/LuxorW.jpg
+    - assets/desert.jpg
+    - assets/next.png
+    - assets/right-arrow.png
+    - assets/py.png
+    - assets/pyram.jpg
+    - assets/Luxe.jpg
+    - assets/see.jpg
+    - assets/background.jpg
+    - assets/background4.jpg
+    - assets/bg.jpg
 
 
 

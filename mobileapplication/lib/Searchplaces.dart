@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/main.dart';
-import 'package:mobileapplication/places_model.dart';
+import 'package:mobileapplication/model/places_model.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);

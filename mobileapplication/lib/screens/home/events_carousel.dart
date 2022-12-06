@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapplication/screens/home/homeScreen.dart';
 
 import '../../destinantion_screen.dart';
-import '../../destination_model.dart';
+import '../../model/destination_model.dart';
 
 class EventCarousel extends StatelessWidget {
   // const EventCarousel({super.key});

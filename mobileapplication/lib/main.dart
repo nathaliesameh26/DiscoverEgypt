@@ -12,8 +12,8 @@ import 'package:mobileapplication/welcome.dart';
 import 'package:mobileapplication/wishlist.dart';
 import 'Searchplaces.dart';
 import 'destinantion_screen.dart';
-import 'eventPlannerForm.dart';
-import 'home.dart';
+// import 'eventPlannerForm.dart';
+// import 'home.dart';
 import 'login.dart';
 import 'myplan.dart';
 import 'splash.dart';
@@ -41,9 +41,9 @@ class MyApp extends StatelessWidget {
           '/': (context) => const HomeScreen(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
-          'home': (context) => Home(),
+          //'home': (context) => Home(),
           '/Searchplaces': (context) => const SearchPage(),
-          '/evenetPlannerForm': (context) => Eventform(),
+          //'/evenetPlannerForm': (context) => Eventform(),
           '/homescreen': (context) => const HomeScreen(),
           '/wishList': (context) => const WishList(),
           '/myplans': (context) => const MyPlans(),
@@ -112,9 +112,9 @@ class _MainPageState extends State<MyHomePage> {
           ListTile(
               title: const Text('EventPlannerSide - add Event'),
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Eventform()),
-                );
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(builder: (context) => Eventform()),
+                // );
               }),
         ],
       )),

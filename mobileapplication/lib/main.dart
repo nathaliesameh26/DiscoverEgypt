@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobileapplication/destination_model.dart';
 import 'package:mobileapplication/model/place_model.dart';
 import 'package:mobileapplication/register.dart';
+import 'package:mobileapplication/screens/home/homeScreen.dart';
 import 'package:mobileapplication/screens/home/home_screen.dart';
 import 'package:mobileapplication/screens/detailsscreen/detail_screen.dart';
 import 'package:mobileapplication/adminpanel.dart';
@@ -14,7 +15,7 @@ import 'package:mobileapplication/myplan.dart';
 import 'Searchplaces.dart';
 import 'destinantion_screen.dart';
 import 'eventPlannerForm.dart';
-import 'home.dart';
+//import 'home.dart';
 import 'login.dart';
 import 'myplan.dart';
 import 'splash.dart';
@@ -35,23 +36,24 @@ class MyApp extends StatelessWidget {
     //
     // ignore: prefer_const_constructors
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: '/welcome',
-        // initialRoute: '/test',
-        //home: Welcome(),
-        routes: {
-          '/': (context) => const HomeScreen(),
-          '/login': (context) => const Login(),
-          '/register': (context) => const Register(),
-          'home': (context) => Home(),
-          '/Searchplaces': (context) => const SearchPage(),
-          '/evenetPlannerForm': (context) => Eventform(),
-          '/homescreen': (context) => const HomeScreen(),
-          '/wishList': (context) => const WishList(),
-          '/myplans': (context) => const MyPlans(),
-          '/welcome': (context) => const Welcome(),
-          //'/destinationScreen': (context) => DestinationScreen(destination:),
-        });
+      debugShowCheckedModeBanner: false,
+      // initialRoute: '/welcome',
+      // initialRoute: '/test',
+      home: HomeScreenn(),
+      // routes: {
+      //   '/': (context) => const HomeScreen(),
+      //   '/login': (context) => const Login(),
+      //   '/register': (context) => const Register(),
+      //   //'home': (context) => Home(),
+      //   '/Searchplaces': (context) => const SearchPage(),
+      //   '/evenetPlannerForm': (context) => Eventform(),
+      //   '/homescreen': (context) => const HomeScreen(),
+      //   '/wishList': (context) => const WishList(),
+      //   '/myplans': (context) => const MyPlans(),
+      //   '/welcome': (context) => const Welcome(),
+      //   //'/destinationScreen': (context) => DestinationScreen(destination:),
+      // }
+    );
   }
 }
 
@@ -125,7 +127,7 @@ class _MainPageState extends State<MyHomePage> {
           data: NavigationBarThemeData(
               indicatorColor: Colors.orange,
               labelTextStyle: MaterialStateProperty.all(
-                TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               )),
           child: NavigationBar(
             height: 60,
@@ -135,7 +137,7 @@ class _MainPageState extends State<MyHomePage> {
             onDestinationSelected: (index) =>
                 setState(() => this.index = index),
             destinations: [
-              NavigationDestination(
+              const NavigationDestination(
                   icon: Icon(Icons.tour_outlined),
                   selectedIcon: Icon(Icons.tour_rounded),
                   label: 'Explore'),

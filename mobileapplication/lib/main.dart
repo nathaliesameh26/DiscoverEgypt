@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/adminMain',
+        initialRoute: '/pendinglist',
         routes: {
           '/': (context) => const HomeScreen(),
           '/login': (context) => const Login(),
@@ -95,7 +95,7 @@ class _MainPageState extends State<MyHomePage> {
               }),
           ListTile(title: Text('LogOut')),
           ListTile(
-              title: const Text('AdminSide - edit events'),
+              title: const Text('AdminSide'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => adminpanel()),

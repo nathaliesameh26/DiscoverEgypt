@@ -19,7 +19,7 @@ class Destination {
 
 List<Activity> activities = [
   Activity(
-    imageUrl: 'assets/images/stmarksbasilica.jpg',
+    imageUrl: 'assets/pyra.jpg',
     name: 'The Pyramids',
     type: 'Sightseeing Tour',
     startTimes: ['9:00 am', '4:00 pm'],
@@ -27,7 +27,7 @@ List<Activity> activities = [
     price: 30,
   ),
   Activity(
-    imageUrl: 'assets/images/gondola.jpg',
+    imageUrl: 'assets/alex.jpg',
     name: 'Musem of Egypt',
     type: 'Sightseeing Tour',
     startTimes: ['1:00 pm', '3:00 pm'],
@@ -46,28 +46,28 @@ List<Activity> activities = [
 
 List<Destination> destinations = [
   Destination(
-    imageUrl: 'assets/images/venice.jpg',
+    imageUrl: 'assets/pyra.jpg',
     city: 'Cairo',
     country: 'Egypt',
     description: 'Visit Venice for an amazing and unforgettable adventure.',
     activities: activities,
   ),
   Destination(
-    imageUrl: 'assets/images/paris.jpg',
+    imageUrl: 'assets/LuxAndAswan.jpg',
     city: 'Luxor and Aswan',
     country: 'Egypt',
     description: 'Visit Paris for an amazing and unforgettable adventure.',
     activities: activities,
   ),
   Destination(
-    imageUrl: 'assets/images/newdelhi.jpg',
+    imageUrl: 'assets/alex.jpg',
     city: 'Alexandria',
     country: 'Egypt',
     description: 'Visit New Delhi for an amazing and unforgettable adventure.',
     activities: activities,
   ),
   Destination(
-    imageUrl: 'assets/images/saopaulo.jpg',
+    imageUrl: 'assets/fayoum.jpg',
     city: 'Fayoum',
     country: 'Egypt',
     description: 'Visit Sao Paulo for an amazing and unforgettable adventure.',

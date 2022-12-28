@@ -1,4 +1,4 @@
-package com.example.mobileapplication
+package egymania.mobileapplication
 
 import io.flutter.embedding.android.FlutterActivity
 

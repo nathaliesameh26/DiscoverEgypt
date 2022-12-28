@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/model/destination_model.dart';
 import 'package:mobileapplication/model/place_model.dart';
-import 'package:mobileapplication/register.dart';
-import 'package:mobileapplication/screens/home/homeScreen.dart';
-import 'package:mobileapplication/screens/home/home_screen.dart';
-import 'package:mobileapplication/screens/detailsscreen/detail_screen.dart';
+import 'package:mobileapplication/screens/register_screen.dart';
+import 'package:mobileapplication/screens/homeScreen.dart';
+import 'package:mobileapplication/screens/home_screen.dart';
+import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/adminpanel.dart';
 import 'package:mobileapplication/addPlace.dart';
 import 'package:mobileapplication/profile_page.dart';
 import 'package:mobileapplication/welcome.dart';
-import 'package:mobileapplication/wishlist.dart';
+import 'package:mobileapplication/screens/wishlist_screen.dart';
 import 'Searchplaces.dart';
-import 'destinantion_screen.dart';
+import 'screens/destinantion_screen.dart';
 // import 'eventPlannerForm.dart';
 // import 'home.dart';
-import 'login.dart';
-import 'myplan.dart';
+import 'screens/login_screen.dart';
+import 'screens/myplan_screen.dart';
 import 'splash.dart';
 import 'pendingList.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

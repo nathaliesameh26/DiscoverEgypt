@@ -40,14 +40,14 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/login',
         // initialRoute: '/test',
-        //home: Welcome(),routes: {
+        //home: Welcome(),
+        routes: {
           '/': (context) => const HomeScreen(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
-          //'home': (context) => Home(),
           '/Searchplaces': (context) => const SearchPage(),
+          '/admin': (context) => const adminpnel(),
           //'/evenetPlannerForm': (context) => Eventform(),
-          '/homescreen': (context) => const HomeScreen(),
           '/wishList': (context) => const WishList(),
           '/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),
@@ -102,7 +102,7 @@ class _MainPageState extends State<MyHomePage> {
               title: const Text('AdminSide'),
               onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => adminpanel()),
+                  MaterialPageRoute(builder: (context) => adminpnel()),
                 );
               }),
           ListTile(

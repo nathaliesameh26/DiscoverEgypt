@@ -38,17 +38,19 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/login',
+        initialRoute: '/admin',
         // initialRoute: '/test',
         //home: Welcome(),
         routes: {
           '/': (context) => const HomeScreen(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
-          //'home': (context) => Home(),
           '/Searchplaces': (context) => const SearchPage(),
+          '/admin': (context) => const adminpnel(),
           //'/evenetPlannerForm': (context) => Eventform(),
+
           '/homescreen': (context) => const HomeScreenn(),
+
           '/wishList': (context) => const WishList(),
           '/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),
@@ -100,10 +102,10 @@ class _MainPageState extends State<MyHomePage> {
               }),
           ListTile(title: Text('LogOut')),
           ListTile(
-              title: const Text('AdminSide - edit events'),
+              title: const Text('AdminSide'),
               onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => adminpanel()),
+                  MaterialPageRoute(builder: (context) => adminpnel()),
                 );
               }),
           ListTile(

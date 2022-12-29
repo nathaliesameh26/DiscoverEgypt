@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mobileapplication/screens/home/events_carousel.dart';
+import 'package:mobileapplication/screens/events_carousel.dart';
 
 import 'destination_carousel.dart';
 

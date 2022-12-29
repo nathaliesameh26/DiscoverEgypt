@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'model/destination_model.dart';
-import 'model/activity_model.dart';
+import '../model/destination_model.dart';
+import '../model/activity_model.dart';
 
 class DestinationScreen extends StatefulWidget {
   final Destination destination;

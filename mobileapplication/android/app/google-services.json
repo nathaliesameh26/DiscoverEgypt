@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "887905529951",
+    "project_id": "discoveregypt-18220",
+    "storage_bucket": "discoveregypt-18220.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887905529951:android:f88bd9ca0627a20d436bea",
+        "android_client_info": {
+          "package_name": "egymania.mobileapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887905529951-lbps241upci237ekp75lk2amae65okbt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqHPdYgGPzy8LXVnSsahHpbOcI89bDDEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887905529951-lbps241upci237ekp75lk2amae65okbt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

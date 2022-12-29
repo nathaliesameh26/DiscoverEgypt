@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/Searchplaces.dart';
 import 'package:mobileapplication/model/place_model.dart';
-import 'package:mobileapplication/screens/detailsscreen/detail_screen.dart';
+import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/widget/navigation_bar.dart';
-import 'package:mobileapplication/wishlist.dart';
+import 'package:mobileapplication/screens/wishlist_screen.dart';
 
-import '../../widget/category_card.dart';
-import '../../widget/category_card.dart';
+import '../widget/category_card.dart';
+import '../widget/category_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobileapplication/data/loginData.dart';
+import 'package:mobileapplication/model/loginData.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -14,6 +15,8 @@ class _LoginState extends State<Login> {
   final user = LoginUser.Luser;
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -40,7 +43,7 @@ class _LoginState extends State<Login> {
                     // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
                     image: AssetImage('assets/temple.jpg'),
                     colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.5),
+                      Colors.white.withOpacity(1),
                       BlendMode.modulate,
                     ),
                     fit: BoxFit.fitHeight,
@@ -63,18 +66,20 @@ class _LoginState extends State<Login> {
                             "Welcome To",
                             style: TextStyle(
                                 fontSize: 30,
-                                color: Color.fromARGB(255, 243, 240, 240)),
+                                color: Color.fromARGB(255, 255, 255, 255)),
                           ),
                           const Text(
                             "EgyMania!",
                             style: TextStyle(
                                 fontSize: 30,
-                                color: Color.fromARGB(255, 243, 240, 240)),
+                                color: Color.fromARGB(255, 255, 255, 255)),
                           ),
                           SizedBox(
                             height: height * 0.05,
                           ),
                           TextFormField(
+                            controller: emailController,
+                            style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                               hintText: "Enter your name",
                               hintStyle: TextStyle(color: Colors.white),
@@ -92,6 +97,8 @@ class _LoginState extends State<Login> {
                             height: height * 0.05,
                           ),
                           TextFormField(
+                            controller: passwordController,
+                            style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                               hintText: "Enter your password",
                               hintStyle: TextStyle(color: Colors.white),
@@ -128,12 +135,19 @@ class _LoginState extends State<Login> {
                               Padding(
                                 padding: const EdgeInsets.all(10),
                                 child: ElevatedButton(
-                                  onPressed: () {
-                                    if (formKey.currentState!.validate()) {
-                                      final snackBar = SnackBar(
-                                          content: Text('Submitting form'));
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(snackBar);
+                                  onPressed: () async {
+                                    try {
+                                      await Loginn(emailController.text,
+                                          passwordController.text);
+                                      Navigator.pushNamed(
+                                          context, '/homescreen');
+                                    } on FirebaseAuthException catch (e) {
+                                      if (e.code == 'user-not-found') {
+                                        print('No user found for that email.');
+                                      } else if (e.code == 'wrong-password') {
+                                        print(
+                                            'Wrong password provided for that user.');
+                                      }
                                     }
                                   },
                                   style: TextButton.styleFrom(

@@ -33,13 +33,13 @@ class _RegisterState extends State<Register> {
               Container(
                 height: double.infinity,
                 width: double.infinity,
-                // ignore: prefer_const_constructors
+                //ignore: prefer_const_constructors
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
                     image: const AssetImage('assets/temple.jpg'),
                     colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.5),
+                      Colors.white.withOpacity(0.8),
                       BlendMode.modulate,
                     ),
                     fit: BoxFit.fitHeight,
@@ -66,18 +66,19 @@ class _RegisterState extends State<Register> {
                               "Sign Up To",
                               style: TextStyle(
                                   fontSize: 30,
-                                  color: Color.fromARGB(255, 243, 240, 240)),
+                                  color: Color.fromARGB(255, 255, 255, 255)),
                             ),
                             const Text(
                               "EgyMania!",
                               style: TextStyle(
                                   fontSize: 30,
-                                  color: Color.fromARGB(255, 243, 240, 240)),
+                                  color: Color.fromARGB(255, 255, 255, 255)),
                             ),
                             SizedBox(
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your first name",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -95,6 +96,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your last name",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -112,6 +114,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your email",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -130,6 +133,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your phone number",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -137,7 +141,7 @@ class _RegisterState extends State<Register> {
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return "Enter the phone number";
-                                } else if (value.length != 10) {
+                                } else if (value.length != 11) {
                                   return "The phone number isn't correct";
                                 } else if (!RegExp(r"^[1-10]+")
                                     .hasMatch(value)) {
@@ -151,6 +155,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your password",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -167,6 +172,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your Nationality",
                                 hintStyle: TextStyle(color: Colors.white),

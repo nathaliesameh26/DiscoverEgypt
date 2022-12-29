@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           //'home': (context) => Home(),
           '/Searchplaces': (context) => const SearchPage(),
           //'/evenetPlannerForm': (context) => Eventform(),
-          '/homescreen': (context) => const HomeScreen(),
+          '/homescreen': (context) => const HomeScreenn(),
           '/wishList': (context) => const WishList(),
           '/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),

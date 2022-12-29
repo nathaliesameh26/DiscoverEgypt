@@ -12,9 +12,8 @@ class pendinglistState extends State<pendinglist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(
-      padding: EdgeInsets.zero,
-      children: <Widget>[],
-    ));
+      floatingActionButton:
+          FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+    );
   }
 }

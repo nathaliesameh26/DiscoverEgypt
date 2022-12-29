@@ -1,289 +1,321 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:mobileapplication/addPlace.dart';
 
-class adminpanel extends StatefulWidget {
+class adminpnel extends StatefulWidget {
+  const adminpnel({super.key});
+
   @override
-  State<StatefulWidget> createState() {
-    return adminpanelState();
-  }
+  State<adminpnel> createState() => _adminpnelState();
 }
 
-class adminpanelState extends State<adminpanel> {
+class _adminpnelState extends State<adminpnel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(
-      padding: EdgeInsets.zero,
-      children: <Widget>[
-        buildTop(),
-        buildContent(),
-      ],
-    ));
-  }
-
-  Widget buildContent() => Column(
-        children: [
-          const SizedBox(height: 15),
-          const Text(
-            'Fahd Willams',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-          const Text(
-            'Flutter software engineer and developer',
-            style: TextStyle(fontSize: 20, height: 1.4, color: Colors.black),
-          ),
-          const SizedBox(
-            height: 2,
-          ),
-          const SizedBox(height: 5),
-          const Divider(),
-          const SizedBox(height: 5),
-          NumbersWidget(),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox.fromSize(
-                size: const Size(70, 70),
-                child: ClipOval(
-                  child: Material(
-                    color: const Color.fromARGB(255, 64, 185, 255),
-                    child: InkWell(
-                      splashColor: Color.fromARGB(255, 235, 240, 235),
-                      onTap: () {
-                        Navigator.pushNamed(context, '/placeform');
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Icon(Icons.add),
-                          const Text("Add Place",
-                              style: TextStyle(
-                                fontSize: 10,
-                              )),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox.fromSize(
-                size: const Size(70, 70),
-                child: ClipOval(
-                  child: Material(
-                    color: const Color.fromARGB(255, 64, 185, 255),
-                    child: InkWell(
-                      splashColor: Color.fromARGB(255, 235, 240, 235),
-                      onTap: () {
-                        Navigator.pushNamed(context, '/pendingList');
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Icon(Icons.list),
-                          const Text("Pending List",
-                              style: TextStyle(
-                                fontSize: 10,
-                              )),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox.fromSize(
-                size: const Size(70, 70),
-                child: ClipOval(
-                  child: Material(
-                    color: const Color.fromARGB(255, 64, 185, 255),
-                    child: InkWell(
-                      splashColor: Color.fromARGB(255, 235, 240, 235),
-                      onTap: () {
-                        Navigator.pushNamed(context, '/evenetPlannerForm');
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Icon(Icons.add),
-                          const Text("Add Event",
-                              style: TextStyle(
-                                fontSize: 10,
-                              )),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox.fromSize(
-                size: const Size(70, 70),
-                child: ClipOval(
-                  child: Material(
-                    color: const Color.fromARGB(255, 64, 185, 255),
-                    child: InkWell(
-                      splashColor: Color.fromARGB(255, 235, 240, 235),
-                      onTap: () {},
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Icon(Icons.person),
-                          const Text("Users",
-                              style: TextStyle(
-                                fontSize: 10,
-                              )),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          buildAbout(),
-        ],
-      );
-  Widget buildAbout() => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 48),
-        // ignore: prefer_const_literals_to_create_immutables
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text('About',
-              style: TextStyle(
-                  height: 2, fontSize: 28, fontWeight: FontWeight.bold)),
-          // const SizedBox(height: 5),
-          // ignore: prefer_const_constructors
-          Text(
-            'In here you can find everything you can do like adding sightseeing places , approving or disapproving events , application users and more',
-            style: const TextStyle(fontSize: 18, height: 1.1),
-          )
-        ]),
-      );
-
-  Widget buildTop() {
-    return Stack(
-      clipBehavior: Clip.none,
-      alignment: Alignment.center,
-      children: [
-        Container(
-          margin: const EdgeInsets.only(bottom: 30),
-          child: buildCoverImage(),
-        ),
-        Positioned(
-          top: 180,
-          child: buildProfileImage(),
-        )
-      ],
-    );
-  }
-
-  Widget buildCoverImage() => Container(
-        child: Image.asset(
-          'assets/background4.jpg',
-          width: double.infinity,
-          height: 280,
-          fit: BoxFit.cover,
-        ),
-      );
-
-  Widget buildProfileImage() => CircleAvatar(
-      radius: 144 / 2,
-      backgroundColor: Colors.grey.shade800,
-      child: Image.asset(
-        'assets/profile.jpg',
-        width: 120,
-        height: 120,
-        //  radius: 144 / 2,
-      )
-      // backgroundImage: const NetworkImage(
-      //   'file:///C:/Users/DELL/Pictures/AAPM0968.JPG',
-      // ),
-      );
-}
-
-class NumbersWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) =>
-      Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        buildButton(text: 'Users', value: 100),
-        buildDivider(),
-        buildButton(text: 'Planners', value: 30),
-        buildDivider(),
-        buildButton(text: 'Places and Events', value: 50000),
-        buildDivider(),
-      ]);
-}
-
-Widget buildDivider() => Container(
-      height: 24,
-      child: const VerticalDivider(),
-    );
-
-Widget buildButton({
-  required String text,
-  required int value,
-}) =>
-    MaterialButton(
-        padding: const EdgeInsets.symmetric(vertical: 4),
-        onPressed: () {},
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      backgroundColor: Colors.grey[200],
+      body: SafeArea(
         child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                '$value',
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              // ignore: prefer_const_literals_to_create_immutables
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 17.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Hello,',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'EasyPark Patient',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple[100],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Icon(Icons.person),
+                  )
+                ],
               ),
-              const SizedBox(height: 1),
-              Text(
-                text,
-                style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    color: Colors.blue[600],
+                    borderRadius: BorderRadius.circular(12)),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/doc.jpg'),
+                          fit: BoxFit.fill,
+                        ),
+                        shape: BoxShape.circle,
+                      ),
+
+                      // color: Colors.deepPurple[600],
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                        child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        const SizedBox(height: 8),
+                        const Text(
+                          'How was your day today?',
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Center(
+                            child: Text('Get Started'),
+                          ),
+                        )
+                      ],
+                    ))
+                  ],
+                ),
               ),
-            ]));
-
-
-  // Widget buildSocialIcon(IconData icon) => CircleAvatar(
-  //     radius: 25,
-  //     child: Material(
-  //         shape: const CircleBorder(),
-  //         clipBehavior: Clip.hardEdge,
-  //         color: Colors.transparent,
-  //         child: InkWell(
-  //           onTap: () {},
-  //         )));
-
-
-
-              // ElevatedButton.icon(
-              //   onPressed: () {},
-              //   icon: const Icon(
-              //     Icons.add,
-              //     size: 20.0,
-              //   ),
-              //   label: const Text('Event'),
-              // ),
-              // ElevatedButton.icon(
-              //   onPressed: () {},
-              //   icon: const Icon(
-              //     Icons.list,
-              //     size: 20.0,
-              //   ),
-              //   label: const Text('Pending List'),
-              // ),
-              // ElevatedButton.icon(
-              //   onPressed: () {},
-              //   icon: const Icon(
-              //     Icons.add,
-              //     size: 20.0,
-              //   ),
-              //   label: const Text('Sight'),
-              // ),
-
-              // buildSocialIcon(FontAwesomeIcons.plane),
-              // const SizedBox(height: 12),
-              // // buildSocialIcon(FontAwesomeIcons.plane),
-              // // const SizedBox(height: 12),
-              // // buildSocialIcon(FontAwesomeIcons.cartArrowDown),
-              // // const SizedBox(height: 12),
+            ),
+            const SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple[100],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const TextField(
+                  decoration: InputDecoration(
+                      prefixIcon: (Icon(Icons.search)),
+                      border: InputBorder.none,
+                      hintText: 'How can we help you?'),
+                ),
+              ),
+            ),
+            const SizedBox(height: 25),
+            Container(
+              height: 80,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.blue[600],
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset('assets/detection.png', height: 30),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/test');
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Detect Parkinson')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.blue[600],
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset('assets/severity.png', height: 30),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Severity level')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.blue[600],
+                      ),
+                      child: Row(
+                        //  Navigator.pushNamed(context, ''),
+                        children: [
+                          Image.asset('assets/online-survey.png', height: 30),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Questionnaire')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.blue[600],
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset('assets/contact.png', height: 30),
+                          // ignore: prefer_const_constructors
+                          SizedBox(
+                            width: 10,
+                          ),
+                          ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Contact Doctors')),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // ignore: prefer_const_constructors
+            SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  // ignore: prefer_const_constructors
+                  Text('Detection List',
+                      // ignore: prefer_const_constructors
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      )),
+                  Text(
+                    'See all',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[500],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(height: 25),
+            Expanded(
+                child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple[100],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          'assets/doctor1.jpg',
+                          height: 40,
+                        ),
+                        Row(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            const Icon(Icons.star),
+                            const Text('4'),
+                          ],
+                        ),
+                        const Text('Dr.Philip George'),
+                        const Text('6th of october , hospital '),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple[100],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          'assets/doctor2.jpg',
+                          height: 40,
+                        ),
+                        Row(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            const Icon(Icons.star),
+                            const Text('4'),
+                          ],
+                        ),
+                        const Text('Dr.Ahmed Marzoaa'),
+                        const Text('Alshrouq city , Swiss hospital '),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ))
+          ],
+        ),
+      ),
+    );
+  }
+}

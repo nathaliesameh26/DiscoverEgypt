@@ -35,7 +35,7 @@ class _adminpnelState extends State<adminpnel> {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'EasyPark Patient',
+                          'Admin',
                           style: TextStyle(fontSize: 20),
                         ),
                       ],
@@ -66,13 +66,11 @@ class _adminpnelState extends State<adminpnel> {
                       width: 100,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/doc.jpg'),
+                          image: AssetImage('assets/Logo.jpeg'),
                           fit: BoxFit.fill,
                         ),
                         shape: BoxShape.circle,
                       ),
-
-                      // color: Colors.deepPurple[600],
                     ),
                     const SizedBox(
                       width: 20,
@@ -84,7 +82,7 @@ class _adminpnelState extends State<adminpnel> {
                       children: [
                         const SizedBox(height: 8),
                         const Text(
-                          'How was your day today?',
+                          'Everyday is a new experience',
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -138,18 +136,18 @@ class _adminpnelState extends State<adminpnel> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/detection.png', height: 30),
+                          // Image.asset('assets/detection.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
                           ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/test');
+                                // Navigator.pushNamed(context, '/test');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                               ),
-                              child: const Text('Detect Parkinson')),
+                              child: const Text('Egypt sightseing places')),
                         ],
                       ),
                     ),
@@ -163,7 +161,7 @@ class _adminpnelState extends State<adminpnel> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/severity.png', height: 30),
+                          // Image.asset('assets/severity.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -172,7 +170,7 @@ class _adminpnelState extends State<adminpnel> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                               ),
-                              child: const Text('Severity level')),
+                              child: const Text('Egypts places')),
                         ],
                       ),
                     ),
@@ -185,9 +183,8 @@ class _adminpnelState extends State<adminpnel> {
                         color: Colors.blue[600],
                       ),
                       child: Row(
-                        //  Navigator.pushNamed(context, ''),
                         children: [
-                          Image.asset('assets/online-survey.png', height: 30),
+                          // Image.asset('assets/online-survey.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -196,7 +193,7 @@ class _adminpnelState extends State<adminpnel> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                               ),
-                              child: const Text('Questionnaire')),
+                              child: const Text('Event Planners')),
                         ],
                       ),
                     ),
@@ -210,7 +207,7 @@ class _adminpnelState extends State<adminpnel> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/contact.png', height: 30),
+                          // Image.asset('assets/contact.png', height: 30),
                           // ignore: prefer_const_constructors
                           SizedBox(
                             width: 10,
@@ -220,7 +217,7 @@ class _adminpnelState extends State<adminpnel> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                               ),
-                              child: const Text('Contact Doctors')),
+                              child: const Text('Users')),
                         ],
                       ),
                     ),
@@ -237,7 +234,7 @@ class _adminpnelState extends State<adminpnel> {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   // ignore: prefer_const_constructors
-                  Text('Detection List',
+                  Text('Places and Events',
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -268,10 +265,10 @@ class _adminpnelState extends State<adminpnel> {
                     ),
                     child: Column(
                       children: [
-                        Image.asset(
-                          'assets/doctor1.jpg',
-                          height: 40,
-                        ),
+                        // Image.asset(
+                        //   'assets/doctor1.jpg',
+                        //   height: 40,
+                        // ),
                         Row(
                           // ignore: prefer_const_literals_to_create_immutables
                           children: [
@@ -294,10 +291,10 @@ class _adminpnelState extends State<adminpnel> {
                     ),
                     child: Column(
                       children: [
-                        Image.asset(
-                          'assets/doctor2.jpg',
-                          height: 40,
-                        ),
+                        // Image.asset(
+                        //   'assets/doctor2.jpg',
+                        //   height: 40,
+                        // ),
                         Row(
                           // ignore: prefer_const_literals_to_create_immutables
                           children: [

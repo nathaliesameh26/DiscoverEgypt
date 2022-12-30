@@ -39,6 +39,9 @@ class MyApp extends StatelessWidget {
           '/Searchplaces': (context) => const SearchPage(),
           '/admin': (context) => const adminpnel(),
           //'/evenetPlannerForm': (context) => Eventform(),
+
+          // '/homescreen': (context) => const HomeScreenn(),
+
           '/wishList': (context) => const WishList(),
           '/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),

@@ -28,7 +28,7 @@ class _adminpnelState extends State<adminpnel> {
                     padding: const EdgeInsets.only(top: 17.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children:  [
+                      children: [
                         const Text(
                           'Hello,',
                           style: TextStyle(
@@ -38,22 +38,25 @@ class _adminpnelState extends State<adminpnel> {
                         ),
                         const SizedBox(height: 8),
                         Consumer(
-                          builder: (_,ref,__) { 
-                            return ref.watch(userDataProvider).when(data: (saja) { 
-                            return Text(
-                            '${saja.get('firstname')}',
-                            style:const TextStyle(fontSize: 20),
-                          );
-                             }, error: (Object error, StackTrace stackTrace) { 
-                            return const Text(
-                           'Not Found',
-                            style: TextStyle(fontSize: 20),
-                          );
-                              }, loading: () {
+                          builder: (_, ref, __) {
+                            return ref.watch(userDataProvider).when(
+                              data: (value) {
+                                return Text(
+                                  '${value.get('firstname')}',
+                                  style: const TextStyle(fontSize: 20),
+                                );
+                              },
+                              error: (Object error, StackTrace stackTrace) {
+                                return const Text(
+                                  'Not Found',
+                                  style: TextStyle(fontSize: 20),
+                                );
+                              },
+                              loading: () {
                                 return const CircularProgressIndicator();
-                                },);
-                          
-                           },
+                              },
+                            );
+                          },
                         ),
                       ],
                     ),

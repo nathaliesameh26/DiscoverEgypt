@@ -7,7 +7,7 @@ packages:
       name: _flutterfire_internals
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.11"
+    version: "1.0.12"
   async:
     dependency: transitive
     description:
@@ -49,7 +49,11 @@ packages:
       name: cloud_firestore
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "4.3.0"
+=======
+    version: "4.3.1"
+>>>>>>> 0ad2cd801a487f185a5b9ff0ca5730f829b436f3
   cloud_firestore_platform_interface:
     dependency: transitive
     description:
@@ -63,7 +67,7 @@ packages:
       name: cloud_firestore_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.0"
+    version: "3.2.1"
   collection:
     dependency: transitive
     description:
@@ -112,7 +116,7 @@ packages:
       name: firebase_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.1"
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -126,6 +130,7 @@ packages:
       name: firebase_core_web
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "2.0.2"
   firebase_storage:
     dependency: "direct main"
@@ -148,6 +153,9 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.3.18"
+=======
+    version: "2.1.0"
+>>>>>>> 0ad2cd801a487f185a5b9ff0ca5730f829b436f3
   flutter:
     dependency: "direct main"
     description: flutter

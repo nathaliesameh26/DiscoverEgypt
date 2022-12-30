@@ -28,7 +28,7 @@ packages:
       name: carousel_slider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.1"
+    version: "4.2.1"
   characters:
     dependency: transitive
     description:
@@ -49,18 +49,14 @@ packages:
       name: cloud_firestore
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "4.3.0"
-=======
     version: "4.3.1"
->>>>>>> 0ad2cd801a487f185a5b9ff0ca5730f829b436f3
   cloud_firestore_platform_interface:
     dependency: transitive
     description:
       name: cloud_firestore_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.10.0"
+    version: "5.10.1"
   cloud_firestore_web:
     dependency: transitive
     description:
@@ -95,21 +91,21 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.3"
+    version: "4.2.4"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
       name: firebase_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.11.6"
+    version: "6.11.7"
   firebase_auth_web:
     dependency: transitive
     description:
       name: firebase_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.2.3"
+    version: "5.2.4"
   firebase_core:
     dependency: "direct main"
     description:
@@ -130,32 +126,28 @@ packages:
       name: firebase_core_web
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "2.0.2"
+    version: "2.1.0"
   firebase_storage:
     dependency: "direct main"
     description:
       name: firebase_storage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "11.0.9"
+    version: "11.0.10"
   firebase_storage_platform_interface:
     dependency: transitive
     description:
       name: firebase_storage_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.25"
+    version: "4.1.26"
   firebase_storage_web:
     dependency: transitive
     description:
       name: firebase_storage_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.18"
-=======
-    version: "2.1.0"
->>>>>>> 0ad2cd801a487f185a5b9ff0ca5730f829b436f3
+    version: "3.3.19"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -191,7 +183,7 @@ packages:
       name: font_awesome_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "10.2.1"
+    version: "10.3.0"
   http:
     dependency: transitive
     description:

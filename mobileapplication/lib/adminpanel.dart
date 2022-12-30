@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'data/repostries/user_provider.dart';
+import 'data/repositries/user_provider.dart';
 
 class adminpnel extends StatefulWidget {
   const adminpnel({super.key});

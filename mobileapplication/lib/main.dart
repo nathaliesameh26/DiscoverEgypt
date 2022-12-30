@@ -40,6 +40,8 @@ class MyApp extends StatelessWidget {
           '/admin': (context) => const adminpnel(),
           //'/evenetPlannerForm': (context) => Eventform(),
 
+          '/homescreen': (context) => const HomeScreenn(),
+
           // '/homescreen': (context) => const HomeScreenn(),
 
           '/wishList': (context) => const WishList(),

@@ -33,6 +33,8 @@ dependencies:
     sdk: flutter
  
   # firebase_core: ^1.0.4
+
+  provider: ^6.0.5
  
     
 

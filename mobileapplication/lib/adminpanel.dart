@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'data/repositries/user_provider.dart';
 
 class adminpnel extends StatefulWidget {
   const adminpnel({super.key});
@@ -25,18 +28,35 @@ class _adminpnelState extends State<adminpnel> {
                     padding: const EdgeInsets.only(top: 17.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           'Hello,',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
                         ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Admin',
-                          style: TextStyle(fontSize: 20),
+                        const SizedBox(height: 8),
+                        Consumer(
+                          builder: (_, ref, __) {
+                            return ref.watch(userDataProvider).when(
+                              data: (value) {
+                                return Text(
+                                  '${value.get('firstname')}',
+                                  style: const TextStyle(fontSize: 20),
+                                );
+                              },
+                              error: (Object error, StackTrace stackTrace) {
+                                return const Text(
+                                  'Not Found',
+                                  style: TextStyle(fontSize: 20),
+                                );
+                              },
+                              loading: () {
+                                return const CircularProgressIndicator();
+                              },
+                            );
+                          },
                         ),
                       ],
                     ),

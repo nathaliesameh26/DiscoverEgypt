@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/model/destination_model.dart';
-import 'package:mobileapplication/model/place_model.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
-import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/home_screen.dart';
-import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/adminpanel.dart';
-import 'package:mobileapplication/addPlace.dart';
-import 'package:mobileapplication/profile_page.dart';
-import 'package:mobileapplication/welcome.dart';
+import 'package:mobileapplication/screens/addPlace.dart';
+import 'package:mobileapplication/screens/profile_page.dart';
+import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import 'Searchplaces.dart';
 import 'screens/destinantion_screen.dart';
@@ -16,9 +13,6 @@ import 'screens/destinantion_screen.dart';
 // import 'home.dart';
 import 'screens/login_screen.dart';
 import 'screens/myplan_screen.dart';
-import 'splash.dart';
-import 'pendingList.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
@@ -29,8 +23,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -40,7 +32,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/admin',
         // initialRoute: '/test',
-        //home: Welcome(),
         routes: {
           '/': (context) => const HomeScreen(),
           '/login': (context) => const Login(),
@@ -48,7 +39,11 @@ class MyApp extends StatelessWidget {
           '/Searchplaces': (context) => const SearchPage(),
           '/admin': (context) => const adminpnel(),
           //'/evenetPlannerForm': (context) => Eventform(),
+
           '/homescreen': (context) => const HomeScreenn(),
+
+          // '/homescreen': (context) => const HomeScreenn(),
+
           '/wishList': (context) => const WishList(),
           '/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),

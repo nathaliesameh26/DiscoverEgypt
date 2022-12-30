@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/model/user.dart';
-import 'package:mobileapplication/edit_profile_page.dart';
+import 'package:mobileapplication/screens/edit_profile_page.dart';
 import 'package:mobileapplication/model/user_model.dart';
 import 'package:mobileapplication/widget/profile_widget.dart';
 

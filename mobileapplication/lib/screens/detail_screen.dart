@@ -57,7 +57,7 @@ class _DetailSreenState extends ConsumerState<DetailSreen> {
                                     height: 30,
                                     width: 30,
                                     decoration: const BoxDecoration(
-                                        color: Colors.orange,
+                                        color: Colors.blue,
                                         shape: BoxShape.circle),
                                     child: const Center(
                                       child: Icon(
@@ -85,7 +85,7 @@ class _DetailSreenState extends ConsumerState<DetailSreen> {
                                   child: const Center(
                                     child: Icon(
                                       Icons.bookmark_rounded,
-                                      color: Colors.orange,
+                                      color: Colors.blue,
                                       size: 25,
                                     ),
                                   ),
@@ -122,13 +122,14 @@ class _DetailSreenState extends ConsumerState<DetailSreen> {
                                     children: [
                                       const Icon(
                                         Icons.location_on,
-                                        color: Colors.orange,
+                                        color: Colors.blue,
                                       ),
                                       Text("${value.get('location')}",
                                           style: const TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold)),
+                                            color: Colors.black87,
+                                            fontSize: 18,
+                                            //fontWeight: FontWeight.bold
+                                          )),
                                     ],
                                   ),
                                   const SizedBox(
@@ -136,16 +137,17 @@ class _DetailSreenState extends ConsumerState<DetailSreen> {
                                   ),
                                   const Text("Place Details",
                                       style: TextStyle(
-                                          fontSize: 22,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.bold)),
                                   const SizedBox(
                                     height: 3,
                                   ),
                                   Text("${value.get('about')}",
                                       style: const TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold)),
+                                        color: Colors.black87,
+                                        fontSize: 19,
+                                        //fontWeight: FontWeight.bold
+                                      )),
                                   const Divider(
                                     height: 5,
                                     color: Colors.black,
@@ -157,19 +159,20 @@ class _DetailSreenState extends ConsumerState<DetailSreen> {
                                     children: [
                                       const Text("Time:",
                                           style: TextStyle(
-                                              color: Colors.grey,
+                                              color: Colors.black,
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold)),
                                       const SizedBox(
                                         width: 10,
                                       ),
                                       Expanded(
-                                        child: Text(
-                                            "${value.get('openingtime')}",
-                                            style: const TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold)),
+                                        child:
+                                            Text("${value.get('openingtime')}",
+                                                style: const TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 18,
+                                                  //fontWeight: FontWeight.bold
+                                                )),
                                       ),
                                       const SizedBox(
                                         width: 10,
@@ -184,18 +187,19 @@ class _DetailSreenState extends ConsumerState<DetailSreen> {
                                     children: [
                                       const Text("Price:",
                                           style: TextStyle(
-                                              color: Colors.grey,
+                                              color: Colors.black,
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold)),
                                       const SizedBox(
                                         width: 10,
                                       ),
                                       Expanded(
-                                        child: Text("${value.get('price')}",
+                                        child: Text("${value.get('price')} LE",
                                             style: const TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold)),
+                                              color: Colors.black,
+                                              fontSize: 18,
+                                              //fontWeight: FontWeight.bold
+                                            )),
                                       ),
                                       const SizedBox(
                                         width: 10,
@@ -203,10 +207,10 @@ class _DetailSreenState extends ConsumerState<DetailSreen> {
                                     ],
                                   ),
                                   const SizedBox(
-                                    height: 10,
+                                    height: 28,
                                   ),
                                   MaterialButton(
-                                    color: Colors.orange,
+                                    color: Colors.blue,
                                     minWidth: double.infinity,
                                     height: 55,
                                     shape: RoundedRectangleBorder(

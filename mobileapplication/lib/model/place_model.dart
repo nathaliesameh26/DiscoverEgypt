@@ -1,3 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
+
+// class addPlace {
+//   Future<Object> addplaceDetails() async {
+//     WidgetsFlutterBinding.ensureInitialized();
+//     Firebase.initializeApp();
+
+//     final user = FirebaseAuth.instance;
+//     //   // String userIds = user.uid;
+//     //   // final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+//     //   //     .collection('users')
+//     //   //     .doc('GwBywSu38lShNnea4TCw')
+//     //   //     .get();
+//     //   // return documentSnapshot;
+//     // }
+//   }
+// }
+
 class PlaceInfo {
   final String location, image, name, desc, price, time;
 

@@ -27,7 +27,7 @@ Future signup(String email, String password) async {
 
 Future CreateUser(String idd , String fname, String lname, String email, String password,
     String phone, String nationality,String role) async {
-  await FirebaseFirestore.instance.collection('users').doc(idd).set({ 
+  await FirebaseFirestore.instance.collection('users').add({ 
     'id':idd,
     'firstname' :fname,
     'lastname':lname,

@@ -41,9 +41,11 @@ class _adminpnelState extends State<adminpnel> {
                           builder: (_, ref, __) {
                             return ref.watch(userDataProvider).when(
                               data: (value) {
-                                return Text(
-                                  '${value.get('firstname')}',
-                                  style: const TextStyle(fontSize: 20),
+                                return Center(
+                                  child: Text(
+                                    '${value.get('firstname')}',
+                                    style: const TextStyle(fontSize: 10),
+                                  ),
                                 );
                               },
                               error: (Object error, StackTrace stackTrace) {

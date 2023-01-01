@@ -46,7 +46,7 @@ class _LoginState extends State<Login> {
                       Colors.white.withOpacity(1),
                       BlendMode.modulate,
                     ),
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.cover,
                     // gradient: LinearGradient(
                     //   begin: Alignment.topCenter,
                     //   end: Alignment.bottomCenter,
@@ -58,110 +58,113 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.only(left: 40, right: 40),
                     child: Form(
                       key: formKey, //key for form
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: height * 0.03),
-                          const Text(
-                            "Welcome To",
-                            style: TextStyle(
-                                fontSize: 30,
-                                color: Color.fromARGB(255, 255, 255, 255)),
-                          ),
-                          const Text(
-                            "EgyMania!",
-                            style: TextStyle(
-                                fontSize: 30,
-                                color: Color.fromARGB(255, 255, 255, 255)),
-                          ),
-                          SizedBox(
-                            height: height * 0.05,
-                          ),
-                          TextFormField(
-                            controller: emailController,
-                            style: TextStyle(color: Colors.white),
-                            decoration: InputDecoration(
-                              hintText: "Enter your name",
-                              hintStyle: TextStyle(color: Colors.white),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: height * 0.03),
+                            const Text(
+                              "Welcome To",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  color: Color.fromARGB(255, 255, 255, 255)),
                             ),
-                            validator: (value) {
-                              if (value!.isEmpty ||
-                                  !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
-                                return "Enter your name";
-                              } else {
-                                return null;
-                              }
-                            },
-                          ),
-                          SizedBox(
-                            height: height * 0.05,
-                          ),
-                          TextFormField(
-                            controller: passwordController,
-                            style: TextStyle(color: Colors.white),
-                            decoration: InputDecoration(
-                              hintText: "Enter your password",
-                              hintStyle: TextStyle(color: Colors.white),
+                            const Text(
+                              "EgyMania!",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  color: Color.fromARGB(255, 255, 255, 255)),
                             ),
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Enter password";
-                              } else {
-                                return null;
-                              }
-                            },
-                          ),
-                          SizedBox(
-                            height: height * 0.05,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Expanded(
+                            SizedBox(
+                              height: height * 0.05,
+                            ),
+                            TextFormField(
+                              controller: emailController,
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                hintText: "Enter your name",
+                                hintStyle: TextStyle(color: Colors.white),
+                              ),
+                              validator: (value) {
+                                if (value!.isEmpty ||
+                                    !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
+                                  return "Enter your name";
+                                } else {
+                                  return null;
+                                }
+                              },
+                            ),
+                            SizedBox(
+                              height: height * 0.05,
+                            ),
+                            TextFormField(
+                              controller: passwordController,
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                hintText: "Enter your password",
+                                hintStyle: TextStyle(color: Colors.white),
+                              ),
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Enter password";
+                                } else {
+                                  return null;
+                                }
+                              },
+                            ),
+                            SizedBox(
+                              height: height * 0.05,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Expanded(
+                                    child: ElevatedButton(
+                                        // "Sign Up",
+                                        // style: TextStyle(fontSize: 22, color: Color(0xFF363f93)),
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                              context, '/register');
+                                        },
+                                        style: TextButton.styleFrom(
+                                            backgroundColor: Color.fromARGB(
+                                                255, 255, 115, 0)),
+                                        child: const Text(
+                                          "Sign Up ",
+                                          style: TextStyle(color: Colors.white),
+                                        ))),
+                                Padding(
+                                  padding: const EdgeInsets.all(10),
                                   child: ElevatedButton(
-                                      // "Sign Up",
-                                      // style: TextStyle(fontSize: 22, color: Color(0xFF363f93)),
-                                      onPressed: () {
+                                    onPressed: () async {
+                                      try {
+                                        await Loginn(emailController.text,
+                                            passwordController.text);
                                         Navigator.pushNamed(
-                                            context, '/register');
-                                      },
-                                      style: TextButton.styleFrom(
-                                          backgroundColor:
-                                              Color.fromARGB(255, 255, 115, 0)),
-                                      child: const Text(
-                                        "Sign Up ",
-                                        style: TextStyle(color: Colors.white),
-                                      ))),
-                              Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: ElevatedButton(
-                                  onPressed: () async {
-                                    try {
-                                      await Loginn(emailController.text,
-                                          passwordController.text);
-                                      Navigator.pushNamed(
-                                          context, '/homescreen');
-                                    } on FirebaseAuthException catch (e) {
-                                      if (e.code == 'user-not-found') {
-                                        print('No user found for that email.');
-                                      } else if (e.code == 'wrong-password') {
-                                        print(
-                                            'Wrong password provided for that user.');
+                                            context, '/homescreen');
+                                      } on FirebaseAuthException catch (e) {
+                                        if (e.code == 'user-not-found') {
+                                          print(
+                                              'No user found for that email.');
+                                        } else if (e.code == 'wrong-password') {
+                                          print(
+                                              'Wrong password provided for that user.');
+                                        }
                                       }
-                                    }
-                                  },
-                                  style: TextButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromARGB(255, 255, 115, 0)),
-                                  child: const Text(
-                                    "Login ",
-                                    style: TextStyle(color: Colors.white),
+                                    },
+                                    style: TextButton.styleFrom(
+                                        backgroundColor:
+                                            Color.fromARGB(255, 255, 115, 0)),
+                                    child: const Text(
+                                      "Login ",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),

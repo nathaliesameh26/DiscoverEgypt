@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class placeform extends StatefulWidget {
@@ -8,6 +9,15 @@ class placeform extends StatefulWidget {
 }
 
 class placeformState extends State<placeform> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController aboutController = TextEditingController();
+  TextEditingController priceController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  TextEditingController openingTimeController = TextEditingController();
+  TextEditingController closingTimeController = TextEditingController();
+  TextEditingController ratingController = TextEditingController();
+  TextEditingController imageController = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
   String name = "";
   @override
@@ -50,18 +60,20 @@ class placeformState extends State<placeform> {
                                 color: Color.fromARGB(15, 255, 255, 255))),
                         SizedBox(height: height * 0.05),
                         TextFormField(
+                            controller: nameController,
                             decoration: const InputDecoration(
                                 labelText: "Enter The place Name"),
                             validator: (value) {
                               if (value!.isEmpty ||
                                   !RegExp(r'[a-z A-Z]*$').hasMatch(value)) {
-                                return "enter a correct name";
+                                return "enter a correct place name";
                               } else {
                                 return null;
                               }
                             }),
                         SizedBox(height: height * 0.05),
                         TextFormField(
+                            controller: aboutController,
                             decoration: const InputDecoration(
                                 labelText: "Enter the place's description"),
                             validator: (value) {
@@ -74,6 +86,7 @@ class placeformState extends State<placeform> {
                             }),
                         SizedBox(height: height * 0.05),
                         TextFormField(
+                            controller: locationController,
                             decoration: const InputDecoration(
                                 labelText: "Enter The place's location"),
                             validator: (value) {
@@ -87,6 +100,7 @@ class placeformState extends State<placeform> {
                             }),
                         SizedBox(height: height * 0.05),
                         TextFormField(
+                            controller: openingTimeController,
                             decoration: const InputDecoration(
                                 labelText: "Enter The place's opening time "),
                             validator: (value) {
@@ -99,6 +113,7 @@ class placeformState extends State<placeform> {
                             }),
                         SizedBox(height: height * 0.05),
                         TextFormField(
+                            controller: closingTimeController,
                             decoration: const InputDecoration(
                                 labelText: "Enter The place's closing time "),
                             validator: (value) {
@@ -109,16 +124,33 @@ class placeformState extends State<placeform> {
                                 return null;
                               }
                             }),
+                        SizedBox(height: height * 0.05),
+                        TextFormField(
+                            controller: ratingController,
+                            decoration: const InputDecoration(
+                                labelText: "Enter The place's rating "),
+                            validator: (value) {
+                              if (value!.isEmpty ||
+                                  !RegExp(r'^[a-zA-Z]+|\s').hasMatch(value)) {
+                                return "enter a correct rating";
+                              } else {
+                                return null;
+                              }
+                            }),
                         ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             // Validate returns true if the form is valid, or false otherwise.
                             if (formkey.currentState!.validate()) {
+                              //DatabaseService service = DatabaseService();
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text('Processing Data')),
-                              );
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //   const SnackBar(
+                              //       content: Text('Processing Data')),
+                              // );
+                              FirebaseFirestore.instance
+                                  .collection('places')
+                                  .add({'text': 'data added through app'});
                             }
                           },
                           child: const Text('Add place'),

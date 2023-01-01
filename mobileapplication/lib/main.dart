@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/destination_model.dart';
+
+import 'package:mobileapplication/screens/addEvent.dart';
+import 'package:mobileapplication/screens/detail_screen.dart';
+
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/home_screen.dart';
@@ -19,7 +24,11 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -31,19 +40,21 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/register',
+        initialRoute: '/admin',
         // initialRoute: '/test',
         routes: {
-          '/': (context) => const HomeScreen(),
+          //'/': (context) => const HomeScreen(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
           '/Searchplaces': (context) => const SearchPage(),
           '/admin': (context) => const adminpnel(),
           //'/evenetPlannerForm': (context) => Eventform(),
           '/homescreen': (context) => const HomeScreenn(),
+
           // '/homescreen': (context) => const HomeScreenn(),
+
           '/wishList': (context) => const WishList(),
-          '/myplans': (context) => const MyPlans(),
+          //'/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
         });
@@ -58,13 +69,13 @@ class MyHomePage extends StatefulWidget {
 class _MainPageState extends State<MyHomePage> {
   int index = 0;
   final screens = [
-    HomeScreen(),
+    //HomeScreen(),
     //DetailSreen(placeInfo: places[0]),
     DestinationScreen(
       destination: destinations[0],
     ),
     WishList(),
-    MyPlans(),
+    //MyPlans(),
     ProfilePage()
   ];
   @override

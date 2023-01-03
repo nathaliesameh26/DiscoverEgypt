@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:mobileapplication/model/loginData.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -13,6 +14,12 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController fname = TextEditingController();
+  TextEditingController lname = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController nationality = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -33,13 +40,13 @@ class _RegisterState extends State<Register> {
               Container(
                 height: double.infinity,
                 width: double.infinity,
-                // ignore: prefer_const_constructors
+                //ignore: prefer_const_constructors
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
                     image: const AssetImage('assets/temple.jpg'),
                     colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.5),
+                      Colors.white.withOpacity(0.8),
                       BlendMode.modulate,
                     ),
                     fit: BoxFit.fitHeight,
@@ -66,18 +73,20 @@ class _RegisterState extends State<Register> {
                               "Sign Up To",
                               style: TextStyle(
                                   fontSize: 30,
-                                  color: Color.fromARGB(255, 243, 240, 240)),
+                                  color: Color.fromARGB(255, 255, 255, 255)),
                             ),
                             const Text(
                               "EgyMania!",
                               style: TextStyle(
                                   fontSize: 30,
-                                  color: Color.fromARGB(255, 243, 240, 240)),
+                                  color: Color.fromARGB(255, 255, 255, 255)),
                             ),
                             SizedBox(
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: fname,
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your first name",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -95,6 +104,8 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: lname,
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your last name",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -112,6 +123,8 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: email,
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your email",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -130,6 +143,11 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: phone,
+                              // onChanged:(value){
+                              //   phone = value;
+                              // },
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your phone number",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -137,7 +155,7 @@ class _RegisterState extends State<Register> {
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return "Enter the phone number";
-                                } else if (value.length != 10) {
+                                } else if (value.length != 11) {
                                   return "The phone number isn't correct";
                                 } else if (!RegExp(r"^[1-10]+")
                                     .hasMatch(value)) {
@@ -151,6 +169,8 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: password,
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your password",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -167,6 +187,8 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: nationality,
+                              style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your Nationality",
                                 hintStyle: TextStyle(color: Colors.white),
@@ -210,7 +232,18 @@ class _RegisterState extends State<Register> {
                                 Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: () async {
+                                      await signup(email.text, password.text);
+                                      CreateUser(
+                                          userId,
+                                          fname.text,
+                                          lname.text,
+                                          email.text,
+                                          password.text,
+                                          phone.text,
+                                          nationality.text,
+                                          'user');
+                                      //controller lazm yet7ol text
                                       if (formKey.currentState!.validate()) {
                                         const snackBar = SnackBar(
                                             content: Text('Submitting form'));

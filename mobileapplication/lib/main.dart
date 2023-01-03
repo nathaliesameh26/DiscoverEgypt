@@ -1,32 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/destination_model.dart';
-import 'package:mobileapplication/model/place_model.dart';
-import 'package:mobileapplication/register.dart';
-import 'package:mobileapplication/screens/home/homeScreen.dart';
-import 'package:mobileapplication/screens/home/home_screen.dart';
-import 'package:mobileapplication/screens/detailsscreen/detail_screen.dart';
-import 'package:mobileapplication/adminpanel.dart';
-import 'package:mobileapplication/addPlace.dart';
-import 'package:mobileapplication/profile_page.dart';
-import 'package:mobileapplication/welcome.dart';
-import 'package:mobileapplication/wishlist.dart';
+
+import 'package:mobileapplication/screens/addEvent.dart';
+import 'package:mobileapplication/screens/detail_screen.dart';
+
+import 'package:mobileapplication/screens/homeScreen.dart';
+import 'package:mobileapplication/screens/register_screen.dart';
+import 'package:mobileapplication/screens/home_screen.dart';
+import 'package:mobileapplication/screens/adminpanel.dart';
+import 'package:mobileapplication/screens/addPlace.dart';
+import 'package:mobileapplication/screens/profile_page.dart';
+import 'package:mobileapplication/screens/welcome.dart';
+import 'package:mobileapplication/screens/wishlist_screen.dart';
 import 'Searchplaces.dart';
-import 'destinantion_screen.dart';
+import 'screens/destinantion_screen.dart';
 // import 'eventPlannerForm.dart';
 // import 'home.dart';
-import 'login.dart';
-import 'myplan.dart';
-import 'splash.dart';
-import 'pendingList.dart';
+import 'screens/login_screen.dart';
+import 'screens/myplan_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -34,19 +40,21 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/welcome',
+        initialRoute: '/admin',
         // initialRoute: '/test',
-        //home: Welcome(),
         routes: {
-          '/': (context) => const HomeScreen(),
+          //'/': (context) => const HomeScreen(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
-          //'home': (context) => Home(),
           '/Searchplaces': (context) => const SearchPage(),
+          '/admin': (context) => const adminpnel(),
           //'/evenetPlannerForm': (context) => Eventform(),
-          '/homescreen': (context) => const HomeScreen(),
+          '/homescreen': (context) => const HomeScreenn(),
+
+          // '/homescreen': (context) => const HomeScreenn(),
+
           '/wishList': (context) => const WishList(),
-          '/myplans': (context) => const MyPlans(),
+          //'/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
         });
@@ -61,13 +69,13 @@ class MyHomePage extends StatefulWidget {
 class _MainPageState extends State<MyHomePage> {
   int index = 0;
   final screens = [
-    HomeScreen(),
+    //HomeScreen(),
     //DetailSreen(placeInfo: places[0]),
     DestinationScreen(
       destination: destinations[0],
     ),
     WishList(),
-    MyPlans(),
+    //MyPlans(),
     ProfilePage()
   ];
   @override
@@ -96,10 +104,10 @@ class _MainPageState extends State<MyHomePage> {
               }),
           ListTile(title: Text('LogOut')),
           ListTile(
-              title: const Text('AdminSide - edit events'),
+              title: const Text('AdminSide'),
               onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => adminpanel()),
+                  MaterialPageRoute(builder: (context) => adminpnel()),
                 );
               }),
           ListTile(

@@ -17,7 +17,7 @@ class _WelcomeState extends State<Welcome> {
     "see.jpg",
   ];
   List Text = ['Explore Egypt With Us', 'Login see more!'];
-  List Text1 = ['Sights', 'Events'];
+  List Text1 = ['Sightseeing Places', 'Events'];
 
   @override
   Widget build(BuildContext context) {

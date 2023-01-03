@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'activity_model.dart';
 //import 'destinantion_screen.dart';
 
@@ -74,3 +77,15 @@ List<Destination> destinations = [
     activities: activities,
   ),
 ];
+
+// class PlacesData {
+//   Future<Object> getDestinationDetails() async {
+//     // final user = FirebaseAuth.instance.currentUser!;
+//     // String userIds = user.uid;
+//     final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+//         .collection('places')
+//         .doc('opzKllKvtUrfDxCXxPk9')
+//         .get();
+//     return documentSnapshot;
+//   }
+// }

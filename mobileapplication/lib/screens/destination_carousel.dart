@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mobileapplication/screens/home/homeScreen.dart';
+import '../model/destination_model.dart';
+import 'package:mobileapplication/screens/homeScreen.dart';
 
-import '../../destinantion_screen.dart';
-import '../../model/destination_model.dart';
+import 'destinantion_screen.dart';
 
-class EventCarousel extends StatelessWidget {
-  // const EventCarousel({super.key});
+class DestinationCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +18,7 @@ class EventCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Top Events',
+                'Top Sights',
                 style: TextStyle(
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold,

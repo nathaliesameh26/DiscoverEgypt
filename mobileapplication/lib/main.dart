@@ -15,7 +15,7 @@ import 'package:mobileapplication/screens/wishlist_screen.dart';
 
 import 'screens/Search_screen.dart';
 
-import 'screens/Searchplaces.dart';
+//import 'screens/Searchplaces.dart';
 
 import 'screens/destinantion_screen.dart';
 // import 'eventPlannerForm.dart';
@@ -28,7 +28,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
-    ProviderScope(
+    const ProviderScope(
       child: MyApp(),
     ),
   );
@@ -43,11 +43,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-//        initialRoute: '/login',
-
         initialRoute: '/welcome',
-
-        //initialRoute: '/admin',
         routes: {
           //'/': (context) => const HomeScreen(),
           '/': (context) => const HomeScreenn(),

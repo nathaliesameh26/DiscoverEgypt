@@ -5,6 +5,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 final place = FirebaseAuth.instance.currentUser!;
 String placeID = place.uid;
 
+class PlacesModel {
+  String? name;
+  String? location;
+  String? description;
+  int? price;
+
+  PlacesModel(this.name, this.location, this.description, this.price);
+}
+
 class PlacesData {
   // ignore: non_constant_identifier_names
   Future<Object> PlaceDetails() async {

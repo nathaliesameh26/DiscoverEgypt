@@ -43,7 +43,8 @@ class _adminpnelState extends State<adminpnel> {
                               data: (value) {
                                 return Center(
                                   child: Text(
-                                    '${value.get('firstname')}',
+                                    // ignore: prefer_adjacent_string_concatenation
+                                    '${value.get('firstname')}'+' '+'${value.get('lastname')}',
                                     style: const TextStyle(fontSize: 10),
                                   ),
                                 );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/destination_model.dart';
 import 'package:mobileapplication/screens/addEvent.dart';
+import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
@@ -38,7 +39,10 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+
+        //initialRoute: '/detailsPage',
         initialRoute: '/admin',
+
         // initialRoute: '/test',
         routes: {
           //'/': (context) => const HomeScreen(),
@@ -54,6 +58,7 @@ class MyApp extends StatelessWidget {
           '/wishList': (context) => const WishList(),
           //'/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),
+          '/detailsPage': (context) => DetailsPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
         });
   }

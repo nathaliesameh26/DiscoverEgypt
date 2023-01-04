@@ -12,7 +12,7 @@ import 'package:mobileapplication/screens/addPlace.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
-import 'Searchplaces.dart';
+import 'screens/Search_screen.dart';
 import 'screens/destinantion_screen.dart';
 // import 'eventPlannerForm.dart';
 // import 'home.dart';
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/detail',
+        initialRoute: '/login',
         //initialRoute: '/admin',
 
         // initialRoute: '/test',
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
           //'/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),
           '/detailsPage': (context) => DetailsPage(),
-          '/detail': (context) => DetailSreen(),
+
           //'/destinationScreen': (context) => DestinationScreen(destination:),
         });
   }

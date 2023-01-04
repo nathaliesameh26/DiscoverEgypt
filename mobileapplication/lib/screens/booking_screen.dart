@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../data/repositries/places_provider.dart';
+import '../data/repo/places_provider.dart';
 
 class DetailsPage extends ConsumerStatefulWidget {
   @override

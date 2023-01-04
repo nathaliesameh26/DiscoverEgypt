@@ -20,7 +20,7 @@ class ResponsiveButton extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 90.0),
           child: ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/homescreen');
+              Navigator.pushNamed(context, '/');
             },
             // ignore: prefer_const_constructors
             style: ElevatedButton.styleFrom(

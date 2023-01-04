@@ -214,7 +214,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                     onPressed: () {
                                                       Navigator.pushNamed(
                                                           context,
-                                                          '/detailsScreen');
+                                                          '/detailsPage');
                                                     },
                                                     child: Text(
                                                       'Details',

@@ -11,11 +11,8 @@ import 'package:mobileapplication/screens/addPlace.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
-
 import 'screens/Search_screen.dart';
-
 //import 'screens/Searchplaces.dart';
-
 import 'screens/destinantion_screen.dart';
 // import 'eventPlannerForm.dart';
 // import 'home.dart';
@@ -36,9 +33,6 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    //
-    // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: '/welcome',
@@ -47,13 +41,12 @@ class MyApp extends StatelessWidget {
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
-          // '/Searchplaces': (context) => const SearchPage(),
           '/admin': (context) => const adminpnel(),
           '/evenetPlannerForm': (context) => Eventform(),
           '/wishList': (context) => const WishList(),
-          // '/myplans': (context) => const MyPlans(),
           '/detailsPage': (context) => DetailsPage(),
-
+          // '/myplans': (context) => const MyPlans(),
+          // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
           //'/': (context) => const HomeScreen(),
         });

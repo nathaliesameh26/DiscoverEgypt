@@ -6,7 +6,6 @@ import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
-import 'package:mobileapplication/screens/home_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
 import 'package:mobileapplication/screens/addPlace.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
@@ -21,7 +20,6 @@ import 'screens/destinantion_screen.dart';
 // import 'eventPlannerForm.dart';
 // import 'home.dart';
 import 'screens/login_screen.dart';
-import 'screens/myplan_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
@@ -45,7 +43,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/welcome',
         routes: {
-          //'/': (context) => const HomeScreen(),
+          '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
@@ -54,10 +52,10 @@ class MyApp extends StatelessWidget {
           '/evenetPlannerForm': (context) => Eventform(),
           '/wishList': (context) => const WishList(),
           // '/myplans': (context) => const MyPlans(),
-          '/welcome': (context) => const Welcome(),
           '/detailsPage': (context) => DetailsPage(),
 
           //'/destinationScreen': (context) => DestinationScreen(destination:),
+          //'/': (context) => const HomeScreen(),
         });
   }
 }

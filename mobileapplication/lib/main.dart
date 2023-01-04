@@ -12,7 +12,7 @@ import 'package:mobileapplication/screens/addPlace.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
-import 'Searchplaces.dart';
+import 'screens/Searchplaces.dart';
 import 'screens/destinantion_screen.dart';
 // import 'eventPlannerForm.dart';
 // import 'home.dart';
@@ -39,23 +39,18 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/detail',
+        initialRoute: '/welcome',
         //initialRoute: '/admin',
-
-        // initialRoute: '/test',
         routes: {
           //'/': (context) => const HomeScreen(),
+          '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
           '/Searchplaces': (context) => const SearchPage(),
           '/admin': (context) => const adminpnel(),
-          //'/evenetPlannerForm': (context) => Eventform(),
-          '/homescreen': (context) => const HomeScreenn(),
-
-          // '/homescreen': (context) => const HomeScreenn(),
-
+          '/evenetPlannerForm': (context) => Eventform(),
           '/wishList': (context) => const WishList(),
-          //'/myplans': (context) => const MyPlans(),
+          // '/myplans': (context) => const MyPlans(),
           '/welcome': (context) => const Welcome(),
           '/detailsPage': (context) => DetailsPage(),
           '/detail': (context) => DetailSreen(),

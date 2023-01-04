@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/place_model.dart';
-import '../data/repositries/places_provider.dart';
+import '../data/repo/places_provider.dart';
 
 class DetailSreen extends ConsumerStatefulWidget {
   const DetailSreen({super.key});

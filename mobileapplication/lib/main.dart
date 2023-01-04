@@ -41,7 +41,10 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/detailsPage',
+
+        //initialRoute: '/detailsPage',
+        initialRoute: '/admin',
+
         // initialRoute: '/test',
         routes: {
           //'/': (context) => const HomeScreen(),
@@ -50,10 +53,9 @@ class MyApp extends StatelessWidget {
           '/Searchplaces': (context) => const SearchPage(),
           '/admin': (context) => const adminpnel(),
           //'/evenetPlannerForm': (context) => Eventform(),
-
           '/homescreen': (context) => const HomeScreenn(),
-          '/detailsScreen': (context) => DetailSreen(),
-          '/addevent': (context) => Eventform(),
+
+          // '/homescreen': (context) => const HomeScreenn(),
 
           '/wishList': (context) => const WishList(),
           //'/myplans': (context) => const MyPlans(),

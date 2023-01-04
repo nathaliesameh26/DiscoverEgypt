@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:mobileapplication/model/loginData.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -13,6 +14,12 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController fname = TextEditingController();
+  TextEditingController lname = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController nationality = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -78,6 +85,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: fname,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your first name",
@@ -96,6 +104,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: lname,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your last name",
@@ -114,6 +123,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: email,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your email",
@@ -133,6 +143,10 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: phone,
+                              // onChanged:(value){
+                              //   phone = value;
+                              // },
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your phone number",
@@ -155,6 +169,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: password,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your password",
@@ -172,6 +187,7 @@ class _RegisterState extends State<Register> {
                               height: height * 0.03,
                             ),
                             TextFormField(
+                              controller: nationality,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your Nationality",
@@ -216,7 +232,18 @@ class _RegisterState extends State<Register> {
                                 Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: ElevatedButton(
-                                    onPressed: () {
+                                    onPressed: () async {
+                                      await signup(email.text, password.text);
+                                      CreateUser(
+                                          userId,
+                                          fname.text,
+                                          lname.text,
+                                          email.text,
+                                          password.text,
+                                          phone.text,
+                                          nationality.text,
+                                          'user');
+                                      //controller lazm yet7ol text
                                       if (formKey.currentState!.validate()) {
                                         const snackBar = SnackBar(
                                             content: Text('Submitting form'));

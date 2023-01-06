@@ -51,7 +51,8 @@ class _HomeScreenState extends State<HomeScreenn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: GNav(
+      bottomNavigationBar: const GNav(
+        tabBackgroundColor: Colors.grey,
         tabs: [
           GButton(
             icon: Icons.home,

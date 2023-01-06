@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobileapplication/data/repo/favorite_provider.dart';
 import 'package:mobileapplication/model/destination_model.dart';
 import 'package:mobileapplication/screens/addEvent.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
+import 'package:mobileapplication/screens/pending_screen.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
 import 'package:mobileapplication/screens/addPlace.dart';
@@ -18,6 +20,8 @@ import 'screens/destinantion_screen.dart';
 // import 'home.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'screens/splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/Eventform',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
@@ -45,6 +49,10 @@ class MyApp extends StatelessWidget {
           '/evenetPlannerForm': (context) => Eventform(),
           '/wishList': (context) => const WishList(),
           '/detailsPage': (context) => DetailsPage(),
+          '/splash': (context) => const Splash(),
+          '/pending': (context) => PendingScreen(),
+          '/Eventform': (context) => Eventform(),
+
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),

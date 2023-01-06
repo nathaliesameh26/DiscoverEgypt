@@ -28,7 +28,7 @@ class EPformState extends State<Eventform> {
               image: DecorationImage(
                   image: const AssetImage('assets/temple.jpg'),
                   colorFilter: ColorFilter.mode(
-                    Colors.white.withOpacity(0.5),
+                    Colors.white.withOpacity(0.9),
                     BlendMode.modulate,
                   ),
                   fit: BoxFit.fitHeight),
@@ -47,9 +47,10 @@ class EPformState extends State<Eventform> {
                         const Text("Add Your Event Details",
                             style: TextStyle(
                                 fontSize: 30,
-                                color: Color.fromARGB(15, 255, 255, 255))),
+                                color: Color.fromARGB(15, 0, 0, 0))),
                         SizedBox(height: height * 0.05),
                         TextFormField(
+                            style: TextStyle(color: Colors.white),
                             decoration: const InputDecoration(
                                 labelText: "Enter The Event Name"),
                             validator: (value) {
@@ -131,6 +132,18 @@ class EPformState extends State<Eventform> {
                               if (value!.isEmpty ||
                                   !RegExp(r'^[a-zA-Z]+|\s').hasMatch(value)) {
                                 return "enter a correct time";
+                              } else {
+                                return null;
+                              }
+                            }),
+                        SizedBox(height: height * 0.05),
+                        TextFormField(
+                            decoration: const InputDecoration(
+                                labelText: "Enter The Leader's Name "),
+                            validator: (value) {
+                              if (value!.isEmpty ||
+                                  !RegExp(r'[a-z A-Z]*$').hasMatch(value)) {
+                                return "enter a correct Leader Name";
                               } else {
                                 return null;
                               }

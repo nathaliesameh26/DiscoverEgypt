@@ -250,7 +250,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "${value.get('openingtime')}",
+                                              "${value.get('openingtime')} AM",
                                             ),
                                           ),
                                           SizedBox(
@@ -267,7 +267,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "${value.get('closingtime')}",
+                                              "${value.get('closingtime')} PM",
                                             ),
                                           )
                                         ],

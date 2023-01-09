@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/placeform',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
@@ -47,15 +47,14 @@ class MyApp extends StatelessWidget {
           '/register': (context) => const Register(),
           '/admin': (context) => const adminpnel(),
           '/eventform': (context) => const EventForm(),
+          '/placeform': (context) => const PlaceForm(),
           '/wishList': (context) => const WishList(),
           '/detailsPage': (context) => DetailsPage(), 
           // '/detail': (context) => const DetailSreen(),
-          //'/detail': (context) => const DetailSreen(),
           '/edevent': (context) => const crudevents(),
           '/edplace': (context) => const crudplaces(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
-          //'/Eventform': (context) => Eventform(),
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
@@ -117,7 +116,7 @@ class _MainPageState extends State<MyHomePage> {
               title: const Text('AdminSide - add places'),
               onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => placeform()),
+                  MaterialPageRoute(builder: (context) => PlaceForm()),
                 );
               }),
           ListTile(

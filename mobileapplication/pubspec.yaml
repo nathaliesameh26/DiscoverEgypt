@@ -35,6 +35,8 @@ dependencies:
   # firebase_core: ^1.0.4
 
   provider: ^6.0.5
+  intl: ^0.18.0
+  
  
     
 
@@ -115,6 +117,9 @@ flutter:
     - assets/LuxAndAswan.jpg
     - assets/pyra.jpg
     - assets/fayoum.jpg
+    - assets/cairo.jpg
+    - assets/personIco.jpg
+    - assets/cairov.jpg
     
 
 

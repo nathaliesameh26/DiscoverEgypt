@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapplication/main.dart';
 import 'package:mobileapplication/model/place_model.dart';
 
 class SearchPage extends StatefulWidget {

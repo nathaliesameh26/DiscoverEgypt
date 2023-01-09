@@ -1,244 +1,229 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobileapplication/model/place_model.dart';
 import '../data/repo/places_provider.dart';
 
-class DetailSreen extends ConsumerStatefulWidget {
-  const DetailSreen({super.key});
-
-  //final PlaceInfo placeInfo;
-  //const DetailSreen({super.key, required this.placeInfo});
-
+class DetailsPage extends ConsumerStatefulWidget {
   @override
-  ConsumerState<DetailSreen> createState() => _DetailSreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _DetailsPageState();
+  //static final String path = "lib/src/pages/hotel/details.dart";
 }
 
-class _DetailSreenState extends ConsumerState<DetailSreen> {
+class _DetailsPageState extends ConsumerState<DetailsPage> {
   TextEditingController nameController = TextEditingController();
+  final String image = "assets/Egypt.jpg";
   @override
   Widget build(BuildContext context) {
-    // ignore: non_constant_identifier_names
     final PlacesData = ref.watch(placesDataProvider);
     return Scaffold(
-        backgroundColor: Colors.white,
-        bottomNavigationBar: Row(
-            //children: [Image.asset(name)],
-            ),
-        body: PlacesData.when(
-          data: (value) => SafeArea(
-            child: Stack(
-              children: [
-                // Image.asset(
-                //   //widget.placeInfo.image,
-                //   //width: double.infinity,
-                //   //fit: BoxFit.cover,
-                //   //height: MediaQuery.of(context).size.height * 0.6,
-                // ),
-                SafeArea(
-                  child: Column(
-                    children: [
-                      //appbar buttons
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: Material(
-                                elevation: 5,
-                                borderRadius: BorderRadius.circular(100),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(
-                                      4.0), //dec thikness of the rounded button
-                                  child: Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.blue,
-                                        shape: BoxShape.circle),
-                                    child: const Center(
-                                      child: Icon(
-                                        Icons.arrow_back,
-                                        color: Colors.white,
-                                        size: 16,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              elevation: 5,
-                              borderRadius: BorderRadius.circular(100),
-                              child: Padding(
-                                padding: const EdgeInsets.all(
-                                    4.0), //dec thikness of the rounded button
-                                child: Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: const BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.circle),
-                                  child: const Center(
-                                    child: Icon(
-                                      Icons.bookmark_rounded,
-                                      color: Colors.blue,
-                                      size: 25,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+      body: PlacesData.when(
+        data: (value) => SafeArea(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                  foregroundDecoration: BoxDecoration(color: Colors.black26),
+                  height: 400,
+                  child: Image.asset(image, fit: BoxFit.cover)),
+              SingleChildScrollView(
+                padding: const EdgeInsets.only(top: 16.0, bottom: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const SizedBox(height: 250),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        "${value.get('name')}",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28.0,
+                            fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.3,
-                      ),
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        const SizedBox(width: 16.0),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 8.0,
+                            horizontal: 16.0,
+                          ),
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 20),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("${value.get('name')}",
-                                      style: const TextStyle(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold)),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.location_on,
-                                        color: Colors.blue,
-                                      ),
-                                      Text("${value.get('location')}",
-                                          style: const TextStyle(
-                                            color: Colors.black87,
-                                            fontSize: 18,
-                                            //fontWeight: FontWeight.bold
-                                          )),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: 7,
-                                  ),
-                                  const Text("Place Details",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold)),
-                                  const SizedBox(
-                                    height: 3,
-                                  ),
-                                  Text("${value.get('about')}",
-                                      style: const TextStyle(
-                                        color: Colors.black87,
-                                        fontSize: 19,
-                                        //fontWeight: FontWeight.bold
-                                      )),
-                                  const Divider(
-                                    height: 5,
-                                    color: Colors.black,
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Text("Time:",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold)),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child:
-                                            Text("${value.get('openingtime')}",
-                                                style: const TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 18,
-                                                  //fontWeight: FontWeight.bold
-                                                )),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    // ignore: prefer_const_literals_to_create_immutables
-                                    children: [
-                                      const Text("Price:",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold)),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child: Text("${value.get('price')} LE",
-                                            style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 18,
-                                              //fontWeight: FontWeight.bold
-                                            )),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: 28,
-                                  ),
-                                  MaterialButton(
-                                    color: Colors.blue,
-                                    minWidth: double.infinity,
-                                    height: 55,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(100)),
-                                    onPressed: () {},
-                                    child: const Text(
-                                      "Book",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 22),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(20.0)),
+                          child: Text(
+                            "${value.get('rating')} reviews",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 13.0),
                           ),
                         ),
-                      )
-                    ],
+                        Spacer(),
+                        IconButton(
+                          color: Colors.white,
+                          icon: Icon(Icons.favorite_border),
+                          onPressed: () {},
+                        )
+                      ],
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(32.0),
+                      color: Colors.white,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.blue,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.blue,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.blue,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.blue,
+                                        ),
+                                        Icon(
+                                          Icons.star_border,
+                                          color: Colors.blue,
+                                        ),
+                                      ],
+                                    ),
+                                    Text.rich(
+                                      TextSpan(children: [
+                                        WidgetSpan(
+                                            child: Icon(
+                                          Icons.location_on,
+                                          size: 16.0,
+                                          color: Colors.grey,
+                                        )),
+                                        TextSpan(
+                                            text: "${value.get('location')}")
+                                      ]),
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 12.0),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  Text(
+                                    "${value.get('price')} LE",
+                                    style: TextStyle(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0),
+                                  ),
+                                  Text(
+                                    "/per Trip",
+                                    style: TextStyle(
+                                        fontSize: 12.0, color: Colors.grey),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                          const SizedBox(height: 30.0),
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30.0)),
+                                backgroundColor: Colors.blue,
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16.0,
+                                  horizontal: 32.0,
+                                ),
+                              ),
+                              child: Text(
+                                "Book Now",
+                                style: TextStyle(fontWeight: FontWeight.normal),
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          const SizedBox(height: 30.0),
+                          Text(
+                            "Description".toUpperCase(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 14.0),
+                          ),
+                          const SizedBox(height: 10.0),
+                          Text(
+                            "${value.get('about')}",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 14.0),
+                          ),
+                          const SizedBox(height: 10.0),
+                          Text(
+                            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w300, fontSize: 14.0),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: AppBar(
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  centerTitle: true,
+                  title: Text(
+                    "DETAIL",
+                    style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.normal),
                   ),
-                )
-              ],
-            ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: BottomNavigationBar(
+                  backgroundColor: Colors.black,
+                  elevation: 0,
+                  selectedItemColor: Colors.black,
+                  items: [
+                    BottomNavigationBarItem(
+                        backgroundColor: Colors.blue,
+                        icon: Icon(Icons.search),
+                        label: "Home"),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite_border), label: "Favorites"),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.book_sharp), label: "My Plans"),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.person), label: "Profile"),
+                  ],
+                ),
+              )
+            ],
           ),
-          error: (Object error, StackTrace stackTrace) {},
-          loading: () {},
-        ));
+        ),
+        error: (Object error, StackTrace stackTrace) {},
+        loading: () {},
+      ),
+    );
   }
 }

@@ -3,9 +3,9 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapplication/screens/events_carousel.dart';
-
 import '../widget/navigation_bar.dart';
 import 'destination_carousel.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomeScreenn extends StatefulWidget {
   const HomeScreenn({super.key});
@@ -51,6 +51,27 @@ class _HomeScreenState extends State<HomeScreenn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const GNav(
+        tabBackgroundColor: Colors.grey,
+        tabs: [
+          GButton(
+            icon: Icons.home,
+            text: 'Home',
+          ),
+          GButton(
+            icon: Icons.favorite_border,
+            text: 'Favorites',
+          ),
+          GButton(
+            icon: Icons.book,
+            text: 'Plans',
+          ),
+          GButton(
+            icon: Icons.person,
+            text: 'Profile',
+          ),
+        ],
+      ),
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(vertical: 30.0),

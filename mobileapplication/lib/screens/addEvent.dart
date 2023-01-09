@@ -17,16 +17,11 @@ class _EventFormState extends State<EventForm> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: double.infinity,
+      height: 200,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
-            image: const AssetImage('assets/cairov.jpg'),
-            colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.5),
-              BlendMode.modulate,
-            ),
-            fit: BoxFit.fitHeight),
+            image: AssetImage("assets/cairov.jpg"), fit: BoxFit.cover),
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -131,18 +126,21 @@ class _EventFormState extends State<EventForm> {
                 SizedBox(
                   height: 30,
                 ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.purple,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 15),
-                        textStyle: const TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold)),
-                    child: const Text('Submit Form'),
-                  ),
-                ])
+                Row(
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.purple,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 15),
+                            textStyle: const TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold)),
+                        child: const Text('Submit Form'),
+                      ),
+                    ])
               ],
             ),
           ),

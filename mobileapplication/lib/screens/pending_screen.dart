@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:mobileapplication/model/place_model.dart';
+import '../data/repo/pending_provider.dart';
 import '../data/repo/places_provider.dart';
 
 class PendingScreen extends ConsumerStatefulWidget {
@@ -16,19 +17,19 @@ class PendingScreen extends ConsumerStatefulWidget {
 class _PendingScreenState extends ConsumerState<PendingScreen> {
   @override
   Widget build(BuildContext context) {
-    final PlacesData = ref.watch(placesDataProvider);
+    final PendingData = ref.watch(pendingDataProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pending Events'),
         backgroundColor: Colors.black,
       ),
-      body: PlacesData.when(
+      body: PendingData.when(
           data: (value) => SafeArea(
                 child: Column(
                   children: [
                     Expanded(
                       child: ListView.builder(
-                          itemCount: 5,
+                          itemCount: 2,
                           itemBuilder: (BuildContext context, int index) {
                             return Padding(
                               padding: const EdgeInsets.only(
@@ -44,13 +45,13 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Event ID: ${value.get('name')}"',
+                                            'Event ID: ${value.get('name')}',
                                             style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          //Text(
+                                          // Text(
                                           //   DateFormat('dd-MM-yy').format(order.createdAt),
                                           //   'Event ID: ${value.get('name')}"',
                                           //   style: const TextStyle(
@@ -112,7 +113,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                                           ),
                                                           overflow:
                                                               TextOverflow.clip,
-                                                          maxLines: 4,
+                                                          maxLines: 5,
                                                         ),
                                                       )
                                                     ],

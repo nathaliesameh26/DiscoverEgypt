@@ -4,6 +4,8 @@ import 'package:mobileapplication/model/destination_model.dart';
 import 'package:mobileapplication/screens/addEvent.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
+import 'package:mobileapplication/screens/edit_delete_events.dart';
+import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
@@ -11,10 +13,8 @@ import 'package:mobileapplication/screens/addPlace.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
-import 'screens/Searchplaces.dart';
+import 'screens/searchplaces.dart';
 import 'screens/destinantion_screen.dart';
-// import 'eventPlannerForm.dart';
-// import 'home.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -22,7 +22,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
-    ProviderScope(
+    const ProviderScope(
       child: MyApp(),
     ),
   );
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/admin',
+        initialRoute: '/eventform',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
@@ -45,11 +45,14 @@ class MyApp extends StatelessWidget {
           '/register': (context) => const Register(),
           '/Searchplaces': (context) => const SearchPage(),
           '/admin': (context) => const adminpnel(),
-          '/evenetPlannerForm': (context) => Eventform(),
+          '/eventform': (context) => const EventForm(),
           '/wishList': (context) => const WishList(),
           // '/myplans': (context) => const MyPlans(),
           '/detailsPage': (context) => DetailsPage(),
-          '/detail': (context) => DetailSreen(),
+          '/detail': (context) => const DetailSreen(),
+          '/edevent': (context) => const crudevents(),
+          '/edplace': (context) => const crudplaces(),
+
           //'/destinationScreen': (context) => DestinationScreen(destination:),
           //'/': (context) => const HomeScreen(),
         });
@@ -69,7 +72,7 @@ class _MainPageState extends State<MyHomePage> {
     DestinationScreen(
       destination: destinations[0],
     ),
-    WishList(),
+    const WishList(),
     //MyPlans(),
     ProfilePage()
   ];
@@ -78,7 +81,7 @@ class _MainPageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text("EgyMania"),
+        title: const Text("EgyMania"),
       ),
       endDrawer: Drawer(
           child: ListView(
@@ -87,22 +90,22 @@ class _MainPageState extends State<MyHomePage> {
               title: const Text('LogIn'),
               onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Login()),
+                  MaterialPageRoute(builder: (context) => const Login()),
                 );
               }),
           ListTile(
               title: const Text('Register'),
               onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Register()),
+                  MaterialPageRoute(builder: (context) => const Register()),
                 );
               }),
-          ListTile(title: Text('LogOut')),
+          const ListTile(title: Text('LogOut')),
           ListTile(
               title: const Text('AdminSide'),
               onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => adminpnel()),
+                  MaterialPageRoute(builder: (context) => const adminpnel()),
                 );
               }),
           ListTile(
@@ -135,24 +138,25 @@ class _MainPageState extends State<MyHomePage> {
             selectedIndex: index,
             onDestinationSelected: (index) =>
                 setState(() => this.index = index),
+            // ignore: prefer_const_literals_to_create_immutables
             destinations: [
               const NavigationDestination(
                   icon: Icon(Icons.tour_outlined),
                   selectedIcon: Icon(Icons.tour_rounded),
                   label: 'Explore'),
-              NavigationDestination(
+              const NavigationDestination(
                   icon: Icon(Icons.event_available_outlined),
                   selectedIcon: Icon(Icons.event_available_rounded),
                   label: 'Events'),
-              NavigationDestination(
+              const NavigationDestination(
                   icon: Icon(Icons.favorite_border_outlined),
                   selectedIcon: Icon(Icons.favorite),
                   label: 'WishList'),
-              NavigationDestination(
+              const NavigationDestination(
                   icon: Icon(Icons.map_outlined),
                   selectedIcon: Icon(Icons.map),
                   label: 'My Plans'),
-              NavigationDestination(
+              const NavigationDestination(
                   icon: Icon(Icons.account_box_outlined),
                   selectedIcon: Icon(Icons.account_box_rounded),
                   label: 'Account'),

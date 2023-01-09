@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapplication/model/place_model.dart';
-import 'package:mobileapplication/widget/navigation_bar.dart';
-import 'package:mobileapplication/screens/home_screen.dart';
-
-import '../../../widget/category_card.dart';
-import '../../../widget/category_card.dart';
 
 class WishList extends StatelessWidget {
   const WishList({super.key});

@@ -27,7 +27,7 @@ class InputField extends StatelessWidget {
               fontStyle: FontStyle.normal,
               fontSize: 18,
               fontWeight: FontWeight.w400,
-              color: Colors.white,
+              color: Color.fromARGB(255, 5, 0, 0),
             ),
           ),
           Container(
@@ -36,7 +36,7 @@ class InputField extends StatelessWidget {
             padding: EdgeInsets.only(left: 14),
             decoration: BoxDecoration(
                 border: Border.all(
-                    color: Color.fromARGB(255, 255, 255, 255), width: 1.0),
+                    color: Color.fromARGB(255, 38, 89, 165), width: 1.0),
                 borderRadius: BorderRadius.circular(12)),
             child: Row(
               children: [
@@ -50,11 +50,11 @@ class InputField extends StatelessWidget {
                   style: TextStyle(
                     fontStyle: FontStyle.normal,
                     fontSize: 14,
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 53, 27, 27),
                   ),
                   decoration: InputDecoration(
                     hintText: hint,
-                    fillColor: Colors.white,
+                    fillColor: Color.fromARGB(255, 152, 5, 5),
                   ),
                 ),
                 ),

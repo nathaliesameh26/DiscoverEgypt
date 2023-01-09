@@ -263,8 +263,7 @@ class _adminpnelState extends State<adminpnel> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
-                        )
-                        ),
+                        )),
                   ],
                 ),
               ),
@@ -292,7 +291,9 @@ class _adminpnelState extends State<adminpnel> {
                         ),
                         child: const Text('Edit & Delete Events')),
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/pending');
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue[600],
                         ),

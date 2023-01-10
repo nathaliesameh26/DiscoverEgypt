@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/destination_model.dart';
 import 'package:mobileapplication/screens/addEvent.dart';
+import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/booking',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
@@ -48,13 +49,14 @@ class MyApp extends StatelessWidget {
           '/admin': (context) => const adminpnel(),
           '/eventform': (context) => const EventForm(),
           '/wishList': (context) => const WishList(),
-          '/detailsPage': (context) => DetailsPage(), 
+          '/detailsPage': (context) => DetailsPage(),
           // '/detail': (context) => const DetailSreen(),
           //'/detail': (context) => const DetailSreen(),
           '/edevent': (context) => const crudevents(),
           '/edplace': (context) => const crudplaces(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
+          '/booking': (context) => BookingScreen(),
           //'/Eventform': (context) => Eventform(),
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),

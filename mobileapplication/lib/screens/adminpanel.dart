@@ -315,7 +315,7 @@ class _adminpnelState extends State<adminpnel> {
                           child: const Text('Add An Events')),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/placeform');
+                            Navigator.pushNamed(context, '/p');
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 28, 128, 150),

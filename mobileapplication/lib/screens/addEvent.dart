@@ -32,7 +32,9 @@ class _EventFormState extends State<EventForm> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, '/admin');
+            },
             child: const Icon(
               Icons.arrow_back_ios,
               size: 20,
@@ -124,10 +126,9 @@ class _EventFormState extends State<EventForm> {
                   ),
                 ]),
                 SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 Row(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(

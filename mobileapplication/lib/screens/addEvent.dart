@@ -91,7 +91,6 @@ class _EventFormState extends State<EventForm> {
                       hintText: 'Enter the name of the event',
                     ),
                     textInputAction: TextInputAction.done,
-
                     // decoration: const InputDecoration(
                     //   prefixIcon: Icon(Icons.favorite),
                     //   //hintText: 'Event Name',

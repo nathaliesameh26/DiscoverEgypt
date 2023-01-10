@@ -7,15 +7,22 @@ String pendingEID = pendingEvent.uid;
 
 class PendingData {
   // ignore: non_constant_identifier_names
-  Future<Object> PendingDetails() async {
-    final pendingEvent = FirebaseAuth.instance.currentUser!;
-    String pendingEID = pendingEvent.uid;
-    final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
-        .collection('pending')
-        .doc('j4YSu0J2ZGfaGKDMbswb')
-        .get();
-    return documentSnapshot;
+
+  Future PendingDetails() async {
+    final QuerySnapshot pendingEvent =
+        await FirebaseFirestore.instance.collection('pending').get();
+    return pendingEvent;
   }
+
+  // Future<Object> PendingDetails() async {
+  //   final pendingEvent = FirebaseAuth.instance.currentUser!;
+  //   String pendingEID = pendingEvent.uid;
+  //   final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+  //       .collection('pending')
+  //       .doc('j4YSu0J2ZGfaGKDMbswb')
+  //       .get();
+  //   return documentSnapshot;
+  // }
 }
 
 // class PendingModel {

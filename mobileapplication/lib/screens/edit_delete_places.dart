@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/repo/places_provider.dart';
 
@@ -19,14 +18,18 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
         title: const Text('EgyMania Sightseeing Places'),
         backgroundColor: Color.fromARGB(255, 28, 128, 150),
       ),
+      //value feha aldata , places data dy wakhda data mn alprovider 
       body: placesData.when(
           data: (value) => SafeArea(
                 child: Column(
                   children: [
                     Expanded(
                       child: ListView.builder(
-                          itemCount: 2,
-                          itemBuilder: (BuildContext context, int index) {
+                          itemCount: value.docs.length,
+                          //count how many documents are in db and loops with the number of docs
+                          itemBuilder: (BuildContext context, int index)
+                          //to know in which im standing 
+                           {
                             return Padding(
                               padding: const EdgeInsets.only(
                                   left: 10.0, right: 10.0, top: 10.0),
@@ -41,7 +44,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Name: ${value.get('name')}',
+                                            'Name: ${value.docs[index].get('name')}',
                                             style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
@@ -86,7 +89,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                                       SizedBox(
                                                         width: 285,
                                                         child: Text(
-                                                          '${value.get('about')}',
+                                                          '${value.docs[index].get('about')}',
                                                           style:
                                                               const TextStyle(
                                                             fontSize: 14,
@@ -123,7 +126,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                                 height: 10,
                                               ),
                                               Text(
-                                                '${value.get('location')}',
+                                                '${value.docs[index].get('location')}',
                                                 style: const TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.bold,
@@ -145,7 +148,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                                 height: 10,
                                               ),
                                               Text(
-                                                '${value.get('price')}',
+                                                '${value.docs[index].get('price')}',
                                                 style: const TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.bold,
@@ -165,8 +168,9 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                           ElevatedButton(
                                               onPressed: () {},
                                               style: ElevatedButton.styleFrom(
-                                                  primary:  Color.fromARGB(255, 28, 128, 150),
+                                                  backgroundColor: Color.fromARGB(255, 28, 128, 150),
                                                   minimumSize: Size(150, 40)),
+                                              // ignore: prefer_const_constructors
                                               child: Text(
                                                 "EDIT",
                                                 style: const TextStyle(
@@ -176,8 +180,9 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                           ElevatedButton(
                                               onPressed: () {},
                                               style: ElevatedButton.styleFrom(
-                                                  primary: Color.fromARGB(255, 28, 128, 150),
+                                                  backgroundColor: Color.fromARGB(255, 28, 128, 150),
                                                   minimumSize: Size(150, 40)),
+                                              // ignore: prefer_const_constructors
                                               child: Text(
                                                 "Delete",
                                                 style: const TextStyle(
@@ -196,8 +201,15 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                   ],
                 ),
               ),
-          error: (Object error, StackTrace stackTrace) {},
-          loading: () {}),
+              //prints the error instead of red page error and loading when internet 
+        error: (Object error, StackTrace err) {
+                        return const Text("Error loading your list");
+                      },
+                      loading: () {
+                        return const Center(child: CircularProgressIndicator());
+                      },
+
+          ),
     );
   }
 }

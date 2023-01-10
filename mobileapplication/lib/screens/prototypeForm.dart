@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mobileapplication/model/place_model.dart';
 
 class proto extends StatefulWidget {
   @override
@@ -12,11 +13,12 @@ class protoState extends State<proto> {
   TextEditingController nameController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
   TextEditingController priceController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
   TextEditingController locationController = TextEditingController();
   TextEditingController openingTimeController = TextEditingController();
   TextEditingController closingTimeController = TextEditingController();
-  TextEditingController ratingController = TextEditingController();
-  TextEditingController imageController = TextEditingController();
+  // TextEditingController ratingController = TextEditingController();
+  // TextEditingController imageController = TextEditingController();
 
   final formkey = GlobalKey<FormState>();
   String name = "";
@@ -28,6 +30,7 @@ class protoState extends State<proto> {
         backgroundColor: Colors.transparent,
         key: scaffoldKey,
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 112, 86, 110),
           elevation: 0,
           title: Text(
             'Add A New Place',
@@ -43,11 +46,6 @@ class protoState extends State<proto> {
               color: Colors.black,
             ),
           ),
-          actions: const [
-            CircleAvatar(
-              backgroundImage: AssetImage('assets/personIco.jpg'),
-            )
-          ],
         ),
         body: Container(
             constraints: const BoxConstraints.expand(),
@@ -55,9 +53,9 @@ class protoState extends State<proto> {
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: const AssetImage('assets/cairov.jpg'),
+                  image: const AssetImage('assets/whiteee.jpg'),
                   colorFilter: ColorFilter.mode(
-                    Colors.white.withOpacity(0.5),
+                    Colors.white.withOpacity(1),
                     BlendMode.modulate,
                   ),
                   fit: BoxFit.cover),
@@ -72,36 +70,54 @@ class protoState extends State<proto> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: height * 0.05),
-                        Text('Add Place Name'),
+                        // SizedBox(height: 3),
+                        // // ignore: prefer_const_constructors
+                        // Text(
+                        //   'Please enter the place details',
+                        //   // ignore: prefer_const_constructors
+                        //   style: TextStyle(
+                        //     fontFamily: 'Raleway',
+                        //     fontSize: 18,
+                        //     color: Colors.black,
+                        //     height: 5,
+                        //   ),
+                        // ),
+                       SizedBox(height: height * 0.05),
                         TextFormField(
+                            textCapitalization: TextCapitalization.none,
+                            keyboardType: TextInputType.text,
+                            obscureText: false,
                             autofocus: false,
-                            cursorColor: Color.fromARGB(255, 0, 0, 0),
-                            controller: nameController,
+                            cursorColor: Colors.black,
                             style: const TextStyle(
                               fontStyle: FontStyle.normal,
                               fontSize: 14,
-                              color: Color.fromARGB(255, 17, 7, 56),
+                              color: Colors.black,
                             ),
+                            controller: aboutController,
                             decoration: const InputDecoration(
-                              hintText: 'Enter The place Name',
-                            ),
+                                labelText: "Enter the place's name"),
                             validator: (value) {
                               if (value!.isEmpty ||
                                   !RegExp('[a-zA-Z]').hasMatch(value)) {
-                                return "enter a correct place name";
+                                return "enter a correct name";
                               } else {
                                 return null;
                               }
-                            }),
+                            }
+                            ),
+
                         SizedBox(height: height * 0.05),
                         TextFormField(
+                            textCapitalization: TextCapitalization.none,
+                            keyboardType: TextInputType.text,
+                            obscureText: false,
                             autofocus: false,
-                            cursorColor: Color.fromARGB(255, 0, 0, 0),
+                            cursorColor: Colors.black,
                             style: const TextStyle(
                               fontStyle: FontStyle.normal,
                               fontSize: 14,
-                              color: Color.fromARGB(255, 17, 7, 56),
+                              color: Colors.black,
                             ),
                             controller: aboutController,
                             decoration: const InputDecoration(
@@ -116,7 +132,12 @@ class protoState extends State<proto> {
                             }),
                         SizedBox(height: height * 0.05),
                         TextFormField(
-                            controller: closingTimeController,
+                            textCapitalization: TextCapitalization.none,
+                            keyboardType: TextInputType.text,
+                            obscureText: false,
+                            autofocus: false,
+                            cursorColor: Colors.black,
+                            controller: cityController,
                             decoration: const InputDecoration(
                                 labelText: "Enter The place's city "),
                             validator: (value) {
@@ -129,12 +150,14 @@ class protoState extends State<proto> {
                             }),
                         SizedBox(height: height * 0.05),
                         TextFormField(
+                            textCapitalization: TextCapitalization.none,
+                            obscureText: false,
                             autofocus: false,
-                            cursorColor: Color.fromARGB(255, 0, 0, 0),
+                            cursorColor: Colors.black,
                             style: const TextStyle(
                               fontStyle: FontStyle.normal,
                               fontSize: 14,
-                              color: Color.fromARGB(255, 17, 7, 56),
+                              color: Colors.black,
                             ),
                             controller: locationController,
                             decoration: const InputDecoration(
@@ -150,7 +173,7 @@ class protoState extends State<proto> {
                             }),
                         SizedBox(height: height * 0.05),
                         TextFormField(
-                            controller: closingTimeController,
+                            controller: priceController,
                             decoration: const InputDecoration(
                                 labelText: "Enter The place's Ticket Price "),
                             validator: (value) {
@@ -196,19 +219,39 @@ class protoState extends State<proto> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Color.fromARGB(255, 112, 86, 110),
+                              ),
                               onPressed: () async {
                                 // Validate returns true if the form is valid, or false otherwise.
                                 if (formkey.currentState!.validate()) {
-                                  //DatabaseService service = DatabaseService();
-                                  // If the form is valid, display a snackbar. In the real world,
-                                  // you'd often call a server or save the information in a database.
-                                  // ScaffoldMessenger.of(context).showSnackBar(
-                                  //   const SnackBar(
-                                  //       content: Text('Processing Data')),
-                                  // );
-                                  FirebaseFirestore.instance
+                                  await FirebaseFirestore.instance
                                       .collection('places')
-                                      .add({'text': 'data added through app'});
+                                      .add({
+                                    'name': nameController.text,
+                                    'about': aboutController.text,
+                                    'price': priceController.text,
+                                    'city': cityController.text,
+                                    'location': locationController.text,
+                                    'openingtime': openingTimeController.text,
+                                    'closingtime': closingTimeController.text,
+                                  });
+                                  //  DatabaseService addplace = DatabaseService();
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text('Successfully Added ')),
+                                  );
+                                  // Navigator.pushNamed(context, '/test');
+                                  // FirebaseFirestore.instance
+                                  //     .collection('places')
+                                  //     .add({'text': 'data added through app'});
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text(
+                                            'Something went Wrong R-enter your data ')),
+                                  );
                                 }
                               },
                               child: const Text('Submit Form'),

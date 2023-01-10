@@ -7,6 +7,7 @@ import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
+import 'package:mobileapplication/screens/prototypeForm.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
 import 'package:mobileapplication/screens/addPlace.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/placeform',
+        initialRoute: '/admin',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
@@ -49,12 +50,13 @@ class MyApp extends StatelessWidget {
           '/eventform': (context) => const EventForm(),
           '/placeform': (context) => const PlaceForm(),
           '/wishList': (context) => const WishList(),
-          '/detailsPage': (context) => DetailsPage(), 
+          '/detailsPage': (context) => DetailsPage(),
           // '/detail': (context) => const DetailSreen(),
-          '/edevent': (context) => const crudevents(),
-          '/edplace': (context) => const crudplaces(),
+          '/edevent': (context) => CrudEvent(),
+          '/edplace': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
+          '/p': (context) => proto(),
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),

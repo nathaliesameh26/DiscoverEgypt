@@ -25,7 +25,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                   children: [
                     Expanded(
                       child: ListView.builder(
-                          itemCount: 2,
+                          itemCount: value.docs.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Padding(
                               padding: const EdgeInsets.only(
@@ -41,7 +41,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Events Name: ${value.get('name')}',
+                                            'Events Name: ${value.docs[index].get('name')}',
                                             style: const TextStyle(
                                               fontSize: 12,
                                               fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                                       SizedBox(
                                                         width: 285,
                                                         child: Text(
-                                                          '${value.get('about')}',
+                                                          '${value.docs[index].get('about')}',
                                                           style:
                                                               const TextStyle(
                                                             fontSize: 14,
@@ -123,7 +123,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                                 height: 10,
                                               ),
                                               Text(
-                                                '${value.get('location')}',
+                                                '${value.docs[index].get('location')}',
                                                 style: const TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.bold,
@@ -145,7 +145,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                                 height: 10,
                                               ),
                                               Text(
-                                                '${value.get('price')}',
+                                                '${value.docs[index].get('price')}',
                                                 style: const TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.bold,
@@ -165,9 +165,12 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                           ElevatedButton(
                                               onPressed: () {},
                                               style: ElevatedButton.styleFrom(
-                                                  primary: Color.fromARGB(
-                                                      255, 28, 128, 150),
+                                                  backgroundColor:
+                                                      // ignore: prefer_const_constructors
+                                                      Color.fromARGB(
+                                                          255, 28, 128, 150),
                                                   minimumSize: Size(150, 40)),
+                                              // ignore: prefer_const_constructors
                                               child: Text(
                                                 "EDIT",
                                                 style: const TextStyle(
@@ -177,9 +180,11 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                           ElevatedButton(
                                               onPressed: () {},
                                               style: ElevatedButton.styleFrom(
-                                                  primary: Color.fromARGB(
+                                                  // ignore: prefer_const_constructors
+                                                  backgroundColor: Color.fromARGB(
                                                       255, 28, 128, 150),
                                                   minimumSize: Size(150, 40)),
+                                              // ignore: prefer_const_constructors
                                               child: Text(
                                                 "Delete",
                                                 style: const TextStyle(
@@ -198,8 +203,14 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                   ],
                 ),
               ),
-          error: (Object error, StackTrace stackTrace) {},
-          loading: () {}),
+              //prints the error instead of red page error and loading when internet 
+        error: (Object error, StackTrace err) {
+                        return const Text("Error loading your list");
+                      },
+                      loading: () {
+                        return const Center(child: CircularProgressIndicator());
+                      },
+          ),
     );
   }
 }

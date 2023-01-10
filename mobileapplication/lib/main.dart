@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/destination_model.dart';
 import 'package:mobileapplication/screens/addEvent.dart';
+import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
@@ -56,7 +57,10 @@ class MyApp extends StatelessWidget {
           '/edplace': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
+          '/booking': (context) => BookingScreen(),
+          //'/Eventform': (context) => Eventform(),
           '/p': (context) => proto(),
+
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),

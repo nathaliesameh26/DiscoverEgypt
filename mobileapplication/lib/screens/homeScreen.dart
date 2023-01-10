@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapplication/screens/events_carousel.dart';
 import '../widget/navigation_bar.dart';
+import '../widget/username_show.dart';
 import 'destination_carousel.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -71,6 +72,10 @@ class _HomeScreenState extends State<HomeScreenn> {
             text: 'Profile',
           ),
         ],
+      ),
+      appBar: AppBar(
+        title: UsernameShow(),
+        backgroundColor: Colors.black,
       ),
       body: SafeArea(
         child: ListView(

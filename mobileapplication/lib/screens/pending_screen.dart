@@ -29,7 +29,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                   children: [
                     Expanded(
                       child: ListView.builder(
-                          itemCount: 2,
+                          itemCount: value.docs.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Padding(
                               padding: const EdgeInsets.only(
@@ -45,7 +45,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Event ID: ${value.get('name')}',
+                                            'Event ID: ${value.docs[index].get('name')}',
                                             style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        '${value.get('name')}',
+                                                        '${value.docs[index].get('name')}',
                                                         style: const TextStyle(
                                                           fontSize: 14,
                                                           fontWeight:
@@ -106,7 +106,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                                       SizedBox(
                                                         width: 285,
                                                         child: Text(
-                                                          '${value.get('about')}',
+                                                          '${value.docs[index].get('about')}',
                                                           style:
                                                               const TextStyle(
                                                             fontSize: 14,
@@ -143,7 +143,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                                 height: 10,
                                               ),
                                               Text(
-                                                '${value.get('location')}',
+                                                '${value.docs[index].get('location')}',
                                                 style: const TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.bold,
@@ -165,7 +165,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                                 height: 10,
                                               ),
                                               Text(
-                                                '${value.get('price')}',
+                                                '${value.docs[index].get('price')}',
                                                 style: const TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.bold,
@@ -185,7 +185,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                           ElevatedButton(
                                               onPressed: () {},
                                               style: ElevatedButton.styleFrom(
-                                                  primary: Colors.black,
+                                                  backgroundColor: Colors.black,
                                                   minimumSize: Size(150, 40)),
                                               child: Text(
                                                 "Accept",
@@ -196,7 +196,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                           ElevatedButton(
                                               onPressed: () {},
                                               style: ElevatedButton.styleFrom(
-                                                  primary: Colors.black,
+                                                  backgroundColor: Colors.black,
                                                   minimumSize: Size(150, 40)),
                                               child: Text(
                                                 "Cancel",

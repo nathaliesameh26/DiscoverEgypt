@@ -73,6 +73,7 @@ class protoState extends State<proto> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: height * 0.05),
+                        Text('Add Place Name'),
                         TextFormField(
                             autofocus: false,
                             cursorColor: Color.fromARGB(255, 0, 0, 0),
@@ -113,7 +114,7 @@ class protoState extends State<proto> {
                                 return null;
                               }
                             }),
-                                SizedBox(height: height * 0.05),
+                        SizedBox(height: height * 0.05),
                         TextFormField(
                             controller: closingTimeController,
                             decoration: const InputDecoration(
@@ -140,15 +141,14 @@ class protoState extends State<proto> {
                                 labelText: "Enter The place's location"),
                             validator: (value) {
                               if (value!.isEmpty ||
-                                  !RegExp(r'^[a-zA-Z0-9]+$')
-                                      .hasMatch(value)) {
-                                         //alpanumeric validator 
+                                  !RegExp(r'^[a-zA-Z0-9]+$').hasMatch(value)) {
+                                //alpanumeric validator
                                 return "enter a correct location";
                               } else {
                                 return null;
                               }
                             }),
-                                SizedBox(height: height * 0.05),
+                        SizedBox(height: height * 0.05),
                         TextFormField(
                             controller: closingTimeController,
                             decoration: const InputDecoration(
@@ -161,7 +161,6 @@ class protoState extends State<proto> {
                                 return null;
                               }
                             }),
-                            
                         SizedBox(height: height * 0.05),
                         TextFormField(
                             controller: openingTimeController,
@@ -169,7 +168,8 @@ class protoState extends State<proto> {
                                 labelText: "Enter The place's opening time "),
                             validator: (value) {
                               if (value!.isEmpty ||
-                                  !RegExp(r'^(?:[+0]9?)?[0-9]{0,12}$').hasMatch(value)) {
+                                  !RegExp(r'^(?:[+0]9?)?[0-9]{0,12}$')
+                                      .hasMatch(value)) {
                                 return "enter a correct time";
                               } else {
                                 return null;
@@ -182,7 +182,8 @@ class protoState extends State<proto> {
                                 labelText: "Enter The place's closing time "),
                             validator: (value) {
                               if (value!.isEmpty ||
-                                  !RegExp(r'^(?:[+0]9?)?[0-9]{0,12}$').hasMatch(value)) {
+                                  !RegExp(r'^(?:[+0]9?)?[0-9]{0,12}$')
+                                      .hasMatch(value)) {
                                 return "enter a correct time";
                               } else {
                                 return null;

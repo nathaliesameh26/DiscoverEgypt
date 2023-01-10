@@ -9,8 +9,12 @@ final placesDataProviderRepository = StateProvider<Future>((ref) => placesData);
 final placesDataProvider = FutureProvider(
   //bagyb beh aldata,byt3amel my al-ui
   //ui byklem provider
-  (ref) async {
+  (ref) {
     return ref.watch(placesDataProviderRepository);
     //listens to the data
   },
 );
+
+// DeletePlace(){
+
+// }

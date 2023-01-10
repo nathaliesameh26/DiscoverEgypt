@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/admin',
+        initialRoute: '/pending',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),

@@ -7,15 +7,20 @@ String eventID = event.uid;
 
 class EventsData {
   // ignore: non_constant_identifier_names
-  Future<Object> EventDetails() async {
-    final event = FirebaseAuth.instance.currentUser!;
-    String eventID = event.uid;
-    final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
-        .collection('events')
-        .doc('9qKBFY73oJbMnjgXpznB')
-        .get();
-    return documentSnapshot;
+    Future EventDetails() async {
+    final QuerySnapshot events =
+        await FirebaseFirestore.instance.collection('events').get();
+    return events;
   }
+  // Future<Object> EventDetails() async {
+  //   final event = FirebaseAuth.instance.currentUser!;
+  //   String eventID = event.uid;
+  //   final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+  //       .collection('events')
+  //       .doc('9qKBFY73oJbMnjgXpznB')
+  //       .get();
+  //   return documentSnapshot;
+  // }
 }
 
 Future addevent({

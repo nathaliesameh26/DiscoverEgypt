@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:mobileapplication/model/user.dart';
 import '../model/user_model.dart';
 import 'package:mobileapplication/widget/profile_widget.dart';

@@ -16,7 +16,7 @@ class BookingScreen extends ConsumerStatefulWidget {
 class _PendingScreenState extends ConsumerState<BookingScreen> {
   @override
   Widget build(BuildContext context) {
-    final PlacesData = ref.watch(placesDataProvider);
+    final PlacesData = ref.watch(pendingDataProvider);
     return Scaffold(
         appBar: AppBar(
           title: Text('Booking'),
@@ -27,7 +27,7 @@ class _PendingScreenState extends ConsumerState<BookingScreen> {
                     child: Column(children: [
                   Expanded(
                       child: ListView.builder(
-                          itemCount: 1,
+                          itemCount: value.docs.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Padding(
                                 padding: const EdgeInsets.only(
@@ -42,7 +42,7 @@ class _PendingScreenState extends ConsumerState<BookingScreen> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              'Event ID: ${value.get('name')}',
+                                              'Event ID: ${value.docs[index].get('name')}',
                                               style: const TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class _PendingScreenState extends ConsumerState<BookingScreen> {
                                                               .start,
                                                       children: [
                                                         Text(
-                                                          '${value.get('name')}',
+                                                          '${value.docs[index].get('name')}',
                                                           style:
                                                               const TextStyle(
                                                             fontSize: 14,
@@ -96,7 +96,7 @@ class _PendingScreenState extends ConsumerState<BookingScreen> {
                                                         SizedBox(
                                                           width: 285,
                                                           child: Text(
-                                                            '${value.get('about')}',
+                                                            '${value.docs[index].get('about')}',
                                                             style:
                                                                 const TextStyle(
                                                               fontSize: 14,
@@ -134,7 +134,7 @@ class _PendingScreenState extends ConsumerState<BookingScreen> {
                                                   height: 10,
                                                 ),
                                                 Text(
-                                                  '${value.get('location')} , Egypt',
+                                                  '${value.docs[index].get('location')} , Egypt',
                                                   style: const TextStyle(
                                                     fontSize: 13,
                                                     fontWeight: FontWeight.bold,
@@ -156,7 +156,7 @@ class _PendingScreenState extends ConsumerState<BookingScreen> {
                                                   height: 10,
                                                 ),
                                                 Text(
-                                                  '${value.get('price')} LE',
+                                                  '${value.docs[index].get('price')} LE',
                                                   style: const TextStyle(
                                                     fontSize: 13,
                                                     fontWeight: FontWeight.bold,

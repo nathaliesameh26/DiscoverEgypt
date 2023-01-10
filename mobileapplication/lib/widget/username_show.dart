@@ -34,3 +34,32 @@ class UsernameShow extends StatelessWidget {
     });
   }
 }
+
+// class EmailShow extends StatelessWidget {
+//   const EmailShow({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Consumer(builder: (_, ref, __) {
+//       return ref.watch(userDataProvider).when(data: (value) {
+//         return Center(
+//           child: Text(
+//             '${value.get('email')}',
+//             style: const TextStyle(
+//               backgroundColor: Colors.transparent,
+//               fontSize: 25.0,
+//               fontWeight: FontWeight.bold,
+//             ),
+//             textAlign: TextAlign.center,
+//           ),
+//         );
+//       }, error: (Object error, StackTrace err) {
+//         return const Text('Error loading the email');
+//       }, loading: () {
+//         return const CircularProgressIndicator();
+//       });
+//     });
+//   }
+// }

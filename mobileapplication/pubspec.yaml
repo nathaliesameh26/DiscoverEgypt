@@ -54,7 +54,13 @@ dependencies:
   google_nav_bar: ^5.0.6
   like_button: ^2.0.5
   shared_preferences: ^2.0.15
+  dropdown_textfield: ^1.0.7
   smooth_page_indicator: ^1.0.0+2
+  csc_picker: ^0.2.6
+  calendar_date_picker2: ^0.3.6
+  dropdown_button2: ^1.9.2
+  flutter_time_picker_spinner: ^2.0.0
+  
 
 # dependency_overrides:
 #   firebase_core_platform_interface: 4.5.1

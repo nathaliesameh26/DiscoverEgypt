@@ -187,9 +187,9 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor: Colors.black,
                                                   minimumSize: Size(150, 40)),
-                                              child: Text(
+                                              child: const Text(
                                                 "Accept",
-                                                style: const TextStyle(
+                                                style: TextStyle(
                                                   fontSize: 12,
                                                 ),
                                               )),
@@ -198,9 +198,9 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor: Colors.black,
                                                   minimumSize: Size(150, 40)),
-                                              child: Text(
+                                              child: const Text(
                                                 "Cancel",
-                                                style: const TextStyle(
+                                                style: TextStyle(
                                                   fontSize: 12,
                                                 ),
                                               )),

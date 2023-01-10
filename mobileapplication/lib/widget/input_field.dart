@@ -41,30 +41,29 @@ class InputField extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                    child: TextFormField(
-                      readOnly: widget==null?false:true,
-                  autofocus: false,
-                  cursorColor: Colors.blue,
-                  controller: controller,
-                  // ignore: prefer_const_constructors
-                  style: TextStyle(
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14,
-                    color: Color.fromARGB(255, 53, 27, 27),
-                  ),
-                  decoration: InputDecoration(
-                    hintText: hint,
-                    fillColor: Color.fromARGB(255, 152, 5, 5),
+                  child: TextFormField(
+                    readOnly: widget == null ? false : true,
+                    autofocus: false,
+                    cursorColor: Colors.blue,
+                    controller: controller,
+                    // ignore: prefer_const_constructors
+                    style: TextStyle(
+                      fontStyle: FontStyle.normal,
+                      fontSize: 14,
+                      color: Color.fromARGB(255, 53, 27, 27),
+                    ),
+                    decoration: InputDecoration(
+                      hintText: hint,
+                      fillColor: Color.fromARGB(255, 152, 5, 5),
+                    ),
                   ),
                 ),
-                ),
-                widget==null?Container():Container(child: widget)
+                widget == null ? Container() : Container(child: widget)
               ],
             ),
           )
         ],
       ),
-      
     );
   }
 }

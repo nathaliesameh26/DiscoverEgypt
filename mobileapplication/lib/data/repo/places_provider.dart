@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../model/place_model.dart';
-import '../../model/user.dart';
 
 //provider byklm almodel
 Future placesData = PlacesData().PlaceDetails();

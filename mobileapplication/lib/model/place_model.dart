@@ -5,15 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 final place = FirebaseAuth.instance.currentUser!;
 String placeID = place.uid;
 
-class PlacesModel {
-  String? name;
-  String? location;
-  String? description;
-  int? price;
-
-  PlacesModel(this.name, this.location, this.description, this.price);
-}
-
 class PlacesData {
   // ignore: non_constant_identifier_names
   Future<Object> PlaceDetails() async {
@@ -21,7 +12,7 @@ class PlacesData {
     String placeIDs = place.uid;
     final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
         .collection('places')
-        .doc('opzKllKvtUrfDxCXxPk9')
+        .doc('Laxg7aBc1j6TMyvOGqFZ')
         .get();
     return documentSnapshot;
   }
@@ -30,18 +21,20 @@ class PlacesData {
 Future addplace({
   required String name,
   required String about,
+   required int city,
   required String location,
   required int price,
-  required int rating,
+  // required int rating,
   required String openingtime,
   required String closingtime,
 }) async {
   await FirebaseFirestore.instance.collection('places').doc(placeID).set({
     "name": name,
     "about": about,
+    "city" :city,
     "location": location,
     "price": price,
-    "rating": rating,
+    // "rating": rating,
     "openingtime": openingtime,
     "closingtime": closingtime,
   });
@@ -51,6 +44,14 @@ Future addplace({
   await prefs.setString('PLACE_ID', placeID);
 }
 
+class PlacesModel {
+  String? name;
+  String? location;
+  String? description;
+  int? price;
+
+  PlacesModel(this.name, this.location, this.description, this.price);
+}
 // class PlaceInfo {
 //   final String location, image, name, desc, price, time;
 

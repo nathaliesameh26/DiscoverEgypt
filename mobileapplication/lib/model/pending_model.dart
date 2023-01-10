@@ -5,15 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 final pendingEvent = FirebaseAuth.instance.currentUser!;
 String pendingEID = pendingEvent.uid;
 
-// class PendingModel {
-//   String? name;
-//   String? location;
-//   String? about;
-//   int? price;
-
-//   PendingModel(this.name, this.location, this.about, this.price);
-// }
-
 class PendingData {
   // ignore: non_constant_identifier_names
   Future<Object> PendingDetails() async {
@@ -26,6 +17,16 @@ class PendingData {
     return documentSnapshot;
   }
 }
+
+// class PendingModel {
+//   String? name;
+//   String? location;
+//   String? about;
+//   int? price;
+
+//   PendingModel(this.name, this.location, this.about, this.price);
+// }
+
 
 // Future addEvent({
 //   required String name,

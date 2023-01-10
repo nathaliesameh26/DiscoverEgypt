@@ -7,21 +7,34 @@ String placeID = place.uid;
 
 class PlacesData {
   // ignore: non_constant_identifier_names
-  Future<Object> PlaceDetails() async {
-    final place = FirebaseAuth.instance.currentUser!;
-    String placeIDs = place.uid;
-    final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
-        .collection('places')
-        .doc('Laxg7aBc1j6TMyvOGqFZ')
-        .get();
-    return documentSnapshot;
+
+  // Stream<QuerySnapshot>getPlaces(){
+  //    return FirebaseFirestore.instance
+  //    .collection('places')
+  //    .snapshots();
+  // }
+
+  Future PlaceDetails() async {
+    final QuerySnapshot places =
+        await FirebaseFirestore.instance.collection('places').get();
+    return places;
   }
+
+  // Future<Object> PlaceDetails() async {
+  //   final place = FirebaseAuth.instance.currentUser!;
+  //   String placeIDs = place.uid;
+  //   final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+  //       .collection('places')
+  //       .doc('Laxg7aBc1j6TMyvOGqFZ')
+  //       .get();
+  //   return documentSnapshot;
+  // }
 }
 
 Future addplace({
   required String name,
   required String about,
-   required int city,
+  required int city,
   required String location,
   required int price,
   // required int rating,
@@ -31,7 +44,7 @@ Future addplace({
   await FirebaseFirestore.instance.collection('places').doc(placeID).set({
     "name": name,
     "about": about,
-    "city" :city,
+    "city": city,
     "location": location,
     "price": price,
     // "rating": rating,

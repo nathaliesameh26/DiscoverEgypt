@@ -6,55 +6,30 @@ final place = FirebaseAuth.instance.currentUser!;
 String placeID = place.uid;
 
 class PlacesData {
-  // ignore: non_constant_identifier_names
-
-  // Stream<QuerySnapshot>getPlaces(){
-  //    return FirebaseFirestore.instance
-  //    .collection('places')
-  //    .snapshots();
-  // }
-
   Future PlaceDetails() async {
     final QuerySnapshot places =
         await FirebaseFirestore.instance.collection('places').get();
     return places;
   }
-
-  // Future<Object> PlaceDetails() async {
-  //   final place = FirebaseAuth.instance.currentUser!;
-  //   String placeIDs = place.uid;
-  //   final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
-  //       .collection('places')
-  //       .doc('Laxg7aBc1j6TMyvOGqFZ')
-  //       .get();
-  //   return documentSnapshot;
-  // }
 }
 
-Future addplace({
-  required String name,
-  required String about,
-  required int city,
-  required String location,
-  required int price,
-  // required int rating,
-  required String openingtime,
-  required String closingtime,
-}) async {
-  await FirebaseFirestore.instance.collection('places').doc(placeID).set({
-    "name": name,
-    "about": about,
-    "city": city,
-    "location": location,
-    "price": price,
-    // "rating": rating,
-    "openingtime": openingtime,
-    "closingtime": closingtime,
-  });
+class AddPlace {
+  Future addplace(String name,String about,int city,String location,int price,String openingtime,String closingtime,
+  ) async {
+    await FirebaseFirestore.instance.collection('places').add({
+      "name": name,
+      "about": about,
+      "city": city,
+      "location": location,
+      "price": price,
+      "openingtime": openingtime,
+      "closingtime": closingtime,
+    });
 
-  print('New places is added');
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.setString('PLACE_ID', placeID);
+    print('New places is added');
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('PLACE_ID', placeID);
+  }
 }
 
 class PlacesModel {
@@ -65,6 +40,28 @@ class PlacesModel {
 
   PlacesModel(this.name, this.location, this.description, this.price);
 }
+
+ // ignore: non_constant_identifier_names
+
+  // Stream<QuerySnapshot>getPlaces(){
+  //    return FirebaseFirestore.instance
+  //    .collection('places')
+  //    .snapshots();
+  // }
+
+
+  // Future<Object> PlaceDetails() async {
+  //   final place = FirebaseAuth.instance.currentUser!;
+  //   String placeIDs = place.uid;
+  //   final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+  //       .collection('places')
+  //       .doc('Laxg7aBc1j6TMyvOGqFZ')
+  //       .get();
+  //   return documentSnapshot;
+  // }
+
+
+
 // class PlaceInfo {
 //   final String location, image, name, desc, price, time;
 

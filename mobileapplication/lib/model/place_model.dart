@@ -14,7 +14,14 @@ class PlacesData {
 }
 
 class AddPlace {
-  Future addplace(String name,String about,int city,String location,int price,String openingtime,String closingtime,
+  Future addplace(
+    String name,
+    String about,
+    int city,
+    String location,
+    int price,
+    String openingtime,
+    String closingtime,
   ) async {
     await FirebaseFirestore.instance.collection('places').add({
       "name": name,

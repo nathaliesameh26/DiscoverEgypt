@@ -25,17 +25,17 @@ Future signup(String email, String password) async {
       .user;
 }
 
-Future CreateUser(String idd , String fname, String lname, String email, String password,
-    String phone, String nationality,String role) async {
-  await FirebaseFirestore.instance.collection('users').add({ 
-    'id':idd,
-    'firstname' :fname,
-    'lastname':lname,
-    'email':email,
-    'phoneNum':phone,
-    'password':password,
-    'nationality':nationality,
-    'role':role,
+Future CreateUser(String idd, String fname, String lname, String email,
+    String password, String phone, String nationality, String role) async {
+  await FirebaseFirestore.instance.collection('users').add({
+    'id': idd,
+    'firstname': fname,
+    'lastname': lname,
+    'email': email,
+    'phoneNum': phone,
+    'password': password,
+    'nationality': nationality,
+    'role': role,
   });
 }
 

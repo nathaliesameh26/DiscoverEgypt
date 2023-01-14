@@ -49,7 +49,7 @@ class _RegisterState extends State<Register> {
                       Colors.white.withOpacity(1),
                       BlendMode.modulate,
                     ),
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: SingleChildScrollView(
@@ -250,6 +250,7 @@ class _RegisterState extends State<Register> {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(snackBar);
                                       }
+                                         Navigator.pushNamed(context, '/');
                                     },
                                     style: TextButton.styleFrom(
                                         backgroundColor:

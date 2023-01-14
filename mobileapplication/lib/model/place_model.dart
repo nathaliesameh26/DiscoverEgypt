@@ -23,21 +23,25 @@ class AddPlace {
     String openingtime,
     String closingtime,
   ) async {
-    await FirebaseFirestore.instance.collection('places').add({
-      "name": name,
-      "about": about,
-      "city": city,
-      "location": location,
-      "price": price,
-      "openingtime": openingtime,
-      "closingtime": closingtime,
-    });
+    Future placeAdded(String name, String about, String city, String price,
+        String openingtime, String closingtime, String s) async {
+      await FirebaseFirestore.instance.collection('places').add({
+        "name": name,
+        "about": about,
+        "city": city,
+        "price": int.parse(price),
+        "openingtime": openingtime,
+        "closingtime": closingtime,
+        // "location": location,
+      });
 
-    print('New places is added');
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('PLACE_ID', placeID);
+      // print('New places is added');
+      // final prefs = await SharedPreferences.getInstance();
+      // await prefs.setString('PLACE_ID', placeID);
+    }
   }
 }
+// }
 
 class PlacesModel {
   String? name;

@@ -1,5 +1,7 @@
 import 'package:csc_picker/csc_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobileapplication/model/events_model.dart';
 import 'package:mobileapplication/widget/input_field.dart';
 import 'package:intl/intl.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -21,14 +23,22 @@ final List<String> items = [
 String? selectedValue;
 
 class _EventFormState extends State<EventForm> {
-  TextEditingController dateinput = TextEditingController();
-  TextEditingController dateinput2 = TextEditingController();
+  TextEditingController openingTimeController = TextEditingController();
+  TextEditingController ClosingTimeController2 = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController aboutController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  TextEditingController priceController = TextEditingController();
+  TextEditingController startDateController = TextEditingController();
+  TextEditingController endDateController = TextEditingController();
+
   //text editing controller for text field
 
   @override
   void initState() {
-    dateinput.text = "";
-    dateinput2.text = ""; //set the initial value of text field
+    openingTimeController.text = "";
+    ClosingTimeController2.text = ""; //set the initial value of text field
     super.initState();
   }
 
@@ -83,6 +93,7 @@ class _EventFormState extends State<EventForm> {
                         fontSize: 15, color: Color.fromARGB(255, 0, 0, 0))),
                 const SizedBox(height: 15.0),
                 TextFormField(
+                    controller: nameController,
                     // controller: nameController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -155,6 +166,7 @@ class _EventFormState extends State<EventForm> {
                           .toList(),
                       value: selectedValue,
                       onChanged: (value) {
+                        cityController;
                         setState(() {
                           selectedValue = value as String;
                         });
@@ -203,7 +215,7 @@ class _EventFormState extends State<EventForm> {
                   height: 15.0,
                 ),
                 TextFormField(
-                  //controller: email,
+                  controller: locationController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.location_on),
@@ -235,6 +247,7 @@ class _EventFormState extends State<EventForm> {
                   height: 15.0,
                 ),
                 TextFormField(
+                  controller: priceController,
                   //controller: email,
                   // style: TextStyle(color: Colors.black),
                   // decoration: const InputDecoration(
@@ -267,8 +280,9 @@ class _EventFormState extends State<EventForm> {
                   height: 15.0,
                 ),
                 TextFormField(
-                  controller: dateinput, //editing controller of this TextField
-                  decoration: InputDecoration(
+                  controller:
+                      startDateController, //editing controller of this TextField
+                  decoration: const InputDecoration(
                       icon: Icon(Icons.calendar_today), //icon of text field
                       labelText: "Enter Start Date" //label text of field
                       ),
@@ -292,7 +306,7 @@ class _EventFormState extends State<EventForm> {
                       //you can implement different kind of Date Format here according to your requirement
 
                       setState(() {
-                        dateinput.text =
+                        openingTimeController.text =
                             formattedDate; //set output date to TextField value.
                       });
                     } else {
@@ -325,7 +339,8 @@ class _EventFormState extends State<EventForm> {
                   height: 15.0,
                 ),
                 TextFormField(
-                  controller: dateinput2, //editing controller of this TextField
+                  controller:
+                      endDateController, //editing controller of this TextField
                   decoration: InputDecoration(
                       icon: Icon(Icons.calendar_today), //icon of text field
                       labelText: "Enter End Date" //label text of field
@@ -350,7 +365,7 @@ class _EventFormState extends State<EventForm> {
                       //you can implement different kind of Date Format here according to your requirement
 
                       setState(() {
-                        dateinput.text =
+                        openingTimeController.text =
                             formattedDate; //set output date to TextField value.
                       });
                     } else {
@@ -382,7 +397,7 @@ class _EventFormState extends State<EventForm> {
                   height: 15.0,
                 ),
                 TextFormField(
-                  //controller: email,
+                  controller: aboutController,
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -416,6 +431,7 @@ class _EventFormState extends State<EventForm> {
                 ),
 
                 TextFormField(
+                  controller: openingTimeController,
                   //controller: email,
 
                   // style: TextStyle(color: Colors.black),
@@ -449,6 +465,7 @@ class _EventFormState extends State<EventForm> {
                   height: 15.0,
                 ),
                 TextFormField(
+                  controller: ClosingTimeController2,
                   //controller: email,
                   // style: TextStyle(color: Colors.black),
                   // decoration: const InputDecoration(
@@ -485,16 +502,30 @@ class _EventFormState extends State<EventForm> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.black,
-                                minimumSize: Size(150, 40)),
-                            child: Text(
-                              "Add",
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ))
+                          onPressed: () async {
+                            try {
+                              // await addevent(
+                              //   nameController.text,
+                              //   aboutController.text,
+                              //   cityController.text,
+                              //   locationController.text,
+                              //   priceController.text,
+                              //   startDateController.text,
+                              //   endDateController.text,
+                              //   openingTimeController.text,
+                              //   ClosingTimeController2.text,
+                              // );
+                              Navigator.pushNamed(context, '/homescreen');
+                            } on FirebaseAuthException catch (e) {
+                              if (e.code == 'user-not-found') {
+                                print('No user found for that email.');
+                              } else if (e.code == 'wrong-password') {
+                                print('Wrong password provided for that user.');
+                              }
+                            }
+                          },
+                          child: null,
+                        )
                       ]),
                 )
 

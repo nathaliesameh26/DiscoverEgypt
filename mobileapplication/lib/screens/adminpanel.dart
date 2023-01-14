@@ -44,13 +44,13 @@ class _adminpnelState extends State<adminpnel> {
                                 return ref.watch(userDataProvider).when(
                                   data: (value) {
                                     return Center(
-                                      child: Text(
-                                        // ignore: prefer_adjacent_string_concatenation
-                                        '${value.get('firstname')}' +
-                                            ' ' +
-                                            '${value.get('lastname')}',
-                                        style: const TextStyle(fontSize: 10),
-                                      ),
+                                      // child: Text(
+                                      //   // ignore: prefer_adjacent_string_concatenation
+                                      //   '${value.get('firstname')}' +
+                                      //       ' ' +
+                                      //       '${value.get('lastname')}',
+                                      //   style: const TextStyle(fontSize: 10),
+                                      // ),
                                     );
                                   },
                                   error: (Object error, StackTrace stackTrace) {
@@ -315,7 +315,7 @@ class _adminpnelState extends State<adminpnel> {
                           child: const Text('Add An Events')),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/p');
+                            Navigator.pushNamed(context, '/addplace');
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 28, 128, 150),

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/login',
+        initialRoute: '/welcome',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
@@ -51,6 +51,7 @@ class MyApp extends StatelessWidget {
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
+
           //'/Eventform': (context) => Eventform(),
           '/p': (context) => proto(),
 

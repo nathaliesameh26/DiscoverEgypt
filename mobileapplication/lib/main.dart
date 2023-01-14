@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobileapplication/screens/addEvent.dart';
+import 'package:mobileapplication/screens/Place_form.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
-import 'package:mobileapplication/screens/prototypeForm.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
-import 'package:mobileapplication/screens/addPlace.dart';
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import 'screens/login_screen.dart';
@@ -36,15 +34,15 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/login',
         routes: {
+          
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
           '/admin': (context) => const adminpnel(),
-          '/eventform': (context) => const EventForm(),
-          '/placeform': (context) => const PlaceForm(),
           '/wishList': (context) => const WishList(),
           '/detailsPage': (context) => DetailsPage(),
+          'addedplace' :(context) => placeForm(),
           // '/detail': (context) => const DetailSreen(),
           '/edevent': (context) => CrudEvent(),
           '/edplace': (context) => CrudPlace(),
@@ -52,7 +50,7 @@ class MyApp extends StatelessWidget {
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
           //'/Eventform': (context) => Eventform(),
-          '/p': (context) => proto(),
+          // '/p': (context) => proto(),
 
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),

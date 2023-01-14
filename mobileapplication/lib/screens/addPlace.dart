@@ -57,7 +57,10 @@ class _EventFormState extends State<PlaceForm> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const InputField(title: 'Name', hint: 'Enter name here...',),
+                const InputField(
+                  title: 'Name',
+                  hint: 'Enter name here...',
+                ),
                 const InputField(
                     title: 'Description', hint: 'Enter description here...'),
                 const InputField(title: 'City', hint: 'Enter city here.'),
@@ -133,30 +136,29 @@ class _EventFormState extends State<PlaceForm> {
     );
   }
 
-  _getTimeFromUser({required bool isStarTime}) async {
-    var pickedTime = await _showTime();
-    String _formatedTime = pickedTime.format(context);
-    if (pickedTime == null) {
-      print("Time canceled");
-    } else if (isStarTime == true) {
-      setState(() {
-        _startTime = _formatedTime;
-      });
-    } else if (isStarTime == false) {
-      setState(() {
-        _endTime = _formatedTime;
-      });
-    }
-  }
+  // _getTimeFromUser({required bool isStarTime}) async {
+  //   var pickedTime = await _showTime();
+  //   String _formatedTime = pickedTime.format(context);
+  //   if (pickedTime == null) {
+  //     print("Time canceled");
+  //   } else if (isStarTime == true) {
+  //     setState(() {
+  //       _startTime = _formatedTime;
+  //     });
+  //   } else if (isStarTime == false) {
+  //     setState(() {
+  //       _endTime = _formatedTime;
+  //     });
+  //   }
+  // }
 
-  _showTime() {
-    return showTimePicker(
-        initialEntryMode: TimePickerEntryMode.input,
-        context: context,
-        initialTime: TimeOfDay(
-          hour: int.parse(_startTime.split(":")[0]),
-          minute: int.parse(_startTime.split(":")[1].split(":")[0]),
-        ));
-  }
+//   _showTime() {
+//     return showTimePicker(
+//         initialEntryMode: TimePickerEntryMode.input,
+//         context: context,
+//         initialTime: TimeOfDay(
+//           hour: int.parse(_startTime.split(":")[0]),
+//           minute: int.parse(_startTime.split(":")[1].split(":")[0]),
+//         ));
+//   }
 }
-

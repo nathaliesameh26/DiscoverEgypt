@@ -13,7 +13,7 @@ class PlacesData {
   }
 }
 
-  Future placeAdded(String name,String about, String city,String price, String openingtime,String closingtime, String s) async {
+  Future placeAdded(String name,String about, String city,String price, String openingtime,String closingtime,String s ,) async {
     await FirebaseFirestore.instance.collection('places').add({
       "name": name,
       "about": about,
@@ -21,11 +21,11 @@ class PlacesData {
       "price": int.parse(price),
       "openingtime": openingtime,
       "closingtime": closingtime,
+      // "id" :place,
       // "location": location,
     });
 
-    //  FirebaseFirestore.instance.collection('places').
-    //print('New places is added');
+    // print('New places is added');
     // final prefs = await SharedPreferences.getInstance();
     // await prefs.setString('id', placeID);
   }

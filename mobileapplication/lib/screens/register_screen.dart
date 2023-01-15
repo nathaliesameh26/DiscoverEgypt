@@ -46,7 +46,7 @@ class _RegisterState extends State<Register> {
                     // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
                     image: const AssetImage('assets/temple.jpg'),
                     colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.8),
+                      Colors.white.withOpacity(1),
                       BlendMode.modulate,
                     ),
                     fit: BoxFit.cover,

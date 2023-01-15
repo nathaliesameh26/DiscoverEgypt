@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../model/events_model.dart';
 import '../../model/whishlist_model.dart';
 
+//---------------------WishlistProvider------------------------//
+
 //provider byklm almodel
 Future wishlistData = WishList().getWishListData();
 final wishlistDataProviderRepository =

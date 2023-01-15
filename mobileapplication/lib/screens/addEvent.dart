@@ -2,6 +2,7 @@ import 'package:csc_picker/csc_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapplication/model/events_model.dart';
+import 'package:mobileapplication/screens/Event_form.dart';
 import 'package:mobileapplication/widget/input_field.dart';
 import 'package:intl/intl.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -281,7 +282,7 @@ class _EventFormState extends State<EventForm> {
                 ),
                 TextFormField(
                   controller:
-                      startDateController, //editing controller of this TextField
+                      openingTimeController, //editing controller of this TextField
                   decoration: const InputDecoration(
                       icon: Icon(Icons.calendar_today), //icon of text field
                       labelText: "Enter Start Date" //label text of field
@@ -340,7 +341,7 @@ class _EventFormState extends State<EventForm> {
                 ),
                 TextFormField(
                   controller:
-                      endDateController, //editing controller of this TextField
+                      ClosingTimeController2, //editing controller of this TextField
                   decoration: InputDecoration(
                       icon: Icon(Icons.calendar_today), //icon of text field
                       labelText: "Enter End Date" //label text of field
@@ -365,7 +366,7 @@ class _EventFormState extends State<EventForm> {
                       //you can implement different kind of Date Format here according to your requirement
 
                       setState(() {
-                        openingTimeController.text =
+                        ClosingTimeController2.text =
                             formattedDate; //set output date to TextField value.
                       });
                     } else {
@@ -431,7 +432,7 @@ class _EventFormState extends State<EventForm> {
                 ),
 
                 TextFormField(
-                  controller: openingTimeController,
+                  controller: startDateController,
                   //controller: email,
 
                   // style: TextStyle(color: Colors.black),
@@ -465,7 +466,7 @@ class _EventFormState extends State<EventForm> {
                   height: 15.0,
                 ),
                 TextFormField(
-                  controller: ClosingTimeController2,
+                  controller: endDateController,
                   //controller: email,
                   // style: TextStyle(color: Colors.black),
                   // decoration: const InputDecoration(
@@ -503,25 +504,29 @@ class _EventFormState extends State<EventForm> {
                       children: [
                         ElevatedButton(
                           onPressed: () async {
-                            try {
-                              // await addevent(
-                              //   nameController.text,
-                              //   aboutController.text,
-                              //   cityController.text,
-                              //   locationController.text,
-                              //   priceController.text,
-                              //   startDateController.text,
-                              //   endDateController.text,
-                              //   openingTimeController.text,
-                              //   ClosingTimeController2.text,
-                              // );
-                              Navigator.pushNamed(context, '/homescreen');
-                            } on FirebaseAuthException catch (e) {
-                              if (e.code == 'user-not-found') {
-                                print('No user found for that email.');
-                              } else if (e.code == 'wrong-password') {
-                                print('Wrong password provided for that user.');
-                              }
+                            await EventAdded(
+                              nameController.text,
+                              aboutController.text,
+                              cityController.text,
+                              priceController.text,
+                              openingTimeController.text,
+                              ClosingTimeController2.text,
+                              startDateController.text,
+                              endDateController.text,
+                              locationController.text,
+                            );
+                            if (formkey.currentState!.validate()) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text('Successfully Added ')),
+                              );
+                              // Navigator.pushNamed(context, '/test');
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text(
+                                        'Something went Wrong R-enter your data ')),
+                              );
                             }
                           },
                           child: null,

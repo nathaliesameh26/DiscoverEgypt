@@ -82,13 +82,13 @@ class _LoginState extends State<Login> {
                               controller: emailController,
                               style: TextStyle(color: Colors.white),
                               decoration: InputDecoration(
-                                hintText: "Enter your name",
+                                hintText: "Enter your email",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
                               validator: (value) {
                                 if (value!.isEmpty ||
                                     !RegExp(r'[a-z A-Z]+$').hasMatch(value)) {
-                                  return "Enter your name";
+                                  return "Enter your email correctly";
                                 } else {
                                   return null;
                                 }
@@ -141,9 +141,7 @@ class _LoginState extends State<Login> {
                                       try {
                                         await Loginn(emailController.text,
                                             passwordController.text);
-                                        // ignore: use_build_context_synchronously
-                                        Navigator.pushNamed(
-                                            context, '/homescreen');
+                                        Navigator.pushNamed(context, '/');
                                       } on FirebaseAuthException catch (e) {
                                         if (e.code == 'user-not-found') {
                                           print(

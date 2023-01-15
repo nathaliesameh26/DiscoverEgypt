@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/screens/Event_form.dart';
 import 'package:mobileapplication/screens/Place_form.dart';
+import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/login',
+        initialRoute: '/search',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
@@ -49,8 +50,10 @@ class MyApp extends StatelessWidget {
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
-          '/event': (context) => eventForm(),
-          '/Eventform': (context) => EventForm(),
+          '/event': (context) => const eventForm(),
+          '/Eventform': (context) => const EventForm(),
+          '/search': (context) => SearchPage(),
+
           // '/p': (context) => proto(),
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),

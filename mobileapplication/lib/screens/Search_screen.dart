@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/place_model.dart';
 
-class SearchPage extends StatefulWidget {
+import '../data/repo/places_provider.dart';
+
+class SearchPage extends ConsumerStatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
+  ConsumerState<SearchPage> createState() => _SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _SearchPageState extends ConsumerState<SearchPage> {
 //we are going to create a dummy list of places
 // our own list for now.
 
@@ -42,6 +45,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    final PlacesData = ref.watch(placesDataProvider);
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
@@ -56,74 +60,86 @@ class _SearchPageState extends State<SearchPage> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Search for your favorite place",
-              style: TextStyle(
-                color: Color.fromARGB(255, 0, 0, 0),
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            TextField(
-              onChanged: (value) => updateList(value),
-              style: const TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: const Color.fromARGB(255, 224, 234, 229),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide.none,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Search for your favorite place",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
                 ),
-                hintText: "eg: The Pyramids",
-                prefixIcon: const Icon(Icons.search),
-                prefixIconColor: Color.fromARGB(255, 0, 0, 0),
               ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Expanded(
-              // create a function display a text in case we don't get research
-              child: display_list.isEmpty
-                  ? const Center(
-                      child: Text(
-                      "Now Results found",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.bold,
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextField(
+                // onChanged: (value) => updateList(value),
+                style: const TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color.fromARGB(255, 224, 234, 229),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide.none,
+                  ),
+                  hintText: "eg: The Pyramids",
+                  prefixIcon: const Icon(Icons.search),
+                  prefixIconColor: Color.fromARGB(255, 0, 0, 0),
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Expanded(
+                // create a function display a text in case we don't get research
+                child: places_list.isEmpty
+                    ? const Center(
+                        child: Text(
+                        "Now Results found",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ))
+                    : PlacesData.when(
+                        data: (value) => SafeArea(
+                          child: ListView.builder(
+                              //child: ListView.builder(
+                              itemCount: value.docs.length,
+                              itemBuilder: (context, index) => ListTile(
+                                    contentPadding: const EdgeInsets.all(8.0),
+                                    title: Text(
+                                        '${value.docs[index].get('name')}',
+                                        style: const TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0),
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                    subtitle: Text(
+                                      '${value.docs[index].get('location')}',
+                                      style: TextStyle(
+                                          color: Color.fromARGB(153, 0, 0, 0)),
+                                    ),
+                                    trailing: Text(
+                                      "${value.docs[index].get('price')} LE",
+                                      style:
+                                          const TextStyle(color: Colors.black),
+                                    ),
+                                    // leading: Image.network(display_list[index].),
+                                  )),
+                        ),
+                        error: (Object error, StackTrace err) {
+                          return const Text("Error loading your list");
+                        },
+                        loading: () {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        },
                       ),
-                    ))
-                  : ListView.builder(
-                      //child: ListView.builder(
-                      itemCount: display_list.length,
-                      itemBuilder: (context, index) => ListTile(
-                            contentPadding: const EdgeInsets.all(8.0),
-                            title: Text(display_list[index].name!,
-                                style: const TextStyle(
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            subtitle: Text(
-                              '${display_list[index].description!}',
-                              style: TextStyle(
-                                  color: Color.fromARGB(153, 0, 0, 0)),
-                            ),
-                            trailing: Text(
-                              "${display_list[index].price}",
-                              style: const TextStyle(color: Colors.black),
-                            ),
-                            // leading: Image.network(display_list[index].),
-                          )),
-            )
-          ],
-        ),
+              ),
+            ]),
       ),
     );
   }

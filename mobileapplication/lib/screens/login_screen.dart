@@ -7,12 +7,11 @@ class Login extends StatefulWidget {
   const Login({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-  final user = LoginUser.Luser;
+  //final user = LoginUser.Luser;
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
   TextEditingController emailController = TextEditingController();
@@ -28,7 +27,7 @@ class _LoginState extends State<Login> {
       //   backgroundColor: Colors.transparent,
       //   elevation: 0,
       // ),
-      backgroundColor: Color(0xFFffffff),
+      backgroundColor: const Color(0xFFffffff),
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: GestureDetector(
@@ -41,7 +40,7 @@ class _LoginState extends State<Login> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
-                    image: AssetImage('assets/temple.jpg'),
+                    image: const AssetImage('assets/temple.jpg'),
                     colorFilter: ColorFilter.mode(
                       Colors.white.withOpacity(1),
                       BlendMode.modulate,
@@ -80,8 +79,8 @@ class _LoginState extends State<Login> {
                             ),
                             TextFormField(
                               controller: emailController,
-                              style: TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
+                              style: const TextStyle(color: Colors.white),
+                              decoration: const InputDecoration(
                                 hintText: "Enter your email",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
@@ -99,8 +98,8 @@ class _LoginState extends State<Login> {
                             ),
                             TextFormField(
                               controller: passwordController,
-                              style: TextStyle(color: Colors.white),
-                              decoration: InputDecoration(
+                              style: const TextStyle(color: Colors.white),
+                              decoration: const InputDecoration(
                                 hintText: "Enter your password",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
@@ -153,8 +152,8 @@ class _LoginState extends State<Login> {
                                       }
                                     },
                                     style: TextButton.styleFrom(
-                                        backgroundColor:
-                                            Color.fromARGB(255, 255, 115, 0)),
+                                        backgroundColor: const Color.fromARGB(
+                                            255, 255, 115, 0)),
                                     child: const Text(
                                       "Login ",
                                       style: TextStyle(color: Colors.white),

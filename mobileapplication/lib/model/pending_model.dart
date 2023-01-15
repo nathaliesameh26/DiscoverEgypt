@@ -11,6 +11,7 @@ class PendingData {
   Future PendingDetails() async {
     final QuerySnapshot pendingEvent =
         await FirebaseFirestore.instance.collection('pending').get();
+        
     return pendingEvent;
   }
 

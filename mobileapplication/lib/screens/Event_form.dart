@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../model/events_model.dart';
+
 class eventForm extends StatefulWidget {
   const eventForm({Key? key}) : super(key: key);
 
@@ -17,6 +19,8 @@ class _eventFormState extends State<eventForm> {
   TextEditingController locationController = TextEditingController();
   TextEditingController openingTimeController = TextEditingController();
   TextEditingController closingTimeController = TextEditingController();
+  TextEditingController startDateController = TextEditingController();
+  TextEditingController endDateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +151,7 @@ class _eventFormState extends State<eventForm> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
-                                controller: openingTimeController,
+                                controller: startDateController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                   labelText: 'Event Start Date',
@@ -165,7 +169,7 @@ class _eventFormState extends State<eventForm> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
-                                controller: openingTimeController,
+                                controller: endDateController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                   labelText: 'Event End Date',
@@ -225,7 +229,32 @@ class _eventFormState extends State<eventForm> {
                                       Color.fromARGB(255, 199, 190, 199),
                                 ),
                                 child: const Text('Submit'),
-                                onPressed: () {},
+                                onPressed: () async {
+                                  await EventAdded(
+                                    nameController.text,
+                                    aboutController.text,
+                                    cityController.text,
+                                    priceController.text,
+                                    openingTimeController.text,
+                                    closingTimeController.text,
+                                    startDateController.text,
+                                    endDateController.text,
+                                    locationController.text,
+                                  );
+                                  if (formkey.currentState!.validate()) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text('Successfully Added ')),
+                                    );
+                                    // Navigator.pushNamed(context, '/test');
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text(
+                                              'Something went Wrong R-enter your data ')),
+                                    );
+                                  }
+                                },
                               )),
                         ],
                       )))),

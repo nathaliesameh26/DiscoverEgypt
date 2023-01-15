@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final place = FirebaseAuth.instance.currentUser!;
-String placeID = place.uid;
+// final place = FirebaseAuth.instance.currentUser!;
+// String placeID = place.uid;
 
 class PlacesData {
   Future PlaceDetails() async {
@@ -11,6 +11,26 @@ class PlacesData {
         await FirebaseFirestore.instance.collection('places').get();
     return places;
   }
+}
+
+
+Future placeAdded(String name, String about, String city, String price,
+    String openingTime, String closingTime) async {
+  await FirebaseFirestore.instance.collection('places').add({
+    "name": name,
+    "about": about,
+    "city": city,
+    "price": int.parse(price),
+    "openingTime": openingTime,
+    "closingTime": closingTime,
+    // "id" :place,
+    // "location": location,
+  });
+
+
+Future deletePlace(String name) async {
+  // final placeid = int.parse(id);
+  FirebaseFirestore.instance.collection("places").doc(name).delete();
 }
 
 Future placeAdded(String name, String about, String city, String price,
@@ -26,20 +46,21 @@ Future placeAdded(String name, String about, String city, String price,
     // "location": location,
   });
 
+
   // print('New places is added');
   // final prefs = await SharedPreferences.getInstance();
   // await prefs.setString('id', placeID);
 }
 // }
 
-class PlacesModel {
-  String? name;
-  String? location;
-  String? description;
-  int? price;
+// class PlacesModel {
+//   String? name;
+//   String? location;
+//   String? description;
+//   int? price;
 
-  PlacesModel(this.name, this.location, this.description, this.price);
-}
+//   PlacesModel(this.name, this.location, this.description, this.price);
+// }
 
  // ignore: non_constant_identifier_names
 

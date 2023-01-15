@@ -127,6 +127,7 @@ class _LoginState extends State<Login> {
                                               context, '/register');
                                         },
                                         style: TextButton.styleFrom(
+                                            // ignore: prefer_const_constructors
                                             backgroundColor: Color.fromARGB(
                                                 255, 255, 115, 0)),
                                         child: const Text(
@@ -140,6 +141,7 @@ class _LoginState extends State<Login> {
                                       try {
                                         await Loginn(emailController.text,
                                             passwordController.text);
+                                        // ignore: use_build_context_synchronously
                                         Navigator.pushNamed(
                                             context, '/homescreen');
                                       } on FirebaseAuthException catch (e) {

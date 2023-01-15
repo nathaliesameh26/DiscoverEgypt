@@ -95,7 +95,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
               ),
               Expanded(
                 // create a function display a text in case we don't get research
-                // ignore: invalid_use_of_visible_for_testing_member
+
                 child: valueAndCurrencyMustBeTogetherError.isEmpty
                     ? const Center(
                         child: Text(

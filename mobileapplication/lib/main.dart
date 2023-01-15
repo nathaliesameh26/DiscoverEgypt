@@ -13,7 +13,6 @@ import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'screens/splash.dart';
 
 void main() async {

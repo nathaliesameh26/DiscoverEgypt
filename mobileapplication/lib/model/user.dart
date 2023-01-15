@@ -7,7 +7,7 @@ class UserData {
     String userIds = user.uid;
     final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
         .collection('users')
-        .doc('GwBywSu38lShNnea4TCw')
+        .doc('VF7E8oJZEhp3VJ3RNNBi')
         .get();
     return documentSnapshot;
   }

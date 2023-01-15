@@ -1,3 +1,4 @@
+import 'dart:core';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,6 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 // String myDocId = 'place.uid';
 // DocumentSnapshot? documentSnapshot;
 
+late DocumentReference _documentReference;
+late Future<DocumentSnapshot> _futureDocument;
+
 class PlacesData {
   Future PlaceDetails() async {
     final QuerySnapshot places =
@@ -14,6 +18,41 @@ class PlacesData {
     return places;
   }
 }
+
+
+Future deletePlace(String id) async {
+  _documentReference = FirebaseFirestore.instance.collection('place').doc(id);
+  _futureDocument = _documentReference.get();
+  _documentReference.delete();
+}
+
+// Future deletePlace(String id) async {
+//   await FirebaseFirestore.instance.collection('place').
+//   doc(id).delete();
+// }
+// final placeid = int.parse(id);
+// FirebaseFirestore.instance.collection("places").doc(name).delete();
+
+//   DocumentReference docRef = FirebaseFirestore.instance.collection('places').doc();
+// print(docRef.documentID);
+// docRef.setData({JSON Data});
+
+// DocumentReference doc_ref=FirebaseFirestore.instance.collection("places").doc(doc_id);
+// DocumentSnapshot docSnap = await doc_ref.get();
+// var doc_id = docSnap.reference.documentID;
+
+// deleteDocument(String documentId) async {
+//   try {
+//     await FirebaseFirestore.instance
+//         .collection('places')
+//         .doc(documentId)
+//         .delete();
+//     print('Document successfully deleted!');
+//   } catch (e) {
+//     print('Error deleting document: $e');
+//   }
+// }
+
 
 Future placeAdded(String name, String about, String city, String price,
     String openingTime, String closingTime) async {
@@ -34,10 +73,10 @@ Future placeAdded(String name, String about, String city, String price,
 }
 // }
 
-Future deletePlace(String name) async {
-  // final placeid = int.parse(id);
-  FirebaseFirestore.instance.collection("places").doc(name).delete();
-}
+// Future deletePlace(String name) async {
+//   // final placeid = int.parse(id);
+//   FirebaseFirestore.instance.collection("places").doc(name).delete();
+// }
 
 class PlacesModel {
   String? name;

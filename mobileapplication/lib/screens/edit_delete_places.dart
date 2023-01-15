@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/place_model.dart';
 import '../data/repo/places_provider.dart';
+
+// String myDocId = 'place.uid';
+// DocumentSnapshot? documentSnapshot;
 
 class CrudPlace extends ConsumerStatefulWidget {
   CrudPlace({Key? key});
@@ -166,7 +170,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                     ElevatedButton(
                                         onPressed: () {},
                                         style: ElevatedButton.styleFrom(
-                                            backgroundColor: Color.fromARGB(
+                                            backgroundColor: const Color.fromARGB(
                                                 255, 28, 128, 150),
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
@@ -177,9 +181,10 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                           ),
                                         )),
                                     ElevatedButton(
-                                        onPressed: () {
+                                        onPressed: () async {
                                           deletePlace(
-                                              value.docs[index].get('name'));
+                                              value.docs[index].get('id')
+                                              );
                                         },
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:

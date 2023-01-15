@@ -50,10 +50,8 @@ class MyApp extends StatelessWidget {
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
           '/event': (context) => eventForm(),
-
           '/Eventform': (context) => EventForm(),
           // '/p': (context) => proto(),
-
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),

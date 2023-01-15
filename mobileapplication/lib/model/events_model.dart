@@ -23,6 +23,38 @@ class EventsData {
   // }
 }
 
+Future EventAdded(
+  String name,
+  String about,
+  String city,
+  String price,
+  String openingTime,
+  String closingTime,
+  String startdate,
+  String enddate,
+  //String rating,
+  String location,
+) async {
+  await FirebaseFirestore.instance.collection('events').add({
+    "name": name,
+    "about": about,
+    "city": city,
+    "price": int.parse(price),
+    "openingTime": openingTime,
+    "closingTime": closingTime,
+    "startdate": startdate,
+    "enddate": enddate,
+    //"rating": int.parse(rating),
+    "location": location,
+    // "id" :place,
+    // "location": location,
+  });
+
+  // print('New places is added');
+  // final prefs = await SharedPreferences.getInstance();
+  // await prefs.setString('id', placeID);
+}
+
 Future addevent({
   required String name,
   required String about,

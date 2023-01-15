@@ -6,17 +6,39 @@ import 'package:mobileapplication/model/login_model.dart';
 final user = FirebaseAuth.instance.currentUser!;
 String userId = user.uid;
 
-class LoginUser {
-  static const Luser = UserLogin(
-    username: 'student',
-    password: '123',
-  );
-}
+// class LoginUser {
+//   static const Luser = UserLogin(
+//     username: 'student',
+//     password: '123',
+//   );
+// }
+
+// class getUserDetails {
+//   // ignore: non_constant_identifier_names
+//   Future getUserDetailss() async {
+//     final QuerySnapshot userDetails =
+
+//         await FirebaseFirestore.instance.collection('users').get();
+//     return userDetails;
+//   }
+// }
+
+// class UserData {
+//   Future<Object> getUserDetails() async {
+//     final user = FirebaseAuth.instance.currentUser!;
+//     String userIds = user.uid;
+//     final QuerySnapshot userDetails =
+//         await FirebaseFirestore.instance.collection('users').get();
+//     return userDetails;
+//   }
+// }
 
 Future Loginn(String email, String password) async {
   final User? user = (await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password))
       .user;
+
+  userId = user!.uid;
 }
 
 Future signup(String email, String password) async {
@@ -39,6 +61,9 @@ Future CreateUser(String idd, String fname, String lname, String email,
     'role': role,
   });
 }
+
+
+
 
 // final user = FirebaseAuth.instance.currentUser!;
 // String userID = user.uid;

@@ -1,3 +1,4 @@
+import 'dart:core';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -6,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 // String placeID = place.uid;
 // String myDocId = 'place.uid';
 // DocumentSnapshot? documentSnapshot;
+
 late DocumentReference _documentReference;
 late Future<DocumentSnapshot> _futureDocument;
 
@@ -16,6 +18,7 @@ class PlacesData {
     return places;
   }
 }
+
 
 Future deletePlace(String id) async {
   _documentReference = FirebaseFirestore.instance.collection('place').doc(id);
@@ -50,6 +53,7 @@ Future deletePlace(String id) async {
 //   }
 // }
 
+
 Future placeAdded(String name, String about, String city, String price,
     String openingTime, String closingTime) async {
   await FirebaseFirestore.instance.collection('places').add({
@@ -67,6 +71,11 @@ Future placeAdded(String name, String about, String city, String price,
   // final prefs = await SharedPreferences.getInstance();
   // await prefs.setString('id', placeID);
 }
+// }
+
+// Future deletePlace(String name) async {
+//   // final placeid = int.parse(id);
+//   FirebaseFirestore.instance.collection("places").doc(name).delete();
 // }
 
 class PlacesModel {

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapplication/screens/events_carousel.dart';
+import '../data/repo/user_provider.dart';
 import '../widget/navigation_bar.dart';
 import '../widget/username_show.dart';
 import 'destination_carousel.dart';
@@ -74,7 +76,36 @@ class _HomeScreenState extends State<HomeScreenn> {
         ],
       ),
       appBar: AppBar(
-        title: UsernameShow(),
+        title: Consumer(
+          builder: (_, ref, __) {
+            return ref.watch(userDataProvider).when(
+              data: (value) {
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 25),
+                    child: Text(
+                      // ignore: prefer_adjacent_string_concatenation
+                      '${value.get('firstname')}' +
+                          ' ' +
+                          '${value.get('lastname')}',
+
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ),
+                );
+              },
+              error: (Object error, StackTrace stackTrace) {
+                return const Text(
+                  'Not Found',
+                  style: TextStyle(fontSize: 20),
+                );
+              },
+              loading: () {
+                return const CircularProgressIndicator();
+              },
+            );
+          },
+        ),
         backgroundColor: Colors.black,
       ),
       body: SafeArea(

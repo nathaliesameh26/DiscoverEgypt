@@ -23,59 +23,64 @@ class _adminpnelState extends State<adminpnel> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   // ignore: prefer_const_literals_to_create_immutables
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 17.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Hello,',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 17.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Hello,',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 8),
-                            Consumer(
-                              builder: (_, ref, __) {
-                                return ref.watch(userDataProvider).when(
-                                  data: (value) {
-                                    return Center(
-                                      // child: Text(
-                                      //   // ignore: prefer_adjacent_string_concatenation
-                                      //   '${value.get('firstname')}' +
-                                      //       ' ' +
-                                      //       '${value.get('lastname')}',
-                                      //   style: const TextStyle(fontSize: 10),
-                                      // ),
-                                    );
-                                  },
-                                  error: (Object error, StackTrace stackTrace) {
-                                    return const Text(
-                                      'Not Found',
-                                      style: TextStyle(fontSize: 20),
-                                    );
-                                  },
-                                  loading: () {
-                                    return const CircularProgressIndicator();
-                                  },
-                                );
-                              },
-                            ),
-                          ],
+                              const SizedBox(height: 8),
+                              Consumer(
+                                builder: (_, ref, __) {
+                                  return ref.watch(userDataProvider).when(
+                                    data: (value) {
+                                      return Center(
+                                        child: Text(
+                                          // ignore: prefer_adjacent_string_concatenation
+                                          '${value.get('firstname')}' +
+                                              ' ' +
+                                              '${value.get('lastname')}',
+
+                                          style: const TextStyle(fontSize: 10),
+                                        ),
+                                      );
+                                    },
+                                    error:
+                                        (Object error, StackTrace stackTrace) {
+                                      return const Text(
+                                        'Not Found',
+                                        style: TextStyle(fontSize: 20),
+                                      );
+                                    },
+                                    loading: () {
+                                      return const CircularProgressIndicator();
+                                    },
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.deepPurple[100],
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Icon(Icons.person),
-                      )
-                    ],
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple[100],
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Icon(Icons.person),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 25),

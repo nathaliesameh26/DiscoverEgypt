@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobileapplication/screens/Event_form.dart';
 import 'package:mobileapplication/screens/Place_form.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
@@ -12,6 +13,7 @@ import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
+import 'screens/addEvent.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash.dart';
@@ -42,17 +44,16 @@ class MyApp extends StatelessWidget {
           '/admin': (context) => const adminpnel(),
           '/wishList': (context) => const WishList(),
           '/detailsPage': (context) => DetailsPage(),
-          'addedplace' :(context) => placeForm(),
+          'addedplace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
           '/edevent': (context) => CrudEvent(),
           '/edplace': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
-
-          //'/Eventform': (context) => Eventform(),
+          '/event': (context) => eventForm(),
+          '/Eventform': (context) => EventForm(),
           // '/p': (context) => proto(),
-
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),

@@ -11,6 +11,7 @@ import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
+import 'screens/addEvent.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -32,9 +33,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/welcome',
+        initialRoute: '/Eventform',
         routes: {
-          
           '/welcome': (context) => const Welcome(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           '/admin': (context) => const adminpnel(),
           '/wishList': (context) => const WishList(),
           '/detailsPage': (context) => DetailsPage(),
-          'addedplace' :(context) => placeForm(),
+          'addedplace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
           '/edevent': (context) => CrudEvent(),
           '/edplace': (context) => CrudPlace(),
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
 
-          //'/Eventform': (context) => Eventform(),
+          '/Eventform': (context) => EventForm(),
           // '/p': (context) => proto(),
 
           // '/myplans': (context) => const MyPlans(),

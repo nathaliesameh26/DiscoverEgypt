@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // final place = FirebaseAuth.instance.currentUser!;
 // String placeID = place.uid;
+// String myDocId = 'place.uid';
+// DocumentSnapshot? documentSnapshot;
 
 class PlacesData {
   Future PlaceDetails() async {
@@ -13,7 +15,6 @@ class PlacesData {
   }
 }
 
-
 Future placeAdded(String name, String about, String city, String price,
     String openingTime, String closingTime) async {
   await FirebaseFirestore.instance.collection('places').add({
@@ -26,26 +27,6 @@ Future placeAdded(String name, String about, String city, String price,
     // "id" :place,
     // "location": location,
   });
-
-
-Future deletePlace(String name) async {
-  // final placeid = int.parse(id);
-  FirebaseFirestore.instance.collection("places").doc(name).delete();
-}
-
-Future placeAdded(String name, String about, String city, String price,
-    String openingTime, String closingTime) async {
-  await FirebaseFirestore.instance.collection('places').add({
-    "name": name,
-    "about": about,
-    "city": city,
-    "price": int.parse(price),
-    "openingTime": openingTime,
-    "closingTime": closingTime,
-    // "id" :place,
-    // "location": location,
-  });
-
 
   // print('New places is added');
   // final prefs = await SharedPreferences.getInstance();
@@ -53,14 +34,19 @@ Future placeAdded(String name, String about, String city, String price,
 }
 // }
 
-// class PlacesModel {
-//   String? name;
-//   String? location;
-//   String? description;
-//   int? price;
+Future deletePlace(String name) async {
+  // final placeid = int.parse(id);
+  FirebaseFirestore.instance.collection("places").doc(name).delete();
+}
 
-//   PlacesModel(this.name, this.location, this.description, this.price);
-// }
+class PlacesModel {
+  String? name;
+  String? location;
+  String? description;
+  int? price;
+
+  PlacesModel(this.name, this.location, this.description, this.price);
+}
 
  // ignore: non_constant_identifier_names
 

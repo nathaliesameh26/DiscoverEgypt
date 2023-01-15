@@ -24,6 +24,7 @@ Future signup(String email, String password) async {
           .createUserWithEmailAndPassword(email: email, password: password))
       .user;
 }
+//for authentication
 
 Future CreateUser(String idd, String fname, String lname, String email,
     String password, String phone, String nationality, String role) async {

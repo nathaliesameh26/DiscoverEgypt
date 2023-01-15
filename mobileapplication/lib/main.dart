@@ -5,6 +5,7 @@ import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
+import 'package:mobileapplication/screens/edit_place.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
@@ -31,10 +32,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/admin',
+        initialRoute: 'updatePlace',
         routes: {
-          
           '/welcome': (context) => const Welcome(),
+          'updatePlace' : (context) => EditPlacePage(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),

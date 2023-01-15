@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/model/place_model.dart';
@@ -15,33 +16,33 @@ class _SearchPageState extends ConsumerState<SearchPage> {
 //we are going to create a dummy list of places
 // our own list for now.
 
-  static List<PlacesModel> places_list = [
-    PlacesModel('The Pyramids', 'Giza', 'Oldest Monuments in Egypt', 150),
-    PlacesModel('Egyptian Museum ', 'Cairo',
-        'Greatest Collection of ancient Egyptian artcrafts', 25),
-    PlacesModel(
-        'Egyptian Museum Citadel',
-        'Cairo',
-        'Citadel of Egyot where you can visist the Alabaster mosque of Mohamed Ali',
-        35),
-    PlacesModel('Fayoum Oasis', 'Fayoum-Egypt', 'Waterfalls', 140),
-    PlacesModel('Dinner Cruise on the River Nile', 'Cairo', 'Cruise', 40),
-  ];
+//   static List<PlacesModel> places_list = [
+//     PlacesModel('The Pyramids', 'Giza', 'Oldest Monuments in Egypt', 150),
+//     PlacesModel('Egyptian Museum ', 'Cairo',
+//         'Greatest Collection of ancient Egyptian artcrafts', 25),
+//     PlacesModel(
+//         'Egyptian Museum Citadel',
+//         'Cairo',
+//         'Citadel of Egyot where you can visist the Alabaster mosque of Mohamed Ali',
+//         35),
+//     PlacesModel('Fayoum Oasis', 'Fayoum-Egypt', 'Waterfalls', 140),
+//     PlacesModel('Dinner Cruise on the River Nile', 'Cairo', 'Cruise', 40),
+//   ];
 
-//create the list that we aee going to display and filter
-  List<PlacesModel> display_list = List.from(places_list);
+// //create the list that we aee going to display and filter
+//   List<PlacesModel> display_list = List.from(places_list);
 
-  void updateList(String value) {
-    //this is the function that will filter our list
-    //we will be back to this list after
-    //now let's write our search function
-    setState(() {
-      display_list = places_list
-          .where((element) =>
-              element.name!.toLowerCase().contains(value.toLowerCase()))
-          .toList();
-    });
-  }
+//   void updateList(String value) {
+//     //this is the function that will filter our list
+//     //we will be back to this list after
+//     //now let's write our search function
+//     setState(() {
+//       display_list = places_list
+//           .where((element) =>
+//               element.name!.toLowerCase().contains(value.toLowerCase()))
+//           .toList();
+//     });
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
         title: const Text(''), // You can add title here
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.grey),
-          onPressed: () => Navigator.of(context).pop('homes_creen'),
+          onPressed: () => Navigator.of(context).pop('/'),
         ),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         elevation: 0.0,
@@ -76,7 +77,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
               ),
               TextField(
                 // onChanged: (value) => updateList(value),
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.black26),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color.fromARGB(255, 224, 234, 229),
@@ -94,7 +95,8 @@ class _SearchPageState extends ConsumerState<SearchPage> {
               ),
               Expanded(
                 // create a function display a text in case we don't get research
-                child: places_list.isEmpty
+                // ignore: invalid_use_of_visible_for_testing_member
+                child: valueAndCurrencyMustBeTogetherError.isEmpty
                     ? const Center(
                         child: Text(
                         "Now Results found",

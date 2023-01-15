@@ -198,7 +198,6 @@ class _placeFormState extends State<placeForm> {
                                       priceController.text,
                                      openingTimeController.text,
                                     closingTimeController.text,
-                                    'places',
                                       );
                                         if (formkey.currentState!.validate())
                                    {

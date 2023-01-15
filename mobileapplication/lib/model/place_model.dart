@@ -24,9 +24,10 @@ class PlacesData {
       // "location": location,
     });
 
-    // print('New places is added');
+    //  FirebaseFirestore.instance.collection('places').
+    //print('New places is added');
     // final prefs = await SharedPreferences.getInstance();
-    // await prefs.setString('PLACE_ID', placeID);
+    // await prefs.setString('id', placeID);
   }
 // }
 

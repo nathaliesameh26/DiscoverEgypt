@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 final event = FirebaseAuth.instance.currentUser!;
 String eventID = event.uid;
 
+//--------------------------Connecting With Firebase ---------------------------//
+
 class EventsData {
   // ignore: non_constant_identifier_names
   Future EventDetails() async {
@@ -22,6 +24,8 @@ class EventsData {
   //   return documentSnapshot;
   // }
 }
+
+//-------------------------------Adding New Event to firebase --------------------------//
 
 Future EventAdded(
   String name,
@@ -55,31 +59,31 @@ Future EventAdded(
   // await prefs.setString('id', placeID);
 }
 
-Future addevent({
-  required String name,
-  required String about,
-  required String city,
-  required String location,
-  required int price,
-  required int rating,
-  required String startdate,
-  required String enddate,
-  required String openingtime,
-  required String closingtime,
-}) async {
-  await FirebaseFirestore.instance.collection('events').doc(eventID).set({
-    "name": name,
-    "about": about,
-    "city": city,
-    "location": location,
-    "price": price,
-    "startdate": startdate,
-    "enddate": enddate,
-    "openingtime": openingtime,
-    "closingtime": closingtime,
-  });
+// Future addevent({
+//   required String name,
+//   required String about,
+//   required String city,
+//   required String location,
+//   required int price,
+//   required int rating,
+//   required String startdate,
+//   required String enddate,
+//   required String openingtime,
+//   required String closingtime,
+// }) async {
+//   await FirebaseFirestore.instance.collection('events').doc(eventID).set({
+//     "name": name,
+//     "about": about,
+//     "city": city,
+//     "location": location,
+//     "price": price,
+//     "startdate": startdate,
+//     "enddate": enddate,
+//     "openingtime": openingtime,
+//     "closingtime": closingtime,
+//   });
 
-  print('New event is added');
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.setString('EVENT_ID', eventID);
-}
+//   print('New event is added');
+//   final prefs = await SharedPreferences.getInstance();
+//   await prefs.setString('EVENT_ID', eventID);
+// }

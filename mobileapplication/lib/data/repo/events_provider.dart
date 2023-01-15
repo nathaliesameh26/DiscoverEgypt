@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../model/events_model.dart';
 
+//---------------------EventsProvider------------------------//
+
 //provider byklm almodel
 Future evensData = EventsData().EventDetails();
 final eventsDataProviderRepository = StateProvider<Future>((ref) => evensData);

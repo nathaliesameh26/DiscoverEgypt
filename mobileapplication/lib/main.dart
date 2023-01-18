@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/screens/Event_form.dart';
 import 'package:mobileapplication/screens/Place_form.dart';
+import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
@@ -9,6 +10,7 @@ import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/edit_place.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
+import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
 import 'package:mobileapplication/screens/welcome.dart';
@@ -33,15 +35,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/admin',
-        routes: {
+        initialRoute: '/admin', routes: {
           '/welcome': (context) => const Welcome(),
           'updatePlace': (context) => EditPlacePage(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
+
           '/admin': (context) => const AdminPanel(),
-          '/wishList': (context) => const WishList(),
+          // '/wishList': (context) => const WishList(),
+          '/admin': (context) => const AdminPanel(),
+          '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
           'addedplace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
@@ -50,7 +54,9 @@ class MyApp extends StatelessWidget {
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
-          '/event': (context) => eventForm(),
+          '/Eventform': (context) => const eventForm(),
+          '/search': (context) => SearchPage(),
+          '/profile': (context) => ProfilePage(),
           // '/p': (context) => proto(),
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),

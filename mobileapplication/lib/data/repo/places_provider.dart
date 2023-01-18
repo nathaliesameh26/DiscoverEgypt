@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../model/place_model.dart';
 
+//---------------------PlacesProvider------------------------//
+
 //provider byklm almodel
 Future placesData = PlacesData().PlaceDetails();
 final placesDataProviderRepository = StateProvider<Future>((ref) => placesData);

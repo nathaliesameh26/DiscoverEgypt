@@ -89,12 +89,6 @@ class _EditPlacePageState extends State<EditPlacePage> {
                           width: 10,
                           color: Colors.black12,
                         ))),
-                    // validator: (value) {
-                    //   if (value!.isEmpty) {
-                    //     return 'Please enter a description';
-                    //   }
-                    //   return null;
-                    // },
                   ),
                   SizedBox(height: 20),
                   TextFormField(
@@ -106,12 +100,6 @@ class _EditPlacePageState extends State<EditPlacePage> {
                           width: 10,
                           color: Colors.black12,
                         ))),
-                    // validator: (value) {
-                    //   if (value!.isEmpty) {
-                    //     return 'Please enter a price';
-                    //   }
-                    //   return null;
-                    // },
                   ),
                   SizedBox(height: 20),
                   TextFormField(
@@ -198,7 +186,7 @@ class _EditPlacePageState extends State<EditPlacePage> {
                         //   );
                         // }
                       },
-                      child: Text('Update Product'),
+                      child: const Text('Place Updated'),
                     ),
                   ),
                 ],

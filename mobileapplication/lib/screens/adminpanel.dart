@@ -3,14 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/repo/user_provider.dart';
 
-class adminpnel extends StatefulWidget {
-  const adminpnel({super.key});
+class AdminPanel extends StatefulWidget {
+  const AdminPanel({super.key});
 
   @override
-  State<adminpnel> createState() => _adminpnelState();
+  State<AdminPanel> createState() => _AdminPanelState();
 }
 
-class _adminpnelState extends State<adminpnel> {
+class _AdminPanelState extends State<AdminPanel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +59,7 @@ class _adminpnelState extends State<adminpnel> {
                                     error:
                                         (Object error, StackTrace stackTrace) {
                                       return const Text(
-                                        'Not Found',
+                                        'User',
                                         style: TextStyle(fontSize: 20),
                                       );
                                     },
@@ -136,23 +136,7 @@ class _adminpnelState extends State<adminpnel> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 25),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                          prefixIcon: (Icon(Icons.search)),
-                          border: InputBorder.none,
-                          hintText: 'How can we help you?'),
-                    ),
-                  ),
-                ),
+
                 const SizedBox(height: 25),
                 Container(
                   height: 80,
@@ -426,4 +410,64 @@ class _adminpnelState extends State<adminpnel> {
             //   ],
             // ))
 
+                // const SizedBox(height: 25),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                //   child: Container(
+                //     padding: const EdgeInsets.all(12),
+                //     decoration: BoxDecoration(
+                //       color: Colors.deepPurple[100],
+                //       borderRadius: BorderRadius.circular(12),
+                //     ),
+                //     child: const TextField(
+                //       decoration: InputDecoration(
+                //           prefixIcon: (Icon(Icons.search)),
+                //           border: InputBorder.none,
+                //           hintText: 'How can we help you?'),
+                //     ),
+                //   ),
+                // ),
 
+
+
+
+
+
+
+//  Container(
+//                   height: 80,
+//                   child: ListView(
+//                     scrollDirection: Axis.horizontal,
+//                     children: [
+//                       SizedBox(height: 24),
+//                       MaterialButton(
+//                         padding: EdgeInsets.symmetric(vertical: 4),
+//                         onPressed: () {},
+//                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+//                         child: Row(
+//                           children: 
+//                             [],
+//                         ),
+//                       ),
+
+// Column(
+//                               mainAxisAlignment: MainAxisAlignment.start,
+//                               children: <Widget>[
+//                                 Text(
+//                                   '1000',
+//                                   style: TextStyle(
+//                                     fontWeight: FontWeight.bold,
+//                                     fontSize: 20,
+//                                   ),
+//                                 ),
+//                                 SizedBox(height: 2),
+//                                 Text(
+//                                   'Users',
+//                                   style: TextStyle(
+//                                     fontWeight: FontWeight.bold,
+//                                     fontSize: 20,
+//                                   ),
+//                                 ),
+//                               ],
+                              
+//                             ),

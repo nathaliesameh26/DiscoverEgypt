@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreenn> {
               },
               error: (Object error, StackTrace stackTrace) {
                 return const Text(
-                  'Not Found',
+                  'User',
                   style: TextStyle(fontSize: 20),
                 );
               },

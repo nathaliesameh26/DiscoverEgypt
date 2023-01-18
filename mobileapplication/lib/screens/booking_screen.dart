@@ -20,7 +20,7 @@ class _PendingScreenState extends ConsumerState<BookingScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Booking'),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.black,
         ),
         body: PlacesData.when(
             data: (value) => SafeArea(

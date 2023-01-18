@@ -183,7 +183,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                     ElevatedButton(
                                         onPressed: () async {
                                           deletePlace(
-                                              value.docs[index].get('id')
+                                              value.docs[index].get('name')
                                               );
                                         },
                                         style: ElevatedButton.styleFrom(

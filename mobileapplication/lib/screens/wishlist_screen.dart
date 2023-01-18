@@ -195,7 +195,7 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
                                           //       ),
                                           //     )),
                                           ElevatedButton.icon(
-                                              icon: Icon(Icons.track_changes),
+                                              icon: Icon(Icons.delete),
                                               onPressed: () {},
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor: Colors.black,

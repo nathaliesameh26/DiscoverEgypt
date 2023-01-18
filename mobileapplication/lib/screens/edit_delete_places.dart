@@ -170,8 +170,9 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                     ElevatedButton(
                                         onPressed: () {},
                                         style: ElevatedButton.styleFrom(
-                                            backgroundColor: const Color.fromARGB(
-                                                255, 28, 128, 150),
+                                            backgroundColor:
+                                                const Color.fromARGB(
+                                                    255, 28, 128, 150),
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
                                         child: Text(
@@ -183,8 +184,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                     ElevatedButton(
                                         onPressed: () async {
                                           deletePlace(
-                                              value.docs[index].get('id')
-                                              );
+                                              value.docs[index].get('id'));
                                         },
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:

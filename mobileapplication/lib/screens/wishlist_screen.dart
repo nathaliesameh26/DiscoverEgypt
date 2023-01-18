@@ -195,11 +195,12 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
                                           //       ),
                                           //     )),
                                           ElevatedButton.icon(
-                                              icon: Icon(Icons.delete),
+                                              icon: const Icon(Icons.delete),
                                               onPressed: () {},
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor: Colors.black,
-                                                  minimumSize: Size(150, 40)),
+                                                  minimumSize:
+                                                      const Size(150, 40)),
                                               label: const Text(
                                                 "Remove",
                                                 style: TextStyle(

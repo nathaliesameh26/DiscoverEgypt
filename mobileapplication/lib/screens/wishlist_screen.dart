@@ -183,17 +183,17 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,
                                         children: [
-                                          // ElevatedButton(
-                                          //     onPressed: () {},
-                                          //     style: ElevatedButton.styleFrom(
-                                          //         backgroundColor: Colors.black,
-                                          //         minimumSize: Size(150, 40)),
-                                          //     child: const Text(
-                                          //       "Accept",
-                                          //       style: TextStyle(
-                                          //         fontSize: 12,
-                                          //       ),
-                                          //     )),
+                                          ElevatedButton(
+                                              onPressed: () {},
+                                              style: ElevatedButton.styleFrom(
+                                                  backgroundColor: Colors.black,
+                                                  minimumSize: Size(150, 40)),
+                                              child: const Text(
+                                                "View Details",
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                ),
+                                              )),
                                           ElevatedButton.icon(
                                               icon: const Icon(Icons.delete),
                                               onPressed: () {},

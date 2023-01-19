@@ -1,4 +1,4 @@
-import 'package:mobileapplication/model/user.dart';
+import 'package:mobileapplication/data/dataApp/user_data.dart';
 
 class UserPreferences {
   static const myUser = User(

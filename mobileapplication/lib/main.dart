@@ -5,6 +5,7 @@ import 'package:mobileapplication/screens/Place_form.dart';
 import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
+import 'package:mobileapplication/screens/edit_Event.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/edit_place.dart';
@@ -35,11 +36,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-
-        initialRoute: '/register', routes: {
-
+        initialRoute: '/register',
+        routes: {
           '/welcome': (context) => const Welcome(),
           '/updatePlace': (context) => EditPlacePage(),
+          '/updateEvent': (context) => EditEventPage(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
           // '/wishList': (context) => const WishList(),
           '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
-          '/addedplace': (context) => const placeForm(),
+          '/addedPlace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
           '/edevent': (context) => CrudEvent(),
           '/edplace': (context) => CrudPlace(),

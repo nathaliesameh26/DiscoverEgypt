@@ -48,7 +48,7 @@ class _RegisterState extends State<Register> {
                     // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
                     image: const AssetImage('assets/temple.jpg'),
                     colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(1),
+                      Colors.white.withOpacity(0.9),
                       BlendMode.modulate,
                     ),
                     fit: BoxFit.cover,
@@ -90,6 +90,12 @@ class _RegisterState extends State<Register> {
                               controller: fname,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 1,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 hintText: "Enter your first name",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
@@ -109,6 +115,12 @@ class _RegisterState extends State<Register> {
                               controller: lname,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 1,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 hintText: "Enter your last name",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
@@ -159,6 +171,12 @@ class _RegisterState extends State<Register> {
                               controller: email,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 1,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 hintText: "Enter your email",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
@@ -182,6 +200,12 @@ class _RegisterState extends State<Register> {
                               // },
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 1,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 hintText: "Enter your phone number",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
@@ -206,6 +230,12 @@ class _RegisterState extends State<Register> {
                               obscureText: true,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 1,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 hintText: "Enter your password",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
@@ -224,6 +254,12 @@ class _RegisterState extends State<Register> {
                               controller: nationality,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 1,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 hintText: "Enter your Nationality",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),

@@ -14,6 +14,7 @@ import 'package:mobileapplication/screens/edit_profile_page.dart';
 import 'package:mobileapplication/screens/edit_place.dart';
 
 import 'package:mobileapplication/screens/homeScreen.dart';
+import 'package:mobileapplication/screens/myplan_screen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
@@ -64,16 +65,20 @@ class MyApp extends StatelessWidget {
           // '/wishList': (context) => const WishList(),
           '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
-          '/addedlace': (context) => const placeForm(),
+          '/addedplace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
-          '/edevent': (context) => CrudEvent(),
-          '/edplace': (context) => CrudPlace(),
+          '/eventList': (context) => CrudEvent(),
+          '/placeList': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
           '/Eventform': (context) => const eventForm(),
           '/search': (context) => SearchPage(),
           '/profile': (context) => ProfilePage(),
+
+          // '/p': (context) => proto(),
+          '/plans': (context) => MyPlansScreen(),
+
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),

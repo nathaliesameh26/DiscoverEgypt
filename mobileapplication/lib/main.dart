@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           // '/wishList': (context) => const WishList(),
           '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
-          '/addedPlace': (context) => const placeForm(),
+          '/addedlace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
           '/edevent': (context) => CrudEvent(),
           '/edplace': (context) => CrudPlace(),

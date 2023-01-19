@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/repo/events_provider.dart';
 import '../data/repo/pending_provider.dart';
+import '../data/repo/places_provider.dart';
 
 class MyPlansScreen extends ConsumerStatefulWidget {
   MyPlansScreen({Key? key});
@@ -18,10 +19,10 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
   //sometime we can face some http request erreur if the owner of the picture delted it or the url is not available
   @override
   Widget build(BuildContext context) {
-    final PendingData = ref.watch(pendingDataProvider);
+    final PlacesData = ref.watch(placesDataProvider);
     final EventData = ref.watch(eventsDataProvider);
     return Scaffold(
-      backgroundColor: Color(0xFFF6F7FF),
+      backgroundColor: const Color(0xFFF6F7FF),
       appBar: AppBar(
         title: const Text('My Plans'),
         backgroundColor: Colors.black,
@@ -84,14 +85,14 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
             //     ),
             //   ),
             // ),
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             //Now let's Add a Tabulation bar
             DefaultTabController(
               length: 2,
               child: Expanded(
                 child: Column(
                   children: [
-                    TabBar(
+                    const TabBar(
                       indicatorColor: Colors.orange,
                       unselectedLabelColor: Color(0xFF555555),
                       labelColor: Colors.orange,
@@ -105,47 +106,263 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
-                    Container(
-                      height: 300.0,
-                      child: TabBarView(
-                        children: [
-                          //Now let's create our first tab page
-                          Container(
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                //Now let's add and test our first card
-                                // travelCard(
-                                //     urls[0], "Luxary Hotel", "Caroline", 3),
-                                // travelCard(urls[5], "Plaza Hotel", "Italy", 4),
-                                // travelCard(
-                                //     urls[2], "Safari Hotel", "Africa", 5),
-                              ],
-                            ),
+                    PlacesData.when(
+                      data: (value) => SafeArea(
+                        child: Container(
+                          height: 300.0,
+                          child: TabBarView(
+                            children: [
+                              //Now let's create our first tab page
+                              Container(
+                                child: ListView.builder(
+                                    itemCount: value.docs.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10.0, right: 10.0, top: 10.0),
+                                        child: Card(
+                                          margin: EdgeInsets.zero,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10.0),
+                                            child: Column(
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      '${value.docs[index].get('name')}',
+                                                      style: const TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    // Text(
+                                                    //   DateFormat('dd-MM-yy').format(order.createdAt),
+                                                    //   'Event ID: ${value.get('name')}"',
+                                                    //   style: const TextStyle(
+                                                    //     fontSize: 16,
+                                                    //     fontWeight: FontWeight.bold,
+                                                    //   ),
+                                                    // ),
+                                                  ],
+                                                ),
+                                                const SizedBox(
+                                                  height: 10.0,
+                                                ),
+                                                ListView.builder(
+                                                    shrinkWrap: true,
+                                                    physics:
+                                                        const NeverScrollableScrollPhysics(),
+                                                    itemCount: 1,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      return Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                bottom: 10.0),
+                                                        child: Row(
+                                                          children: [
+                                                            SizedBox(
+                                                              height: 30,
+                                                              width: 30,
+                                                              child:
+                                                                  Image.asset(
+                                                                'assets/Egypt.jpg',
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 10,
+                                                            ),
+                                                            Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                // Text(
+                                                                //   '${value.docs[index].get('name')}',
+                                                                //   style:
+                                                                //       const TextStyle(
+                                                                //     fontSize:
+                                                                //         14,
+                                                                //     fontWeight:
+                                                                //         FontWeight
+                                                                //             .bold,
+                                                                //   ),
+                                                                // ),
+                                                                const SizedBox(
+                                                                  height: 10,
+                                                                ),
+                                                                SizedBox(
+                                                                  width: 200,
+                                                                  child: Text(
+                                                                    '${value.docs[index].get('about')}',
+                                                                    style:
+                                                                        const TextStyle(
+                                                                      fontSize:
+                                                                          14,
+                                                                    ),
+                                                                    overflow:
+                                                                        TextOverflow
+                                                                            .clip,
+                                                                    maxLines: 5,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            )
+                                                          ],
+                                                        ),
+                                                      );
+                                                    }),
+                                                const SizedBox(
+                                                  height: 10.0,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Column(
+                                                      children: [
+                                                        // ignore: prefer_const_constructors
+                                                        Text(
+                                                          'Location:',
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Text(
+                                                          '${value.docs[index].get('location')}',
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 13,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      children: [
+                                                        // ignore: prefer_const_constructors
+                                                        Text(
+                                                          'Price:',
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        Text(
+                                                          '${value.docs[index].get('price')} LE',
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 13,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    )
+                                                  ],
+                                                ),
+                                                const SizedBox(
+                                                  height: 10.0,
+                                                ),
+                                                // Row(
+                                                //   mainAxisAlignment:
+                                                //       MainAxisAlignment
+                                                //           .spaceAround,
+                                                //   children: [
+                                                //     ElevatedButton(
+                                                //         onPressed: () {},
+                                                //         style: ElevatedButton
+                                                //             .styleFrom(
+                                                //                 backgroundColor:
+                                                //                     Colors
+                                                //                         .black,
+                                                //                 minimumSize:
+                                                //                     Size(150,
+                                                //                         40)),
+                                                //         child: const Text(
+                                                //           "Accept",
+                                                //           style: TextStyle(
+                                                //             fontSize: 12,
+                                                //           ),
+                                                //         )),
+                                                //     ElevatedButton(
+                                                //         onPressed: () {},
+                                                //         style: ElevatedButton
+                                                //             .styleFrom(
+                                                //                 backgroundColor:
+                                                //                     Colors
+                                                //                         .black,
+                                                //                 minimumSize:
+                                                //                     Size(150,
+                                                //                         40)),
+                                                //         child: const Text(
+                                                //           "Cancel",
+                                                //           style: TextStyle(
+                                                //             fontSize: 12,
+                                                //           ),
+                                                //         )),
+                                                //   ],
+                                                // )
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                              ),
+                              Container(
+                                child: ListView(
+                                  scrollDirection: Axis.horizontal,
+                                  children: [
+                                    // //Here you can add what ever you want
+                                    // travelCard(urls[6], "Visit Rome", "Italy", 4),
+                                    // travelCard(urls[8], "Visit Sidi bou Said",
+                                    //     "Tunsia", 4),
+                                  ],
+                                ),
+                              ),
+                              // Container(
+                              //   child: ListView(
+                              //     scrollDirection: Axis.horizontal,
+                              //     children: [],
+                              //   ),
+                              // ),
+                            ],
                           ),
-                          Container(
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                // //Here you can add what ever you want
-                                // travelCard(urls[6], "Visit Rome", "Italy", 4),
-                                // travelCard(urls[8], "Visit Sidi bou Said",
-                                //     "Tunsia", 4),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: [],
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
+                      error: (Object error, StackTrace err) {
+                        return const Text("Error loading your plans");
+                      },
+                      loading: () {
+                        return const Center(child: CircularProgressIndicator());
+                      },
+                    )
                   ],
                 ),
               ),

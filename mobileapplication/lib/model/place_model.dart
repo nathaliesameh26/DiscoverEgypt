@@ -17,7 +17,6 @@ class PlacesData {
         await FirebaseFirestore.instance.collection('places').get();
     return places;
   }
-}
 
 // Future deletePlace(String id) async {
 //   _documentReference = FirebaseFirestore.instance.collection('place')
@@ -26,31 +25,67 @@ class PlacesData {
 //   _documentReference.delete();
 // }
 
-Future updatePlaceDetails(String id, String name, String about, String city,
-    String price, String openingTime, String closingTime) async {
-  final updatePlace = FirebaseFirestore.instance
-      .collection('places')
-      // .doc(name)
-      .where('name', isEqualTo: name)
-      .snapshots();
-  // .updatePlace.update({
-  //   "name": name.trim(),
-  //   "about": about.trim(),
-  //   "city": city.trim(),
-  //   "price": int.parse(price.trim()),
-  //   "openingTime": openingTime.trim(),
-  //   "closingTime": closingTime.trim(),}
-  // );
+  Future<void> updatePlaceDetails(
+      String name,
+      String about,
+      String city,
+      String location,
+      String price,
+      String openingTime,
+      String closingTime) async {
+    Map<String, dynamic> toMap() {
+      return {
+        'name': name,
+        'about': about,
+        'price': price,
+        'location': location,
+        'city': city,
+        'openingtime': openingTime,
+        'closingtime': closingTime,
+      };
+    }
+
+    await FirebaseFirestore.instance
+        .collection('places')
+        .where("name", isEqualTo: name)
+        .get()
+        .then((querySnapshot) {
+      for (var result in querySnapshot.docs) {
+        FirebaseFirestore.instance
+            .collection('places')
+            .doc(result.id)
+            .update(toMap());
+      }
+    });
+  }
 }
+
+// final UpdatePlace = FirebaseFirestore.instance
+//     .collection('places')
+//     // .doc(name)
+//     .where('name', isEqualTo: name)
+//     .snapshots();
+
+// .updatePlace.update({
+//   "name": name.trim(),
+//   "about": about.trim(),
+//   "city": city.trim(),
+//   "price": int.parse(price.trim()),
+//   "openingTime": openingTime.trim(),
+//   "closingTime": closingTime.trim(),}
+// );
 
 Future deletePlace(String name) async {
   // await FirebaseFirestore.instance
   //     .collection('place')
   //     .where('name', isEqualTo: name)
   //     .delete();
-  FirebaseFirestore.instance.collection('path').doc('places').update({name: FieldValue.delete()}).whenComplete((){
-  // print('Field Deleted');
-});
+  FirebaseFirestore.instance
+      .collection('path')
+      .doc('places')
+      .update({name: FieldValue.delete()}).whenComplete(() {
+    // print('Field Deleted');
+  });
 }
 // final placeid = int.parse(id);
 // FirebaseFirestore.instance.collection("places").doc(name).delete();

@@ -6,17 +6,39 @@ import 'package:mobileapplication/model/login_model.dart';
 final user = FirebaseAuth.instance.currentUser!;
 String userId = user.uid;
 
-class LoginUser {
-  static const Luser = UserLogin(
-    username: 'student',
-    password: '123',
-  );
-}
+// class LoginUser {
+//   static const Luser = UserLogin(
+//     username: 'student',
+//     password: '123',
+//   );
+// }
+
+// class getUserDetails {
+//   // ignore: non_constant_identifier_names
+//   Future getUserDetailss() async {
+//     final QuerySnapshot userDetails =
+
+//         await FirebaseFirestore.instance.collection('users').get();
+//     return userDetails;
+//   }
+// }
+
+// class UserData {
+//   Future<Object> getUserDetails() async {
+//     final user = FirebaseAuth.instance.currentUser!;
+//     String userIds = user.uid;
+//     final QuerySnapshot userDetails =
+//         await FirebaseFirestore.instance.collection('users').get();
+//     return userDetails;
+//   }
+// }
 
 Future Loginn(String email, String password) async {
   final User? user = (await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password))
       .user;
+
+  userId = user!.uid;
 }
 
 Future signup(String email, String password) async {
@@ -24,20 +46,25 @@ Future signup(String email, String password) async {
           .createUserWithEmailAndPassword(email: email, password: password))
       .user;
 }
+//for authentication
 
-Future CreateUser(String idd , String fname, String lname, String email, String password,
-    String phone, String nationality,String role) async {
-  await FirebaseFirestore.instance.collection('users').add({ 
-    'id':idd,
-    'firstname' :fname,
-    'lastname':lname,
-    'email':email,
-    'phoneNum':phone,
-    'password':password,
-    'nationality':nationality,
-    'role':role,
+Future CreateUser(String idd, String fname, String lname, String email,String DOB,
+    String password, String phone, String nationality, String role) async {
+  await FirebaseFirestore.instance.collection('users').add({
+    'id': idd,
+    'firstname': fname,
+    'lastname': lname,
+    'DateOfBirth': DOB,
+    'email': email,
+    'phoneNum': phone,
+    'password': password,
+    'nationality': nationality,
+    'role': role,
   });
 }
+
+
+
 
 // final user = FirebaseAuth.instance.currentUser!;
 // String userID = user.uid;

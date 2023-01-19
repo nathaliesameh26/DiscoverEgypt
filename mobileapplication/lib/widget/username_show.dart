@@ -17,7 +17,7 @@ class UsernameShow extends StatelessWidget {
       return ref.watch(userDataProvider).when(data: (value) {
         return Center(
           child: Text(
-            'Welcome, ${value.get('firstname')}',
+            'Welcome, ${value.get('fisrtname')}',
             style: const TextStyle(
               backgroundColor: Colors.transparent,
               fontSize: 25.0,

@@ -1,13 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+
+final user = FirebaseAuth.instance.currentUser!;
+String userID = user.uid;
+
 class UserData {
   Future<Object> getUserDetails() async {
     final user = FirebaseAuth.instance.currentUser!;
     String userIds = user.uid;
     final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
         .collection('users')
-        .doc('GwBywSu38lShNnea4TCw')
+        .doc('VF7E8oJZEhp3VJ3RNNBi')
         .get();
     return documentSnapshot;
   }

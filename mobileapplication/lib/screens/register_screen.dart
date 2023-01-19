@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:mobileapplication/model/loginData.dart';
+import 'package:intl/intl.dart';
+import 'package:mobileapplication/data/dataApp/login_data.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -16,6 +17,7 @@ class _RegisterState extends State<Register> {
   String name = "";
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController DOB = TextEditingController();
   TextEditingController fname = TextEditingController();
   TextEditingController lname = TextEditingController();
   TextEditingController phone = TextEditingController();
@@ -46,10 +48,10 @@ class _RegisterState extends State<Register> {
                     // colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
                     image: const AssetImage('assets/temple.jpg'),
                     colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.8),
+                      Colors.white.withOpacity(1),
                       BlendMode.modulate,
                     ),
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 child: SingleChildScrollView(
@@ -122,6 +124,37 @@ class _RegisterState extends State<Register> {
                             SizedBox(
                               height: height * 0.03,
                             ),
+                            TextField(
+                              controller: DOB,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                  hintText: "Enter your date of birth",
+                                  hintStyle: TextStyle(color: Colors.white),
+                                  suffixIcon: const Icon(Icons.calendar_today),
+                                  labelText: "Enter End Date"),
+                              readOnly: true,
+                              onTap: () async {
+                                DateTime? pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(1930),
+                                    lastDate: DateTime(2100));
+                                if (pickedDate != null) {
+                                  print(pickedDate);
+                                  String formattedDate =
+                                      DateFormat('yyyy-MM-dd')
+                                          .format(pickedDate);
+                                  print(formattedDate);
+                                  setState(() {
+                                    DOB.text =
+                                        formattedDate; //set output date to TextField value.
+                                  });
+                                } else {}
+                              },
+                            ),
+                            SizedBox(
+                              height: height * 0.03,
+                            ),
                             TextFormField(
                               controller: email,
                               style: TextStyle(color: Colors.white),
@@ -170,6 +203,7 @@ class _RegisterState extends State<Register> {
                             ),
                             TextFormField(
                               controller: password,
+                              obscureText: true,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your password",
@@ -238,6 +272,7 @@ class _RegisterState extends State<Register> {
                                           userId,
                                           fname.text,
                                           lname.text,
+                                          DOB.text,
                                           email.text,
                                           password.text,
                                           phone.text,
@@ -250,6 +285,7 @@ class _RegisterState extends State<Register> {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(snackBar);
                                       }
+                                      Navigator.pushNamed(context, '/');
                                     },
                                     style: TextButton.styleFrom(
                                         backgroundColor:

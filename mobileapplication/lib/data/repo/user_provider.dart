@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import '../../model/loginData.dart';
+import '../dataApp/user_data.dart';
 
-import '../../model/user.dart';
+//---------------------UserProvider------------------------//
 
 //provider byklm almodel
 Future userData = UserData().getUserDetails();

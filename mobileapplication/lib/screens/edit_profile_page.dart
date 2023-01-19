@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:mobileapplication/model/user.dart';
+import 'package:mobileapplication/data/dataApp/user_data.dart';
 import '../model/user_model.dart';
 import 'package:mobileapplication/widget/profile_widget.dart';
 import 'package:mobileapplication/widget/textfield_widget.dart';

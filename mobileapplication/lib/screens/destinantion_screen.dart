@@ -112,8 +112,10 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
+                          // ignore: prefer_const_constructors
                           Text(
-                            "${value.get('city')}",
+                            'city',
+                            // "${value.get('city')}",
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                               color: Colors.white,
@@ -122,26 +124,29 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                               letterSpacing: 1.2,
                             ),
                           ),
-                          Row(
-                            children: <Widget>[
-                              const Icon(
-                                Icons.location_on,
-                                size: 15.0,
-                                color: Colors.white,
-                              ),
-                              const SizedBox(
-                                width: 5.0,
-                              ),
-                              Text(
-                                "${value.get('location')}",
-                                // ignore: prefer_const_constructors
-                                style: TextStyle(
+                          ListView.builder(
+                              itemBuilder: (BuildContext context, int index) {
+                            return Row(
+                              children: <Widget>[
+                                const Icon(
+                                  Icons.location_on,
+                                  size: 15.0,
                                   color: Colors.white,
-                                  fontSize: 20.0,
                                 ),
-                              )
-                            ],
-                          )
+                                const SizedBox(
+                                  width: 5.0,
+                                ),
+                                Text(
+                                  "${value.docs[index].get('location')}",
+                                  // ignore: prefer_const_constructors
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20.0,
+                                  ),
+                                )
+                              ],
+                            );
+                          })
                         ],
                       ),
                     ),
@@ -190,7 +195,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                           Container(
                                             width: 120.0,
                                             child: Text(
-                                              "${value.get('name')}",
+                                              "${value.docs[index].get('name')}",
                                               style: TextStyle(
                                                 fontSize: 18.0,
                                                 fontWeight: FontWeight.w600,
@@ -203,7 +208,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                             child: Column(
                                               children: [
                                                 Text(
-                                                  '${value.get('price')}LE',
+                                                  '${value.docs[index].get('price')}LE',
                                                   style: const TextStyle(
                                                     fontSize: 16.0,
                                                     fontWeight: FontWeight.w600,
@@ -240,7 +245,8 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                       Row(
                                         children: <Widget>[
                                           Container(
-                                            padding: EdgeInsets.all(5.0),
+                                            padding:
+                                                EdgeInsets.only(bottom: 5.0),
                                             width: 65.0,
                                             decoration: BoxDecoration(
                                               color:
@@ -250,14 +256,15 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "${value.get('openingtime')} AM",
+                                              "${value.docs[index].get('openingtime')} AM",
                                             ),
                                           ),
                                           SizedBox(
                                             height: 10.0,
                                           ),
                                           Container(
-                                            padding: EdgeInsets.all(5.0),
+                                            padding:
+                                                EdgeInsets.only(bottom: 5.0),
                                             width: 65.0,
                                             decoration: BoxDecoration(
                                               color:
@@ -267,7 +274,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "${value.get('closingtime')} PM",
+                                              "${value.docs[index].get('closingtime')} PM",
                                             ),
                                           )
                                         ],
@@ -276,7 +283,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                               ),
                             ),
                             Positioned(
-                                left: 20.0,
+                                left: 15.0,
                                 top: 15.0,
                                 bottom: 15.0,
                                 child: ClipRRect(

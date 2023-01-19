@@ -1,15 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'activity_model.dart';
-//import 'destinantion_screen.dart';
 
 class Destination {
-  final String imageUrl;
+  String imageUrl;
   String city;
-  final String country;
-  final String description;
-  final List<Activity> activities;
+  String country;
+  String description;
+  List<Activity> activities;
 
   Destination({
     required this.imageUrl,
@@ -18,6 +14,31 @@ class Destination {
     required this.description,
     required this.activities,
   });
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+        'name' :country,
+ 'desc':description,
+ 'city':city,
+ 'activite':activities,
+  'img':imageUrl,
+    };
+  }
+
+  // factory Destination.fromMap(Map<String, dynamic> map) {
+  //   return Destination(
+  //     city: map['name'] as String,
+  //     country: map['about'] as String,
+  //      imageUrl: map['city'] as String,
+  //     description: map['location'] as String,
+  //     //  activities: map['openingtime'] as List,
+  //   );
+  // }
+
+  // String toJson() => json.encode(toMap());
+
+  // factory Destination.fromJson(String source) =>
+  //     Destination.fromMap(json.decode(source) as Map<String, dynamic>);
 }
 
 List<Activity> activities = [

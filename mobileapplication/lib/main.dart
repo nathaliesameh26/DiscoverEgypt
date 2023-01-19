@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobileapplication/screens/addEvent.dart';
+import 'package:mobileapplication/screens/Event_form.dart';
+import 'package:mobileapplication/screens/Place_form.dart';
+import 'package:mobileapplication/screens/Planner_panel.dart';
+import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
+import 'package:mobileapplication/screens/edit_Event.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/edit_profile_page.dart';
+
+import 'package:mobileapplication/screens/edit_place.dart';
+
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
-import 'package:mobileapplication/screens/prototypeForm.dart';
+import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
-import 'package:mobileapplication/screens/addPlace.dart';
+
 import 'package:mobileapplication/screens/test_screen.dart';
+
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import 'screens/RatingScreen.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'screens/splash.dart';
 
 void main() async {
@@ -42,28 +49,33 @@ class MyApp extends StatelessWidget {
           '/testScreen': (context) => testScreen(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
+
           '/EditProfilePage': (context) => EditProfilePage(),
+
+          '/updatePlace': (context) => EditPlacePage(),
+          '/updateEvent': (context) => EditEventPage(),
+          '/planner': (context) => PlannerPanel(),
+
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
-          '/admin': (context) => const adminpnel(),
-          '/eventform': (context) => const EventForm(),
-          '/placeform': (context) => const PlaceForm(),
-          '/wishList': (context) => const WishList(),
+          '/admin': (context) => const AdminPanel(),
+          // '/wishList': (context) => const WishList(),
+          '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
+          '/addedlace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
           '/edevent': (context) => CrudEvent(),
           '/edplace': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
-          //'/Eventform': (context) => Eventform(),
-          '/p': (context) => proto(),
-
+          '/Eventform': (context) => const eventForm(),
+          '/search': (context) => SearchPage(),
+          '/profile': (context) => ProfilePage(),
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
-          //'/': (context) => const HomeScreen(),
         });
   }
 }

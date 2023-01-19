@@ -1,5 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobileapplication/data/dataApp/place_data.dart';
 import '../../model/place_model.dart';
+
+//---------------------PlacesProvider------------------------//
 
 //provider byklm almodel
 Future placesData = PlacesData().PlaceDetails();

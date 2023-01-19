@@ -3,18 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/repo/user_provider.dart';
 
-class adminpnel extends StatefulWidget {
-  const adminpnel({super.key});
+class AdminPanel extends StatefulWidget {
+  const AdminPanel({super.key});
 
   @override
-  State<adminpnel> createState() => _adminpnelState();
+  State<AdminPanel> createState() => _AdminPanelState();
 }
 
-class _adminpnelState extends State<adminpnel> {
+class _AdminPanelState extends State<AdminPanel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.white,
         body: SafeArea(
             child: SizedBox(
           child: SingleChildScrollView(
@@ -23,59 +23,64 @@ class _adminpnelState extends State<adminpnel> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   // ignore: prefer_const_literals_to_create_immutables
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 17.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Hello,',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 17.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Hello,',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 8),
-                            Consumer(
-                              builder: (_, ref, __) {
-                                return ref.watch(userDataProvider).when(
-                                  data: (value) {
-                                    return Center(
-                                      child: Text(
-                                        // ignore: prefer_adjacent_string_concatenation
-                                        '${value.get('firstname')}' +
-                                            ' ' +
-                                            '${value.get('lastname')}',
-                                        style: const TextStyle(fontSize: 10),
-                                      ),
-                                    );
-                                  },
-                                  error: (Object error, StackTrace stackTrace) {
-                                    return const Text(
-                                      'Not Found',
-                                      style: TextStyle(fontSize: 20),
-                                    );
-                                  },
-                                  loading: () {
-                                    return const CircularProgressIndicator();
-                                  },
-                                );
-                              },
-                            ),
-                          ],
+                              const SizedBox(height: 8),
+                              Consumer(
+                                builder: (_, ref, __) {
+                                  return ref.watch(userDataProvider).when(
+                                    data: (value) {
+                                      return Center(
+                                        child: Text(
+                                          // ignore: prefer_adjacent_string_concatenation
+                                          '${value.get('firstname')}' +
+                                              ' ' +
+                                              '${value.get('lastname')}',
+
+                                          style: const TextStyle(fontSize: 10),
+                                        ),
+                                      );
+                                    },
+                                    error:
+                                        (Object error, StackTrace stackTrace) {
+                                      return const Text(
+                                        'User',
+                                        style: TextStyle(fontSize: 20),
+                                      );
+                                    },
+                                    loading: () {
+                                      return const CircularProgressIndicator();
+                                    },
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.deepPurple[100],
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Icon(Icons.person),
-                      )
-                    ],
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple[100],
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Icon(Icons.person),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -131,23 +136,7 @@ class _adminpnelState extends State<adminpnel> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 25),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                          prefixIcon: (Icon(Icons.search)),
-                          border: InputBorder.none,
-                          hintText: 'How can we help you?'),
-                    ),
-                  ),
-                ),
+
                 const SizedBox(height: 25),
                 Container(
                   height: 80,
@@ -315,7 +304,7 @@ class _adminpnelState extends State<adminpnel> {
                           child: const Text('Add An Events')),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/p');
+                            Navigator.pushNamed(context, '/addplace');
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 28, 128, 150),
@@ -421,4 +410,64 @@ class _adminpnelState extends State<adminpnel> {
             //   ],
             // ))
 
+                // const SizedBox(height: 25),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                //   child: Container(
+                //     padding: const EdgeInsets.all(12),
+                //     decoration: BoxDecoration(
+                //       color: Colors.deepPurple[100],
+                //       borderRadius: BorderRadius.circular(12),
+                //     ),
+                //     child: const TextField(
+                //       decoration: InputDecoration(
+                //           prefixIcon: (Icon(Icons.search)),
+                //           border: InputBorder.none,
+                //           hintText: 'How can we help you?'),
+                //     ),
+                //   ),
+                // ),
 
+
+
+
+
+
+
+//  Container(
+//                   height: 80,
+//                   child: ListView(
+//                     scrollDirection: Axis.horizontal,
+//                     children: [
+//                       SizedBox(height: 24),
+//                       MaterialButton(
+//                         padding: EdgeInsets.symmetric(vertical: 4),
+//                         onPressed: () {},
+//                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+//                         child: Row(
+//                           children: 
+//                             [],
+//                         ),
+//                       ),
+
+// Column(
+//                               mainAxisAlignment: MainAxisAlignment.start,
+//                               children: <Widget>[
+//                                 Text(
+//                                   '1000',
+//                                   style: TextStyle(
+//                                     fontWeight: FontWeight.bold,
+//                                     fontSize: 20,
+//                                   ),
+//                                 ),
+//                                 SizedBox(height: 2),
+//                                 Text(
+//                                   'Users',
+//                                   style: TextStyle(
+//                                     fontWeight: FontWeight.bold,
+//                                     fontSize: 20,
+//                                   ),
+//                                 ),
+//                               ],
+                              
+//                             ),

@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../model/events_model.dart';
-import '../../model/whishlist_model.dart';
+import 'package:mobileapplication/data/dataApp/wishlist_data.dart';
 
 //---------------------WishlistProvider------------------------//
 

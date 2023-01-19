@@ -1,3 +1,58 @@
+
+import 'dart:convert';
+import 'dart:core';
+
+class PendingModel {
+  String name;
+ String about;
+ String city;
+ String location;
+ String startDate;
+ String endDate;
+  String openingTime;
+ String closingTime;
+ 
+ 
+
+  PendingModel({required this.name, 
+  required this.about, 
+  required this.city,
+   required this.location, required this.startDate, 
+   required this.endDate,
+    required this.openingTime, required this.closingTime});
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+        'name' :name,
+ 'about':about,
+ 'city':city,
+ 'location':location,
+  'startDate':startDate,
+ 'endDate':endDate,
+  'openingTime':openingTime,
+ 'closingTime':closingTime
+    };
+  }
+
+  factory PendingModel.fromMap(Map<String, dynamic> map) {
+    return PendingModel(
+      name: map['name'] as String,
+      about: map['about'] as String,
+       city: map['city'] as String,
+      location: map['location'] as String,
+       startDate: map['startdate'] as String,
+      endDate: map['enddate'] as String,
+       openingTime: map['openingtime'] as String,
+      closingTime: map['closingtime'] as String,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory PendingModel.fromJson(String source) =>
+      PendingModel.fromMap(json.decode(source) as Map<String, dynamic>);
+}
+
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:shared_preferences/shared_preferences.dart';

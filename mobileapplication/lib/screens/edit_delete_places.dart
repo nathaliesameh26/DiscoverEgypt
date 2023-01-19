@@ -199,7 +199,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                                     // },
                                                   },
                                                   child: Container(
-                                                    color: Color.fromARGB(
+                                                    color: const Color.fromARGB(
                                                         255, 184, 195, 184),
                                                     padding:
                                                         const EdgeInsets.all(
@@ -213,7 +213,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                                         context, '/placeList');
                                                   },
                                                   child: Container(
-                                                    color: Color.fromARGB(
+                                                    color: const Color.fromARGB(
                                                         255, 184, 195, 184),
                                                     padding:
                                                         const EdgeInsets.all(

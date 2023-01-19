@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/screens/Event_form.dart';
 import 'package:mobileapplication/screens/Place_form.dart';
+import 'package:mobileapplication/screens/Planner_panel.dart';
 import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
@@ -36,11 +37,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/register',
+        initialRoute: '/admin',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/updatePlace': (context) => EditPlacePage(),
           '/updateEvent': (context) => EditEventPage(),
+           '/planner': (context) => PlannerPanel(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),

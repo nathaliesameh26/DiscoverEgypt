@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mobileapplication/data/dataApp/events_data.dart';
 
 import '../model/events_model.dart';
 

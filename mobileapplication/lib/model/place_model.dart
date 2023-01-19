@@ -56,9 +56,12 @@ class PlacesData {
             .doc(result.id)
             .update(toMap());
       }
-    });
+    }
+    );
+
   }
 }
+
 
 // final UpdatePlace = FirebaseFirestore.instance
 //     .collection('places')

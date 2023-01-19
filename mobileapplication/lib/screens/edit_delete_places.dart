@@ -210,7 +210,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                                 TextButton(
                                                   onPressed: () {
                                                     Navigator.pushNamed(
-                                                        context, '/edplace');
+                                                        context, '/placeList');
                                                   },
                                                   child: Container(
                                                     color: Color.fromARGB(

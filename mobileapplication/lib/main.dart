@@ -9,6 +9,7 @@ import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/edit_place.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
+import 'package:mobileapplication/screens/myplan_screen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/plans',
         routes: {
           '/welcome': (context) => const Welcome(),
           'updatePlace': (context) => EditPlacePage(),
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
           '/search': (context) => SearchPage(),
           '/profile': (context) => ProfilePage(),
           // '/p': (context) => proto(),
+          '/plans': (context) => MyPlansScreen(),
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),

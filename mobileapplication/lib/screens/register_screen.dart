@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
-import 'package:mobileapplication/model/loginData.dart';
+import 'package:mobileapplication/data/dataApp/login_data.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});

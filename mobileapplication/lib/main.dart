@@ -24,6 +24,7 @@ import 'package:mobileapplication/screens/test_screen.dart';
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import 'screens/RatingScreen.dart';
+import 'screens/destinantion_screen.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash.dart';
@@ -44,18 +45,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/raiting',
+        initialRoute: '/HomeScreenn',
         routes: {
           '/testScreen': (context) => testScreen(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
-
+          '/CrudPlace': (context) => CrudPlace(),
           '/EditProfilePage': (context) => EditProfilePage(),
-
+          // '/DestinationScreen': (context) => DestinationScreen(),
+          '/HomeScreenn': (context) => HomeScreenn(),
           '/updatePlace': (context) => EditPlacePage(),
           '/updateEvent': (context) => EditEventPage(),
           '/planner': (context) => PlannerPanel(),
-
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),

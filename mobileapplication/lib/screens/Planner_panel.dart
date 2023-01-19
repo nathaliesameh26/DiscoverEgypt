@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/src/rendering/box.dart';
 
 import '../data/repo/user_provider.dart';
 
@@ -244,7 +245,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                 //  ],
                 //),
 
-                SizedBox(height: 25),
+                const SizedBox(height: 25),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
@@ -261,64 +262,67 @@ class _PlannerPanelState extends State<PlannerPanel> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 25),
+                // const SizedBox(height: 50),
                 Expanded(
-                    child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.deepPurple[100],
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Column(
-                          children: [
-                            // Image.asset(
-                            //   'assets/doctor1.jpg',
-                            //   height: 40,
-                            // ),
-                            Row(
-                              // ignore: prefer_const_literals_to_create_immutables
-                              children: [
-                                const Icon(Icons.star),
-                                const Text('4'),
-                              ],
-                            ),
-                            const Text('Dr.Philip George'),
-                            const Text('6th of october , hospital '),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.deepPurple[100],
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Column(
-                          children: [
-                            // Image.asset(
-                            //   'assets/doctor2.jpg',
-                            //   height: 40,
-                            // ),
-                            Row(
-                              // ignore: prefer_const_literals_to_create_immutables
-                              children: [
-                                const Icon(Icons.star),
-                                const Text('4'),
-                              ],
-                            ),
-                            const Text('Dr.Ahmed Marzoaa'),
-                            const Text('Alshrouq city , Swiss hospital '),
-                          ],
+                    child: SizedBox(
+                  height: 50,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple[100],
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Column(
+                            children: [
+                              // Image.asset(
+                              //   'assets/doctor1.jpg',
+                              //   height: 40,
+                              // ),
+                              Row(
+                                // ignore: prefer_const_literals_to_create_immutables
+                                children: [
+                                  const Icon(Icons.star),
+                                  const Text('4'),
+                                ],
+                              ),
+                              const Text('Dr.Philip George'),
+                              const Text('6th of october , hospital '),
+                            ],
+                          ),
                         ),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple[100],
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Column(
+                            children: [
+                              // Image.asset(
+                              //   'assets/doctor2.jpg',
+                              //   height: 40,
+                              // ),
+                              Row(
+                                // ignore: prefer_const_literals_to_create_immutables
+                                children: [
+                                  const Icon(Icons.star),
+                                  const Text('4'),
+                                ],
+                              ),
+                              const Text('Dr.Ahmed Marzoaa'),
+                              const Text('Alshrouq city , Swiss hospital '),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ))
               ],
             ),

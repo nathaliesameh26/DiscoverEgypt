@@ -175,7 +175,48 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                           ),
                                         )),
                                     ElevatedButton(
-                                        onPressed: () {},
+                                                onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              content: const Text(
+                                                  "Are you sre you want to delete it?"),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                    // onPressed: () async {
+                                                    //   deletePlace(
+                                                    //       value.docs[index].get('name'));
+                                                    // },
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                        255, 184, 195, 184),
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            14),
+                                                    child: const Text("Yes"),
+                                                  ),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pushNamed(
+                                                        context, '/placeList');
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                        255, 184, 195, 184),
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            14),
+                                                    child: const Text("No"),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
                                         style: ElevatedButton.styleFrom(
                                             // ignore: prefer_const_constructors
                                             backgroundColor: Color.fromARGB(

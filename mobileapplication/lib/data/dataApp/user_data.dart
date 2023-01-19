@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 final user = FirebaseAuth.instance.currentUser!;
 String userID = user.uid;
 
@@ -14,6 +13,21 @@ class UserData {
         .doc('VF7E8oJZEhp3VJ3RNNBi')
         .get();
     return documentSnapshot;
+  }
+
+  Future updateUserDetails(
+      String userName, String userEmail, String password, String ln) async {
+    final updateUser = FirebaseFirestore.instance
+        .collection('users')
+        .doc('VF7E8oJZEhp3VJ3RNNBi');
+    updateUser.update(
+      {
+        'firstname': userName.trim(),
+        'email': userEmail.trim(),
+        'password': password.trim(),
+        'lastname': ln.trim(),
+      },
+    );
   }
 }
 

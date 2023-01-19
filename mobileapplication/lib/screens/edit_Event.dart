@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mobileapplication/data/dataApp/events_data.dart';
 import 'package:mobileapplication/model/events_model.dart';
 
 class EditEventPage extends StatefulWidget {

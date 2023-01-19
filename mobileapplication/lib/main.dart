@@ -9,14 +9,22 @@ import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_Event.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
+import 'package:mobileapplication/screens/edit_profile_page.dart';
+
 import 'package:mobileapplication/screens/edit_place.dart';
+
 import 'package:mobileapplication/screens/homeScreen.dart';
+import 'package:mobileapplication/screens/myplan_screen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
+
+import 'package:mobileapplication/screens/test_screen.dart';
+
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
+import 'screens/RatingScreen.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash.dart';
@@ -39,7 +47,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/placeList',
         routes: {
+          '/testScreen': (context) => testScreen(),
+          '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
+
+          '/EditProfilePage': (context) => EditProfilePage(),
+
           '/updatePlace': (context) => EditPlacePage(),
           '/updateEvent': (context) => EditEventPage(),
           '/planner': (context) => PlannerPanel(),
@@ -60,6 +73,10 @@ class MyApp extends StatelessWidget {
           '/Eventform': (context) => const eventForm(),
           '/search': (context) => SearchPage(),
           '/profile': (context) => ProfilePage(),
+
+          // '/p': (context) => proto(),
+          '/plans': (context) => MyPlansScreen(),
+
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
@@ -170,6 +187,4 @@ class MyApp extends StatelessWidget {
     //               label: 'Account'),
     //         ],
     //       )),
-    // );
- // }
-//}
+   

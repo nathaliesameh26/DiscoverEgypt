@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/repo/user_provider.dart';
+import '../widget/NumbersWidget.dart';
 
 class AdminPanel extends StatefulWidget {
   const AdminPanel({super.key});
@@ -148,96 +149,98 @@ class _AdminPanelState extends State<AdminPanel> {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            color: Color.fromARGB(255, 28, 128, 150),
+                            //color: Color.fromARGB(255, 28, 128, 150),
                           ),
                           child: Row(
-                            children: [
+                            children: const [
                               // Image.asset('assets/detection.png', height: 30),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              ElevatedButton(
-                                  onPressed: () {
-                                    // Navigator.pushNamed(context, '/test');
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Color.fromARGB(255, 28, 128, 150),
-                                  ),
-                                  child: const Text('Egypt sightseing places')),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Color.fromARGB(255, 28, 128, 150),
-                          ),
-                          child: Row(
-                            children: [
-                              // Image.asset('assets/severity.png', height: 30),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Color.fromARGB(255, 28, 128, 150),
-                                  ),
-                                  child: const Text('Egypt\'s Events')),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Color.fromARGB(255, 28, 128, 150),
-                          ),
-                          child: Row(
-                            children: [
-                              // Image.asset('assets/online-survey.png', height: 30),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Color.fromARGB(255, 28, 128, 150),
-                                  ),
-                                  child: const Text('Event Planners')),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Color.fromARGB(255, 28, 128, 150),
-                          ),
-                          child: Row(
-                            children: [
-                              // Image.asset('assets/contact.png', height: 30),
-                              // ignore: prefer_const_constructors
                               SizedBox(
                                 width: 10,
                               ),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Color.fromARGB(255, 28, 128, 150),
-                                  ),
-                                  child: const Text('Users')),
+                              NumbersWidget()
+
+                              //         ElevatedButton(
+                              //             onPressed: () {
+                              //               // Navigator.pushNamed(context, '/test');
+                              //             },
+                              //             style: ElevatedButton.styleFrom(
+                              //               backgroundColor:
+                              //                   Color.fromARGB(255, 28, 128, 150),
+                              //             ),
+                              //             child: const Text('Egypt sightseing places')),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(left: 25.0),
+                              //   child: Container(
+                              //     decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(12),
+                              //       color: Color.fromARGB(255, 28, 128, 150),
+                              //     ),
+                              //     child: Row(
+                              //       children: [
+                              //         // Image.asset('assets/severity.png', height: 30),
+                              //         const SizedBox(
+                              //           width: 10,
+                              //         ),
+                              //         ElevatedButton(
+                              //             onPressed: () {},
+                              //             style: ElevatedButton.styleFrom(
+                              //               backgroundColor:
+                              //                   Color.fromARGB(255, 28, 128, 150),
+                              //             ),
+                              //             child: const Text('Egypt\'s Events')),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(left: 25.0),
+                              //   child: Container(
+                              //     decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(12),
+                              //       color: Color.fromARGB(255, 28, 128, 150),
+                              //     ),
+                              //     child: Row(
+                              //       children: [
+                              //         // Image.asset('assets/online-survey.png', height: 30),
+                              //         const SizedBox(
+                              //           width: 10,
+                              //         ),
+                              //         ElevatedButton(
+                              //             onPressed: () {},
+                              //             style: ElevatedButton.styleFrom(
+                              //               backgroundColor:
+                              //                   Color.fromARGB(255, 28, 128, 150),
+                              //             ),
+                              //             child: const Text('Event Planners')),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(left: 25.0),
+                              //   child: Container(
+                              //     decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(12),
+                              //       color: Color.fromARGB(255, 28, 128, 150),
+                              //     ),
+                              //     child: Row(
+                              //       children: [
+                              //         // Image.asset('assets/contact.png', height: 30),
+                              //         // ignore: prefer_const_constructors
+                              //         SizedBox(
+                              //           width: 10,
+                              //         ),
+                              //         ElevatedButton(
+                              //             onPressed: () {},
+                              //             style: ElevatedButton.styleFrom(
+                              //               backgroundColor:
+                              //                   Color.fromARGB(255, 28, 128, 150),
+                              //             ),
+                              //             child: const Text('Users')),
                             ],
                           ),
                         ),
@@ -245,6 +248,7 @@ class _AdminPanelState extends State<AdminPanel> {
                     ],
                   ),
                 ),
+
                 SizedBox(height: 25),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),

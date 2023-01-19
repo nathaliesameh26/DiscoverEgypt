@@ -81,6 +81,11 @@ class _LoginState extends State<Login> {
                               controller: emailController,
                               style: const TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      width: 1,
+                                      color: Colors.white), //<-- SEE HERE
+                                ),
                                 hintText: "Enter your email",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),
@@ -100,6 +105,12 @@ class _LoginState extends State<Login> {
                               controller: passwordController,
                               style: const TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 1,
+                                    color: Colors.white,
+                                  ),
+                                ),
                                 hintText: "Enter your password",
                                 hintStyle: TextStyle(color: Colors.white),
                               ),

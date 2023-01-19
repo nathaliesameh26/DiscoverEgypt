@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:intl/intl.dart';
 import 'package:mobileapplication/model/loginData.dart';
 
 class Register extends StatefulWidget {
@@ -16,6 +17,7 @@ class _RegisterState extends State<Register> {
   String name = "";
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  TextEditingController DOB = TextEditingController();
   TextEditingController fname = TextEditingController();
   TextEditingController lname = TextEditingController();
   TextEditingController phone = TextEditingController();
@@ -122,6 +124,37 @@ class _RegisterState extends State<Register> {
                             SizedBox(
                               height: height * 0.03,
                             ),
+                            TextField(
+                              controller: DOB,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                  hintText: "Enter your date of birth",
+                                  hintStyle: TextStyle(color: Colors.white),
+                                  suffixIcon: const Icon(Icons.calendar_today),
+                                  labelText: "Enter End Date"),
+                              readOnly: true,
+                              onTap: () async {
+                                DateTime? pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(1930),
+                                    lastDate: DateTime(2100));
+                                if (pickedDate != null) {
+                                  print(pickedDate);
+                                  String formattedDate =
+                                      DateFormat('yyyy-MM-dd')
+                                          .format(pickedDate);
+                                  print(formattedDate);
+                                  setState(() {
+                                    DOB.text =
+                                        formattedDate; //set output date to TextField value.
+                                  });
+                                } else {}
+                              },
+                            ),
+                            SizedBox(
+                              height: height * 0.03,
+                            ),
                             TextFormField(
                               controller: email,
                               style: TextStyle(color: Colors.white),
@@ -170,6 +203,7 @@ class _RegisterState extends State<Register> {
                             ),
                             TextFormField(
                               controller: password,
+                              obscureText: true,
                               style: TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 hintText: "Enter your password",
@@ -238,6 +272,7 @@ class _RegisterState extends State<Register> {
                                           userId,
                                           fname.text,
                                           lname.text,
+                                          DOB.text,
                                           email.text,
                                           password.text,
                                           phone.text,
@@ -250,7 +285,7 @@ class _RegisterState extends State<Register> {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(snackBar);
                                       }
-                                         Navigator.pushNamed(context, '/');
+                                      Navigator.pushNamed(context, '/');
                                     },
                                     style: TextButton.styleFrom(
                                         backgroundColor:

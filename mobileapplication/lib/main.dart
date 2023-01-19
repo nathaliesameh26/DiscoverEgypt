@@ -35,19 +35,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/admin', routes: {
+        initialRoute: '/register', routes: {
           '/welcome': (context) => const Welcome(),
-          'updatePlace': (context) => EditPlacePage(),
+          '/updatePlace': (context) => EditPlacePage(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
-
           '/admin': (context) => const AdminPanel(),
           // '/wishList': (context) => const WishList(),
-          '/admin': (context) => const AdminPanel(),
           '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
-          'addedplace': (context) => const placeForm(),
+          '/addedplace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
           '/edevent': (context) => CrudEvent(),
           '/edplace': (context) => CrudPlace(),
@@ -57,11 +55,9 @@ class MyApp extends StatelessWidget {
           '/Eventform': (context) => const eventForm(),
           '/search': (context) => SearchPage(),
           '/profile': (context) => ProfilePage(),
-          // '/p': (context) => proto(),
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
-          //'/': (context) => const HomeScreen(),
         });
   }
 }

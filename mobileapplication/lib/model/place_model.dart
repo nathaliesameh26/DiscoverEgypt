@@ -1,3 +1,50 @@
+
+import 'dart:convert';
+import 'dart:core';
+
+class PlaceModel {
+  String name;
+ String about;
+ String city;
+ String location;
+  String openingTime;
+ String closingTime;
+ 
+
+  PlaceModel({required this.name, 
+  required this.about, 
+  required this.city,
+   required this.location, 
+    required this.openingTime, required this.closingTime});
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+        'name' :name,
+ 'about':about,
+ 'city':city,
+ 'location':location,
+  'openingTime':openingTime,
+ 'closingTime':closingTime
+    };
+  }
+
+  factory PlaceModel.fromMap(Map<String, dynamic> map) {
+    return PlaceModel(
+      name: map['name'] as String,
+      about: map['about'] as String,
+       city: map['city'] as String,
+      location: map['location'] as String,
+       openingTime: map['openingtime'] as String,
+      closingTime: map['closingtime'] as String,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory PlaceModel.fromJson(String source) =>
+      PlaceModel.fromMap(json.decode(source) as Map<String, dynamic>);
+}
+
 // import 'dart:core';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_auth/firebase_auth.dart';

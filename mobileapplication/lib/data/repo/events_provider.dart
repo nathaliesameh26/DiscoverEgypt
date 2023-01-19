@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../model/events_model.dart';
+import 'package:mobileapplication/data/dataApp/events_data.dart';
 
 //---------------------EventsProvider------------------------//
 

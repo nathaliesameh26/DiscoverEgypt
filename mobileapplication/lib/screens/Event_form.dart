@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:mobileapplication/data/dataApp/events_data.dart';
 
 import '../model/events_model.dart';
 
@@ -12,6 +14,7 @@ class eventForm extends StatefulWidget {
 final formkey = GlobalKey<FormState>();
 
 class _eventFormState extends State<eventForm> {
+  DateTime date = DateTime(2023, 1, 23);
   TextEditingController nameController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
   TextEditingController priceController = TextEditingController();
@@ -24,7 +27,7 @@ class _eventFormState extends State<eventForm> {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
+    // final double height = MediaQuery.of(context).size.height;
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
         key: scaffoldKey,
@@ -150,39 +153,63 @@ class _eventFormState extends State<eventForm> {
                           ),
                           Container(
                             padding: const EdgeInsets.all(10),
-                            child: TextFormField(
-                                controller: startDateController,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Event Start Date',
-                                ),
-                                validator: (value) {
-                                  if (value!.isEmpty ||
-                                      !RegExp(r'(\d{4}-?\d\d-?\d\d(\s|T)\d\d:?\d\d:?\d\d)')
-                                          .hasMatch(value)) {
-                                    return "enter a correct date";
-                                  } else {
-                                    return null;
-                                  }
-                                }),
+                            child: TextField(
+                              controller: startDateController,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                  border: const OutlineInputBorder(),
+                                  suffixIcon: const Icon(Icons.calendar_today),
+                                  labelText: "Enter Start Date"),
+                              readOnly: true,
+                              onTap: () async {
+                                DateTime? pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(2023),
+                                    lastDate: DateTime(2100));
+                                if (pickedDate != null) {
+                                  print(pickedDate);
+                                  String formattedDate =
+                                      DateFormat('yyyy-MM-dd')
+                                          .format(pickedDate);
+                                  print(formattedDate);
+                                  setState(() {
+                                    startDateController.text =
+                                        formattedDate; //set output date to TextField value.
+                                  });
+                                } else {}
+                              },
+                            ),
                           ),
                           Container(
                             padding: const EdgeInsets.all(10),
-                            child: TextFormField(
-                                controller: endDateController,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Event End Date',
-                                ),
-                                validator: (value) {
-                                  if (value!.isEmpty ||
-                                      !RegExp(r'(\d{4}-?\d\d-?\d\d(\s|T)\d\d:?\d\d:?\d\d)')
-                                          .hasMatch(value)) {
-                                    return "enter a correct date";
-                                  } else {
-                                    return null;
-                                  }
-                                }),
+                            child: TextField(
+                              controller: endDateController,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                  border: const OutlineInputBorder(),
+                                  suffixIcon: const Icon(Icons.calendar_today),
+                                  labelText: "Enter End Date"),
+                              readOnly: true,
+                              onTap: () async {
+                                DateTime? pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(2023),
+                                    lastDate: DateTime(2100));
+                                if (pickedDate != null) {
+                                  print(pickedDate);
+                                  String formattedDate =
+                                      DateFormat('yyyy-MM-dd')
+                                          .format(pickedDate);
+                                  print(formattedDate);
+                                  setState(() {
+                                    endDateController.text =
+                                        formattedDate; //set output date to TextField value.
+                                  });
+                                } else {}
+                              },
+                            ),
                           ),
                           Container(
                             padding: const EdgeInsets.all(10),

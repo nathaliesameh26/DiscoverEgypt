@@ -2,20 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/screens/Event_form.dart';
 import 'package:mobileapplication/screens/Place_form.dart';
+import 'package:mobileapplication/screens/Planner_panel.dart';
 import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
+import 'package:mobileapplication/screens/edit_Event.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
+import 'package:mobileapplication/screens/edit_profile_page.dart';
+
 import 'package:mobileapplication/screens/edit_place.dart';
+
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/myplan_screen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
+
+import 'package:mobileapplication/screens/test_screen.dart';
+
 import 'package:mobileapplication/screens/welcome.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
+import 'screens/RatingScreen.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash.dart';
@@ -38,18 +47,24 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/plans',
         routes: {
+          '/testScreen': (context) => testScreen(),
+          '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
-          'updatePlace': (context) => EditPlacePage(),
+
+          '/EditProfilePage': (context) => EditProfilePage(),
+
+          '/updatePlace': (context) => EditPlacePage(),
+          '/updateEvent': (context) => EditEventPage(),
+          '/planner': (context) => PlannerPanel(),
+
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
-
           '/admin': (context) => const AdminPanel(),
           // '/wishList': (context) => const WishList(),
-          '/admin': (context) => const AdminPanel(),
           '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
-          'addedplace': (context) => const placeForm(),
+          '/addedlace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
           '/edevent': (context) => CrudEvent(),
           '/edplace': (context) => CrudPlace(),
@@ -59,12 +74,13 @@ class MyApp extends StatelessWidget {
           '/Eventform': (context) => const eventForm(),
           '/search': (context) => SearchPage(),
           '/profile': (context) => ProfilePage(),
+
           // '/p': (context) => proto(),
           '/plans': (context) => MyPlansScreen(),
+
           // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
-          //'/': (context) => const HomeScreen(),
         });
   }
 }
@@ -172,6 +188,4 @@ class MyApp extends StatelessWidget {
     //               label: 'Account'),
     //         ],
     //       )),
-    // );
- // }
-//}
+   

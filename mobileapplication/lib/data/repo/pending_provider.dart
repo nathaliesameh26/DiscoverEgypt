@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../model/user.dart';
-import '../../model/pending_model.dart';
+import 'package:mobileapplication/data/dataApp/pending_data.dart';
 
 //---------------------PendingProvider------------------------//
 

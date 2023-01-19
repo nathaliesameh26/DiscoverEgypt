@@ -37,12 +37,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/admin',
+        initialRoute: '/placeList',
         routes: {
           '/welcome': (context) => const Welcome(),
           '/updatePlace': (context) => EditPlacePage(),
           '/updateEvent': (context) => EditEventPage(),
-           '/planner': (context) => PlannerPanel(),
+          '/planner': (context) => PlannerPanel(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
@@ -50,10 +50,10 @@ class MyApp extends StatelessWidget {
           // '/wishList': (context) => const WishList(),
           '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
-          '/addedlace': (context) => const placeForm(),
+          '/addedplace': (context) => const placeForm(),
           // '/detail': (context) => const DetailSreen(),
-          '/edevent': (context) => CrudEvent(),
-          '/edplace': (context) => CrudPlace(),
+          '/eventList': (context) => CrudEvent(),
+          '/placeList': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),

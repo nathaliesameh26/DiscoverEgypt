@@ -1,3 +1,4 @@
+import 'package:csc_picker/model/select_status_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
 import '../../model/place_model.dart';
@@ -17,6 +18,7 @@ final placesDataProvider = FutureProvider(
     //listens to the data
   },
 );
+
 
 // DeletePlace(){
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/repo/events_provider.dart';
+import '../data/repo/myplans_provider.dart';
 import '../data/repo/pending_provider.dart';
 import '../data/repo/places_provider.dart';
 
@@ -20,6 +21,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
   @override
   Widget build(BuildContext context) {
     final PlacesData = ref.watch(placesDataProvider);
+    final MyPlansData = ref.watch(plansDataProvider);
     final EventData = ref.watch(eventsDataProvider);
     return Scaffold(
       backgroundColor: const Color(0xFFF6F7FF),
@@ -109,7 +111,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                     const SizedBox(
                       height: 20.0,
                     ),
-                    PlacesData.when(
+                    MyPlansData.when(
                       data: (value) => SafeArea(
                         child: Container(
                           height: 500.0,
@@ -206,7 +208,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                 SizedBox(
                                                                   width: 200,
                                                                   child: Text(
-                                                                    '${value.docs[index].get('about')}',
+                                                                    '${value.docs[index].get('location')}',
                                                                     style:
                                                                         const TextStyle(
                                                                       fontSize:

@@ -17,7 +17,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey,
       body: SafeArea(
         child: Column(
           children: [

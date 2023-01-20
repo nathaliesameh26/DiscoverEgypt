@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../data/repo/place_provider_test.dart';
 import '../data/repo/places_provider.dart';
 
 class DetailsPage extends ConsumerStatefulWidget {
@@ -14,6 +15,9 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     final PlacesData = ref.watch(placesDataProvider);
+    final index = ModalRoute.of(context)!.settings.arguments;
+
+    //final placeData1 = ref.watch(placesDataProvider1);
     return Scaffold(
       body: PlacesData.when(
         data: (value) => SafeArea(
@@ -32,7 +36,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
-                        "${value.get('name')}",
+                        "${value.docs[index].get('name')}",
                         style: const TextStyle(
                             color: Colors.white,
                             fontSize: 28.0,
@@ -51,7 +55,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                               color: Colors.grey,
                               borderRadius: BorderRadius.circular(20.0)),
                           child: Text(
-                            "${value.get('rating')} reviews",
+                            "${value.docs[index].get('rating')} reviews",
                             style:
                                 TextStyle(color: Colors.white, fontSize: 13.0),
                           ),
@@ -110,7 +114,8 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                           color: Colors.grey,
                                         )),
                                         TextSpan(
-                                            text: "${value.get('location')}")
+                                            text:
+                                                "${value.docs[index].get('location')}")
                                       ]),
                                       style: const TextStyle(
                                           color: Colors.grey, fontSize: 12.0),
@@ -121,7 +126,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                               Column(
                                 children: <Widget>[
                                   Text(
-                                    "${value.get('price')} LE",
+                                    "${value.docs[index].get('price')} LE",
                                     style: const TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.bold,
@@ -154,7 +159,10 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                 "Book Now",
                                 style: TextStyle(fontWeight: FontWeight.normal),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/booking',
+                                    arguments: index);
+                              },
                             ),
                           ),
                           const SizedBox(height: 30.0),
@@ -165,7 +173,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                           ),
                           const SizedBox(height: 10.0),
                           Text(
-                            "${value.get('about')}",
+                            "${value.docs[index].get('about')}",
                             textAlign: TextAlign.justify,
                             style: const TextStyle(
                                 fontWeight: FontWeight.w300, fontSize: 14.0),

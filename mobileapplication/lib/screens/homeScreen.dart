@@ -86,9 +86,7 @@ class _HomeScreenState extends State<HomeScreenn> {
                     padding: const EdgeInsets.only(right: 25),
                     child: Text(
                       // ignore: prefer_adjacent_string_concatenation
-                      '${value.get('firstname')}' +
-                          ' ' +
-                          '${value.get('lastname')}',
+                      '${value.get('firstname')} ${value.get('lastname')}',
 
                       style: const TextStyle(fontSize: 15),
                     ),

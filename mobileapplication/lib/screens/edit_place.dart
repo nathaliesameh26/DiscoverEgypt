@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
 import 'package:mobileapplication/data/repo/places_provider.dart';
 import 'package:mobileapplication/model/place_model.dart';
 
-class EditPlacePage extends StatefulWidget {
+class EditPlacePage extends ConsumerStatefulWidget {
   @override
-  _EditPlacePageState createState() => _EditPlacePageState();
+ ConsumerState<EditPlacePage> createState() => _EditPlacePageState();
 }
 
-class _EditPlacePageState extends State<EditPlacePage> {
+class _EditPlacePageState extends ConsumerState<EditPlacePage> {
   final _formKey = GlobalKey<FormState>();
   final Place_Data = PlacesData();
 
@@ -20,28 +21,20 @@ class _EditPlacePageState extends State<EditPlacePage> {
   late TextEditingController openingTimeController;
   late TextEditingController closingTimeController;
 
-  // TextEditingController nameController = TextEditingController();
-  // TextEditingController aboutController = TextEditingController();
-  // TextEditingController priceController = TextEditingController();
-  // TextEditingController cityController = TextEditingController();
-  // TextEditingController locationController = TextEditingController();
-  // TextEditingController openingTimeController = TextEditingController();
-  // TextEditingController closingTimeController = TextEditingController();
-  
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   final placeData = ref.read(placesDataProvider).value;
-  //   aboutController = TextEditingController(text: placeData.get('name'));
-  //   priceController =
-  //       TextEditingController(text: placeData.get('price').toString());
-  //   cityController = TextEditingController(text: placeData.get('city'));
-  //   locationController = TextEditingController(text: placeData.get('location'));
-  //   closingTimeController =
-  //       TextEditingController(text: placeData.get('openingtime'));
-  //   closingTimeController =
-  //       TextEditingController(text: placeData.get('closingtime'));
-  // }
+  @override
+  void initState() {
+    super.initState();
+    final placeData = ref.read(placesDataProvider).value;
+    aboutController = TextEditingController(text: placeData.get('name'));
+    priceController =
+        TextEditingController(text: placeData.get('price').toString());
+    cityController = TextEditingController(text: placeData.get('city'));
+    locationController = TextEditingController(text: placeData.get('location'));
+    closingTimeController =
+        TextEditingController(text: placeData.get('openingtime'));
+    closingTimeController =
+        TextEditingController(text: placeData.get('closingtime'));
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:mobileapplication/data/dataApp/events_data.dart';
-import 'package:mobileapplication/model/events_model.dart';
+import 'package:mobileapplication/data/repo/events_provider.dart';
 
-class EditEventPage extends StatefulWidget {
+class EditEventPage extends ConsumerStatefulWidget {
   @override
-  _EditEventPageState createState() => _EditEventPageState();
+  // _EditEventPageState createState() => _EditEventPageState();
+  ConsumerState<EditEventPage> createState() => _EditEventPageState();
 }
 
-class _EditEventPageState extends State<EditEventPage> {
+class _EditEventPageState extends ConsumerState<EditEventPage> {
   final _formKey = GlobalKey<FormState>();
   final Event_Data = EventsData();
 
@@ -21,29 +23,22 @@ class _EditEventPageState extends State<EditEventPage> {
   late TextEditingController enddateController;
   late TextEditingController openingTimeController;
   late TextEditingController closingTimeController;
-
-  // TextEditingController nameController = TextEditingController();
-  // TextEditingController aboutController = TextEditingController();
-  // TextEditingController priceController = TextEditingController();
-  // TextEditingController cityController = TextEditingController();
-  // TextEditingController locationController = TextEditingController();
-  // TextEditingController openingTimeController = TextEditingController();
-  // TextEditingController closingTimeController = TextEditingController();
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   final placeData = ref.read(placesDataProvider).value;
-  //   aboutController = TextEditingController(text: placeData.get('name'));
-  //   priceController =
-  //       TextEditingController(text: placeData.get('price').toString());
-  //   cityController = TextEditingController(text: placeData.get('city'));
-  //   locationController = TextEditingController(text: placeData.get('location'));
-  //   closingTimeController =
-  //       TextEditingController(text: placeData.get('openingtime'));
-  //   closingTimeController =
-  //       TextEditingController(text: placeData.get('closingtime'));
-  // }
+  late String id;
+  @override
+  void initState() {
+    super.initState();
+    final EventsData = ref.read(eventsDataProvider).value;
+    nameController = TextEditingController(text: EventsData.get('name'));
+    aboutController = TextEditingController(text: EventsData.get('about'));
+    priceController = TextEditingController(text: EventsData.get('price').toString());
+    cityController = TextEditingController(text: EventsData.get('city'));
+    locationController = TextEditingController(text: EventsData.get('location'));
+    startdateController = TextEditingController(text: EventsData.get('startdate'));
+    enddateController =TextEditingController(text: EventsData.get('enddate'));
+    openingTimeController = TextEditingController(text: EventsData.get('openingTime'));
+    closingTimeController =TextEditingController(text: EventsData.get('closingTime'));
+     id = EventsData.get('id');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -230,6 +225,7 @@ class _EditEventPageState extends State<EditEventPage> {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
                           Event_Data.updateEventDetails(
+                              id,
                               nameController.text,
                               aboutController.text,
                               priceController.text,
@@ -269,7 +265,7 @@ class _EditEventPageState extends State<EditEventPage> {
                         //   );
                         // }
                       },
-                      child: const Text('Place Updated'),
+                      child: const Text('Event Updated'),
                     ),
                   ),
                 ],

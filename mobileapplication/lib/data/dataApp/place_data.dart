@@ -17,6 +17,14 @@ class PlacesData {
     return places;
   }
 
+  Future placecity(String city) async {
+    final QuerySnapshot places = await FirebaseFirestore.instance
+        .collection('places')
+        .where('city', isEqualTo: city)
+        .get();
+    return places;
+  }
+
 // Future deletePlace(String id) async {
 //   _documentReference = FirebaseFirestore.instance.collection('place')
 //   .doc(id);

@@ -5,6 +5,7 @@ import 'package:mobileapplication/screens/Place_form.dart';
 import 'package:mobileapplication/screens/Planner_panel.dart';
 import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
+import 'package:mobileapplication/screens/destination_carousel.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_Event.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
@@ -42,9 +43,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/register',
+        initialRoute: '/planner',
         routes: {
           '/testScreen': (context) => testScreen(),
+          '/DestinationCarousel': (context) => DestinationCarousel(),
+          // '/myadmin': (context) => myadmin(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
           '/CrudPlace': (context) => CrudPlace(),

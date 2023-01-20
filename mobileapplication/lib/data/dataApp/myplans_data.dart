@@ -9,12 +9,14 @@ class Plans {
     String name,
     String phone,
     String userId,
+    String placeId,
   ) async {
     await FirebaseFirestore.instance.collection('plans').add({
       'location': location,
       'name': name,
       'phone': phone,
       'userId': userId,
+      'placeId': placeId,
     });
   }
 

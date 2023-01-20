@@ -34,47 +34,47 @@ String userId = user.uid;
 //   }
 // }
 
-class UserData {
-  Future Loginn(String email, String password) async {
-    final User? user = (await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password))
-        .user;
+// class UserData {
+Future Loginn(String email, String password) async {
+  final User? user = (await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password))
+      .user;
 
-    userId = user!.uid;
-  }
+  userId = user!.uid;
+}
 
-  Future signup(String email, String password) async {
-    User? newuser = (await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: email.trim(), password: password.trim()))
-        .user;
-    CreateUser(newuser!.uid, 'firstname', 'lastname', email.trim(),
-        'DateOfBirth', password.trim(), 'phoneNum', 'nationality', 'role');
-  }
+Future signup(String email, String password) async {
+  final User? newuser = (await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password))
+      .user;
+  CreateUser(newuser!.uid, 'firstname', 'lastname', email, 'DateOfBirth',
+      password, 'phoneNum', 'nationality', 'role');
+}
 //for authentication
 
-  Future CreateUser(
-      String idd,
-      String fname,
-      String lname,
-      String email,
-      String DOB,
-      String password,
-      String phone,
-      String nationality,
-      String role) async {
-    await FirebaseFirestore.instance.collection('users').doc(idd).set({
-      'id': idd,
-      'firstname': fname,
-      'lastname': lname,
-      'email': email,
-      'DateOfBirth': DOB,
-      'password': password,
-      'phoneNum': phone,
-      'nationality': nationality,
-      'role': role,
-    });
-  }
+Future CreateUser(
+    String idd,
+    String fname,
+    String lname,
+    String email,
+    String DOB,
+    String password,
+    String phone,
+    String nationality,
+    String role) async {
+  await FirebaseFirestore.instance.collection('users').doc(idd).set({
+    'id': idd,
+    'firstname': fname,
+    'lastname': lname,
+    'email': email,
+    'DateOfBirth': DOB,
+    'password': password,
+    'phoneNum': phone,
+    'nationality': nationality,
+    'role': role,
+  });
 }
+//}
 
 
 

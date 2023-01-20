@@ -5,12 +5,16 @@ import 'package:mobileapplication/data/dataApp/login_data.dart';
 
 class Plans {
   Future addMyPlans(
-      String userId, String name, String location, String price) async {
+    String location,
+    String name,
+    String phone,
+    String userId,
+  ) async {
     await FirebaseFirestore.instance.collection('plans').add({
-      'userId': userId,
-      'name': name,
       'location': location,
-      'price': price,
+      'name': name,
+      'phone': phone,
+      'userId': userId,
     });
   }
 

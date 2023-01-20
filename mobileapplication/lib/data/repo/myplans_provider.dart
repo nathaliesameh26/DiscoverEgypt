@@ -5,16 +5,28 @@ import '../dataApp/myplans_data.dart';
 
 //---------------------PendingProvider------------------------//
 
-//provider byklm almodel
-Future plansData = Plans().getMyPlans() as Future;
-final plansDataProviderRepository = StateProvider<Future>((ref) => plansData);
+Stream plansData = Plans().getMyPlans();
+final plansDataProviderRepository = StateProvider<Stream>((ref) => plansData);
 //gets the data from the model
 
-final plansDataProvider = FutureProvider(
-  //bagyb beh aldata,byt3amel my al-ui
-  //ui byklem provider
-  (ref) async {
-    return ref.watch(plansDataProviderRepository);
-    //listens to the data
-  },
-);
+final plansDataProvider = StreamProvider(
+    //bagyb beh aldata,byt3amel my al-ui
+    //ui byklem provider
+    (ref) => ref.watch(plansDataProviderRepository));
+
+
+
+
+    // //provider byklm almodel
+// Future plansData = Plans().getMyPlans() as Future;
+// final plansDataProviderRepository = StateProvider<Future>((ref) => plansData);
+// //gets the data from the model
+
+// final plansDataProvider = FutureProvider(
+//   //bagyb beh aldata,byt3amel my al-ui
+//   //ui byklem provider
+//   (ref) async {
+//     return ref.watch(plansDataProviderRepository);
+//     //listens to the data
+//   },
+// );

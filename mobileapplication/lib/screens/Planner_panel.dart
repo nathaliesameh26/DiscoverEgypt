@@ -35,11 +35,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                             fontSize: 18,
                           ),
                         ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Discover Egypt',
-                          style: TextStyle(fontSize: 20),
-                        ),
                       ],
                     ),
                   ),

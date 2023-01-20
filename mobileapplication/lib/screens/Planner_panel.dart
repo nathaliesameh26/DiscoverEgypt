@@ -106,23 +106,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                 ),
               ),
             ),
-            const SizedBox(height: 25),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.deepPurple[100],
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const TextField(
-                  decoration: InputDecoration(
-                      prefixIcon: (Icon(Icons.search)),
-                      border: InputBorder.none,
-                      hintText: 'How can we help you?'),
-                ),
-              ),
-            ),
+
             const SizedBox(height: 25),
             Container(
               height: 80,

@@ -167,21 +167,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.blue[600],
                       ),
-                      child: Row(
-                        children: [
-                          //  Image.asset('assets/contact.png', height: 30),
-                          // ignore: prefer_const_constructors
-                          SizedBox(
-                            width: 10,
-                          ),
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue[600],
-                              ),
-                              child: const Text('Contact Doctors')),
-                        ],
-                      ),
                     ),
                   ),
                 ],

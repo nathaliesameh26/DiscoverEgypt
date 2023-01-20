@@ -158,21 +158,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.blue[600],
                       ),
-                      child: Row(
-                        //  Navigator.pushNamed(context, ''),
-                        children: [
-                          //Image.asset('assets/online-survey.png', height: 30),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue[600],
-                              ),
-                              child: const Text('Questionnaire')),
-                        ],
-                      ),
                     ),
                   ),
                   Padding(

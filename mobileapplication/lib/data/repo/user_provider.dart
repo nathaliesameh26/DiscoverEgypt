@@ -5,15 +5,14 @@ import '../dataApp/user_data.dart';
 //---------------------UserProvider------------------------//
 
 //provider byklm almodel
-Future userData = UserData().getUserDetails();
-final userDataProviderRepository = StateProvider<Future>((ref) => userData);
+Stream userData = UserData().getUserDetails();
+final userDataProviderRepository = StateProvider<Stream>((ref) => userData);
 //gets the data from the model
 
-final userDataProvider = FutureProvider(
-  //bagyb beh aldata,byt3amel my al-ui
-  //ui byklem provider
-  (ref) async {
-    return ref.watch(userDataProviderRepository);
+final userDataProvider = StreamProvider(
+    //bagyb beh aldata,byt3amel my al-ui
+    //ui byklem provider
+    (ref) => ref.watch(userDataProviderRepository));
     //listens to the data
-  },
-);
+  
+

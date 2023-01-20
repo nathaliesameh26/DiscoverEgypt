@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widget/NumbersWidget.dart';
+
 class PlannerPanel extends StatefulWidget {
   const PlannerPanel({super.key});
 
@@ -138,6 +140,10 @@ class _PlannerPanelState extends State<PlannerPanel> {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  NumbersWidget(),
                   Padding(
                     padding: const EdgeInsets.only(left: 25.0),
                     child: Container(

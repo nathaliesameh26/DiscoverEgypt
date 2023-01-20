@@ -1,4 +1,5 @@
 import 'dart:core';
+import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // final place = FirebaseAuth.instance.currentUser!;
@@ -29,6 +30,27 @@ class PlacesData {
   //       .where('city', arrayContains: 'Cairo')
   //       .get();
   //   return places;
+  // }
+
+  // static Future<bool?> updateWishlist(String docId) async {
+  //   // String data = '';
+  //   //   String email = ref.watch(newUserDataProivder)!.email;
+  //   //   int score = ref.watch(newUserDataProivder)!.score;
+  //   //   await FirebaseFirestore.instance
+  //   //       .collection('Users')
+  //   //       .where("email", isEqualTo: email)
+  //   //       .get()
+  //   //       .then((QuerySnapshot querySnapshot) {
+  //   //     for (var doc in querySnapshot.docs) {
+  //   //       data = (doc.reference.path);
+  //   //     }
+  //   //   });
+
+  //   final FirebaseFirestore db = FirebaseFirestore.instance;
+  //   final finalwishlist = await db.collection("places").get();
+  //   final update = FirebaseFirestore.instance.collection('places').doc(docId);
+  //   var wish = finalwishlist.docs.first.get('wishlist');
+  //   update.update({"wishlist": !wish});
   // }
 
   Future<void> updatePlaceDetails(
@@ -130,6 +152,7 @@ Future placeAdded(String name, String about, String city, String price,
     "price": int.parse(price),
     "openingTime": openingTime,
     "closingTime": closingTime,
+    // "wishlist": false,
     // "id" :place,
     // "location": location,
   });

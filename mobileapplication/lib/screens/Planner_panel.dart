@@ -89,13 +89,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                             fontSize: 16,
                           ),
                         ),
-                        const SizedBox(height: 8),
-                        const Text(
-                          'Detect wether you have Parkinson disease',
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
                         const SizedBox(height: 12),
                         Container(
                           padding: const EdgeInsets.all(12),

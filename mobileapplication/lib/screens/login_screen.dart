@@ -14,6 +14,7 @@ class _LoginState extends State<Login> {
   //final user = LoginUser.Luser;
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
+  final userData = UserData();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
@@ -149,7 +150,8 @@ class _LoginState extends State<Login> {
                                   child: ElevatedButton(
                                     onPressed: () async {
                                       try {
-                                        await Loginn(emailController.text,
+                                        await userData.Loginn(
+                                            emailController.text,
                                             passwordController.text);
                                         Navigator.pushNamed(context, '/');
                                       } on FirebaseAuthException catch (e) {

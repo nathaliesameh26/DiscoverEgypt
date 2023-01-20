@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../widget/NumbersWidget.dart';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../data/repo/user_provider.dart';
+
 class PlannerPanel extends StatefulWidget {
   const PlannerPanel({super.key});
 
@@ -35,6 +39,34 @@ class _PlannerPanelState extends State<PlannerPanel> {
                             fontSize: 18,
                           ),
                         ),
+                        const SizedBox(height: 8),
+                        // Consumer(
+                        //   builder: (_, ref, __) {
+                        //     return ref.watch(userDataProvider).when(
+                        //       data: (value) {
+                        //         return Center(
+                        //           child: Text(
+                        //             // ignore: prefer_adjacent_string_concatenation
+                        //             '${value.get('firstname')}' +
+                        //                 ' ' +
+                        //                 '${value.get('lastname')}',
+
+                        //             style: const TextStyle(fontSize: 10),
+                        //           ),
+                        //         );
+                        //       },
+                        //       error: (Object error, StackTrace stackTrace) {
+                        //         return const Text(
+                        //           'User',
+                        //           style: TextStyle(fontSize: 20),
+                        //         );
+                        //       },
+                        //       loading: () {
+                        //         return const CircularProgressIndicator();
+                        //       },
+                        //     );
+                        //   },
+                        // ),
                       ],
                     ),
                   ),

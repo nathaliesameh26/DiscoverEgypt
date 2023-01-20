@@ -28,6 +28,14 @@ class PlacesData {
 //   _documentReference.delete();
 // }
 
+  // Future getSpecificPlace() async {
+  //   final QuerySnapshot places = await FirebaseFirestore.instance
+  //       .collection('places')
+  //       .where('city', arrayContains: 'Cairo')
+  //       .get();
+  //   return places;
+  // }
+
   Future<void> updatePlaceDetails(
       String name,
       String about,

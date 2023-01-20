@@ -8,18 +8,18 @@ class NumbersWidget extends StatelessWidget {
           child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildButton(context, '4.8', 'places'),
+          buildButton(context, '15', 'places'),
           buildDivider(),
-          buildButton(context, '7.1', 'events'),
+          buildButton(context, '20', 'events'),
           buildDivider(),
-          buildButton(context, '1.2', 'users')
+          buildButton(context, '100', 'users')
         ],
       ));
   Widget buildDivider() => Container(
         height: 24,
         child: VerticalDivider(
-          color: Colors.black,
-        ),
+            //  color: Colors.black,
+            ),
       );
 
   Widget buildButton(BuildContext context, String value, String text) =>

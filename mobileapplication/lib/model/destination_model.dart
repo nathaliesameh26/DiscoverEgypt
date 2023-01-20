@@ -17,11 +17,11 @@ class Destination {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-        'name' :country,
- 'desc':description,
- 'city':city,
- 'activite':activities,
-  'img':imageUrl,
+      'name': country,
+      'desc': description,
+      'city': city,
+      'activite': activities,
+      'img': imageUrl,
     };
   }
 

@@ -33,7 +33,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Text(
                         "${value.get('name')}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 28.0,
                             fontWeight: FontWeight.bold),
@@ -78,7 +78,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Row(
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Icon(
                                           Icons.star,
                                           color: Colors.blue,
@@ -103,7 +103,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                     ),
                                     Text.rich(
                                       TextSpan(children: [
-                                        WidgetSpan(
+                                        const WidgetSpan(
                                             child: Icon(
                                           Icons.location_on,
                                           size: 16.0,
@@ -112,7 +112,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                         TextSpan(
                                             text: "${value.get('location')}")
                                       ]),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.grey, fontSize: 12.0),
                                     )
                                   ],
@@ -122,12 +122,12 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                 children: <Widget>[
                                   Text(
                                     "${value.get('price')} LE",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.blue,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20.0),
                                   ),
-                                  Text(
+                                  const Text(
                                     "/per Trip",
                                     style: TextStyle(
                                         fontSize: 12.0, color: Colors.grey),
@@ -150,7 +150,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                   horizontal: 32.0,
                                 ),
                               ),
-                              child: Text(
+                              child: const Text(
                                 "Book Now",
                                 style: TextStyle(fontWeight: FontWeight.normal),
                               ),
@@ -160,14 +160,14 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                           const SizedBox(height: 30.0),
                           Text(
                             "Description".toUpperCase(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.w600, fontSize: 14.0),
                           ),
                           const SizedBox(height: 10.0),
                           Text(
                             "${value.get('about')}",
                             textAlign: TextAlign.justify,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.w300, fontSize: 14.0),
                           ),
                           const SizedBox(height: 10.0),

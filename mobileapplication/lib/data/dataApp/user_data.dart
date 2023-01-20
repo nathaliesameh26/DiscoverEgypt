@@ -21,6 +21,21 @@ class UserData {
         .doc(userIds)
         .snapshots();
   }
+
+  Future updateUserDetails(
+      String userName, String userEmail, String password, String ln) async {
+    final updateUser = FirebaseFirestore.instance
+        .collection('users')
+        .doc('VF7E8oJZEhp3VJ3RNNBi');
+    updateUser.update(
+      {
+        'firstname': userName.trim(),
+        'email': userEmail.trim(),
+        'password': password.trim(),
+        'lastname': ln.trim(),
+      },
+    );
+  }
 }
 
 class User {

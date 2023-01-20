@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobileapplication/model/login_model.dart';
+import 'package:provider/provider.dart';
 
 final user = FirebaseAuth.instance.currentUser!;
 String userId = user.uid;
@@ -33,36 +34,47 @@ String userId = user.uid;
 //   }
 // }
 
-Future Loginn(String email, String password) async {
-  final User? user = (await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password))
-      .user;
+class UserData {
+  Future Loginn(String email, String password) async {
+    final User? user = (await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email, password: password))
+        .user;
 
-  userId = user!.uid;
-}
+    userId = user!.uid;
+  }
 
-Future signup(String email, String password) async {
-  final User? user = (await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password))
-      .user;
-}
+  Future signup(String email, String password) async {
+    User? newuser = (await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: email.trim(), password: password.trim()))
+        .user;
+    CreateUser(newuser!.uid, 'firstname', 'lastname', email.trim(),
+        'DateOfBirth', password.trim(), 'phoneNum', 'nationality', 'role');
+  }
 //for authentication
 
-Future CreateUser(String idd, String fname, String lname, String email,String DOB,
-    String password, String phone, String nationality, String role) async {
-  await FirebaseFirestore.instance.collection('users').add({
-    'id': idd,
-    'firstname': fname,
-    'lastname': lname,
-    'DateOfBirth': DOB,
-    'email': email,
-    'phoneNum': phone,
-    'password': password,
-    'nationality': nationality,
-    'role': role,
-  });
+  Future CreateUser(
+      String idd,
+      String fname,
+      String lname,
+      String email,
+      String DOB,
+      String password,
+      String phone,
+      String nationality,
+      String role) async {
+    await FirebaseFirestore.instance.collection('users').doc(idd).set({
+      'id': idd,
+      'firstname': fname,
+      'lastname': lname,
+      'email': email,
+      'DateOfBirth': DOB,
+      'password': password,
+      'phoneNum': phone,
+      'nationality': nationality,
+      'role': role,
+    });
+  }
 }
-
 
 
 

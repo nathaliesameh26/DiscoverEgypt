@@ -122,22 +122,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.blue[600],
                       ),
-                      child: Row(
-                        children: [
-                          // Image.asset('assets/detection.png', height: 30),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/test');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue[600],
-                              ),
-                              child: const Text('Detect Parkinson')),
-                        ],
-                      ),
                     ),
                   ),
                   SizedBox(

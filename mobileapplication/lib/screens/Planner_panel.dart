@@ -70,13 +70,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                       ],
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(Icons.person),
-                  )
                 ],
               ),
             ),

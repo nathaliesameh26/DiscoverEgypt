@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/login_data.dart';
 import 'package:mobileapplication/data/dataApp/myplans_data.dart';
+import 'package:mobileapplication/data/dataApp/place_data_test.dart';
 import 'package:mobileapplication/data/repo/pending_provider.dart';
 
 import '../data/repo/places_provider.dart';
@@ -270,6 +271,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                                           name.text,
                                           phone.text,
                                           userId,
+                                          value.docs[i].get('id'),
                                         );
                                       },
                                       style: ElevatedButton.styleFrom(

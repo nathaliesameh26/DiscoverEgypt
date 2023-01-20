@@ -1,12 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
-import 'package:mobileapplication/model/place_model.dart';
 import '../data/repo/places_provider.dart';
 
 // String myDocId = 'place.uid';
-// DocumentSnapshot? documentSnapshot;
+ //late DocumentSnapshot documentSnapshot;
 
 class CrudPlace extends ConsumerStatefulWidget {
   CrudPlace({Key? key});
@@ -184,46 +182,49 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                         )),
                                     ElevatedButton(
                                         onPressed: () {
-                                          showDialog(
-                                            context: context,
-                                            builder: (ctx) => AlertDialog(
-                                              content: const Text(
-                                                  "Are you sre you want to delete it?"),
-                                              actions: <Widget>[
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(ctx).pop();
-                                                    // onPressed: () async {
-                                                    //   deletePlace(
-                                                    //       value.docs[index].get('name'));
-                                                    // },
-                                                  },
-                                                  child: Container(
-                                                    color: const Color.fromARGB(
-                                                        255, 184, 195, 184),
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            14),
-                                                    child: const Text("Yes"),
-                                                  ),
-                                                ),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.pushNamed(
-                                                        context, '/placeList');
-                                                  },
-                                                  child: Container(
-                                                    color: const Color.fromARGB(
-                                                        255, 184, 195, 184),
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            14),
-                                                    child: const Text("No"),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          );
+                                          deletePlace(value.docs[index].get('id'));
+                                          // showDialog(
+                                          //   context: context,
+                                          //   builder: (ctx) => AlertDialog(
+                                          //     content: const Text(
+                                          //         "Are you sure you want to delete it?"),
+                                          //     actions: <Widget>[
+
+                                          //       TextButton(
+                                          //         onPressed: () async {
+
+                                          //       deletePlace(value
+                                          //               .docs[index]
+                                          //               .get('id'));
+                                          //         },
+                                          //         child: Container(
+                                          //           color: const Color.fromARGB(
+                                          //               255, 184, 195, 184),
+                                          //           padding:
+                                          //               const EdgeInsets.all(
+                                          //                   14),
+                                          //           child: const Text("Yes"),
+                                          //         ),
+                                          //       ),
+
+                                          //       TextButton(
+                                          //         onPressed: () {
+
+                                          //           Navigator.pushNamed(
+                                          //               context, '/placeList');
+                                          //         },
+                                          //         child: Container(
+                                          //           color: const Color.fromARGB(
+                                          //               255, 184, 195, 184),
+                                          //           padding:
+                                          //               const EdgeInsets.all(
+                                          //                   14),
+                                          //           child: const Text("No"),
+                                          //         ),
+                                          //       ),
+                                          //     ],
+                                          //   ),
+                                          // );
                                         },
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:

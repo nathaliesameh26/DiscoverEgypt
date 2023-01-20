@@ -32,7 +32,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
         appBar: AppBar(
           //leading: new Icon(Icons.arrow_back),
           //title: const Text('SnapNews'),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.black,
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.arrow_back),

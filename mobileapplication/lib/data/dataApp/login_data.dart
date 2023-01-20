@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobileapplication/model/login_model.dart';
+import 'package:provider/provider.dart';
 
 final user = FirebaseAuth.instance.currentUser!;
 String userId = user.uid;
@@ -33,6 +34,7 @@ String userId = user.uid;
 //   }
 // }
 
+// class UserData {
 Future Loginn(String email, String password) async {
   final User? user = (await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password))
@@ -42,27 +44,37 @@ Future Loginn(String email, String password) async {
 }
 
 Future signup(String email, String password) async {
-  final User? user = (await FirebaseAuth.instance
+  final User? newuser = (await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password))
       .user;
+  CreateUser(newuser!.uid, 'firstname', 'lastname', email, 'DateOfBirth',
+      password, 'phoneNum', 'nationality', 'role');
 }
 //for authentication
 
-Future CreateUser(String idd, String fname, String lname, String email,String DOB,
-    String password, String phone, String nationality, String role) async {
-  await FirebaseFirestore.instance.collection('users').add({
+Future CreateUser(
+    String idd,
+    String fname,
+    String lname,
+    String email,
+    String DOB,
+    String password,
+    String phone,
+    String nationality,
+    String role) async {
+  await FirebaseFirestore.instance.collection('users').doc(idd).set({
     'id': idd,
     'firstname': fname,
     'lastname': lname,
-    'DateOfBirth': DOB,
     'email': email,
-    'phoneNum': phone,
+    'DateOfBirth': DOB,
     'password': password,
+    'phoneNum': phone,
     'nationality': nationality,
     'role': role,
   });
 }
-
+//}
 
 
 

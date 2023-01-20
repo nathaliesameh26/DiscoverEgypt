@@ -5,14 +5,21 @@ final user = FirebaseAuth.instance.currentUser!;
 String userID = user.uid;
 
 class UserData {
-  Future<Object> getUserDetails() async {
+  // Future<Object> getUserDetails() async {
+  //   final user = FirebaseAuth.instance.currentUser!;
+  //   String userIds = user.uid;
+  //   final DocumentSnapshot documentSnapshot =
+  //       await FirebaseFirestore.instance.collection('users').doc(userIds).get();
+  //   return documentSnapshot;
+  // }
+
+  Stream<DocumentSnapshot> getUserDetails() {
     final user = FirebaseAuth.instance.currentUser!;
     String userIds = user.uid;
-    final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
+    return FirebaseFirestore.instance
         .collection('users')
-        .doc('VF7E8oJZEhp3VJ3RNNBi')
-        .get();
-    return documentSnapshot;
+        .doc(userIds)
+        .snapshots();
   }
 
   Future updateUserDetails(

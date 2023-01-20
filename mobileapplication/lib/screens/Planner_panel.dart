@@ -173,14 +173,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       )),
-                  Text(
-                    'See all',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[500],
-                    ),
-                  )
                 ],
               ),
             ),

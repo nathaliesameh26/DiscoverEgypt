@@ -49,6 +49,7 @@ class PlacesData {
       }
     });
   }
+
 // final UpdatePlace = FirebaseFirestore.instance
 //     .collection('places')
 //     // .doc(name)

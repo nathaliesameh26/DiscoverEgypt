@@ -17,6 +17,7 @@ class _PendingScreenState extends ConsumerState<BookingScreen> {
   @override
   Widget build(BuildContext context) {
     final PlacesData = ref.watch(pendingDataProvider);
+
     return Scaffold(
         appBar: AppBar(
           title: Text('Booking'),

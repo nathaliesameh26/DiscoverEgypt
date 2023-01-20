@@ -15,6 +15,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
+  //final userData = UserData();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController DOB = TextEditingController();
@@ -138,8 +139,15 @@ class _RegisterState extends State<Register> {
                             ),
                             TextField(
                               controller: DOB,
+                              style: TextStyle(color: Colors.white),
                               // ignore: prefer_const_constructors
                               decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      width: 1,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                   hintText: "Enter your date of birth",
                                   hintStyle: TextStyle(color: Colors.white),
                                   suffixIcon: const Icon(Icons.calendar_today),
@@ -308,8 +316,8 @@ class _RegisterState extends State<Register> {
                                           userId,
                                           fname.text,
                                           lname.text,
-                                          DOB.text,
                                           email.text,
+                                          DOB.text,
                                           password.text,
                                           phone.text,
                                           nationality.text,

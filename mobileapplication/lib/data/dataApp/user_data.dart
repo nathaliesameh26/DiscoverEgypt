@@ -8,7 +8,7 @@ String userID = user.uid;
 class UserData {
   Future<Object> getUserDetails() async {
     final user = FirebaseAuth.instance.currentUser!;
-    String userIds = user.uid;
+    String? userIds = user.uid;
     final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
         .collection('users')
         .doc('VF7E8oJZEhp3VJ3RNNBi')

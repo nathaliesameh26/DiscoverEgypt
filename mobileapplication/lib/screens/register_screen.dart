@@ -15,7 +15,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final formKey = GlobalKey<FormState>(); //key for form
   String name = "";
-  final userData = UserData();
+  //final userData = UserData();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController DOB = TextEditingController();
@@ -311,9 +311,8 @@ class _RegisterState extends State<Register> {
                                   padding: const EdgeInsets.all(10),
                                   child: ElevatedButton(
                                     onPressed: () async {
-                                      await userData.signup(
-                                          email.text, password.text);
-                                      userData.CreateUser(
+                                      await signup(email.text, password.text);
+                                      CreateUser(
                                           userId,
                                           fname.text,
                                           lname.text,

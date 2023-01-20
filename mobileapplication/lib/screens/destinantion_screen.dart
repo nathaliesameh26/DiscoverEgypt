@@ -67,7 +67,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                       child: ClipRRect(
                         //borderRadius: BorderRadius.circular(30.0),
                         child: Image.asset(
-                          'assets/Egypt.jpg',
+                          'assets/alex.jpg',
                           fit: BoxFit.cover,
                           height: 100,
                           width: 430,

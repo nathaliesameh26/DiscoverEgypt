@@ -1,9 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-final event = FirebaseAuth.instance.currentUser!;
-String eventID = event.uid;
 
 //--------------------------Connecting With Firebase ---------------------------//
 
@@ -24,44 +20,94 @@ class EventsData {
   //   return documentSnapshot;
   // }
 
-  Future<void> updateEventDetails(
+  // Future updateEventDetails(
+  //   String name,
+  //   String about,
+  //   String city,
+  //   String price,
+  //   String location,
+  //   String openingTime,
+  //   String closingTime,
+  //   String startdate,
+  //   String enddate,
+  // ) async {
+  //   final eve = FirebaseFirestore.instance
+  //       .collection('events')
+  //       .where("name", isEqualTo: name);
+  //   eve.update({
+  //     'name': name,
+  //     'about': about,
+  //     'price': price,
+  //     'location': location,
+  //     'city': city,
+  //     'startDate': startdate,
+  //     'endDate': enddate,
+  //     'openingtime': openingTime,
+  //     'closingtime': closingTime,
+  //   });
+  // }
+
+  Future updateEventDetails(
+    String id,
     String name,
     String about,
     String city,
-    String location,
     String price,
-    String StartDate,
-    String EndDate,
+    String location,
     String openingTime,
     String closingTime,
+    String startdate,
+    String enddate,
   ) async {
-    Map<String, dynamic> toMap() {
-      return {
+    final updateUser = FirebaseFirestore.instance.collection('events').doc(id);
+    updateUser.update(
+      {
         'name': name,
         'about': about,
         'price': price,
         'location': location,
         'city': city,
-        'startDate': StartDate,
-        'endDate': EndDate,
-        'openingtime': openingTime,
-        'closingtime': closingTime,
-      };
-    }
-
-    await FirebaseFirestore.instance
-        .collection('events')
-        .where("name", isEqualTo: name)
-        .get()
-        .then((querySnapshot) {
-      for (var result in querySnapshot.docs) {
-        FirebaseFirestore.instance
-            .collection('events')
-            .doc(result.id)
-            .update(toMap());
-      }
-    });
+        'startdate': startdate,
+        'enddate': enddate,
+        'openingTime': openingTime,
+        'closingTime': closingTime,
+      },
+    );
   }
+
+  //   String name,
+  //   String about,
+  //   String city,
+  //   String location,
+  //   String price,
+  //   String StartDate,
+  //   String EndDate,
+  //   String openingTime,
+  //   String closingTime,
+  // ) async {
+  //   Map<String, dynamic> toMap() {
+  //     return {
+  //       'name': name,
+  //       'about': about,
+  //       'price': price,
+  //       'location': location,
+  //       'city': city,
+  //       'startDate': StartDate,
+  //       'endDate': EndDate,
+  //       'openingtime': openingTime,
+  //       'closingtime': closingTime,
+  //     };
+  //   }
+
+  //       .then((querySnapshot) {
+  //     for (var result in querySnapshot.docs) {
+  //       FirebaseFirestore.instance
+  //           .collection('events')
+  //           .doc(result.id)
+  //           .update(toMap());
+  //     }
+  //   });
+  // }
 
 //-------------------------------Adding New Event to firebase --------------------------//
 }

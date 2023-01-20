@@ -42,11 +42,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+
         initialRoute: '/',
+
         routes: {
           '/testScreen': (context) => testScreen(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
+          '/EditProfilePage': (context) => EditProfilePage(),
           '/CrudPlace': (context) => CrudPlace(),
           '/EditProfilePage': (context) => EditProfilePage(),
           // '/DestinationScreen': (context) => DestinationScreen(),
@@ -58,24 +61,18 @@ class MyApp extends StatelessWidget {
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
           '/admin': (context) => const AdminPanel(),
-          // '/wishList': (context) => const WishList(),
           '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
           '/addedplace': (context) => const placeForm(),
-          // '/detail': (context) => const DetailSreen(),
           '/eventList': (context) => CrudEvent(),
           '/placeList': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
-          '/Eventform': (context) => const eventForm(),
+          '/addedevent': (context) => const eventForm(),
           '/search': (context) => SearchPage(),
           '/profile': (context) => ProfilePage(),
-
-          // '/p': (context) => proto(),
           '/plans': (context) => MyPlansScreen(),
-
-          // '/myplans': (context) => const MyPlans(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
         });

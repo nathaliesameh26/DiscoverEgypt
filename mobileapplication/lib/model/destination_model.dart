@@ -73,14 +73,16 @@ List<Destination> destinations = [
     imageUrl: 'assets/pyra.jpg',
     city: 'Cairo',
     country: 'Egypt',
-    description: 'Visit Venice for an amazing and unforgettable adventure.',
+    description:
+        'Visit the pyramids to see one of the Seven Wonders of the World',
     activities: activities,
   ),
   Destination(
     imageUrl: 'assets/LuxAndAswan.jpg',
     city: 'Luxor and Aswan',
     country: 'Egypt',
-    description: 'Visit Paris for an amazing and unforgettable adventure.',
+    description:
+        'Visit Luxor and aswan for an amazing and unforgettable adventure.',
     activities: activities,
   ),
   Destination(
@@ -94,7 +96,8 @@ List<Destination> destinations = [
     imageUrl: 'assets/fayoum.jpg',
     city: 'Fayoum',
     country: 'Egypt',
-    description: 'Visit Sao Paulo for an amazing and unforgettable adventure.',
+    description:
+        'Visit fayoum one of the most beautiful and fertile regions of Egypt',
     activities: activities,
   ),
 ];

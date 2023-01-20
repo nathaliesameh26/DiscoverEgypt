@@ -1,10 +1,5 @@
 import 'dart:core';
-//import 'dart:js';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 // final place = FirebaseAuth.instance.currentUser!;
 // String placeID = place.uid;
@@ -69,7 +64,6 @@ class PlacesData {
       }
     });
   }
-}
 
 // final UpdatePlace = FirebaseFirestore.instance
 //     .collection('places')
@@ -85,19 +79,25 @@ class PlacesData {
 //   "openingTime": openingTime.trim(),
 //   "closingTime": closingTime.trim(),}
 // );
+}
 
-Future deletePlace(String name) async {
+Future deletePlace(String id) async {
+  FirebaseFirestore.instance.collection("places").doc(id).delete();
+  // DocumentReference docRef =
+  //     FirebaseFirestore.instance
+  //     .collection('places')
+  //     .doc(id);
+  // docRef.delete();
+
+  //FirebaseFirestore.instance.collection('places').doc('id').delete();
   // await FirebaseFirestore.instance
   //     .collection('place')
   //     .where('name', isEqualTo: name)
   //     .delete();
-  FirebaseFirestore.instance
-      .collection('path')
-      .doc('places')
-      .update({name: FieldValue.delete()}).whenComplete(() {
-    // print('Field Deleted');
-  });
+  //update({name: FieldValue.delete()}).whenComplete(() {
+  // print('Field Deleted');
 }
+
 // final placeid = int.parse(id);
 // FirebaseFirestore.instance.collection("places").doc(name).delete();
 
@@ -153,3 +153,10 @@ class PlacesModel {
 
   PlacesModel(this.name, this.location, this.description, this.price);
 }
+
+// Future deletePlace(String id) async {
+//   _documentReference = FirebaseFirestore.instance.collection('place')
+//   .doc(id);
+//   _futureDocument = _documentReference.get();
+//   _documentReference.delete();
+// }

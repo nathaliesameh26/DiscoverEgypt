@@ -55,10 +55,10 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
   }
 
 //##############################update test#############################
-  // Map<String, String> dataToUpdate = {};
-  // CollectionReference collection =
-  //     FirebaseFirestore.instance.collection('users');
-  // //DocumentReference document = collection.doc('id');
+  Map<String, String> dataToUpdate = {};
+  CollectionReference collection =
+      FirebaseFirestore.instance.collection('users');
+  //DocumentReference document = collection.doc('id');
 
   //##########################end update test#####################################
   @override

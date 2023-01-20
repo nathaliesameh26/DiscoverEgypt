@@ -29,7 +29,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
   @override
   Widget build(BuildContext context) {
     final PlacesData = ref.watch(placesDataProvider);
-    final PlacesData1 = ref.watch(placesDataProvider1);
+    //final PlacesData1 = ref.watch(placesDataProvider1);
     //final
     return Scaffold(
         appBar: AppBar(

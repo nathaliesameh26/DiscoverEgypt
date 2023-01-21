@@ -87,7 +87,8 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
               onPressed: selectFile,
               child: const Text("select image"),
             ),
-            ElevatedButton(onPressed: uploadFile, child: Text("upload image")),
+            ElevatedButton(
+                onPressed: uploadFile, child: const Text("upload image")),
             //######################update################################
             ElevatedButton(
               child: Text("Update"),

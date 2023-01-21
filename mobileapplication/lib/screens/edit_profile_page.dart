@@ -113,7 +113,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
               docUser.update({
                  'firstname': FieldValue.delete(),
                  'lastname': FieldValue.delete(),
-            //       'email': FieldValue.delete(),
+               'email': FieldValue.delete(),
             //       'nationality': FieldValue.delete(),
             //       'password': FieldValue.delete(),
             //     });

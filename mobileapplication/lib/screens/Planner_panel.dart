@@ -31,7 +31,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                     padding: const EdgeInsets.only(top: 17.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           'Hello,',
                           style: TextStyle(
@@ -40,33 +40,33 @@ class _PlannerPanelState extends State<PlannerPanel> {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        // Consumer(
-                        //   builder: (_, ref, __) {
-                        //     return ref.watch(userDataProvider).when(
-                        //       data: (value) {
-                        //         return Center(
-                        //           child: Text(
-                        //             // ignore: prefer_adjacent_string_concatenation
-                        //             '${value.get('firstname')}' +
-                        //                 ' ' +
-                        //                 '${value.get('lastname')}',
+                        Consumer(
+                          builder: (_, ref, __) {
+                            return ref.watch(userDataProvider).when(
+                              data: (value) {
+                                return Center(
+                                  child: Text(
+                                    // ignore: prefer_adjacent_string_concatenation
+                                    '${value.get('firstname')}' +
+                                        ' ' +
+                                        '${value.get('lastname')}',
 
-                        //             style: const TextStyle(fontSize: 10),
-                        //           ),
-                        //         );
-                        //       },
-                        //       error: (Object error, StackTrace stackTrace) {
-                        //         return const Text(
-                        //           'User',
-                        //           style: TextStyle(fontSize: 20),
-                        //         );
-                        //       },
-                        //       loading: () {
-                        //         return const CircularProgressIndicator();
-                        //       },
-                        //     );
-                        //   },
-                        // ),
+                                    style: const TextStyle(fontSize: 10),
+                                  ),
+                                );
+                              },
+                              error: (Object error, StackTrace stackTrace) {
+                                return const Text(
+                                  'User',
+                                  style: TextStyle(fontSize: 20),
+                                );
+                              },
+                              loading: () {
+                                return const CircularProgressIndicator();
+                              },
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),

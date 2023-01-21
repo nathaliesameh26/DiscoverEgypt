@@ -85,21 +85,20 @@ class _PlannerPanelState extends State<PlannerPanel> {
                   children: [
                     SizedBox(height: 15),
                     Container(
-                      height: 100,
-                      width: 100,
-                      //  decoration: const BoxDecoration(
-                      // image: DecorationImage(
-                      // image: AssetImage('assets/Egypt.jpg'),
-                      //    fit: BoxFit.fill,
-                      // ),
-                      // shape: BoxShape.circle,
-                      // ),
-
-                      // color: Colors.deepPurple[600],
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/Logo.jpeg'),
+                            fit: BoxFit.fill,
+                          ),
+                          shape: BoxShape.circle,
+                          //   ),
+                          //   color: Colors.deepPurple[600],
+                          // ),
+                          // const SizedBox(
+                          //   width: 20,
+                        )),
                     Expanded(
                         child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

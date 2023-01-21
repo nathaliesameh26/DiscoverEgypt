@@ -31,6 +31,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                     padding: const EdgeInsets.only(top: 17.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         const Text(
                           'Hello,',
@@ -140,11 +141,11 @@ class _PlannerPanelState extends State<PlannerPanel> {
                     ),
                   ),
                   Center(
-                    widthFactor: 3.1,
+                    widthFactor: 2.5,
                     child: Container(
-                      height: 60,
+                      height: 100,
                       child: ElevatedButton(
-                          child: Text("EVENT FORM".toUpperCase(),
+                          child: Text("Add your Event",
                               style: TextStyle(fontSize: 14)),
                           style: ButtonStyle(
                               foregroundColor: MaterialStateProperty.all<Color>(
@@ -157,7 +158,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                                       borderRadius: BorderRadius.circular(30),
                                       side: BorderSide(color: Colors.blue)))),
                           onPressed: () {
-                            Navigator.pushNamed(context, 'eventForm');
+                             Navigator.pushNamed(context, '/addedeventplanner');
                           }),
                     ),
                   ),
@@ -209,7 +210,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                 ],
               ),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 10),
             Expanded(
                 child: ListView(
               scrollDirection: Axis.horizontal,

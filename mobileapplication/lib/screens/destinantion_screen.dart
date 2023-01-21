@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
 import 'package:mobileapplication/data/repo/places_provider.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
-import '../data/repo/place_provider_test.dart';
 import '../model/destination_model.dart';
 import '../model/activity_model.dart';
 

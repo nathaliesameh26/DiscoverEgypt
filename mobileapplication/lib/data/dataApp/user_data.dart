@@ -24,9 +24,8 @@ class UserData {
 
   Future updateUserDetails(
       String userName, String userEmail, String password, String ln) async {
-    final updateUser = FirebaseFirestore.instance
-        .collection('users')
-        .doc('VF7E8oJZEhp3VJ3RNNBi');
+    final updateUser =
+        FirebaseFirestore.instance.collection('users').doc(userID);
     updateUser.update(
       {
         'firstname': userName.trim(),

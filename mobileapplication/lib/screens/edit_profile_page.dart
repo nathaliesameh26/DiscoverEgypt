@@ -47,9 +47,9 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     ref.putFile(file);
   }
 
-//********************end-upload**************** */
+//*******************end-upload*************** */
 
-//*****************Select picture**************** */
+//****************Select picture*************** */
   Future selectFile() async {
     final result = await FilePicker.platform.pickFiles();
     if (result == null) return;
@@ -58,7 +58,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     });
   }
 
-//*******************end-select********************* */
+//******************end-select******************** */
   @override
   Widget build(BuildContext context) => Scaffold(
         //appBar: buildAppBar(context),
@@ -106,9 +106,8 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
             ElevatedButton(
               child: Text("Delete My account"),
               onPressed: (() {
-                final docUser = FirebaseFirestore.instance
-                    .collection('users')
-                    .doc('GwBywSu38lShNnea4TCw');
+                final docUser =
+                    FirebaseFirestore.instance.collection('users').doc(userID);
 
                 docUser.update({
                   'firstname': FieldValue.delete(),

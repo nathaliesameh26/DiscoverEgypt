@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
+import 'package:mobileapplication/screens/edit_Place.dart';
 import '../data/repo/places_provider.dart';
-
-// String myDocId = 'place.uid';
- //late DocumentSnapshot documentSnapshot;
 
 class CrudPlace extends ConsumerStatefulWidget {
   CrudPlace({Key? key});
@@ -14,26 +12,23 @@ class CrudPlace extends ConsumerStatefulWidget {
 }
 
 class _CrudPlaceState extends ConsumerState<CrudPlace> {
+  final placeData = PlacesData();
   @override
   Widget build(BuildContext context) {
-    final placesData = ref.watch(placesDataProvider);
+    final PlacesData = ref.watch(placesDataProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('EgyMania Sightseeing Places'),
         backgroundColor: Color.fromARGB(255, 28, 128, 150),
       ),
-      //value feha aldata , places data dy wakhda data mn alprovider
-      body: placesData.when(
+      body: PlacesData.when(
         data: (value) => SafeArea(
           child: Column(
             children: [
               Expanded(
                 child: ListView.builder(
                     itemCount: value.docs.length,
-                    //count how many documents are in db and loops with the number of docs
-                    itemBuilder: (BuildContext context, int index)
-                        //to know in which im standing
-                        {
+                    itemBuilder: (BuildContext context, int index) {
                       return Padding(
                         padding: const EdgeInsets.only(
                             left: 10.0, right: 10.0, top: 10.0),
@@ -48,9 +43,9 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'Name: ${value.docs[index].get('name')}',
+                                      'Places Name: ${value.docs[index].get('name')}',
                                       style: const TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 12,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -59,53 +54,44 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                 const SizedBox(
                                   height: 10.0,
                                 ),
-                                ListView.builder(
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    itemCount: 1,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 10.0),
-                                        child: Row(
+                                Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 10.0),
+                                    child: Row(
+                                      children: [
+                                        SizedBox(
+                                          height: 50,
+                                          width: 50,
+                                          child: Image.asset(
+                                            'assets/Egypt.jpg',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            SizedBox(
-                                              height: 50,
-                                              width: 50,
-                                              child: Image.asset(
-                                                'assets/Egypt.jpg',
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
                                             const SizedBox(
-                                              width: 10,
+                                              height: 10,
                                             ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                const SizedBox(
-                                                  height: 10,
+                                            SizedBox(
+                                              width: 285,
+                                              child: Text(
+                                                '${value.docs[index].get('about')}',
+                                                style: const TextStyle(
+                                                  fontSize: 14,
                                                 ),
-                                                SizedBox(
-                                                  width: 285,
-                                                  child: Text(
-                                                    '${value.docs[index].get('about')}',
-                                                    style: const TextStyle(
-                                                      fontSize: 14,
-                                                    ),
-                                                    overflow: TextOverflow.clip,
-                                                    maxLines: 5,
-                                                  ),
-                                                )
-                                              ],
+                                                overflow: TextOverflow.clip,
+                                                maxLines: 5,
+                                              ),
                                             )
                                           ],
-                                        ),
-                                      );
-                                    }),
+                                        )
+                                      ],
+                                    )),
                                 const SizedBox(
                                   height: 10.0,
                                 ),
@@ -167,10 +153,18 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () async {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      EditPlacePage(
+                                                          value.docs[index])));
+                                        },
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                                const Color.fromARGB(
+                                                // ignore: prefer_const_constructors
+                                                Color.fromARGB(
                                                     255, 28, 128, 150),
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
@@ -182,54 +176,50 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                         )),
                                     ElevatedButton(
                                         onPressed: () {
-                                          deletePlace(value.docs[index].get('id'));
-                                          // showDialog(
-                                          //   context: context,
-                                          //   builder: (ctx) => AlertDialog(
-                                          //     content: const Text(
-                                          //         "Are you sure you want to delete it?"),
-                                          //     actions: <Widget>[
-
-                                          //       TextButton(
-                                          //         onPressed: () async {
-
-                                          //       deletePlace(value
-                                          //               .docs[index]
-                                          //               .get('id'));
-                                          //         },
-                                          //         child: Container(
-                                          //           color: const Color.fromARGB(
-                                          //               255, 184, 195, 184),
-                                          //           padding:
-                                          //               const EdgeInsets.all(
-                                          //                   14),
-                                          //           child: const Text("Yes"),
-                                          //         ),
-                                          //       ),
-
-                                          //       TextButton(
-                                          //         onPressed: () {
-
-                                          //           Navigator.pushNamed(
-                                          //               context, '/placeList');
-                                          //         },
-                                          //         child: Container(
-                                          //           color: const Color.fromARGB(
-                                          //               255, 184, 195, 184),
-                                          //           padding:
-                                          //               const EdgeInsets.all(
-                                          //                   14),
-                                          //           child: const Text("No"),
-                                          //         ),
-                                          //       ),
-                                          //     ],
-                                          //   ),
-                                          // );
-                                       
+                                          showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              content: const Text(
+                                                  "Are you sure you want to delete it?"),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  onPressed: () async {
+                                                    await placeData.deletePlace(
+                                                        id: value
+                                                            .docs[index].id);
+                                                    //no navigation needed cuz Stream is used , it will update automaically
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                        255, 184, 195, 184),
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            14),
+                                                    child: const Text("Yes"),
+                                                  ),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                        255, 184, 195, 184),
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            14),
+                                                    child: const Text("No"),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                         style: ElevatedButton.styleFrom(
-                                            backgroundColor:
-                                                Color.fromRGBO(28, 128, 150, 1),
+                                            // ignore: prefer_const_constructors
+                                            backgroundColor: Color.fromARGB(
+                                                255, 28, 128, 150),
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
                                         child: Text(

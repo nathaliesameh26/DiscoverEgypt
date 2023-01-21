@@ -139,9 +139,9 @@ class _PlannerPanelState extends State<PlannerPanel> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
+                  // SizedBox(
+                  //   width: 10,
+                  // ),
                   //  NumbersWidgets(),
                   // ElevatedButton(
                   //   onPressed: () {

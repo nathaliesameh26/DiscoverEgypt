@@ -39,6 +39,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     lastnameController = TextEditingController(text: 'lastname');
   }
 
+//********************uploadfile ***********************/
   Future uploadFile() async {
     final path = 'files/${pickedFile!.name}';
     final file = File(pickedFile!.path!);

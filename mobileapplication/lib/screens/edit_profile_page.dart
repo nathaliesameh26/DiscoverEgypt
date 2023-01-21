@@ -103,22 +103,22 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
             //#######################end-update#######################
 
             //##############################delete########################
-             ElevatedButton(
-               child: Text("Delete User"),
-               onPressed: (() {
+            ElevatedButton(
+              child: Text("Delete User"),
+              onPressed: (() {
                 final docUser = FirebaseFirestore.instance
-                   .collection('users')
-                  .doc('GwBywSu38lShNnea4TCw');
+                    .collection('users')
+                    .doc('GwBywSu38lShNnea4TCw');
 
-              docUser.update({
-                 'firstname': FieldValue.delete(),
-                 'lastname': FieldValue.delete(),
-               'email': FieldValue.delete(),
-                 'nationality': FieldValue.delete(),
-                 'password': FieldValue.delete(),
-            //     });
-            //   }),
-            // ),
+                docUser.update({
+                  'firstname': FieldValue.delete(),
+                  'lastname': FieldValue.delete(),
+                  'email': FieldValue.delete(),
+                  'nationality': FieldValue.delete(),
+                  'password': FieldValue.delete(),
+                });
+              }),
+            ),
             //#################################end-delete#############################
             const SizedBox(height: 24),
             TextFieldWidget(

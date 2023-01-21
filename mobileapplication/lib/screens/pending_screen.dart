@@ -217,3 +217,6 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
     );
   }
 }
+
+
+//in the decline add the delete function and in the accept add the delete from pending and add function to  events

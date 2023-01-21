@@ -18,6 +18,7 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
   late TextEditingController nameController;
   late TextEditingController aboutController;
   late TextEditingController priceController;
+  late TextEditingController plannerNameController;
   late TextEditingController cityController;
   late TextEditingController locationController;
   late TextEditingController startdateController;
@@ -43,6 +44,8 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
         TextEditingController(text: widget.document.get('openingTime'));
     closingTimeController =
         TextEditingController(text: widget.document.get('closingTime'));
+    plannerNameController =
+        TextEditingController(text: widget.document.get('plannerName'));
     //  id =  widget.document.get('id');
     id = widget.document.id;
     //use widget. cuz its a stateful widget and document is a parameter for the stateful widget itself use it for
@@ -94,6 +97,18 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
                     // ignore: prefer_const_constructors
                     decoration: InputDecoration(
                         labelText: 'Description',
+                        border: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                          width: 10,
+                          color: Colors.black12,
+                        ))),
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    controller: plannerNameController,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                        labelText: 'Planeer Name',
                         border: const OutlineInputBorder(
                             borderSide: BorderSide(
                           width: 10,
@@ -233,18 +248,20 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
                         if (_formKey.currentState!.validate()) {
                           dataEvent.updateEventDetails(
                             id,
-                            nameController.text,
                             aboutController.text,
                             cityController.text,
-                            priceController.text,
-                            locationController.text,
-                            openingTimeController.text,
                             closingTimeController.text,
-                            startdateController.text,
                             enddateController.text,
+                            locationController.text,
+                            nameController.text,
+                            openingTimeController.text,
+                            plannerNameController.text,
+                            priceController.text,
+                            startdateController.text,
                           );
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Successfully Updated')),
+                            const SnackBar(
+                                content: Text('Successfully Updated')),
                           );
 
                           Navigator.pop(context);

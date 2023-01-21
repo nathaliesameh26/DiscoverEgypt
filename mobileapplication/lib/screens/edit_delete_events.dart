@@ -180,7 +180,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                             context: context,
                                             builder: (ctx) => AlertDialog(
                                               content: const Text(
-                                                  "Are you sre you want to delete it?"),
+                                                  "Are you sure you want to delete it?"),
                                               actions: <Widget>[
                                                 TextButton(
                                                   onPressed: () async {

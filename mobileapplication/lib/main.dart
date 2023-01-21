@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobileapplication/screens/Event_form.dart';
+import 'package:mobileapplication/screens/Event_formAdmin.dart';
+import 'package:mobileapplication/screens/Event_formPlanner.dart';
 import 'package:mobileapplication/screens/Place_form.dart';
 import 'package:mobileapplication/screens/Planner_panel.dart';
 import 'package:mobileapplication/screens/Search_screen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/planner',
         routes: {
           '/weather': (context) => CurrentWeatherPage(),
           'eventForm': (context) => const eventForm(),
@@ -62,14 +63,19 @@ class MyApp extends StatelessWidget {
           '/admin': (context) => const AdminPanel(),
           //'/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
-          '/addedplace': (context) => const PlacesForm(),
+          '/addedplace': (context) => PlacesForm(),
           '/eventList': (context) => CrudEvent(),
           '/placeList': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
+
           '/addedevent': (context) => const eventForm(),
           '/search': (context) => const SearchPage(),
+
+          '/addedevent': (context) => eventForm(),
+          '/addedeventplanner': (context) => const eventFormPlanner(),
+          '/search': (context) => SearchPage(),
           '/profile': (context) => ProfilePage(),
           '/plans': (context) => MyPlansScreen(),
           // '/DestinationScreen': (context) => DestinationScreen(),

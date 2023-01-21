@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobileapplication/data/dataApp/events_data.dart';
 
-class eventForm extends StatefulWidget {
-  const eventForm({Key? key}) : super(key: key);
+class eventFormPlanner extends StatefulWidget {
+  const eventFormPlanner({Key? key}) : super(key: key);
 
   @override
-  State<eventForm> createState() => _eventFormState();
+  State<eventFormPlanner> createState() => _eventFormPlannerState();
 }
 
-final formkey = GlobalKey<FormState>();
+final plannerformkey = GlobalKey<FormState>();
 TimeOfDay time = TimeOfDay.now();
 
-class _eventFormState extends State<eventForm> {
+class _eventFormPlannerState extends State<eventFormPlanner> {
   final eventdata = EventsData();
   DateTime date = DateTime(2023, 1, 23);
   TextEditingController nameController = TextEditingController();
@@ -24,6 +24,7 @@ class _eventFormState extends State<eventForm> {
   TextEditingController closingTimeController = TextEditingController();
   TextEditingController startDateController = TextEditingController();
   TextEditingController endDateController = TextEditingController();
+  TextEditingController plannerNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class _eventFormState extends State<eventForm> {
           ),
           leading: GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, '/admin');
+              Navigator.pushNamed(context, '/planner');
             },
             child: const Icon(
               Icons.arrow_back_ios,
@@ -54,7 +55,7 @@ class _eventFormState extends State<eventForm> {
               child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: Form(
-                      key: formkey,
+                      key: plannerformkey,
                       child: Column(
                         children: [
                           Container(
@@ -64,6 +65,23 @@ class _eventFormState extends State<eventForm> {
                                 'Enter the event details please ',
                                 style: TextStyle(fontSize: 20),
                               )),
+                                 Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                                controller: plannerNameController,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Enter your name',
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty ||
+                                      !RegExp('[a-zA-Z]').hasMatch(value)) {
+                                    return "enter a correct name";
+                                  } else {
+                                    return null;
+                                  }
+                                }),
+                          ),
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
@@ -125,9 +143,7 @@ class _eventFormState extends State<eventForm> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty ||
-                                      !RegExp(r'^[a-zA-Z0-9]+$')
-                                          .hasMatch(value)) {
-                                    //alpanumeric validator
+                                      !RegExp('[a-zA-Z]').hasMatch(value)) {
                                     return "enter a correct location";
                                   } else {
                                     return null;
@@ -281,11 +297,12 @@ class _eventFormState extends State<eventForm> {
                                 ),
                                 child: const Text('Submit'),
                                 onPressed: () async {
-                                  if (formkey.currentState!.validate()) {
-                                    await eventdata.EventAdded(
+                                  if (plannerformkey.currentState!.validate()) {
+                                    await eventdata.EventAddedPlanner(
                                       name: nameController.text,
                                       about: aboutController.text,
                                       city: cityController.text,
+                                      plannerName: plannerNameController.text,
                                       price: priceController.text,
                                       openingTime: openingTimeController.text,
                                       closingTime: closingTimeController.text,
@@ -295,9 +312,9 @@ class _eventFormState extends State<eventForm> {
                                     );
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
-                                          content: Text('Successfully Added')),
+                                          content: Text('Successfully Added to the admin\'s pending list')),
                                     );
-                                    Navigator.pushNamed(context, '/admin');
+                                    Navigator.pushNamed(context, '/planner');
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(

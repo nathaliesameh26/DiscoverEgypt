@@ -147,7 +147,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                   SizedBox(
                     width: 10,
                   ),
-                  NumbersWidget(),
+                  NumbersWidgets(),
                   Padding(
                     padding: const EdgeInsets.only(left: 25.0),
                     child: Container(

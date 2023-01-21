@@ -139,16 +139,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                       ),
                     ),
                   ),
-                  // SizedBox(
-                  //   width: 10,
-                  // ),
-                  //  NumbersWidgets(),
-                  // ElevatedButton(
-                  //   onPressed: () {
-                  //     Navigator.pushNamed(context, 'eventForm');
-                  //   },
-                  //   child: const Text('Event Form'),
-                  // ),
                   Center(
                     widthFactor: 3.1,
                     child: Container(
@@ -171,7 +161,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                           }),
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.only(left: 25.0),
                     child: Container(

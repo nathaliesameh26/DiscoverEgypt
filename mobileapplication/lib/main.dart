@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
           '/admin': (context) => const AdminPanel(),
           '/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
-          '/addedplace': (context) => const placeForm(),
+          '/addedplace': (context) => const PlacesForm(),
           '/eventList': (context) => CrudEvent(),
           '/placeList': (context) => CrudPlace(),
           '/splash': (context) => const Splash(),

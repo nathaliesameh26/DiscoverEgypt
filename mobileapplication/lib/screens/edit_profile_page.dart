@@ -103,13 +103,6 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                     emailController.text,
                     passwordController.text,
                     lastnameController.text);
-                //   final docUser = FirebaseFirestore.instance
-                //       .collection('users')
-                //       .doc('GwBywSu38lShNnea4TCw');
-
-                //   docUser.update({
-                //     'firstname': 'Test Update1',
-                //   });
               }),
             ),
             //#######################end-update#######################

@@ -79,11 +79,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ))),
-            // const CircleAvatar(
-            //   backgroundColor: Colors.blue,
-            //   backgroundImage: NetworkImage(
-            //       'https://console.firebase.google.com/u/1/project/discoveregypt-18220/storage/discoveregypt-18220.appspot.com/files'),
-            // ),
+
             ProfileWidget(
               imagePath: user.imagePath,
               isEdit: true,

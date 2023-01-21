@@ -12,7 +12,7 @@ class CrudEvent extends ConsumerStatefulWidget {
 }
 
 class _CrudEventState extends ConsumerState<CrudEvent> {
-  final eventData = PlacesData();
+  final eventData = EventsData();
   @override
   Widget build(BuildContext context) {
     final EventsData = ref.watch(eventsDataProvider);

@@ -28,7 +28,6 @@ class WishlistModel {
       about: map['about'] as String,
       location: map['location'] as String,
       price: map['startdate'] as String,
-
     );
   }
 

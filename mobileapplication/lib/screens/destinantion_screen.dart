@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
 import 'package:mobileapplication/data/repo/places_provider.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
+import '../data/dataApp/wishlist_data.dart';
 import '../data/repo/place_provider_test.dart';
 import '../model/destination_model.dart';
 import '../model/activity_model.dart';
@@ -26,10 +27,12 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
     return Text(stars);
   }
 
+  bool wishlistbool = false;
   @override
   Widget build(BuildContext context) {
+    final wish = WishList();
     final PlacesData = ref.watch(placesDataProvider);
-    //final PlacesData1 = ref.watch(placesDataProvider1);
+
     //final
     return Scaffold(
         appBar: AppBar(
@@ -127,29 +130,32 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                               letterSpacing: 1.2,
                             ),
                           ),
+
                           ListView.builder(
+                              scrollDirection: Axis.vertical,
+                              shrinkWrap: true,
                               itemBuilder: (BuildContext context, int index) {
-                            return Row(
-                              children: <Widget>[
-                                const Icon(
-                                  Icons.location_on,
-                                  size: 15.0,
-                                  color: Colors.white,
-                                ),
-                                const SizedBox(
-                                  width: 5.0,
-                                ),
-                                Text(
-                                  "${value.docs[index].get('location')}",
-                                  // ignore: prefer_const_constructors
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20.0,
-                                  ),
-                                )
-                              ],
-                            );
-                          })
+                                return Row(
+                                  children: <Widget>[
+                                    const Icon(
+                                      Icons.location_on,
+                                      size: 15.0,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      width: 5.0,
+                                    ),
+                                    Text(
+                                      "${value.docs[index].get('location')}",
+                                      // ignore: prefer_const_constructors
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20.0,
+                                      ),
+                                    )
+                                  ],
+                                );
+                              })
                         ],
                       ),
                     ),
@@ -167,10 +173,10 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                 Expanded(
                   child: ListView.builder(
                       padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
-                      itemCount: widget.destination.activities.length,
+                      // itemCount: widget.destination.activities.length,
                       itemBuilder: (BuildContext context, index) {
-                        Activity activity =
-                            widget.destination.activities[index];
+                        // Activity activity =
+                        //     widget.destination.activities[index];
 
                         return Stack(
                           children: <Widget>[
@@ -217,7 +223,14 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                                 ),
-                                                LikeButton(),
+                                                LikeButton(
+                                                    // onTap: (isLiked) {
+                                                    //   setState(() {
+                                                    //     wishlistbool =
+                                                    //         !wishlistbool;
+                                                    //   });
+                                                    // },
+                                                    ),
                                                 ElevatedButton(
                                                     onPressed: () {
                                                       Navigator.pushNamed(
@@ -260,7 +273,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "${value.docs[index].get('openingtime')} AM",
+                                              "${value.docs[index].get('openingTime')} AM",
                                             ),
                                           ),
                                           SizedBox(
@@ -278,7 +291,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "${value.docs[index].get('closingtime')} PM",
+                                              "${value.docs[index].get('closingTime')} PM",
                                             ),
                                           )
                                         ],

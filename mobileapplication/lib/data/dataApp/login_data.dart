@@ -1,8 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:mobileapplication/model/login_model.dart';
-import 'package:provider/provider.dart';
 
 final user = FirebaseAuth.instance.currentUser!;
 String userId = user.uid;
@@ -126,6 +123,3 @@ Future CreateUser(
 //   await prefs.setString('UserID', userID);
 
 // }
-
-
-

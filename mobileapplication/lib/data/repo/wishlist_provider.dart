@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/wishlist_data.dart';
 
@@ -18,6 +20,14 @@ final wishlistDataProvider = FutureProvider(
   },
 );
 
+final getWishlistData = StreamProvider((ref) {
+  final user = FirebaseAuth.instance.currentUser!;
+  String id = user.uid;
+  return FirebaseFirestore.instance
+      .collection('wishlist')
+      .where("userId", isEqualTo: id)
+      .snapshots();
+});
 
 
 

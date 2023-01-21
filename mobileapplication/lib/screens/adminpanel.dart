@@ -157,90 +157,7 @@ class _AdminPanelState extends State<AdminPanel> {
                               SizedBox(
                                 width: 10,
                               ),
-                              NumbersWidget()
-
-                              //         ElevatedButton(
-                              //             onPressed: () {
-                              //               // Navigator.pushNamed(context, '/test');
-                              //             },
-                              //             style: ElevatedButton.styleFrom(
-                              //               backgroundColor:
-                              //                   Color.fromARGB(255, 28, 128, 150),
-                              //             ),
-                              //             child: const Text('Egypt sightseing places')),
-                              //       ],
-                              //     ),
-                              //   ),
-                              // ),
-                              // Padding(
-                              //   padding: const EdgeInsets.only(left: 25.0),
-                              //   child: Container(
-                              //     decoration: BoxDecoration(
-                              //       borderRadius: BorderRadius.circular(12),
-                              //       color: Color.fromARGB(255, 28, 128, 150),
-                              //     ),
-                              //     child: Row(
-                              //       children: [
-                              //         // Image.asset('assets/severity.png', height: 30),
-                              //         const SizedBox(
-                              //           width: 10,
-                              //         ),
-                              //         ElevatedButton(
-                              //             onPressed: () {},
-                              //             style: ElevatedButton.styleFrom(
-                              //               backgroundColor:
-                              //                   Color.fromARGB(255, 28, 128, 150),
-                              //             ),
-                              //             child: const Text('Egypt\'s Events')),
-                              //       ],
-                              //     ),
-                              //   ),
-                              // ),
-                              // Padding(
-                              //   padding: const EdgeInsets.only(left: 25.0),
-                              //   child: Container(
-                              //     decoration: BoxDecoration(
-                              //       borderRadius: BorderRadius.circular(12),
-                              //       color: Color.fromARGB(255, 28, 128, 150),
-                              //     ),
-                              //     child: Row(
-                              //       children: [
-                              //         // Image.asset('assets/online-survey.png', height: 30),
-                              //         const SizedBox(
-                              //           width: 10,
-                              //         ),
-                              //         ElevatedButton(
-                              //             onPressed: () {},
-                              //             style: ElevatedButton.styleFrom(
-                              //               backgroundColor:
-                              //                   Color.fromARGB(255, 28, 128, 150),
-                              //             ),
-                              //             child: const Text('Event Planners')),
-                              //       ],
-                              //     ),
-                              //   ),
-                              // ),
-                              // Padding(
-                              //   padding: const EdgeInsets.only(left: 25.0),
-                              //   child: Container(
-                              //     decoration: BoxDecoration(
-                              //       borderRadius: BorderRadius.circular(12),
-                              //       color: Color.fromARGB(255, 28, 128, 150),
-                              //     ),
-                              //     child: Row(
-                              //       children: [
-                              //         // Image.asset('assets/contact.png', height: 30),
-                              //         // ignore: prefer_const_constructors
-                              //         SizedBox(
-                              //           width: 10,
-                              //         ),
-                              //         ElevatedButton(
-                              //             onPressed: () {},
-                              //             style: ElevatedButton.styleFrom(
-                              //               backgroundColor:
-                              //                   Color.fromARGB(255, 28, 128, 150),
-                              //             ),
-                              //             child: const Text('Users')),
+                              NumbersWidgets()
                             ],
                           ),
                         ),
@@ -275,7 +192,7 @@ class _AdminPanelState extends State<AdminPanel> {
                     children: <Widget>[
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/edplace');
+                            Navigator.pushNamed(context, '/placeList');
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 28, 128, 150),
@@ -284,7 +201,7 @@ class _AdminPanelState extends State<AdminPanel> {
                               const Text('Edit & Delete Sightseeing Places')),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/edevent');
+                            Navigator.pushNamed(context, '/eventList');
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 28, 128, 150),
@@ -300,7 +217,7 @@ class _AdminPanelState extends State<AdminPanel> {
                           child: const Text('Events Pending List')),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/eventform');
+                            Navigator.pushNamed(context, '/addedevent');
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 28, 128, 150),
@@ -308,7 +225,7 @@ class _AdminPanelState extends State<AdminPanel> {
                           child: const Text('Add An Events')),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/addplace');
+                            Navigator.pushNamed(context, '/addedplace');
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 28, 128, 150),
@@ -475,3 +392,88 @@ class _AdminPanelState extends State<AdminPanel> {
 //                               ],
                               
 //                             ),
+
+
+
+                              //         ElevatedButton(
+                              //             onPressed: () {
+                              //               // Navigator.pushNamed(context, '/test');
+                              //             },
+                              //             style: ElevatedButton.styleFrom(
+                              //               backgroundColor:
+                              //                   Color.fromARGB(255, 28, 128, 150),
+                              //             ),
+                              //             child: const Text('Egypt sightseing places')),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(left: 25.0),
+                              //   child: Container(
+                              //     decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(12),
+                              //       color: Color.fromARGB(255, 28, 128, 150),
+                              //     ),
+                              //     child: Row(
+                              //       children: [
+                              //         // Image.asset('assets/severity.png', height: 30),
+                              //         const SizedBox(
+                              //           width: 10,
+                              //         ),
+                              //         ElevatedButton(
+                              //             onPressed: () {},
+                              //             style: ElevatedButton.styleFrom(
+                              //               backgroundColor:
+                              //                   Color.fromARGB(255, 28, 128, 150),
+                              //             ),
+                              //             child: const Text('Egypt\'s Events')),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(left: 25.0),
+                              //   child: Container(
+                              //     decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(12),
+                              //       color: Color.fromARGB(255, 28, 128, 150),
+                              //     ),
+                              //     child: Row(
+                              //       children: [
+                              //         // Image.asset('assets/online-survey.png', height: 30),
+                              //         const SizedBox(
+                              //           width: 10,
+                              //         ),
+                              //         ElevatedButton(
+                              //             onPressed: () {},
+                              //             style: ElevatedButton.styleFrom(
+                              //               backgroundColor:
+                              //                   Color.fromARGB(255, 28, 128, 150),
+                              //             ),
+                              //             child: const Text('Event Planners')),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(left: 25.0),
+                              //   child: Container(
+                              //     decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(12),
+                              //       color: Color.fromARGB(255, 28, 128, 150),
+                              //     ),
+                              //     child: Row(
+                              //       children: [
+                              //         // Image.asset('assets/contact.png', height: 30),
+                              //         // ignore: prefer_const_constructors
+                              //         SizedBox(
+                              //           width: 10,
+                              //         ),
+                              //         ElevatedButton(
+                              //             onPressed: () {},
+                              //             style: ElevatedButton.styleFrom(
+                              //               backgroundColor:
+                              //                   Color.fromARGB(255, 28, 128, 150),
+                              //             ),
+                              //             child: const Text('Users')),

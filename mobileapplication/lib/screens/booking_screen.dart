@@ -273,6 +273,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                                           userId,
                                           value.docs[i].get('id'),
                                         );
+                                        Navigator.pushNamed(context, '/');
                                       },
                                       style: ElevatedButton.styleFrom(
                                           primary: Colors.black,

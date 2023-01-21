@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/repo/place_provider_test.dart';
 import '../data/repo/places_provider.dart';
@@ -10,6 +11,7 @@ class DetailsPage extends ConsumerStatefulWidget {
 }
 
 class _DetailsPageState extends ConsumerState<DetailsPage> {
+  double rating = 0;
   TextEditingController nameController = TextEditingController();
   final String image = "assets/Egypt.jpg";
   @override
@@ -26,7 +28,8 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
               Container(
                   foregroundDecoration: BoxDecoration(color: Colors.black26),
                   height: 400,
-                  child: Image.asset(image, fit: BoxFit.cover)),
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(image, fit: BoxFit.fill)),
               SingleChildScrollView(
                 padding: const EdgeInsets.only(top: 16.0, bottom: 20.0),
                 child: Column(
@@ -81,30 +84,46 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Row(
-                                        // children: const <Widget>[
-                                        //   Icon(
-                                        //     Icons.star,
-                                        //     color: Colors.blue,
-                                        //   ),
-                                        //   Icon(
-                                        //     Icons.star,
-                                        //     color: Colors.blue,
-                                        //   ),
-                                        //   Icon(
-                                        //     Icons.star,
-                                        //     color: Colors.blue,
-                                        //   ),
-                                        //   Icon(
-                                        //     Icons.star,
-                                        //     color: Colors.blue,
-                                        //   ),
-                                        //   Icon(
-                                        //     Icons.star_border,
-                                        //     color: Colors.blue,
-                                        //   ),
-                                        // ],
+                                    Column(
+                                      children: [
+                                        Text('your rating:$rating'),
+                                        RatingBar.builder(
+                                          minRating: 1,
+                                          itemBuilder: ((context, _) =>
+                                              const Icon(
+                                                Icons.star,
+                                                color: Colors.amber,
+                                              )),
+                                          updateOnDrag: true,
+                                          onRatingUpdate: (rating) =>
+                                              setState(() {
+                                            this.rating = rating;
+                                          }),
                                         ),
+                                      ],
+                                      // children: const <Widget>[
+                                      //   Icon(
+                                      //     Icons.star,
+                                      //     color: Colors.blue,
+                                      //   ),
+                                      //   Icon(
+                                      //     Icons.star,
+                                      //     color: Colors.blue,
+                                      //   ),
+                                      //   Icon(
+                                      //     Icons.star,
+                                      //     color: Colors.blue,
+                                      //   ),
+                                      //   Icon(
+                                      //     Icons.star,
+                                      //     color: Colors.blue,
+                                      //   ),
+                                      //   Icon(
+                                      //     Icons.star_border,
+                                      //     color: Colors.blue,
+                                      //   ),
+                                      // ],
+                                    ),
                                     Text.rich(
                                       TextSpan(children: [
                                         const WidgetSpan(

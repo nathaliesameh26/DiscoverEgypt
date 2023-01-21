@@ -1,18 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:mobileapplication/data/dataApp/events_data.dart';
-import 'package:mobileapplication/data/repo/events_provider.dart';
 
 class EditEventPage extends ConsumerStatefulWidget {
+  final DocumentSnapshot document;
+  EditEventPage(this.document);
   @override
-  // _EditEventPageState createState() => _EditEventPageState();
   ConsumerState<EditEventPage> createState() => _EditEventPageState();
 }
 
 class _EditEventPageState extends ConsumerState<EditEventPage> {
   final _formKey = GlobalKey<FormState>();
-  final Event_Data = EventsData();
+  final dataEvent = EventsData();
 
   late TextEditingController nameController;
   late TextEditingController aboutController;
@@ -27,17 +28,24 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
   @override
   void initState() {
     super.initState();
-    final EventsData = ref.read(eventsDataProvider).value;
-    nameController = TextEditingController(text: EventsData.get('name'));
-    aboutController = TextEditingController(text: EventsData.get('about'));
-    priceController = TextEditingController(text: EventsData.get('price').toString());
-    cityController = TextEditingController(text: EventsData.get('city'));
-    locationController = TextEditingController(text: EventsData.get('location'));
-    startdateController = TextEditingController(text: EventsData.get('startdate'));
-    enddateController =TextEditingController(text: EventsData.get('enddate'));
-    openingTimeController = TextEditingController(text: EventsData.get('openingTime'));
-    closingTimeController =TextEditingController(text: EventsData.get('closingTime'));
-     id = EventsData.get('id');
+    nameController = TextEditingController(text: widget.document.get('name'));
+    aboutController = TextEditingController(text: widget.document.get('about'));
+    priceController =
+        TextEditingController(text: widget.document.get('price').toString());
+    cityController = TextEditingController(text: widget.document.get('city'));
+    locationController =
+        TextEditingController(text: widget.document.get('location'));
+    startdateController =
+        TextEditingController(text: widget.document.get('startdate'));
+    enddateController =
+        TextEditingController(text: widget.document.get('enddate'));
+    openingTimeController =
+        TextEditingController(text: widget.document.get('openingTime'));
+    closingTimeController =
+        TextEditingController(text: widget.document.get('closingTime'));
+    //  id =  widget.document.get('id');
+    id = widget.document.id;
+    //use widget. cuz its a stateful widget and document is a parameter for the stateful widget itself use it for
   }
 
   @override
@@ -62,8 +70,8 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
           ),
         ),
         body: Form(
+          key: _formKey,
           child: SingleChildScrollView(
-            key: _formKey,
             child: Padding(
               padding: EdgeInsets.all(16.0),
               child: Column(
@@ -223,49 +231,32 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          Event_Data.updateEventDetails(
-                              id,
-                              nameController.text,
-                              aboutController.text,
-                              priceController.text,
-                              cityController.text,
-                              locationController.text,
-                              startdateController.text,
-                              enddateController.text,
-                              openingTimeController.text,
-                              closingTimeController.text);
+                          dataEvent.updateEventDetails(
+                            id,
+                            nameController.text,
+                            aboutController.text,
+                            cityController.text,
+                            priceController.text,
+                            locationController.text,
+                            openingTimeController.text,
+                            closingTimeController.text,
+                            startdateController.text,
+                            enddateController.text,
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Successfully Updated')),
+                          );
+
                           Navigator.pop(context);
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text(
+                                    'Something went Wrong R-enter your data')),
+                          );
                         }
-
-//                         Place_Data.UpdatePlace(
-//                           nameController.text,
-//                           aboutController.text,
-//                    priceController.text,
-//                  cityController.text,
-//   locationController.text,
-//  openingTimeController.text,
-// closingTimeController.text,
-
-//                         ).then
-//                         (value)=>   ScaffoldMessenger.of(context).showSnackBar(
-//                           const SnackBar(content: Text('Successfully Added')),
-//                         );
-
-                        // if (_formKey.currentState!.validate()) {
-                        //   _formKey.currentState!.save();
-                        //   ScaffoldMessenger.of(context).showSnackBar(
-                        //     const SnackBar(content: Text('Successfully Added')),
-                        //   );
-                        // } else {
-                        //   ScaffoldMessenger.of(context).showSnackBar(
-                        //     const SnackBar(
-                        //         content: Text(
-                        //             'Something went Wrong R-enter your data ')),
-                        //   );
-                        // }
                       },
-                      child: const Text('Event Updated'),
+                      child: const Text('Update Event'),
                     ),
                   ),
                 ],

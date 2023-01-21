@@ -17,7 +17,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Column(
           children: [
@@ -31,8 +31,8 @@ class _PlannerPanelState extends State<PlannerPanel> {
                     padding: const EdgeInsets.only(top: 17.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           'Hello,',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -40,33 +40,33 @@ class _PlannerPanelState extends State<PlannerPanel> {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        // Consumer(
-                        //   builder: (_, ref, __) {
-                        //     return ref.watch(userDataProvider).when(
-                        //       data: (value) {
-                        //         return Center(
-                        //           child: Text(
-                        //             // ignore: prefer_adjacent_string_concatenation
-                        //             '${value.get('firstname')}' +
-                        //                 ' ' +
-                        //                 '${value.get('lastname')}',
+                        Consumer(
+                          builder: (_, ref, __) {
+                            return ref.watch(userDataProvider).when(
+                              data: (value) {
+                                return Center(
+                                  child: Text(
+                                    // ignore: prefer_adjacent_string_concatenation
+                                    '${value.get('firstname')}' +
+                                        ' ' +
+                                        '${value.get('lastname')}',
 
-                        //             style: const TextStyle(fontSize: 10),
-                        //           ),
-                        //         );
-                        //       },
-                        //       error: (Object error, StackTrace stackTrace) {
-                        //         return const Text(
-                        //           'User',
-                        //           style: TextStyle(fontSize: 20),
-                        //         );
-                        //       },
-                        //       loading: () {
-                        //         return const CircularProgressIndicator();
-                        //       },
-                        //     );
-                        //   },
-                        // ),
+                                    style: const TextStyle(fontSize: 10),
+                                  ),
+                                );
+                              },
+                              error: (Object error, StackTrace stackTrace) {
+                                return const Text(
+                                  'User',
+                                  style: TextStyle(fontSize: 20),
+                                );
+                              },
+                              loading: () {
+                                return const CircularProgressIndicator();
+                              },
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -83,22 +83,17 @@ class _PlannerPanelState extends State<PlannerPanel> {
                     borderRadius: BorderRadius.circular(12)),
                 child: Row(
                   children: [
+                    SizedBox(height: 15),
                     Container(
-                      height: 100,
-                      width: 100,
-                      //  decoration: const BoxDecoration(
-                      // image: DecorationImage(
-                      // image: AssetImage('assets/Egypt.jpg'),
-                      //    fit: BoxFit.fill,
-                      // ),
-                      // shape: BoxShape.circle,
-                      // ),
-
-                      // color: Colors.deepPurple[600],
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
+                        height: 100,
+                        width: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/Logo.jpeg'),
+                            fit: BoxFit.fill,
+                          ),
+                          shape: BoxShape.circle,
+                        )),
                     Expanded(
                         child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,7 +142,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                   SizedBox(
                     width: 10,
                   ),
-                  NumbersWidget(),
+                  NumbersWidgets(),
                   Padding(
                     padding: const EdgeInsets.only(left: 25.0),
                     child: Container(

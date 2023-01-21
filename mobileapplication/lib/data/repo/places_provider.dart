@@ -1,25 +1,17 @@
-import 'package:csc_picker/model/select_status_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
-import '../../model/place_model.dart';
+import 'package:mobileapplication/data/repo/place_provider_test.dart';
 
-//---------------------PlacesProvider------------------------//
+//---------------------EventsProvider------------------------//
 
 //provider byklm almodel
-Future placesData = PlacesData().PlaceDetails();
-final placesDataProviderRepository = StateProvider<Future>((ref) => placesData);
+Stream evensData = PlacesData().placesDetails();
+final placesDataProviderRepository = StateProvider<Stream>((ref) => evensData);
 //gets the data from the model
 
-final placesDataProvider = FutureProvider(
+final placesDataProvider = StreamProvider((
   //bagyb beh aldata,byt3amel my al-ui
   //ui byklem provider
-  (ref) {
-    return ref.watch(placesDataProviderRepository);
+  (ref) => ref.watch(placesDataProviderRepository))
     //listens to the data
-  },
 );
-
-
-// DeletePlace(){
-
-// }

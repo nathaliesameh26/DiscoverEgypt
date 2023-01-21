@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NumbersWidget extends StatelessWidget {
-  const NumbersWidget({super.key});
+class NumbersWidgets extends StatelessWidget {
+  const NumbersWidgets({super.key});
 
   @override
   Widget build(BuildContext context) => IntrinsicHeight(

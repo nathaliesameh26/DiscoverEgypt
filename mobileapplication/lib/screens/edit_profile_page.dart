@@ -39,6 +39,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     lastnameController = TextEditingController(text: 'lastname');
   }
 
+//********************uploadfile ***********************/
   Future uploadFile() async {
     final path = 'files/${pickedFile!.name}';
     final file = File(pickedFile!.path!);
@@ -46,6 +47,9 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     ref.putFile(file);
   }
 
+//********************end-upload**************** */
+
+//*****************Select picture**************** */
   Future selectFile() async {
     final result = await FilePicker.platform.pickFiles();
     if (result == null) return;
@@ -54,13 +58,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     });
   }
 
-//##############################update test#############################
-  Map<String, String> dataToUpdate = {};
-  CollectionReference collection =
-      FirebaseFirestore.instance.collection('users');
-  //DocumentReference document = collection.doc('id');
-
-  //##########################end update test#####################################
+//*******************end-select********************* */
   @override
   Widget build(BuildContext context) => Scaffold(
         //appBar: buildAppBar(context),
@@ -79,11 +77,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ))),
-            // const CircleAvatar(
-            //   backgroundColor: Colors.blue,
-            //   backgroundImage: NetworkImage(
-            //       'https://console.firebase.google.com/u/1/project/discoveregypt-18220/storage/discoveregypt-18220.appspot.com/files'),
-            // ),
+
             ProfileWidget(
               imagePath: user.imagePath,
               isEdit: true,
@@ -91,9 +85,10 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
             ),
             ElevatedButton(
               onPressed: selectFile,
-              child: Text("select image"),
+              child: const Text("select image"),
             ),
-            ElevatedButton(onPressed: uploadFile, child: Text("upload image")),
+            ElevatedButton(
+                onPressed: uploadFile, child: const Text("upload image")),
             //######################update################################
             ElevatedButton(
               child: Text("Update"),
@@ -103,34 +98,30 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                     emailController.text,
                     passwordController.text,
                     lastnameController.text);
-                //   final docUser = FirebaseFirestore.instance
-                //       .collection('users')
-                //       .doc('GwBywSu38lShNnea4TCw');
-
-                //   docUser.update({
-                //     'firstname': 'Test Update1',
-                //   });
               }),
             ),
             //#######################end-update#######################
 
             //##############################delete########################
-            // ElevatedButton(
-            //   child: Text("Delete User"),
-            //   onPressed: (() {
-            //     final docUser = FirebaseFirestore.instance
-            //         .collection('users')
-            //         .doc('GwBywSu38lShNnea4TCw');
+            ElevatedButton(
+              child: Text("Delete My account"),
+              onPressed: (() {
+                final docUser = FirebaseFirestore.instance
+                    .collection('users')
+                    .doc('GwBywSu38lShNnea4TCw');
 
-            //     docUser.update({
-            //       'firstname': FieldValue.delete(),
-            //       'lastname': FieldValue.delete(),
-            //       'email': FieldValue.delete(),
-            //       'nationality': FieldValue.delete(),
-            //       'password': FieldValue.delete(),
-            //     });
-            //   }),
-            // ),
+                docUser.update({
+                  'firstname': FieldValue.delete(),
+                  'lastname': FieldValue.delete(),
+                  'email': FieldValue.delete(),
+                  'nationality': FieldValue.delete(),
+                  'password': FieldValue.delete(),
+                  'DateOfBirth': FieldValue.delete(),
+                  'role': FieldValue.delete(),
+                  'phoneNum': FieldValue.delete()
+                });
+              }),
+            ),
             //#################################end-delete#############################
             const SizedBox(height: 24),
             TextFieldWidget(

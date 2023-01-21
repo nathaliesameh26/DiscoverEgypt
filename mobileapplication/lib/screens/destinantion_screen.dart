@@ -33,7 +33,6 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
     final wish = WishList();
     final PlacesData = ref.watch(placesDataProvider);
 
-    //final PlacesData1 = ref.watch(placesDataProvider1);
     //final
     return Scaffold(
         appBar: AppBar(
@@ -131,29 +130,32 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                               letterSpacing: 1.2,
                             ),
                           ),
+
                           ListView.builder(
+                              scrollDirection: Axis.vertical,
+                              shrinkWrap: true,
                               itemBuilder: (BuildContext context, int index) {
-                            return Row(
-                              children: <Widget>[
-                                const Icon(
-                                  Icons.location_on,
-                                  size: 15.0,
-                                  color: Colors.white,
-                                ),
-                                const SizedBox(
-                                  width: 5.0,
-                                ),
-                                Text(
-                                  "${value.docs[index].get('location')}",
-                                  // ignore: prefer_const_constructors
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20.0,
-                                  ),
-                                )
-                              ],
-                            );
-                          })
+                                return Row(
+                                  children: <Widget>[
+                                    const Icon(
+                                      Icons.location_on,
+                                      size: 15.0,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      width: 5.0,
+                                    ),
+                                    Text(
+                                      "${value.docs[index].get('location')}",
+                                      // ignore: prefer_const_constructors
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20.0,
+                                      ),
+                                    )
+                                  ],
+                                );
+                              })
                         ],
                       ),
                     ),

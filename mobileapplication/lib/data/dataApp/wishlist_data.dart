@@ -2,31 +2,52 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
-class WishList with ChangeNotifier {
+class WishList {
   addWishListData({
-    required String wishListId,
-    required String wishListName,
-    var wishListPrice,
-    required String wishListImage,
-    required int wishListQuantity,
+    required String userId,
+    required String placeId,
+    required String placeName,
+    required String placeLocation,
+    required String placePrice,
   }) {
     FirebaseFirestore.instance
-        .collection("WishList")
+        .collection("wishlist")
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection("YourWishList")
-        .doc(wishListId)
+        .doc(userId)
         .set({
-      "wishListId": wishListId,
-      "wishListName": wishListName,
-      "wishListImage": wishListImage,
-      "wishListPrice": wishListPrice,
-      "wishListQuantity": wishListQuantity,
+      "userId": userId,
+      "placeId": placeId,
+      "placeName": placeName,
+      "placeLocation": placeLocation,
+      "placePrice": placePrice,
       "wishList": true,
     });
   }
 
 ///// Get WishList Data ///////
-  // List<ProductModel> wishList = [];
+
+  Future getWishListData() async {
+    final QuerySnapshot events =
+        await FirebaseFirestore.instance.collection('wishlist').get();
+    return events;
+  }
+
+////////// Delete WishList /////
+  deleteWishtList(wishListId) {
+    FirebaseFirestore.instance
+        .collection("WishList")
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .collection("YourWishList")
+        .doc(wishListId)
+        .delete();
+  }
+}
+
+
+
+
+ // List<ProductModel> wishList = [];
 
   // getWishtListData() async {
   //   List<ProductModel> newList = [];
@@ -55,11 +76,22 @@ class WishList with ChangeNotifier {
   //   return wishList;
   // }
 
-  Future getWishListData() async {
-    final QuerySnapshot events =
-        await FirebaseFirestore.instance.collection('wishlist').get();
-    return events;
-  }
+
+
+
+ // static Future<List<dynamic>> getWishlist(List <String> ids) async{
+  //   for (var placeId in ids){
+  //     try{
+  //       await FirebaseFirestore.instance.collection('wishlist').doc(placeId).get().then((value) => ((QuerySnapshot)){
+
+  //       });
+
+  //     }
+  //     catch(e){
+  //       print('property ');
+  //     }
+  //   }
+  // }
   // Future<Object> EventDetails() async {
   //   final event = FirebaseAuth.instance.currentUser!;
   //   String eventID = event.uid;
@@ -69,14 +101,3 @@ class WishList with ChangeNotifier {
   //       .get();
   //   return documentSnapshot;
   // }
-
-////////// Delete WishList /////
-  deleteWishtList(wishListId) {
-    FirebaseFirestore.instance
-        .collection("WishList")
-        .doc(FirebaseAuth.instance.currentUser?.uid)
-        .collection("YourWishList")
-        .doc(wishListId)
-        .delete();
-  }
-}

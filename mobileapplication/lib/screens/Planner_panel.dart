@@ -83,6 +83,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                     borderRadius: BorderRadius.circular(12)),
                 child: Row(
                   children: [
+                    SizedBox(height: 15),
                     Container(
                       height: 100,
                       width: 100,

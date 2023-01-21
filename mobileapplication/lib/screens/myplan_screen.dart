@@ -291,45 +291,45 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                 const SizedBox(
                                                   height: 10.0,
                                                 ),
-                                                // Row(
-                                                //   mainAxisAlignment:
-                                                //       MainAxisAlignment
-                                                //           .spaceAround,
-                                                //   children: [
-                                                //     ElevatedButton(
-                                                //         onPressed: () {},
-                                                //         style: ElevatedButton
-                                                //             .styleFrom(
-                                                //                 backgroundColor:
-                                                //                     Colors
-                                                //                         .black,
-                                                //                 minimumSize:
-                                                //                     Size(150,
-                                                //                         40)),
-                                                //         child: const Text(
-                                                //           "Accept",
-                                                //           style: TextStyle(
-                                                //             fontSize: 12,
-                                                //           ),
-                                                //         )),
-                                                //     ElevatedButton(
-                                                //         onPressed: () {},
-                                                //         style: ElevatedButton
-                                                //             .styleFrom(
-                                                //                 backgroundColor:
-                                                //                     Colors
-                                                //                         .black,
-                                                //                 minimumSize:
-                                                //                     Size(150,
-                                                //                         40)),
-                                                //         child: const Text(
-                                                //           "Cancel",
-                                                //           style: TextStyle(
-                                                //             fontSize: 12,
-                                                //           ),
-                                                //         )),
-                                                //   ],
-                                                // )
+                                                Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      ElevatedButton(
+                                                          onPressed: () {},
+                                                          style: ElevatedButton
+                                                              .styleFrom(
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .black,
+                                                                  minimumSize:
+                                                                      Size(150,
+                                                                          40)),
+                                                          child: const Text(
+                                                            "Cancel",
+                                                            style: TextStyle(
+                                                              fontSize: 12,
+                                                            ),
+                                                          )),
+                                                      //     ElevatedButton(
+                                                      //         onPressed: () {},
+                                                      //         style: ElevatedButton
+                                                      //             .styleFrom(
+                                                      //                 backgroundColor:
+                                                      //                     Colors
+                                                      //                         .black,
+                                                      //                 minimumSize:
+                                                      //                     Size(150,
+                                                      //                         40)),
+                                                      //         child: const Text(
+                                                      //           "Cancel",
+                                                      //           style: TextStyle(
+                                                      //             fontSize: 12,
+                                                      //           ),
+                                                      //         )),
+                                                      //   ],
+                                                    ])
                                               ],
                                             ),
                                           ),

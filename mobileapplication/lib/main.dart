@@ -5,6 +5,7 @@ import 'package:mobileapplication/screens/Place_form.dart';
 import 'package:mobileapplication/screens/Planner_panel.dart';
 import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
+import 'package:mobileapplication/screens/destination_carousel.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
@@ -23,6 +24,9 @@ import 'screens/RatingScreen.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash.dart';
+import 'package:mobileapplication/screens/testweather.dart';
+
+import 'package:mobileapplication/screens/currentWeather.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,13 +46,13 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/admin',
         routes: {
+          '/weather': (context) => CurrentWeatherPage(),
           '/testScreen': (context) => testScreen(),
+          '/DestinationCarousel': (context) => DestinationCarousel(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
           '/EditProfilePage': (context) => EditProfilePage(),
           '/CrudPlace': (context) => CrudPlace(),
-          '/EditProfilePage': (context) => EditProfilePage(),
-          // '/DestinationScreen': (context) => DestinationScreen(),
           '/HomeScreenn': (context) => HomeScreenn(),
           '/planner': (context) => PlannerPanel(),
           '/': (context) => const HomeScreenn(),
@@ -67,6 +71,7 @@ class MyApp extends StatelessWidget {
           '/search': (context) => SearchPage(),
           '/profile': (context) => ProfilePage(),
           '/plans': (context) => MyPlansScreen(),
+          // '/DestinationScreen': (context) => DestinationScreen(),
           // '/updatePlace': (context) => EditPlacePage(),
           // '/updateEvent': (context) => EditEventPage(),
           // '/Searchplaces': (context) => const SearchPage(),

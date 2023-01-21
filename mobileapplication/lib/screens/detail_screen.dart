@@ -55,7 +55,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                               color: Colors.grey,
                               borderRadius: BorderRadius.circular(20.0)),
                           child: Text(
-                            "${value.docs[index].get('rating')} reviews",
+                            "${value.docs[index].get('location')} reviews",
                             style:
                                 TextStyle(color: Colors.white, fontSize: 13.0),
                           ),

@@ -115,7 +115,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                  'lastname': FieldValue.delete(),
                'email': FieldValue.delete(),
                  'nationality': FieldValue.delete(),
-            //       'password': FieldValue.delete(),
+                 'password': FieldValue.delete(),
             //     });
             //   }),
             // ),

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
 import 'package:mobileapplication/data/repo/places_provider.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
+import 'package:mobileapplication/screens/wishlist_screen.dart';
 import '../data/dataApp/wishlist_data.dart';
 import '../data/repo/place_provider_test.dart';
 import '../model/destination_model.dart';
@@ -224,13 +225,22 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                   ),
                                                 ),
                                                 LikeButton(
-                                                    // onTap: (isLiked) {
-                                                    //   setState(() {
-                                                    //     wishlistbool =
-                                                    //         !wishlistbool;
-                                                    //   });
-                                                    // },
+                                                    //     // onTap: (isLiked) => WishList.addToWishlist(),
+                                                    //     onTap: (isLiked) async {
+                                                    //   Navigator.push(
+                                                    //       context,
+                                                    //       MaterialPageRoute(
+                                                    //           builder: (context) =>
+                                                    //               WishlistScreen(
+                                                    //                   value.docs[
+                                                    //                       index],
+                                                    //                   value.docs[
+                                                    //                           index]
+                                                    //                       .get(
+                                                    //                           'id'))));
+                                                    // }
                                                     ),
+
                                                 ElevatedButton(
                                                     onPressed: () {
                                                       Navigator.pushNamed(

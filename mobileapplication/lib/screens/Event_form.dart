@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobileapplication/data/dataApp/events_data.dart';
 
-import '../model/events_model.dart';
-
 class eventForm extends StatefulWidget {
   const eventForm({Key? key}) : super(key: key);
 
@@ -12,9 +10,11 @@ class eventForm extends StatefulWidget {
 }
 
 final formkey = GlobalKey<FormState>();
+TimeOfDay time = TimeOfDay.now();
 
 class _eventFormState extends State<eventForm> {
-  DateTime date = DateTime(2023, 1, 23);
+  final eventdata = PlacesData();
+  DateTime date = DateTime.now();
   TextEditingController nameController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
   TextEditingController priceController = TextEditingController();
@@ -174,8 +174,8 @@ class _eventFormState extends State<eventForm> {
                                           .format(pickedDate);
                                   print(formattedDate);
                                   setState(() {
-                                    startDateController.text =
-                                        formattedDate; //set output date to TextField value.
+                                    startDateController.text = formattedDate;
+                                    //set output date to TextField value.
                                   });
                                 } else {}
                               },
@@ -213,39 +213,63 @@ class _eventFormState extends State<eventForm> {
                           ),
                           Container(
                             padding: const EdgeInsets.all(10),
-                            child: TextFormField(
-                                controller: openingTimeController,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Event Opening Time ',
-                                ),
-                                validator: (value) {
-                                  if (value!.isEmpty ||
-                                      !RegExp("((([1-9])|(1[0-2])):([0-5])([0-9])(\\s)(A|P)M)")
-                                          .hasMatch(value)) {
-                                    return "enter a correct time the required form is hours:minutes";
-                                  } else {
-                                    return null;
-                                  }
-                                }),
+                            child: TextField(
+                              style: TextStyle(color: Colors.black),
+                              cursorColor: Colors.black,
+                              controller: openingTimeController,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                  border: const OutlineInputBorder(),
+                                  suffixIcon:
+                                      const Icon(Icons.access_alarm_sharp),
+                                  labelText: "Enter Opening Time"),
+                              readOnly: true,
+                              onTap: () async {
+                                TimeOfDay? newTime = await showTimePicker(
+                                  context: context,
+                                  initialTime: time,
+                                );
+                                if (newTime != null) {
+                                  print(newTime);
+                                  String formattedTime =
+                                      newTime.format(context);
+                                  print(formattedTime);
+                                  setState(() {
+                                    openingTimeController.text = formattedTime;
+                                  });
+                                }
+                              },
+                            ),
                           ),
                           Container(
                             padding: const EdgeInsets.all(10),
-                            child: TextFormField(
-                                controller: closingTimeController,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Event Closing time',
-                                ),
-                                validator: (value) {
-                                  if (value!.isEmpty ||
-                                      !RegExp("((([1-9])|(1[0-2])):([0-5])([0-9])(\\s)(A|P)M)")
-                                          .hasMatch(value)) {
-                                    return "enter a correct time the required form is hours:minutes";
-                                  } else {
-                                    return null;
-                                  }
-                                }),
+                            child: TextField(
+                              style: TextStyle(color: Colors.black),
+                              cursorColor: Colors.black,
+                              controller: closingTimeController,
+                              // ignore: prefer_const_constructors
+                              decoration: InputDecoration(
+                                  border: const OutlineInputBorder(),
+                                  suffixIcon:
+                                      const Icon(Icons.access_alarm_rounded),
+                                  labelText: "Enter Closing Time"),
+                              readOnly: true,
+                              onTap: () async {
+                                TimeOfDay? newTime = await showTimePicker(
+                                  context: context,
+                                  initialTime: time,
+                                );
+                                if (newTime != null) {
+                                  print(newTime);
+                                  String formattedTime =
+                                      newTime.format(context);
+                                  print(formattedTime);
+                                  setState(() {
+                                    closingTimeController.text = formattedTime;
+                                  });
+                                }
+                              },
+                            ),
                           ),
                           Container(
                               height: 50,
@@ -257,28 +281,28 @@ class _eventFormState extends State<eventForm> {
                                 ),
                                 child: const Text('Submit'),
                                 onPressed: () async {
-                                  await EventAdded(
-                                    nameController.text,
-                                    aboutController.text,
-                                    cityController.text,
-                                    priceController.text,
-                                    openingTimeController.text,
-                                    closingTimeController.text,
-                                    startDateController.text,
-                                    endDateController.text,
-                                    locationController.text,
-                                  );
                                   if (formkey.currentState!.validate()) {
+                                    await eventdata.PlaceAdded(
+                                      name: nameController.text,
+                                      about: aboutController.text,
+                                      city: cityController.text,
+                                      price: priceController.text,
+                                      openingTime: openingTimeController.text,
+                                      closingTime: closingTimeController.text,
+                                      startdate: startDateController.text,
+                                      enddate: endDateController.text,
+                                      location: locationController.text,
+                                    );
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
-                                          content: Text('Successfully Added ')),
+                                          content: Text('Successfully Added')),
                                     );
-                                    // Navigator.pushNamed(context, '/test');
+                                    Navigator.pushNamed(context, '/admin');
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
                                           content: Text(
-                                              'Something went Wrong R-enter your data ')),
+                                              'Something went Wrong R-enter your data')),
                                     );
                                   }
                                 },

@@ -82,29 +82,29 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     Row(
-                                      children: const <Widget>[
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.blue,
+                                        // children: const <Widget>[
+                                        //   Icon(
+                                        //     Icons.star,
+                                        //     color: Colors.blue,
+                                        //   ),
+                                        //   Icon(
+                                        //     Icons.star,
+                                        //     color: Colors.blue,
+                                        //   ),
+                                        //   Icon(
+                                        //     Icons.star,
+                                        //     color: Colors.blue,
+                                        //   ),
+                                        //   Icon(
+                                        //     Icons.star,
+                                        //     color: Colors.blue,
+                                        //   ),
+                                        //   Icon(
+                                        //     Icons.star_border,
+                                        //     color: Colors.blue,
+                                        //   ),
+                                        // ],
                                         ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.blue,
-                                        ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.blue,
-                                        ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.blue,
-                                        ),
-                                        Icon(
-                                          Icons.star_border,
-                                          color: Colors.blue,
-                                        ),
-                                      ],
-                                    ),
                                     Text.rich(
                                       TextSpan(children: [
                                         const WidgetSpan(

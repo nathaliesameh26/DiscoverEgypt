@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/HomeScreenn',
+        initialRoute: '/login',
         routes: {
           '/weather': (context) => CurrentWeatherPage(),
           'eventForm': (context) => eventForm(),
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
           '/admin': (context) => const AdminPanel(),
-          '/wishList': (context) => WishlistScreen(),
+          //'/wishList': (context) => WishlistScreen(),
           '/detailsPage': (context) => DetailsPage(),
           '/addedplace': (context) => const PlacesForm(),
           '/eventList': (context) => CrudEvent(),

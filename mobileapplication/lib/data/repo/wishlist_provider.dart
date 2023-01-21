@@ -20,14 +20,37 @@ final wishlistDataProvider = FutureProvider(
   },
 );
 
-final getWishlistData = StreamProvider((ref) {
-  final user = FirebaseAuth.instance.currentUser!;
-  String id = user.uid;
-  return FirebaseFirestore.instance
-      .collection('wishlist')
-      .where("userId", isEqualTo: id)
-      .snapshots();
-});
+Future getPlacesDataFromWishlist = WishList().getDataFromWishlist('placeId');
+final getPlacesDataFromWishlistProviderRepository =
+    StateProvider<Future>((ref) => wishlistData);
+//gets the data from the model
+
+final getPlacesDataFromWishlistProvider = FutureProvider(
+  //bagyb beh aldata,byt3amel my al-ui
+  //ui byklem provider
+  (ref) async {
+    return ref.watch(getPlacesDataFromWishlistProviderRepository);
+    //listens to the data
+  },
+);
+
+// final getWishlistData = StreamProvider((ref) {
+//   final user = FirebaseAuth.instance.currentUser!;
+//   String id = user.uid;
+//   return FirebaseFirestore.instance
+//       .collection('wishlist')
+//       .where("userId", isEqualTo: id)
+//       .snapshots();
+// });
+
+// final getDatafromWishlist = StreamProvider((ref) {
+//   final user = FirebaseAuth.instance.currentUser!;
+//   String placeId = pla.uid;
+//   return FirebaseFirestore.instance
+//       .collection('places')
+//       .where("placeId", isEqualTo: id)
+//       .snapshots();
+// });
 
 
 

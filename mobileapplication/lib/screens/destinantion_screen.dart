@@ -127,6 +127,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                               letterSpacing: 1.2,
                             ),
                           ),
+
                           ListView.builder(
                               scrollDirection: Axis.vertical,
                               shrinkWrap: true,

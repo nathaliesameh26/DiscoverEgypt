@@ -27,6 +27,9 @@ import 'screens/RatingScreen.dart';
 import 'screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/splash.dart';
+import 'package:mobileapplication/screens/testweather.dart';
+
+import 'package:mobileapplication/screens/currentWeather.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,8 +47,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/raiting',
+        initialRoute: '/weather',
         routes: {
+          '/weather': (context) => CurrentWeatherPage(),
           '/testScreen': (context) => testScreen(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),

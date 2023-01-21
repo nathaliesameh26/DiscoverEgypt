@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
+import 'package:mobileapplication/data/repo/places_provider.dart';
 import 'package:mobileapplication/screens/edit_Place.dart';
-import '../data/repo/places_provider.dart';
 
 class CrudPlace extends ConsumerStatefulWidget {
   CrudPlace({Key? key});
@@ -15,13 +15,13 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
   final placeData = PlacesData();
   @override
   Widget build(BuildContext context) {
-    final PlacesData = ref.watch(placesDataProvider);
+    final plcRead = ref.watch(placesDataProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('EgyMania Sightseeing Places'),
         backgroundColor: Color.fromARGB(255, 28, 128, 150),
       ),
-      body: PlacesData.when(
+      body: plcRead.when(
         data: (value) => SafeArea(
           child: Column(
             children: [
@@ -43,7 +43,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'Places Name: ${value.docs[index].get('name')}',
+                                      'Place Name: ${value.docs[index].get('name')}',
                                       style: const TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold,
@@ -180,7 +180,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                             context: context,
                                             builder: (ctx) => AlertDialog(
                                               content: const Text(
-                                                  "Are you sure you want to delete it?"),
+                                                  "Are you sre you want to delete it?"),
                                               actions: <Widget>[
                                                 TextButton(
                                                   onPressed: () async {

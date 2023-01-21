@@ -103,9 +103,9 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
             //#######################end-update#######################
 
             //##############################delete########################
-            // ElevatedButton(
-            //   child: Text("Delete User"),
-            //   onPressed: (() {
+             ElevatedButton(
+               child: Text("Delete User"),
+               onPressed: (() {
             //     final docUser = FirebaseFirestore.instance
             //         .collection('users')
             //         .doc('GwBywSu38lShNnea4TCw');

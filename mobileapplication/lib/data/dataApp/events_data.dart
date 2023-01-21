@@ -2,50 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 //--------------------------Connecting With Firebase ---------------------------//
-
-class EventsData {
-  // ignore: non_constant_identifier_names
-  Future EventDetails() async {
-    final QuerySnapshot events =
-        await FirebaseFirestore.instance.collection('events').get();
-    return events;
+//functions start it lower cases
+class PlacesData {
+  Stream<QuerySnapshot> EventDetails() {
+    return FirebaseFirestore.instance.collection('events').snapshots();
   }
-  // Future<Object> EventDetails() async {
-  //   final event = FirebaseAuth.instance.currentUser!;
-  //   String eventID = event.uid;
-  //   final DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
-  //       .collection('events')
-  //       .doc('9qKBFY73oJbMnjgXpznB')
-  //       .get();
-  //   return documentSnapshot;
-  // }
-
-  // Future updateEventDetails(
-  //   String name,
-  //   String about,
-  //   String city,
-  //   String price,
-  //   String location,
-  //   String openingTime,
-  //   String closingTime,
-  //   String startdate,
-  //   String enddate,
-  // ) async {
-  //   final eve = FirebaseFirestore.instance
-  //       .collection('events')
-  //       .where("name", isEqualTo: name);
-  //   eve.update({
-  //     'name': name,
-  //     'about': about,
-  //     'price': price,
-  //     'location': location,
-  //     'city': city,
-  //     'startDate': startdate,
-  //     'endDate': enddate,
-  //     'openingtime': openingTime,
-  //     'closingtime': closingTime,
-  //   });
-  // }
 
   Future updateEventDetails(
     String id,
@@ -59,116 +20,54 @@ class EventsData {
     String startdate,
     String enddate,
   ) async {
-    final updateUser = FirebaseFirestore.instance.collection('events').doc(id);
-    updateUser.update(
-      {
-        'name': name,
-        'about': about,
-        'price': price,
-        'location': location,
-        'city': city,
-        'startdate': startdate,
-        'enddate': enddate,
-        'openingTime': openingTime,
-        'closingTime': closingTime,
-      },
-    );
+    final eventRef = FirebaseFirestore.instance.collection('events');
+    final eventQuery = eventRef.doc(id);
+    // final eventQuery = eventRef.where('name', isEqualTo: name);
+    final eventSnapshot = await eventQuery.get();
+
+    eventSnapshot.reference.update({
+      'name': name,
+      'about': about,
+      'price': price,
+      'location': location,
+      'city': city,
+      'startdate': startdate,
+      'enddate': enddate,
+      'openingTime': openingTime,
+      'closingTime': closingTime,
+    });
   }
 
-  //   String name,
-  //   String about,
-  //   String city,
-  //   String location,
-  //   String price,
-  //   String StartDate,
-  //   String EndDate,
-  //   String openingTime,
-  //   String closingTime,
-  // ) async {
-  //   Map<String, dynamic> toMap() {
-  //     return {
-  //       'name': name,
-  //       'about': about,
-  //       'price': price,
-  //       'location': location,
-  //       'city': city,
-  //       'startDate': StartDate,
-  //       'endDate': EndDate,
-  //       'openingtime': openingTime,
-  //       'closingtime': closingTime,
-  //     };
-  //   }
+  Future deleteEvent({required String id}) async {
+    FirebaseFirestore.instance.collection("events").doc(id).delete();
+  }
 
-  //       .then((querySnapshot) {
-  //     for (var result in querySnapshot.docs) {
-  //       FirebaseFirestore.instance
-  //           .collection('events')
-  //           .doc(result.id)
-  //           .update(toMap());
-  //     }
-  //   });
-  // }
-
-//-------------------------------Adding New Event to firebase --------------------------//
+  Future PlaceAdded({
+    required String name,
+    required String about,
+    required String city,
+    required String price,
+    required String startdate,
+    required String enddate,
+    required String location,
+    required String openingTime,
+    required String closingTime,
+  }) async {
+    //create a document to get its ID
+    final newDocument = FirebaseFirestore.instance.collection('events').doc();
+    await FirebaseFirestore.instance
+        .collection('events')
+        .doc(newDocument.id)
+        .set({
+      "name": name,
+      "about": about,
+      "city": city,
+      "price": int.parse(price),
+      "location": location,
+      "startdate": startdate,
+      "enddate": enddate,
+      "openingTime": openingTime,
+      "closingTime": closingTime,
+    });
+  }
 }
-
-Future EventAdded(
-  String name,
-  String about,
-  String city,
-  String price,
-  String openingTime,
-  String closingTime,
-  String startdate,
-  String enddate,
-  //String rating,
-  String location,
-) async {
-  await FirebaseFirestore.instance.collection('events').add({
-    "name": name,
-    "about": about,
-    "city": city,
-    "price": int.parse(price),
-    "openingTime": openingTime,
-    "closingTime": closingTime,
-    "startdate": startdate,
-    "enddate": enddate,
-    //"rating": int.parse(rating),
-    "location": location,
-    // "id" :place,
-    // "location": location,
-  });
-
-  // print('New places is added');
-  // final prefs = await SharedPreferences.getInstance();
-  // await prefs.setString('id', placeID);
-}
-
-// Future addevent({
-//   required String name,
-//   required String about,
-//   required String city,
-//   required String location,
-//   required int price,
-//   required int rating,
-//   required String startdate,
-//   required String enddate,
-//   required String openingtime,
-//   required String closingtime,
-// }) async {
-//   await FirebaseFirestore.instance.collection('events').doc(eventID).set({
-//     "name": name,
-//     "about": about,
-//     "city": city,
-//     "location": location,
-//     "price": price,
-//     "startdate": startdate,
-//     "enddate": enddate,
-//     "openingtime": openingtime,
-//     "closingtime": closingtime,
-//   });
-
-//   print('New event is added');
-//   final prefs = await SharedPreferences.getInstance();
-//   await prefs.setString('EVENT_ID', eventID);
-// }

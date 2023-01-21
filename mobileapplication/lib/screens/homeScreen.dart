@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobileapplication/screens/events_carousel.dart';
+import '../data/dataApp/place_data.dart';
 import '../data/repo/user_provider.dart';
 import '../widget/navigation_bar.dart';
 import '../widget/username_show.dart';
@@ -18,6 +19,7 @@ class HomeScreenn extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreenn> {
+  //final cityobject = PlacesData.placecity();
   int _selectedIndex = 0;
   final List<IconData> _icons = [
     FontAwesomeIcons.houseMedical,
@@ -86,9 +88,7 @@ class _HomeScreenState extends State<HomeScreenn> {
                     padding: const EdgeInsets.only(right: 25),
                     child: Text(
                       // ignore: prefer_adjacent_string_concatenation
-                      '${value.get('firstname')}' +
-                          ' ' +
-                          '${value.get('lastname')}',
+                      '${value.get('firstname')} ${value.get('lastname')}',
 
                       style: const TextStyle(fontSize: 15),
                     ),
@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreenn> {
             ),
             DestinationCarousel(),
             const SizedBox(
-              height: 20.0,
+              height: 21.0,
             ),
             EventCarousel(),
           ],

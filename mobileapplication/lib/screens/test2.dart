@@ -1,32 +1,41 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../data/repo/events_provider.dart';
+import 'package:mobileapplication/data/dataApp/place_data.dart';
+import 'package:mobileapplication/model/place_model.dart';
+import '../data/repo/places_provider.dart';
 
-class CrudEvent extends ConsumerStatefulWidget {
-  CrudEvent({Key? key});
+// String myDocId = 'place.uid';
+// DocumentSnapshot? documentSnapshot;
+
+class CrudPlace extends ConsumerStatefulWidget {
+  CrudPlace({Key? key});
 
   @override
-  ConsumerState<CrudEvent> createState() => _CrudEventState();
+  ConsumerState<CrudPlace> createState() => _CrudPlaceState();
 }
 
-class _CrudEventState extends ConsumerState<CrudEvent> {
+class _CrudPlaceState extends ConsumerState<CrudPlace> {
   @override
   Widget build(BuildContext context) {
-    final EventsData = ref.watch(eventsDataProvider);
+    final placesData = ref.watch(placesDataProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('EgyMania Events'),
+        title: const Text('EgyMania Sightseeing Places'),
         backgroundColor: Color.fromARGB(255, 28, 128, 150),
       ),
-      body: EventsData.when(
+      //value feha aldata , places data dy wakhda data mn alprovider
+      body: placesData.when(
         data: (value) => SafeArea(
           child: Column(
             children: [
               Expanded(
                 child: ListView.builder(
                     itemCount: value.docs.length,
-                    itemBuilder: (BuildContext context, int index) {
+                    //count how many documents are in db and loops with the number of docs
+                    itemBuilder: (BuildContext context, int index)
+                        //to know in which im standing
+                        {
                       return Padding(
                         padding: const EdgeInsets.only(
                             left: 10.0, right: 10.0, top: 10.0),
@@ -41,9 +50,9 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'Events Name: ${value.docs[index].get('name')}',
+                                      'Name: ${value.docs[index].get('name')}',
                                       style: const TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -163,8 +172,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                         onPressed: () {},
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
-                                                // ignore: prefer_const_constructors
-                                                Color.fromARGB(
+                                                const Color.fromARGB(
                                                     255, 28, 128, 150),
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
@@ -175,7 +183,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                           ),
                                         )),
                                     ElevatedButton(
-                                                onPressed: () {
+                                        onPressed: () {
                                           showDialog(
                                             context: context,
                                             builder: (ctx) => AlertDialog(
@@ -191,7 +199,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                                     // },
                                                   },
                                                   child: Container(
-                                                    color: const Color.fromARGB(
+                                                    color: Color.fromARGB(
                                                         255, 184, 195, 184),
                                                     padding:
                                                         const EdgeInsets.all(
@@ -205,7 +213,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                                         context, '/placeList');
                                                   },
                                                   child: Container(
-                                                    color: const Color.fromARGB(
+                                                    color: Color.fromARGB(
                                                         255, 184, 195, 184),
                                                     padding:
                                                         const EdgeInsets.all(
@@ -218,9 +226,8 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                           );
                                         },
                                         style: ElevatedButton.styleFrom(
-                                            // ignore: prefer_const_constructors
-                                            backgroundColor: Color.fromARGB(
-                                                255, 28, 128, 150),
+                                            backgroundColor:
+                                                Color.fromRGBO(28, 128, 150, 1),
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
                                         child: Text(

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
 import 'package:mobileapplication/data/repo/places_provider.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
+import '../data/repo/place_provider_test.dart';
 import '../model/destination_model.dart';
 import '../model/activity_model.dart';
 
@@ -28,11 +29,13 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
   @override
   Widget build(BuildContext context) {
     final PlacesData = ref.watch(placesDataProvider);
+    //final PlacesData1 = ref.watch(placesDataProvider1);
+    //final
     return Scaffold(
         appBar: AppBar(
           //leading: new Icon(Icons.arrow_back),
           //title: const Text('SnapNews'),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.black,
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.arrow_back),
@@ -64,7 +67,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                       child: ClipRRect(
                         //borderRadius: BorderRadius.circular(30.0),
                         child: Image.asset(
-                          'assets/Egypt.jpg',
+                          'assets/alex.jpg',
                           fit: BoxFit.cover,
                           height: 100,
                           width: 430,
@@ -219,7 +222,8 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                     onPressed: () {
                                                       Navigator.pushNamed(
                                                           context,
-                                                          '/detailsPage');
+                                                          '/detailsPage',
+                                                          arguments: index);
                                                     },
                                                     child: Text(
                                                       'Details',

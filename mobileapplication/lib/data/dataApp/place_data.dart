@@ -1,7 +1,6 @@
 import 'dart:core';
+import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 // final place = FirebaseAuth.instance.currentUser!;
 // String placeID = place.uid;
@@ -18,12 +17,49 @@ class PlacesData {
     return places;
   }
 
+  Future placecity(String city) async {
+    final QuerySnapshot places = await FirebaseFirestore.instance
+        .collection('places')
+        .where('city', isEqualTo: city)
+        .get();
+    return places;
+  }
+
 // Future deletePlace(String id) async {
 //   _documentReference = FirebaseFirestore.instance.collection('place')
 //   .doc(id);
 //   _futureDocument = _documentReference.get();
 //   _documentReference.delete();
 // }
+
+  // Future getSpecificPlace() async {
+  //   final QuerySnapshot places = await FirebaseFirestore.instance
+  //       .collection('places')
+  //       .where('city', arrayContains: 'Cairo')
+  //       .get();
+  //   return places;
+  // }
+
+  // static Future<bool?> updateWishlist(String docId) async {
+  //   // String data = '';
+  //   //   String email = ref.watch(newUserDataProivder)!.email;
+  //   //   int score = ref.watch(newUserDataProivder)!.score;
+  //   //   await FirebaseFirestore.instance
+  //   //       .collection('Users')
+  //   //       .where("email", isEqualTo: email)
+  //   //       .get()
+  //   //       .then((QuerySnapshot querySnapshot) {
+  //   //     for (var doc in querySnapshot.docs) {
+  //   //       data = (doc.reference.path);
+  //   //     }
+  //   //   });
+
+  //   final FirebaseFirestore db = FirebaseFirestore.instance;
+  //   final finalwishlist = await db.collection("places").get();
+  //   final update = FirebaseFirestore.instance.collection('places').doc(docId);
+  //   var wish = finalwishlist.docs.first.get('wishlist');
+  //   update.update({"wishlist": !wish});
+  // }
 
   Future<void> updatePlaceDetails(
       String name,
@@ -56,12 +92,8 @@ class PlacesData {
             .doc(result.id)
             .update(toMap());
       }
-    }
-    );
-
+    });
   }
-}
-
 
 // final UpdatePlace = FirebaseFirestore.instance
 //     .collection('places')
@@ -77,19 +109,25 @@ class PlacesData {
 //   "openingTime": openingTime.trim(),
 //   "closingTime": closingTime.trim(),}
 // );
+}
 
-Future deletePlace(String name) async {
+Future deletePlace(String id) async {
+  FirebaseFirestore.instance.collection("places").doc(id).delete();
+  // DocumentReference docRef =
+  //     FirebaseFirestore.instance
+  //     .collection('places')
+  //     .doc(id);
+  // docRef.delete();
+
+  //FirebaseFirestore.instance.collection('places').doc('id').delete();
   // await FirebaseFirestore.instance
   //     .collection('place')
   //     .where('name', isEqualTo: name)
   //     .delete();
-  FirebaseFirestore.instance
-      .collection('path')
-      .doc('places')
-      .update({name: FieldValue.delete()}).whenComplete(() {
-    // print('Field Deleted');
-  });
+  //update({name: FieldValue.delete()}).whenComplete(() {
+  // print('Field Deleted');
 }
+
 // final placeid = int.parse(id);
 // FirebaseFirestore.instance.collection("places").doc(name).delete();
 
@@ -122,6 +160,7 @@ Future placeAdded(String name, String about, String city, String price,
     "price": int.parse(price),
     "openingTime": openingTime,
     "closingTime": closingTime,
+    // "wishlist": false,
     // "id" :place,
     // "location": location,
   });
@@ -145,3 +184,10 @@ class PlacesModel {
 
   PlacesModel(this.name, this.location, this.description, this.price);
 }
+
+// Future deletePlace(String id) async {
+//   _documentReference = FirebaseFirestore.instance.collection('place')
+//   .doc(id);
+//   _futureDocument = _documentReference.get();
+//   _documentReference.delete();
+// }

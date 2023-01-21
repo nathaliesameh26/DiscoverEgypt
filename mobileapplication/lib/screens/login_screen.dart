@@ -104,6 +104,7 @@ class _LoginState extends State<Login> {
                             ),
                             TextFormField(
                               controller: passwordController,
+                              obscureText: true,
                               style: const TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
                                 enabledBorder: OutlineInputBorder(

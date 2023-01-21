@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class NumbersWidget extends StatelessWidget {
-  const NumbersWidget({super.key});
+class NumbersWidgets extends StatelessWidget {
+  const NumbersWidgets({super.key});
 
   @override
   Widget build(BuildContext context) => IntrinsicHeight(
           child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildButton(context, '4.8', 'places'),
+          buildButton(context, '40', 'places'),
           buildDivider(),
-          buildButton(context, '7.1', 'events'),
+          buildButton(context, '20', 'events'),
           buildDivider(),
-          buildButton(context, '1.2', 'users')
+          buildButton(context, '100', 'users')
         ],
       ));
   Widget buildDivider() => Container(

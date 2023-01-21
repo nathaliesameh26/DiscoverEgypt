@@ -20,15 +20,15 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
       child: FutureBuilder(
         future: getCurrentWeather(),
         builder: (context, snapshot) {
-          if (snapshot != null) {
-            this._weather = snapshot.data;
-            if (this._weather == null) {
-              return Text("Error getting weather");
-            } else {
-              return weatherBox(_weather);
-            }
+          if (snapshot.hasData) {
+            _weather = snapshot.data;
+            // if (_weather == null) {
+            //   return Text("Error getting weather");
+            // } else {
+            return weatherBox(_weather);
+            // }
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         },
       ),

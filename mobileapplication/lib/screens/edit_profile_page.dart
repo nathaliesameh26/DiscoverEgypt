@@ -47,6 +47,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     ref.putFile(file);
   }
 
+//********************end-upload**************** */
   Future selectFile() async {
     final result = await FilePicker.platform.pickFiles();
     if (result == null) return;

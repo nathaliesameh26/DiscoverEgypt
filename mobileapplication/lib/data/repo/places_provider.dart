@@ -1,23 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
-import '../../model/place_model.dart';
-
-//---------------------PlacesProvider------------------------//
 
 //provider byklm almodel
-Future placesData = PlacesData().PlaceDetails();
-final placesDataProviderRepository = StateProvider<Future>((ref) => placesData);
+Stream placesData = PlacesData().placeDetails();
+final placessDataProviderRepository = StateProvider<Stream>((ref) => placesData);
 //gets the data from the model
 
-final placesDataProvider = FutureProvider(
+final placesDataProvider = StreamProvider((
   //bagyb beh aldata,byt3amel my al-ui
   //ui byklem provider
-  (ref) {
-    return ref.watch(placesDataProviderRepository);
+  (ref) => ref.watch(placessDataProviderRepository))
     //listens to the data
-  },
 );
 
-// DeletePlace(){
-
-// }

@@ -107,8 +107,8 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                child: Text("Delete User"),
                onPressed: (() {
                 final docUser = FirebaseFirestore.instance
-            //         .collection('users')
-            //         .doc('GwBywSu38lShNnea4TCw');
+                   .collection('users')
+                  .doc('GwBywSu38lShNnea4TCw');
 
             //     docUser.update({
             //       'firstname': FieldValue.delete(),

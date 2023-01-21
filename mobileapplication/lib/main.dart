@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/admin',
         routes: {
           '/weather': (context) => CurrentWeatherPage(),
+          'eventForm': (context) => eventForm(),
           '/testScreen': (context) => testScreen(),
           '/DestinationCarousel': (context) => DestinationCarousel(),
           '/raiting': (context) => const raiting(),

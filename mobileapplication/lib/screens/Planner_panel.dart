@@ -40,33 +40,33 @@ class _PlannerPanelState extends State<PlannerPanel> {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Consumer(
-                          builder: (_, ref, __) {
-                            return ref.watch(userDataProvider).when(
-                              data: (value) {
-                                return Center(
-                                  child: Text(
-                                    // ignore: prefer_adjacent_string_concatenation
-                                    '${value.get('firstname')}' +
-                                        ' ' +
-                                        '${value.get('lastname')}',
+                        // Consumer(
+                        //   builder: (_, ref, __) {
+                        //     return ref.watch(userDataProvider).when(
+                        //       data: (value) {
+                        //         return Center(
+                        //           child: Text(
+                        //             // ignore: prefer_adjacent_string_concatenation
+                        //             '${value.get('firstname')}' +
+                        //                 ' ' +
+                        //                 '${value.get('lastname')}',
 
-                                    style: const TextStyle(fontSize: 10),
-                                  ),
-                                );
-                              },
-                              error: (Object error, StackTrace stackTrace) {
-                                return const Text(
-                                  'User',
-                                  style: TextStyle(fontSize: 20),
-                                );
-                              },
-                              loading: () {
-                                return const CircularProgressIndicator();
-                              },
-                            );
-                          },
-                        ),
+                        //             style: const TextStyle(fontSize: 10),
+                        //           ),
+                        //         );
+                        //       },
+                        //       error: (Object error, StackTrace stackTrace) {
+                        //         return const Text(
+                        //           'User',
+                        //           style: TextStyle(fontSize: 20),
+                        //         );
+                        //       },
+                        //       loading: () {
+                        //         return const CircularProgressIndicator();
+                        //       },
+                        //     );
+                        //   },
+                        // ),
                       ],
                     ),
                   ),
@@ -139,10 +139,28 @@ class _PlannerPanelState extends State<PlannerPanel> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 10,
+                  Center(
+                    widthFactor: 3.1,
+                    child: Container(
+                      height: 60,
+                      child: ElevatedButton(
+                          child: Text("EVENT FORM".toUpperCase(),
+                              style: TextStyle(fontSize: 14)),
+                          style: ButtonStyle(
+                              foregroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              backgroundColor:
+                                  MaterialStateProperty.all<Color>(Colors.blue),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      side: BorderSide(color: Colors.blue)))),
+                          onPressed: () {
+                            Navigator.pushNamed(context, 'eventForm');
+                          }),
+                    ),
                   ),
-                  NumbersWidgets(),
                   Padding(
                     padding: const EdgeInsets.only(left: 25.0),
                     child: Container(
@@ -763,4 +781,4 @@ class _PlannerPanelState extends State<PlannerPanel> {
 // //                                 ),
 // //                               ],
 
-// //                             ),
+// //                             ),

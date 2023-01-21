@@ -32,7 +32,7 @@ class _PlannerPanelState extends State<PlannerPanel> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Hello,',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,

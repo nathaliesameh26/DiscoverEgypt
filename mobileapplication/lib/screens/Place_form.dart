@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mobileapplication/data/dataApp/Place_data.dart';
+import 'package:mobileapplication/data/dataApp/place_data.dart';
 
-class placeForm extends StatefulWidget {
-  const placeForm({Key? key}) : super(key: key);
+class PlacesForm extends StatefulWidget {
+  const PlacesForm({Key? key}) : super(key: key);
 
   @override
-  State<placeForm> createState() => _placeFormState();
+  State<PlacesForm> createState() => _PlacesFormState();
 }
 
 final formkey = GlobalKey<FormState>();
 TimeOfDay time = TimeOfDay.now();
 
-class _placeFormState extends State<placeForm> {
-  final placedata = PlacesData();
-  DateTime date = DateTime.now();
+class _PlacesFormState extends State<PlacesForm> {
+  final placeDAta = PlacesData();
+  DateTime date = DateTime(2023, 1, 23);
   TextEditingController nameController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
   TextEditingController priceController = TextEditingController();
@@ -220,7 +220,7 @@ class _placeFormState extends State<placeForm> {
                                 child: const Text('Submit'),
                                 onPressed: () async {
                                   if (formkey.currentState!.validate()) {
-                                    await placedata.PlaceAdded(
+                                    await placeDAta.placeAdded(
                                       name: nameController.text,
                                       about: aboutController.text,
                                       city: cityController.text,

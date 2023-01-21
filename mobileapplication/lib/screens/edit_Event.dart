@@ -13,7 +13,7 @@ class EditEventPage extends ConsumerStatefulWidget {
 
 class _EditEventPageState extends ConsumerState<EditEventPage> {
   final _formKey = GlobalKey<FormState>();
-  final dataEvent = PlacesData();
+  final dataEvent = EventsData();
 
   late TextEditingController nameController;
   late TextEditingController aboutController;
@@ -244,8 +244,7 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
                             enddateController.text,
                           );
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text('Successfully Updated')),
+                            const SnackBar(content: Text('Successfully Updated')),
                           );
 
                           Navigator.pop(context);

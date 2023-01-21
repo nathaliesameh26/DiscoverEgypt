@@ -13,8 +13,8 @@ final formkey = GlobalKey<FormState>();
 TimeOfDay time = TimeOfDay.now();
 
 class _eventFormState extends State<eventForm> {
-  final eventdata = PlacesData();
-  DateTime date = DateTime.now();
+  final eventdata = EventsData();
+  DateTime date = DateTime(2023, 1, 23);
   TextEditingController nameController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
   TextEditingController priceController = TextEditingController();
@@ -282,7 +282,7 @@ class _eventFormState extends State<eventForm> {
                                 child: const Text('Submit'),
                                 onPressed: () async {
                                   if (formkey.currentState!.validate()) {
-                                    await eventdata.PlaceAdded(
+                                    await eventdata.EventAdded(
                                       name: nameController.text,
                                       about: aboutController.text,
                                       city: cityController.text,

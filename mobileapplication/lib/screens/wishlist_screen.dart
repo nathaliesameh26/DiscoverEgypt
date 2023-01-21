@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:mobileapplication/model/place_model.dart';
+import '../data/dataApp/wishlist_data.dart';
 import '../data/repo/events_provider.dart';
 import '../data/repo/myplans_provider.dart';
 import '../data/repo/pending_provider.dart';
@@ -242,31 +243,21 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
   //you can use the image that you want, just copy and paste their Urls here inside the list
 
   //sometime we can face some http request erreur if the owner of the picture delted it or the url is not available
+  bool wishlistbool = false;
   @override
   Widget build(BuildContext context) {
     final PlacesData = ref.watch(placesDataProvider);
     final MyPlansData = ref.watch(plansDataProvider);
     final EventData = ref.watch(eventsDataProvider);
-    final wl = ref.watch(wishlistDataProvider);
+    final getwishlist = ref.watch(getWishlistData);
+    // WishList wl = Provider.of(context);
+    final wish = WishList();
 
     return Scaffold(
       backgroundColor: const Color(0xFFF6F7FF),
       appBar: AppBar(
         title: const Text('My Wishlist'),
         backgroundColor: Colors.black,
-        // elevation: 0.0,
-        // backgroundColor: Color(0xFFF6F7FF),
-        // title: Row(
-        //   children: [
-        //     IconButton(
-        //       onPressed: () {},
-        //       icon: Icon(
-        //         Icons.menu,
-        //         color: Colors.black,
-        //       ),
-        //     ),
-        //   ],
-        // ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
@@ -274,45 +265,6 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //Let's start by adding the text
-            // Text(
-            //   "Welcome Doctor Code",
-            //   style: TextStyle(
-            //     color: Colors.black,
-            //     fontSize: 26.0,
-            //     fontWeight: FontWeight.w600,
-            //   ),
-            // ),
-            // Text(
-            //   "Pick your destination",
-            //   style: TextStyle(
-            //     color: Colors.black,
-            //     fontSize: 20.0,
-            //     fontWeight: FontWeight.w300,
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: 20.0,
-            // ),
-            // //Now let's add some elevation to our text field
-            // //to do this we need to wrap it in a Material widget
-            // Material(
-            //   elevation: 10.0,
-            //   borderRadius: BorderRadius.circular(30.0),
-            //   shadowColor: Color(0x55434343),
-            //   child: TextField(
-            //     textAlign: TextAlign.start,
-            //     textAlignVertical: TextAlignVertical.center,
-            //     decoration: InputDecoration(
-            //       hintText: "Search for Hotel, Flight...",
-            //       prefixIcon: Icon(
-            //         Icons.search,
-            //         color: Colors.black54,
-            //       ),
-            //       border: InputBorder.none,
-            //     ),
-            //   ),
-            // ),
             const SizedBox(height: 30.0),
             //Now let's Add a Tabulation bar
             DefaultTabController(
@@ -337,13 +289,12 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
                     const SizedBox(
                       height: 20.0,
                     ),
-                    PlacesData.when(
+                    getwishlist.when(
                       data: (value) => SafeArea(
                         child: Container(
                           height: 500.0,
                           child: TabBarView(
                             children: [
-                              //Now let's create our first tab page
                               Container(
                                 child: ListView.builder(
                                     itemCount: value.docs.length,

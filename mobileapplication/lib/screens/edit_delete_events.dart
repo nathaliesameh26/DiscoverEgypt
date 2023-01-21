@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobileapplication/data/dataApp/events_data.dart';
+import 'package:mobileapplication/screens/edit_Event.dart';
 import '../data/repo/events_provider.dart';
 
 class CrudEvent extends ConsumerStatefulWidget {
@@ -11,6 +12,7 @@ class CrudEvent extends ConsumerStatefulWidget {
 }
 
 class _CrudEventState extends ConsumerState<CrudEvent> {
+  final eventData = PlacesData();
   @override
   Widget build(BuildContext context) {
     final EventsData = ref.watch(eventsDataProvider);
@@ -52,53 +54,44 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                 const SizedBox(
                                   height: 10.0,
                                 ),
-                                ListView.builder(
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    itemCount: 1,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 10.0),
-                                        child: Row(
+                                Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 10.0),
+                                    child: Row(
+                                      children: [
+                                        SizedBox(
+                                          height: 50,
+                                          width: 50,
+                                          child: Image.asset(
+                                            'assets/Egypt.jpg',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            SizedBox(
-                                              height: 50,
-                                              width: 50,
-                                              child: Image.asset(
-                                                'assets/Egypt.jpg',
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
                                             const SizedBox(
-                                              width: 10,
+                                              height: 10,
                                             ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                const SizedBox(
-                                                  height: 10,
+                                            SizedBox(
+                                              width: 285,
+                                              child: Text(
+                                                '${value.docs[index].get('about')}',
+                                                style: const TextStyle(
+                                                  fontSize: 14,
                                                 ),
-                                                SizedBox(
-                                                  width: 285,
-                                                  child: Text(
-                                                    '${value.docs[index].get('about')}',
-                                                    style: const TextStyle(
-                                                      fontSize: 14,
-                                                    ),
-                                                    overflow: TextOverflow.clip,
-                                                    maxLines: 5,
-                                                  ),
-                                                )
-                                              ],
+                                                overflow: TextOverflow.clip,
+                                                maxLines: 5,
+                                              ),
                                             )
                                           ],
-                                        ),
-                                      );
-                                    }),
+                                        )
+                                      ],
+                                    )),
                                 const SizedBox(
                                   height: 10.0,
                                 ),
@@ -160,7 +153,14 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () async {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      EditEventPage(
+                                                          value.docs[index])));
+                                        },
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
                                                 // ignore: prefer_const_constructors
@@ -175,7 +175,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                           ),
                                         )),
                                     ElevatedButton(
-                                                onPressed: () {
+                                        onPressed: () {
                                           showDialog(
                                             context: context,
                                             builder: (ctx) => AlertDialog(
@@ -183,12 +183,12 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                                   "Are you sre you want to delete it?"),
                                               actions: <Widget>[
                                                 TextButton(
-                                                  onPressed: () {
+                                                  onPressed: () async {
+                                                    await eventData.deleteEvent(
+                                                        id: value
+                                                            .docs[index].id);
+                                                    //no navigation needed cuz Stream is used , it will update automaically
                                                     Navigator.of(ctx).pop();
-                                                    // onPressed: () async {
-                                                    //   deletePlace(
-                                                    //       value.docs[index].get('name'));
-                                                    // },
                                                   },
                                                   child: Container(
                                                     color: const Color.fromARGB(
@@ -201,8 +201,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                                 ),
                                                 TextButton(
                                                   onPressed: () {
-                                                    Navigator.pushNamed(
-                                                        context, '/placeList');
+                                                    Navigator.of(ctx).pop();
                                                   },
                                                   child: Container(
                                                     color: const Color.fromARGB(

@@ -59,7 +59,7 @@ Widget weatherBox(Weather _weather) {
 
 Future getCurrentWeather() async {
   Weather? weather;
-  String city = "luxor";
+  String city = "cairo";
   String apiKey = "c64d59a0b659a994c030f7a3e224eda1";
   var url =
       "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";

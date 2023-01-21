@@ -93,11 +93,6 @@ class _PlannerPanelState extends State<PlannerPanel> {
                             fit: BoxFit.fill,
                           ),
                           shape: BoxShape.circle,
-                          //   ),
-                          //   color: Colors.deepPurple[600],
-                          // ),
-                          // const SizedBox(
-                          //   width: 20,
                         )),
                     Expanded(
                         child: Column(

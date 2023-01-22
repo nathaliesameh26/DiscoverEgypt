@@ -27,7 +27,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
       backgroundColor: const Color(0xFFF6F7FF),
       appBar: AppBar(
         title: const Text('My Plans'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.blue,
         // elevation: 0.0,
         // backgroundColor: Color(0xFFF6F7FF),
         // title: Row(
@@ -95,9 +95,9 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                 child: Column(
                   children: [
                     const TabBar(
-                      indicatorColor: Colors.orange,
+                      indicatorColor: Colors.blue,
                       unselectedLabelColor: Color(0xFF555555),
-                      labelColor: Colors.orange,
+                      labelColor: Colors.blue,
                       labelPadding: EdgeInsets.symmetric(horizontal: 8.0),
                       tabs: [
                         Tab(

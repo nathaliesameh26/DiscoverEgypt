@@ -11,6 +11,7 @@ import 'package:mobileapplication/screens/events_carousel.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import '../data/dataApp/place_data.dart';
 import '../data/repo/user_provider.dart';
+import '../widget/nav_bar_test.dart';
 import '../widget/navigation_bar.dart';
 import '../widget/username_show.dart';
 import 'destination_carousel.dart';
@@ -178,6 +179,7 @@ class _HomeScreenState extends State<HomeScreenn> {
                   .map((MapEntry map) => _buildIcon(map.key))
                   .toList(),
             ),
+            //const narBar(),
             const SizedBox(
               height: 20.0,
             ),

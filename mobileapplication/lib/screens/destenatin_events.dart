@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
 import 'package:mobileapplication/data/repo/events_provider.dart';
 import 'package:mobileapplication/model/des_model.dart';
+import 'package:mobileapplication/model/eventDes_model.dart';
 import 'package:mobileapplication/model/event_model.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
@@ -149,7 +150,7 @@ class _EvntDestinationScreenState extends ConsumerState<EvntDestinationScreen> {
                       padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
                       // itemCount: widget.destination.activities.length,
                       itemBuilder: (BuildContext context, index) {
-                        imgDestination envdestination = des[index];
+                        eventimgDestination envdestination = eventdes[index];
                         // Activity activity =
                         //     widget.destination.activities[index];
 

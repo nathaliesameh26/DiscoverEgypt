@@ -21,7 +21,7 @@ class _PlannerEventState extends ConsumerState<PlannerEvents> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Your added event'),
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blue,
         ),
         body: getEvents.when(
           data: (value) => SafeArea(
@@ -157,7 +157,7 @@ class _PlannerEventState extends ConsumerState<PlannerEvents> {
                                       height: 10,
                                     ),
                                     Text(
-                                      '${value.docs[index].get('price')}',
+                                      '${value.docs[index].get('price')} LE',
                                       style: const TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,

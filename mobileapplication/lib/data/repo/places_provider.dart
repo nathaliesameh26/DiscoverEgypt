@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
-import 'package:mobileapplication/data/repo/place_provider_test.dart';
 
 //---------------------EventsProvider------------------------//
 

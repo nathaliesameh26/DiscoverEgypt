@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mobileapplication/screens/edit_delete_events.dart';
 
 import '../data/repo/events_provider.dart';
 import '../widget/NumbersWidget.dart';
@@ -25,6 +26,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
       backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Column(children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -160,7 +162,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
+                                      borderRadius: BorderRadius.circular(10),
                                       side: BorderSide(color: Colors.blue)))),
                           onPressed: () {
                             Navigator.pushNamed(context, '/addedeventplanner');
@@ -210,8 +212,23 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 15,
                       )),
+                  ElevatedButton(
+                      child: Text("View All ", style: TextStyle(fontSize: 14)),
+                      style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.white),
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.blue),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      side: BorderSide(color: Colors.blue)))),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/PlannerEvents');
+                      }),
                 ],
               ),
             ),
@@ -222,7 +239,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                 child: ListView.builder(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
-                    itemCount: value.docs.length,
+                    itemCount: 1,
                     itemBuilder: (BuildContext context, int index) {
                       return Padding(
                         padding: const EdgeInsets.only(
@@ -390,17 +407,19 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                                             fontSize: 12,
                                           ),
                                         )),
-                                    // ElevatedButton(
-                                    //     onPressed: () {},
-                                    //     style: ElevatedButton.styleFrom(
-                                    //         backgroundColor: Colors.black,
-                                    //         minimumSize: Size(150, 40)),
-                                    //     child: const Text(
-                                    //       "Cancel",
-                                    //       style: TextStyle(
-                                    //         fontSize: 12,
-                                    //       ),
-                                    //     )),
+                                    ElevatedButton(
+                                        onPressed: () {
+                                          CrudEvent();
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.blue,
+                                            minimumSize: Size(150, 40)),
+                                        child: const Text(
+                                          "Delete",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                          ),
+                                        )),
                                   ],
                                 )
                               ],

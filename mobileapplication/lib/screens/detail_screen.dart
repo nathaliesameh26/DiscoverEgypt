@@ -13,7 +13,7 @@ class DetailsPage extends ConsumerStatefulWidget {
 class _DetailsPageState extends ConsumerState<DetailsPage> {
   double rating = 0;
   TextEditingController nameController = TextEditingController();
-  final String image = "assets/Egypt.jpg";
+  final String image = "assets/Kamel.jpg";
   @override
   Widget build(BuildContext context) {
     final PlacesData = ref.watch(placesDataProvider);

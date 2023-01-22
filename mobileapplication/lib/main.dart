@@ -45,11 +45,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         //    color: Theme.of(context).primaryColor,
-        initialRoute: '/HomeScreenn',
+        initialRoute: '/planner',
         routes: {
           '/weather': (context) => CurrentWeatherPage(),
           '/admineventForm': (context) => const eventForm(),
-          '/testScreen': (context) => testScreen(),
+          //'/testScreen': (context) => testScreen(),
           '/DestinationCarousel': (context) => DestinationCarousel(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),

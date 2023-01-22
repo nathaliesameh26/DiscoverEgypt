@@ -38,7 +38,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
     //final
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blue,
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.arrow_back),
@@ -103,7 +103,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                               FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: ListView.builder(
-                                  itemCount: value.docs.length,
+                                    itemCount: value.docs.length,
                                     scrollDirection: Axis.vertical,
                                     shrinkWrap: true,
                                     itemBuilder:
@@ -194,7 +194,8 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   maxLines: 2,
-                                                ),),
+                                                ),
+                                              ),
                                               SingleChildScrollView(
                                                 child: Column(
                                                   children: [
@@ -206,21 +207,21 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                             FontWeight.w600,
                                                       ),
                                                     ),
-                                                LikeButton(
-                                                    onTap: (isLiked) async {
-                                                  Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              WishlistScreen(
-                                                                  value.docs[
-                                                                      index],
-                                                                  value.docs[
-                                                                          index]
-                                                                      .get(
-                                                                          'id')
-                                                                          )));
-                                                }),
+                                                    LikeButton(
+                                                        onTap: (isLiked) async {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  WishlistScreen(
+                                                                      value.docs[
+                                                                          index],
+                                                                      value
+                                                                          .docs[
+                                                                              index]
+                                                                          .get(
+                                                                              'id'))));
+                                                    }),
                                                     ElevatedButton(
                                                         onPressed: () {
                                                           Navigator.pushNamed(
@@ -288,7 +289,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20.0),
                                   child: Image.asset(
-                                   destination.imageUrl,
+                                    destination.imageUrl,
                                     width: 110.0,
                                     fit: BoxFit.cover,
                                   ),

@@ -55,7 +55,7 @@ class _EditEventPlannerState extends ConsumerState<EditEventPlanner> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 103, 58, 209),
+          backgroundColor: Colors.blue,
           elevation: 0,
           title: Text(
             'Update Event',

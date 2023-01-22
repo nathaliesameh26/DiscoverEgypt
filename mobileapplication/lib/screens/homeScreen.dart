@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreenn> {
             );
           },
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.blue,
       ),
       body: SafeArea(
         child: ListView(

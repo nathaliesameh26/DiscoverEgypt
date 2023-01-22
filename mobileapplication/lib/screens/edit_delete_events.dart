@@ -19,7 +19,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('EgyMania Events'),
-        backgroundColor: Color.fromARGB(255, 28, 128, 150),
+        backgroundColor: Colors.blue,
       ),
       body: EventsData.when(
         data: (value) => SafeArea(
@@ -138,7 +138,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                           height: 10,
                                         ),
                                         Text(
-                                          '${value.docs[index].get('price')}',
+                                          '${value.docs[index].get('price')} LE',
                                           style: const TextStyle(
                                             fontSize: 13,
                                             fontWeight: FontWeight.bold,
@@ -167,8 +167,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
                                                 // ignore: prefer_const_constructors
-                                                Color.fromARGB(
-                                                    255, 28, 128, 150),
+                                                Colors.blue,
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
                                         child: Text(
@@ -221,8 +220,7 @@ class _CrudEventState extends ConsumerState<CrudEvent> {
                                         },
                                         style: ElevatedButton.styleFrom(
                                             // ignore: prefer_const_constructors
-                                            backgroundColor: Color.fromARGB(
-                                                255, 28, 128, 150),
+                                            backgroundColor: Colors.blue,
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
                                         child: Text(

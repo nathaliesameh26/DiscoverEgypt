@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/repo/user_provider.dart';
 import 'edit_Event.dart';
+import 'edit_event_planner.dart';
 
 class PlannerPanel extends ConsumerStatefulWidget {
   PlannerPanel({Key? key});
@@ -376,7 +377,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    EditEventPage(
+                                                    EditEventPlanner(
                                                         value.docs[index])),
                                           );
                                         },

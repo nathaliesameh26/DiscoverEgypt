@@ -32,11 +32,12 @@ class _PlacesFormState extends State<PlacesForm> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 199, 190, 199),
+          backgroundColor: Colors.black,
           elevation: 0,
           title: Text(
+             style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
             'Add A New Sightseeing Place',
-            style: Theme.of(context).textTheme.headline6,
+            
           ),
           leading: GestureDetector(
             onTap: () {
@@ -228,10 +229,11 @@ class _PlacesFormState extends State<PlacesForm> {
                               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromARGB(255, 199, 190, 199),
+                                  backgroundColor: Theme.of(context).primaryColor,
                                 ),
-                                child: const Text('Submit'),
+                                child: const Text('Submit',
+                               style: TextStyle(color: Colors.white)
+                               ),
                                 onPressed: () async {
                                   if (formkey.currentState!.validate()) {
                                     await placeDAta.placeAdded(

@@ -217,7 +217,7 @@ class _AdminPanelState extends State<AdminPanel> {
                           child: const Text('Events Pending List')),
                       ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/addedevent');
+                            Navigator.pushNamed(context, '/admineventForm');
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 28, 128, 150),

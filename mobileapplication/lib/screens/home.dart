@@ -9,6 +9,7 @@ import 'package:mobileapplication/data/dataApp/myplans_data.dart';
 import 'package:mobileapplication/data/dataApp/wishlist_data.dart';
 import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/auth_page.dart';
+import 'package:mobileapplication/screens/currentWeather.dart';
 import 'package:mobileapplication/screens/events_carousel.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
@@ -38,6 +39,7 @@ class _HomeState extends State<Home> {
     const HomeScreenn(),
     MyPlansScreen(),
     const SearchPage(),
+    CurrentWeatherPage(),
     const AuthPage(),
   ];
   int _selectedIndex = 0;
@@ -181,6 +183,11 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
               label: 'Search',
+              backgroundColor: Colors.blue,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.ac_unit),
+              label: 'Temp',
               backgroundColor: Colors.blue,
             ),
             BottomNavigationBarItem(

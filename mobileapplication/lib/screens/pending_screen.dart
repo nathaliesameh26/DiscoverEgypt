@@ -20,7 +20,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pending Events'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.blue,
       ),
       body: PendingData.when(
         data: (value) => SafeArea(
@@ -229,7 +229,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                           );
                                         },
                                         style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.black,
+                                            backgroundColor: Colors.blue,
                                             minimumSize: Size(150, 40)),
                                         child: const Text(
                                           "Accept",
@@ -243,7 +243,7 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                               id: value.docs[index].id);
                                         },
                                         style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.black,
+                                            backgroundColor: Colors.blue,
                                             minimumSize: Size(150, 40)),
                                         child: const Text(
                                           "Decline",

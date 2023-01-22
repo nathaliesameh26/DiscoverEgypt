@@ -33,11 +33,14 @@ class _eventFormState extends State<eventForm> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 199, 190, 199),
+          backgroundColor:Theme.of(context).primaryColor,
           elevation: 0,
           title: Text(
+              style: TextStyle(fontSize: 20, color: Colors.white),
             'Add A New Event',
-            style: Theme.of(context).textTheme.headline6,
+          //  style: Theme.of(context).textTheme.headline6,
+            
+            
           ),
           leading: GestureDetector(
             onTap: () {
@@ -51,6 +54,11 @@ class _eventFormState extends State<eventForm> {
           ),
         ),
         body: Container(
+                 decoration: BoxDecoration(
+          image: DecorationImage(
+            image: const AssetImage("assets/desert.jpg"),
+            fit: BoxFit.cover,
+          )),
           child: SingleChildScrollView(
               child: Padding(
                   padding: const EdgeInsets.all(10),
@@ -292,13 +300,12 @@ class _eventFormState extends State<eventForm> {
                               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromARGB(255, 199, 190, 199),
+                                   backgroundColor: Theme.of(context).primaryColor,
                                 ),
-                                child: const Text('Submit'),
+                                child: const Text('Submit', style: TextStyle(color: Colors.white)),
                                 onPressed: () async {
                                   if (formkey.currentState!.validate()) {
-                                    await eventdata.EventAdded(
+                                    await eventdata.eventAdded(
                                       name: nameController.text,
                                       about: aboutController.text,
                                       city: cityController.text,

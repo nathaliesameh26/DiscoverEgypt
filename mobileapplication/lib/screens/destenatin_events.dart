@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
-import 'package:mobileapplication/data/repo/places_provider.dart';
+import 'package:mobileapplication/data/repo/events_provider.dart';
 import 'package:mobileapplication/model/des_model.dart';
+import 'package:mobileapplication/model/event_model.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import '../data/dataApp/wishlist_data.dart';
-import '../data/repo/place_provider_test.dart';
-import '../model/destination_model.dart';
-import '../model/activity_model.dart';
 
-class DestinationScreen extends ConsumerStatefulWidget {
-  final Destination destination;
+class EvntDestinationScreen extends ConsumerStatefulWidget {
+  final eventDestination envdestination;
 
-  DestinationScreen({required this.destination});
+  EvntDestinationScreen({required this.envdestination});
 
   @override
-  ConsumerState<DestinationScreen> createState() => _DestinationScreenState();
+  ConsumerState<EvntDestinationScreen> createState() => _EvntDestinationScreenState();
 }
 
-class _DestinationScreenState extends ConsumerState<DestinationScreen> {
+class _EvntDestinationScreenState extends ConsumerState<EvntDestinationScreen> {
   // Text _buildRatingStars(int rating) {
   //   String stars = '';
   //   for (int i = 0; i < rating; i++) {
@@ -33,7 +31,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
   @override
   Widget build(BuildContext context) {
     final wish = WishList();
-    final PlacesData = ref.watch(placesDataProvider);
+    final PlacesData = ref.watch(eventsDataProvider);
 
     //final
     return Scaffold(
@@ -151,7 +149,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                       padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
                       // itemCount: widget.destination.activities.length,
                       itemBuilder: (BuildContext context, index) {
-                        imgDestination destination = des[index];
+                        imgDestination envdestination = des[index];
                         // Activity activity =
                         //     widget.destination.activities[index];
 
@@ -225,7 +223,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                         onPressed: () {
                                                           Navigator.pushNamed(
                                                               context,
-                                                              '/detailsPage',
+                                                              '/eventdetails',
                                                               arguments: index);
                                                         },
                                                         child: Text(
@@ -288,7 +286,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20.0),
                                   child: Image.asset(
-                                   destination.imageUrl,
+                                   envdestination.imageUrl,
                                     width: 110.0,
                                     fit: BoxFit.cover,
                                   ),

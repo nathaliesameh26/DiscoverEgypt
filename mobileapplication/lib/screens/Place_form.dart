@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobileapplication/data/dataApp/place_data.dart';
@@ -30,11 +32,12 @@ class _PlacesFormState extends State<PlacesForm> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 199, 190, 199),
+          backgroundColor: Colors.black,
           elevation: 0,
           title: Text(
+             style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
             'Add A New Sightseeing Place',
-            style: Theme.of(context).textTheme.headline6,
+            
           ),
           leading: GestureDetector(
             onTap: () {
@@ -42,12 +45,19 @@ class _PlacesFormState extends State<PlacesForm> {
             },
             child: const Icon(
               Icons.arrow_back_ios,
-              size: 20,
+            size: 20,
               color: Colors.black,
             ),
           ),
         ),
         body: Container(
+                  // ignore: prefer_const_constructors
+                  decoration: BoxDecoration(
+          image: DecorationImage(
+            image: const AssetImage("assets/desert.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
           child: SingleChildScrollView(
               child: Padding(
                   padding: const EdgeInsets.all(10),
@@ -65,6 +75,7 @@ class _PlacesFormState extends State<PlacesForm> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
+                                style: TextStyle(color: Colors.black),
                                 controller: nameController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
@@ -82,6 +93,7 @@ class _PlacesFormState extends State<PlacesForm> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
+                                style: TextStyle(color: Colors.black),
                                 controller: aboutController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
@@ -99,6 +111,7 @@ class _PlacesFormState extends State<PlacesForm> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
+                                style: TextStyle(color: Colors.black),
                                 controller: cityController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
@@ -116,6 +129,7 @@ class _PlacesFormState extends State<PlacesForm> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
+                                style: TextStyle(color: Colors.black),
                                 controller: locationController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
@@ -135,6 +149,7 @@ class _PlacesFormState extends State<PlacesForm> {
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
+                                style: TextStyle(color: Colors.black),
                                 controller: priceController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
@@ -214,10 +229,11 @@ class _PlacesFormState extends State<PlacesForm> {
                               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromARGB(255, 199, 190, 199),
+                                  backgroundColor: Theme.of(context).primaryColor,
                                 ),
-                                child: const Text('Submit'),
+                                child: const Text('Submit',
+                               style: TextStyle(color: Colors.white)
+                               ),
                                 onPressed: () async {
                                   if (formkey.currentState!.validate()) {
                                     await placeDAta.placeAdded(
@@ -248,3 +264,5 @@ class _PlacesFormState extends State<PlacesForm> {
         ));
   }
 }
+
+//how to add a background image to a scaffold? 

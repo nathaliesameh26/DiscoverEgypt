@@ -15,3 +15,11 @@ class Activity {
     required this.price,
   });
 }
+
+class ImgActivity {
+  final String imageUrl;
+
+  ImgActivity({
+    required this.imageUrl,
+  });
+}

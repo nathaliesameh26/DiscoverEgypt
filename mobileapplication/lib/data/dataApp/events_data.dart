@@ -44,7 +44,7 @@ class EventsData {
     FirebaseFirestore.instance.collection("events").doc(id).delete();
   }
 
-  Future EventAdded({
+  Future eventAdded({
     required String name,
     required String plannerName,
     required String about,
@@ -75,7 +75,7 @@ class EventsData {
     });
   }
 
-  Future EventAddedPlanner({
+  Future eventAddedPlanner({
     required String name,
     required String plannerName,
     required String about,

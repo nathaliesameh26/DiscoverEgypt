@@ -65,7 +65,7 @@ class _eventFormPlannerState extends State<eventFormPlanner> {
                                 'Enter the event details please ',
                                 style: TextStyle(fontSize: 20),
                               )),
-                                 Container(
+                          Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
                                 controller: plannerNameController,
@@ -298,7 +298,7 @@ class _eventFormPlannerState extends State<eventFormPlanner> {
                                 child: const Text('Submit'),
                                 onPressed: () async {
                                   if (plannerformkey.currentState!.validate()) {
-                                    await eventdata.EventAddedPlanner(
+                                    await eventdata.eventAddedPlanner(
                                       name: nameController.text,
                                       about: aboutController.text,
                                       city: cityController.text,
@@ -312,7 +312,8 @@ class _eventFormPlannerState extends State<eventFormPlanner> {
                                     );
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
-                                          content: Text('Successfully Added to the admin\'s pending list')),
+                                          content: Text(
+                                              'Successfully Added to the admin\'s pending list')),
                                     );
                                     Navigator.pushNamed(context, '/planner');
                                   } else {

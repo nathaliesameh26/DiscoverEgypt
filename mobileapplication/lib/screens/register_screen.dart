@@ -139,20 +139,20 @@ class _RegisterState extends State<Register> {
                             ),
                             TextField(
                               controller: DOB,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               // ignore: prefer_const_constructors
                               decoration: InputDecoration(
+                                  // ignore: prefer_const_constructors
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 1,
                                       color: Colors.white,
                                     ),
                                   ),
-                                  hintText: "Enter your date of birth",
                                   hintStyle: TextStyle(color: Colors.white),
                                   suffixIcon: const Icon(Icons.calendar_today),
-                                  labelText: "Enter End Date"),
-                              readOnly: true,
+                                  labelText: "Enter your date of birth"),
+                              readOnly: false,
                               onTap: () async {
                                 DateTime? pickedDate = await showDatePicker(
                                     context: context,
@@ -167,7 +167,7 @@ class _RegisterState extends State<Register> {
                                   print(formattedDate);
                                   setState(() {
                                     DOB.text =
-                                        formattedDate; //set output date to TextField value.
+                                        formattedDate; 
                                   });
                                 } else {}
                               },

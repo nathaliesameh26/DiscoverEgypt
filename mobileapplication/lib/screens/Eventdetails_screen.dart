@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../data/repo/place_provider_test.dart';
-import '../data/repo/places_provider.dart';
+import 'package:mobileapplication/data/repo/events_provider.dart';
 
-class DetailsPage extends ConsumerStatefulWidget {
+class EventDetailsPage extends ConsumerStatefulWidget {
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _DetailsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _EventDetailsPageState();
   //static final String path = "lib/src/pages/hotel/details.dart";
 }
 
-class _DetailsPageState extends ConsumerState<DetailsPage> {
+class _EventDetailsPageState extends ConsumerState<EventDetailsPage> {
   double rating = 0;
   TextEditingController nameController = TextEditingController();
-  final String image = "assets/Kamel.jpg";
+  final String image = "assets/bg.jpg";
   @override
   Widget build(BuildContext context) {
-    final PlacesData = ref.watch(placesDataProvider);
+    final PlacesData = ref.watch(eventsDataProvider);
     final index = ModalRoute.of(context)!.settings.arguments;
 
     //final placeData1 = ref.watch(placesDataProvider1);
@@ -58,7 +57,7 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                               color: Colors.grey,
                               borderRadius: BorderRadius.circular(20.0)),
                           child: Text(
-                            "${value.docs[index].get('location')} reviews",
+                            "${value.docs[index].get('location')} ",
                             style:
                                 TextStyle(color: Colors.white, fontSize: 13.0),
                           ),
@@ -101,28 +100,6 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                           }),
                                         ),
                                       ],
-                                      // children: const <Widget>[
-                                      //   Icon(
-                                      //     Icons.star,
-                                      //     color: Colors.blue,
-                                      //   ),
-                                      //   Icon(
-                                      //     Icons.star,
-                                      //     color: Colors.blue,
-                                      //   ),
-                                      //   Icon(
-                                      //     Icons.star,
-                                      //     color: Colors.blue,
-                                      //   ),
-                                      //   Icon(
-                                      //     Icons.star,
-                                      //     color: Colors.blue,
-                                      //   ),
-                                      //   Icon(
-                                      //     Icons.star_border,
-                                      //     color: Colors.blue,
-                                      //   ),
-                                      // ],
                                     ),
                                     Text.rich(
                                       TextSpan(children: [
@@ -198,12 +175,6 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                 fontWeight: FontWeight.w300, fontSize: 14.0),
                           ),
                           const SizedBox(height: 10.0),
-                          // Text(
-                          //   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
-                          //   textAlign: TextAlign.justify,
-                          //   style: TextStyle(
-                          //       fontWeight: FontWeight.w300, fontSize: 14.0),
-                          // ),
                         ],
                       ),
                     ),

@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:binder/binder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -47,9 +45,9 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     ref.putFile(file);
   }
 
-//*******************end-upload*************** */
+//******************end-upload************** */
 
-//****************Select picture*************** */
+//***************Select picture************** */
   Future selectFile() async {
     final result = await FilePicker.platform.pickFiles();
     if (result == null) return;
@@ -58,7 +56,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     });
   }
 
-//******************end-select******************** */
+//*****************end-select******************* */
   @override
   Widget build(BuildContext context) => Scaffold(
         //appBar: buildAppBar(context),
@@ -87,26 +85,26 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
               onPressed: selectFile,
               child: const Text("select image"),
             ),
-            ElevatedButton(
-                onPressed: uploadFile, child: const Text("upload image")),
+            // ElevatedButton(
+            //     onPressed: uploadFile, child: const Text("upload image")),
             //######################update################################
-            ElevatedButton(
-              child: Text("Update"),
-              onPressed: (() {
-                userData.updateUserDetails(
-                    nameController.text,
-                    emailController.text,
-                    passwordController.text,
-                    lastnameController.text);
-              }),
-            ),
+            // ElevatedButton(
+            //   child: Text("Update"),
+            //   onPressed: (() {
+            //     userData.updateUserDetails(
+            //         nameController.text,
+            //         emailController.text,
+            //         passwordController.text,
+            //         lastnameController.text);
+            //   }),
+            // ),
             //#######################end-update#######################
 
             //##############################delete########################
             ElevatedButton(
-              child: Text("Delete My account"),
-              onPressed: (() {
-                final docUser =
+              child: const Text("Delete My account"),
+             onPressed: (){
+                 final docUser =
                     FirebaseFirestore.instance.collection('users').doc(userID);
 
                 docUser.update({
@@ -117,9 +115,13 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
                   'password': FieldValue.delete(),
                   'DateOfBirth': FieldValue.delete(),
                   'role': FieldValue.delete(),
-                  'phoneNum': FieldValue.delete()
+                  'phoneNum': FieldValue.delete(),
+                  'id':FieldValue.delete(),
                 });
-              }),
+                FirebaseAuth.instance.signOut();
+             },
+
+              
             ),
             //#################################end-delete#############################
             const SizedBox(height: 24),
@@ -155,3 +157,17 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
         ),
       );
 }
+
+//  onPressed: ()async {
+//                 await FirebaseAuth.instance.signOut();
+
+//           // Get the current user's ID
+//           final user = FirebaseAuth.instance.currentUser;
+//           final userId = user?.uid;
+
+//           // Delete the user's data from Firebase
+//          await FirebaseFirestore.instance.collection('users').doc(userId).delete();
+
+//           // Navigate to the login screen
+//           Navigator.of(context).pushReplacementNamed('/h');
+//               }

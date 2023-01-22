@@ -198,12 +198,12 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                                 fontWeight: FontWeight.w300, fontSize: 14.0),
                           ),
                           const SizedBox(height: 10.0),
-                          Text(
-                            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w300, fontSize: 14.0),
-                          ),
+                          // Text(
+                          //   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
+                          //   textAlign: TextAlign.justify,
+                          //   style: TextStyle(
+                          //       fontWeight: FontWeight.w300, fontSize: 14.0),
+                          // ),
                         ],
                       ),
                     ),
@@ -225,26 +225,26 @@ class _DetailsPageState extends ConsumerState<DetailsPage> {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: BottomNavigationBar(
-                  backgroundColor: Colors.black,
-                  elevation: 0,
-                  selectedItemColor: Colors.black,
-                  items: [
-                    BottomNavigationBarItem(
-                        backgroundColor: Colors.blue,
-                        icon: Icon(Icons.search),
-                        label: "Home"),
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite_border), label: "Favorites"),
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.book_sharp), label: "My Plans"),
-                    BottomNavigationBarItem(
-                        icon: Icon(Icons.person), label: "Profile"),
-                  ],
-                ),
-              )
+              // Align(
+              //   alignment: Alignment.bottomLeft,
+              //   child: BottomNavigationBar(
+              //     backgroundColor: Colors.black,
+              //     elevation: 0,
+              //     selectedItemColor: Colors.black,
+              //     items: [
+              //       BottomNavigationBarItem(
+              //           backgroundColor: Colors.blue,
+              //           icon: Icon(Icons.search),
+              //           label: "Home"),
+              //       BottomNavigationBarItem(
+              //           icon: Icon(Icons.favorite_border), label: "Favorites"),
+              //       BottomNavigationBarItem(
+              //           icon: Icon(Icons.book_sharp), label: "My Plans"),
+              //       BottomNavigationBarItem(
+              //           icon: Icon(Icons.person), label: "Profile"),
+              //     ],
+              //   ),
+              // )
             ],
           ),
         ),

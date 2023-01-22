@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:mobileapplication/data/dataApp/place_data.dart';
 import 'package:mobileapplication/model/place_model.dart';
 import '../data/dataApp/wishlist_data.dart';
 import '../data/repo/events_provider.dart';
@@ -231,8 +234,13 @@ import '../data/repo/wishlist_provider.dart';
 //   }
 // }
 
+final userr = FirebaseAuth.instance.currentUser!;
+String userId = userr.uid;
+
 class WishlistScreen extends ConsumerStatefulWidget {
-  WishlistScreen({Key? key});
+  final DocumentSnapshot document;
+
+  WishlistScreen(this.document, userId);
 
   @override
   ConsumerState<WishlistScreen> createState() => _WishlistScreenState();
@@ -246,12 +254,32 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
   bool wishlistbool = false;
   @override
   Widget build(BuildContext context) {
-    final PlacesData = ref.watch(placesDataProvider);
-    final MyPlansData = ref.watch(plansDataProvider);
+    // final PlacesData = ref.watch(placesDataProvider);
+    // final MyPlansData = ref.watch(plansDataProvider);
     final EventData = ref.watch(eventsDataProvider);
-    final getwishlist = ref.watch(getWishlistData);
+    final getwishlist = ref.watch(wishlistDataProvider);
+    // final getDataofwishlist = ref.watch(getPlacesDataFromWishlistProvider);
+    final dataPlace = PlacesData();
+    late TextEditingController nameController;
+    late TextEditingController priceController;
+    late TextEditingController cityController;
+    late TextEditingController userIdController;
+
+    late String id;
+    @override
+    void initState() {
+      super.initState();
+      nameController = TextEditingController(text: widget.document.get('name'));
+      priceController =
+          TextEditingController(text: widget.document.get('price').toString());
+      cityController = TextEditingController(text: widget.document.get('city'));
+      //  id =  widget.document.get('id');
+      id = widget.document.id;
+      //use widget. cuz its a stateful widg
+    }
+
     // WishList wl = Provider.of(context);
-    final wish = WishList();
+    //final wish = WishList();
 
     return Scaffold(
       backgroundColor: const Color(0xFFF6F7FF),

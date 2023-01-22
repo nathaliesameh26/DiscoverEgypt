@@ -3,22 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
 import 'package:mobileapplication/data/repo/places_provider.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
-import 'package:mobileapplication/screens/wishlist_screen.dart';
 import '../data/dataApp/wishlist_data.dart';
-import '../data/repo/place_provider_test.dart';
 import '../model/destination_model.dart';
 import '../model/activity_model.dart';
 
-class DestinationScreen extends ConsumerStatefulWidget {
+class Destinationluxor extends ConsumerStatefulWidget {
   final Destination destination;
 
-  DestinationScreen({required this.destination});
+  Destinationluxor({required this.destination});
 
   @override
-  ConsumerState<DestinationScreen> createState() => _DestinationScreenState();
+  ConsumerState<Destinationluxor> createState() => _DestinationluxorState();
 }
 
-class _DestinationScreenState extends ConsumerState<DestinationScreen> {
+class _DestinationluxorState extends ConsumerState<Destinationluxor> {
   Text _buildRatingStars(int rating) {
     String stars = '';
     for (int i = 0; i < rating; i++) {
@@ -71,7 +69,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                       child: ClipRRect(
                         //borderRadius: BorderRadius.circular(30.0),
                         child: Image.asset(
-                          'assets/alex.jpg',
+                          'assets/luxe.jpg',
                           fit: BoxFit.cover,
                           height: 100,
                           width: 430,
@@ -225,21 +223,13 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                   ),
                                                 ),
                                                 LikeButton(
-                                                    // onTap: (isLiked) => WishList.addToWishlist(),
-                                                    onTap: (isLiked) async {
-                                                  Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              WishlistScreen(
-                                                                  value.docs[
-                                                                      index],
-                                                                  value.docs[
-                                                                          index]
-                                                                      .get(
-                                                                          'id'))));
-                                                }),
-
+                                                    // onTap: (isLiked) {
+                                                    //   setState(() {
+                                                    //     wishlistbool =
+                                                    //         !wishlistbool;
+                                                    //   });
+                                                    // },
+                                                    ),
                                                 ElevatedButton(
                                                     onPressed: () {
                                                       Navigator.pushNamed(

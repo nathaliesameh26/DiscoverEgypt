@@ -50,24 +50,24 @@ Future signup(String email, String password) async {
 //for authentication
 
 Future CreateUser(
-    String idd,
-    String fname,
-    String lname,
-    String email,
     String DOB,
+    String email,
+    String fname,
+    String idd,
+    String lname,
+    String nationality,
     String password,
     String phone,
-    String nationality,
     String role) async {
   await FirebaseFirestore.instance.collection('users').doc(idd).set({
-    'id': idd,
-    'firstname': fname,
-    'lastname': lname,
-    'email': email,
     'DateOfBirth': DOB,
+    'email': email,
+    'firstname': fname,
+    'id': idd,
+    'lastname': lname,
+    'nationality': nationality,
     'password': password,
     'phoneNum': phone,
-    'nationality': nationality,
     'role': role,
   });
 }

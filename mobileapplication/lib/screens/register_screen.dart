@@ -313,14 +313,14 @@ class _RegisterState extends State<Register> {
                                     onPressed: () async {
                                       await signup(email.text, password.text);
                                       CreateUser(
-                                          userId,
-                                          fname.text,
-                                          lname.text,
-                                          email.text,
                                           DOB.text,
+                                          email.text,
+                                          fname.text,
+                                          userId,
+                                          lname.text,
+                                          nationality.text,
                                           password.text,
                                           phone.text,
-                                          nationality.text,
                                           'user');
                                       //controller lazm yet7ol text
                                       if (formKey.currentState!.validate()) {

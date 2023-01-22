@@ -4,14 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:mobileapplication/data/dataApp/events_data.dart';
 
-class EditEventPage extends ConsumerStatefulWidget {
+class EditEventPlanner extends ConsumerStatefulWidget {
   final DocumentSnapshot document;
-  EditEventPage(this.document);
+  EditEventPlanner(this.document);
   @override
-  ConsumerState<EditEventPage> createState() => _EditEventPageState();
+  ConsumerState<EditEventPlanner> createState() => _EditEventPlannerState();
 }
 
-class _EditEventPageState extends ConsumerState<EditEventPage> {
+class _EditEventPlannerState extends ConsumerState<EditEventPlanner> {
   final _formKey = GlobalKey<FormState>();
   final dataEvent = EventsData();
 
@@ -63,7 +63,7 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
           ),
           leading: GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, '/admin');
+              Navigator.pushNamed(context, '/planner');
             },
             child: const Icon(
               Icons.arrow_back_ios,

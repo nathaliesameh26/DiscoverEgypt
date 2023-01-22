@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mobileapplication/model/event_model.dart';
+import 'package:mobileapplication/screens/destenatin_events.dart';
 
-import 'destinantion_screen.dart';
-import '../model/destination_model.dart';
 
 class EventCarousel extends StatelessWidget {
   // const EventCarousel({super.key});
@@ -42,15 +42,15 @@ class EventCarousel extends StatelessWidget {
           height: 300.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: destinations.length,
+            itemCount: desevent.length,
             itemBuilder: (BuildContext context, int index) {
-              Destination destination = destinations[index];
+              eventDestination destination = desevent[index];
               return GestureDetector(
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => DestinationScreen(
-                      destination: destination,
+                    builder: (_) => EvntDestinationScreen(
+                      envdestination: destination,
                     ),
                   ),
                 ),
@@ -75,14 +75,6 @@ class EventCarousel extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  '${destination.activities.length} activities',
-                                  style: TextStyle(
-                                    fontSize: 22.0,
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: 1.2,
-                                  ),
-                                ),
                                 Text(
                                   destination.description,
                                   style: TextStyle(
@@ -126,15 +118,6 @@ class EventCarousel extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Text(
-                                    destination.city,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 24.0,
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: 1.2,
-                                    ),
-                                  ),
                                   Row(
                                     children: <Widget>[
                                       Icon(

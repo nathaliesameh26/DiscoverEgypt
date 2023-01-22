@@ -87,7 +87,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                    color: Colors.blue[600],
+                    color: Colors.blue,
                     borderRadius: BorderRadius.circular(12)),
                 child: Row(
                   children: [
@@ -143,7 +143,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.blue[600],
+                        color: Colors.blue,
                       ),
                     ),
                   ),
@@ -174,7 +174,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.blue[600],
+                        color: Colors.blue,
                       ),
                     ),
                   ),
@@ -183,7 +183,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.blue[600],
+                        color: Colors.blue,
                       ),
                     ),
                   ),
@@ -192,7 +192,7 @@ class _PlannerPanelState extends ConsumerState<PlannerPanel> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.blue[600],
+                        color: Colors.blue,
                       ),
                     ),
                   ),

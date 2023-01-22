@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobileapplication/data/dataApp/events_data.dart';
+import 'package:mobileapplication/data/dataApp/pending_data.dart';
 import '../data/repo/pending_provider.dart';
 
 class PendingScreen extends ConsumerStatefulWidget {
@@ -10,6 +12,8 @@ class PendingScreen extends ConsumerStatefulWidget {
 }
 
 class _PendingScreenState extends ConsumerState<PendingScreen> {
+  final eventData = PendingData();
+  final addevent = EventsData();
   @override
   Widget build(BuildContext context) {
     final PendingData = ref.watch(pendingDataProvider);
@@ -40,79 +44,58 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'Event ID: ${value.docs[index].get('name')}',
+                                      'Event Name : ${value.docs[index].get('name')}',
                                       style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    // Text(
-                                    //   DateFormat('dd-MM-yy').format(order.createdAt),
-                                    //   'Event ID: ${value.get('name')}"',
-                                    //   style: const TextStyle(
-                                    //     fontSize: 16,
-                                    //     fontWeight: FontWeight.bold,
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
                                 const SizedBox(
                                   height: 10.0,
                                 ),
-                                ListView.builder(
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    itemCount: 1,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 10.0),
-                                        child: Row(
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 10.0),
+                                  child: FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Row(
+                                      children: [
+                                        SizedBox(
+                                          height: 50,
+                                          width: 50,
+                                          child: Image.asset(
+                                            'assets/Egypt.jpg',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            SizedBox(
-                                              height: 50,
-                                              width: 50,
-                                              child: Image.asset(
-                                                'assets/Egypt.jpg',
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
                                             const SizedBox(
-                                              width: 10,
+                                              height: 10,
                                             ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  '${value.docs[index].get('name')}',
-                                                  style: const TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                            SizedBox(
+                                              width: 285,
+                                              child: Text(
+                                                '${value.docs[index].get('about')}',
+                                                style: const TextStyle(
+                                                  fontSize: 14,
                                                 ),
-                                                const SizedBox(
-                                                  height: 10,
-                                                ),
-                                                SizedBox(
-                                                  width: 285,
-                                                  child: Text(
-                                                    '${value.docs[index].get('about')}',
-                                                    style: const TextStyle(
-                                                      fontSize: 14,
-                                                    ),
-                                                    overflow: TextOverflow.clip,
-                                                    maxLines: 5,
-                                                  ),
-                                                )
-                                              ],
+                                                overflow: TextOverflow.clip,
+                                                maxLines: 5,
+                                              ),
                                             )
                                           ],
-                                        ),
-                                      );
-                                    }),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
                                 const SizedBox(
                                   height: 10.0,
                                 ),
@@ -123,18 +106,39 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                     Column(
                                       children: [
                                         // ignore: prefer_const_constructors
+                                        const SizedBox(height: 5),
                                         Text(
-                                          'Location:',
+                                          'City :${value.docs[index].get('city')}',
                                           style: const TextStyle(
-                                            fontSize: 14,
+                                            fontSize: 13,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         const SizedBox(
-                                          height: 10,
+                                          height: 5,
                                         ),
                                         Text(
-                                          '${value.docs[index].get('location')}',
+                                          'Location : ${value.docs[index].get('location')}',
+                                          style: const TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'Planner Name:${value.docs[index].get('plannerName')}',
+                                          style: const TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'Price : ${value.docs[index].get('price')}',
                                           style: const TextStyle(
                                             fontSize: 13,
                                             fontWeight: FontWeight.bold,
@@ -145,18 +149,42 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                     Column(
                                       children: [
                                         // ignore: prefer_const_constructors
+
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
                                         Text(
-                                          'Price:',
+                                          'Opening Time: ${value.docs[index].get('openingTime')}',
                                           style: const TextStyle(
-                                            fontSize: 14,
+                                            fontSize: 13,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         const SizedBox(
-                                          height: 10,
+                                          height: 5,
                                         ),
                                         Text(
-                                          '${value.docs[index].get('price')}',
+                                          'Closing Time : ${value.docs[index].get('closingTime')}',
+                                          style: const TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'Start Date: ${value.docs[index].get('startdate')}',
+                                          style: const TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'End Date : ${value.docs[index].get('enddate')}',
                                           style: const TextStyle(
                                             fontSize: 13,
                                             fontWeight: FontWeight.bold,
@@ -174,7 +202,32 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () async {
+                                          // await
+                                          eventData.deletePendingEvent(
+                                              id: value.docs[index].id);
+
+                                          await eventData.pendingEventAdded(
+                                            name: value.docs[index].get('name'),
+                                            about:
+                                                value.docs[index].get('about'),
+                                            city: value.docs[index].get('city'),
+                                            plannerName: value.docs[index]
+                                                .get('plannerName'),
+                                            price:
+                                                value.docs[index].get('price'),
+                                            openingTime: value.docs[index]
+                                                .get('openingTime'),
+                                            closingTime: value.docs[index]
+                                                .get('closingTime'),
+                                            startdate: value.docs[index]
+                                                .get('startdate'),
+                                            enddate: value.docs[index]
+                                                .get('enddate'),
+                                            location: value.docs[index]
+                                                .get('location'),
+                                          );
+                                        },
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor: Colors.black,
                                             minimumSize: Size(150, 40)),
@@ -185,12 +238,15 @@ class _PendingScreenState extends ConsumerState<PendingScreen> {
                                           ),
                                         )),
                                     ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () async {
+                                          await eventData.deletePendingEvent(
+                                              id: value.docs[index].id);
+                                        },
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor: Colors.black,
                                             minimumSize: Size(150, 40)),
                                         child: const Text(
-                                          "Cancel",
+                                          "Decline",
                                           style: TextStyle(
                                             fontSize: 12,
                                           ),

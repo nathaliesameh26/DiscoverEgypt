@@ -189,25 +189,34 @@
 //   }
 // }
 
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobileapplication/data/dataApp/login_data.dart';
+import 'package:mobileapplication/data/dataApp/user_data.dart';
+import 'package:mobileapplication/data/repo/user_provider.dart';
 import 'package:mobileapplication/model/my_button.dart';
 import 'package:mobileapplication/model/my_textfield.dart';
 import 'package:mobileapplication/model/square_tile.dart';
+import 'package:mobileapplication/screens/Planner_panel.dart';
+import 'package:mobileapplication/screens/adminpanel.dart';
+import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 
-class Login extends StatefulWidget {
+class Login extends ConsumerStatefulWidget {
   Login({super.key});
 
   @override
-  State<Login> createState() => _LoginPageState();
+  ConsumerState<Login> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<Login> {
+class _LoginPageState extends ConsumerState<Login> {
   // text editing controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final userData = UserData();
 
   // sign user in method
   void signUserIn() async {
@@ -227,6 +236,19 @@ class _LoginPageState extends State<Login> {
         email: emailController.text,
         password: passwordController.text,
       );
+      // ref.read(userRoleProviderRepository.notifier).state =
+      //     userData.getUserRole();
+      // final value = await ref.read(userRoleProviderRepository);
+      // String userRole = value.get('role');
+      // if (userRole == 'admin') {
+      //   //return homePageManager = const AdminPanel();
+      //   Navigator.pushNamed(context, '/admin');
+      // } else if (userRole == 'planner') {
+      //   //return homePageManager = PlannerPanel();
+      // } else if (userRole == 'user') {
+      //   //return homePageManager = ProfilePage();
+      //   Navigator.pushNamed(context, '/profile');
+      // }
       // pop the loading circle
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
@@ -298,6 +320,7 @@ class _LoginPageState extends State<Login> {
                 const Icon(
                   Icons.lock,
                   size: 100,
+                  color: Colors.blue,
                 ),
 
                 const SizedBox(height: 50),
@@ -355,25 +378,24 @@ class _LoginPageState extends State<Login> {
 
                 const SizedBox(height: 25),
 
-                // sign in button
-                // MyButton(
-                // onTap: Loginn(emailController.text, passwordController.text),
-                ElevatedButton(
-                  child: null,
-                  onPressed: () async {
-                    try {
-                      await Loginn(
-                          emailController.text, passwordController.text);
-                      Navigator.pushNamed(context, '/');
-                    } on FirebaseAuthException catch (e) {
-                      if (e.code == 'user-not-found') {
-                        print('No user found for that email.');
-                      } else if (e.code == 'wrong-password') {
-                        print('Wrong password provided for that user.');
-                      }
-                    }
-                  },
-                ),
+                //sign in button
+                MyButton(onTap: signUserIn),
+                // ElevatedButton(
+                //   child: null,
+                //   onPressed: () async {
+                //     try {
+                //       await Loginn(
+                //           emailController.text, passwordController.text);
+                //       Navigator.pushNamed(context, '/');
+                //     } on FirebaseAuthException catch (e) {
+                //       if (e.code == 'user-not-found') {
+                //         print('No user found for that email.');
+                //       } else if (e.code == 'wrong-password') {
+                //         print('Wrong password provided for that user.');
+                //       }
+                //     }
+                //   },
+                // ),
 
                 const SizedBox(height: 50),
 

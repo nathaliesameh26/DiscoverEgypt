@@ -8,6 +8,7 @@ import 'package:mobileapplication/screens/Search_screen.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/destination_carousel.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
+import 'package:mobileapplication/screens/edit_Event.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/edit_profile_page.dart';
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
           '/EditProfilePage': (context) => EditProfilePage(),
           '/CrudPlace': (context) => CrudPlace(),
           '/HomeScreenn': (context) => const HomeScreenn(),
-          '/planner': (context) => const PlannerPanel(),
+          '/planner': (context) => PlannerPanel(),
           '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
@@ -80,7 +81,7 @@ class MyApp extends StatelessWidget {
           '/plans': (context) => MyPlansScreen(),
           // '/DestinationScreen': (context) => DestinationScreen(),
           // '/updatePlace': (context) => EditPlacePage(),
-          // '/updateEvent': (context) => EditEventPage(),
+          //'/updateEvent': (context) => EditEventPage(),
           // '/Searchplaces': (context) => const SearchPage(),
           //'/destinationScreen': (context) => DestinationScreen(destination:),
         });

@@ -53,7 +53,6 @@ class MyApp extends StatelessWidget {
           '/DestinationCarousel': (context) => DestinationCarousel(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
-          //darba
           '/EditProfilePage': (context) => EditProfilePage(),
           '/CrudPlace': (context) => CrudPlace(),
           '/HomeScreenn': (context) => const HomeScreenn(),
@@ -72,7 +71,6 @@ class MyApp extends StatelessWidget {
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
           '/PlannerEvents': (context) => PlannerEvents(),
-          '/search': (context) => const SearchPage(),
           '/addedeventplanner': (context) => const eventFormPlanner(),
           '/search': (context) => SearchPage(),
           '/profile': (context) => AuthPage(),

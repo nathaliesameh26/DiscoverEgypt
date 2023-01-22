@@ -1,5 +1,4 @@
 
-import 'activity_model.dart';
 
 class imgDestination {
   String imageUrl;
@@ -16,18 +15,6 @@ class imgDestination {
 
 
 }
-
-// List<ImgActivity> act = [
-//   ImgActivity(
-//     imageUrl: 'assets/pyra.jpg',
-//   ),
-//   ImgActivity(
-//     imageUrl: 'assets/alex.jpg',
-//   ),
-//   ImgActivity(
-//     imageUrl: 'assets/images/murano.jpg',
-//   ),
-// ];
 
 List<imgDestination> des = [
   imgDestination(

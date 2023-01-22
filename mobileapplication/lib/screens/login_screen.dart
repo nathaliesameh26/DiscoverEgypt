@@ -191,6 +191,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobileapplication/data/dataApp/login_data.dart';
 import 'package:mobileapplication/model/my_button.dart';
 import 'package:mobileapplication/model/my_textfield.dart';
 import 'package:mobileapplication/model/square_tile.dart';
@@ -355,8 +356,23 @@ class _LoginPageState extends State<Login> {
                 const SizedBox(height: 25),
 
                 // sign in button
-                MyButton(
-                  onTap: signUserIn,
+                // MyButton(
+                // onTap: Loginn(emailController.text, passwordController.text),
+                ElevatedButton(
+                  child: null,
+                  onPressed: () async {
+                    try {
+                      await Loginn(
+                          emailController.text, passwordController.text);
+                      Navigator.pushNamed(context, '/');
+                    } on FirebaseAuthException catch (e) {
+                      if (e.code == 'user-not-found') {
+                        print('No user found for that email.');
+                      } else if (e.code == 'wrong-password') {
+                        print('Wrong password provided for that user.');
+                      }
+                    }
+                  },
                 ),
 
                 const SizedBox(height: 50),

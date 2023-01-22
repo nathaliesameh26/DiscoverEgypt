@@ -1,15 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobileapplication/data/repo/user_provider.dart';
 import 'package:mobileapplication/screens/Planner_panel.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/login_screen.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 
-class AuthPage extends StatelessWidget {
+class AuthPage extends ConsumerStatefulWidget {
   const AuthPage({super.key});
 
+  @override
+  ConsumerState<AuthPage> createState() => _AuthPageState();
+}
+
+class _AuthPageState extends ConsumerState<AuthPage> {
   @override
   Widget build(BuildContext context) {
     final firestoreInstance = FirebaseFirestore.instance;
@@ -27,10 +34,8 @@ class AuthPage extends StatelessWidget {
                   .then((DocumentSnapshot docs) {
                 final data = docs.data() as Map<String, dynamic>;
                 final role = data['role'];
-                print(role);
                 if (role == 'admin') {
                   return homePageManager = const AdminPanel();
-                  print('into admin');
                 } else if (role == 'planner') {
                   return homePageManager = PlannerPanel();
                 } else if (role == 'user') {

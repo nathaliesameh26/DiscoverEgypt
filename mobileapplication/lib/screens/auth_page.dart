@@ -32,7 +32,7 @@ class AuthPage extends StatelessWidget {
                   print('into admin');
                   homePageManager = const AdminPanel();
                 } else if (role == 'planner') {
-                  homePageManager = const PlannerPanel();
+                  homePageManager = PlannerPanel();
                 } else {
                   homePageManager = ProfilePage();
                 }

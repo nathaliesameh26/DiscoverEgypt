@@ -33,7 +33,7 @@ class _eventFormPlannerState extends State<eventFormPlanner> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 199, 190, 199),
+          backgroundColor: Colors.blue,
           elevation: 0,
           title: Text(
             'Add A New Event',
@@ -292,8 +292,7 @@ class _eventFormPlannerState extends State<eventFormPlanner> {
                               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromARGB(255, 199, 190, 199),
+                                  backgroundColor: Colors.blue,
                                 ),
                                 child: const Text('Submit'),
                                 onPressed: () async {

@@ -147,7 +147,7 @@ class _HomeState extends State<Home> {
               },
               error: (Object error, StackTrace stackTrace) {
                 return const Text(
-                  'User',
+                  'EgyMania',
                   style: TextStyle(fontSize: 20),
                 );
               },

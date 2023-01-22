@@ -57,40 +57,43 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                 Padding(
                                     padding:
                                         const EdgeInsets.only(bottom: 10.0),
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          height: 50,
-                                          width: 50,
-                                          child: Image.asset(
-                                            'assets/Egypt.jpg',
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const SizedBox(
-                                              height: 10,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Row(
+                                        children: [
+                                          SizedBox(
+                                            height: 50,
+                                            width: 50,
+                                            child: Image.asset(
+                                              'assets/Egypt.jpg',
+                                              fit: BoxFit.cover,
                                             ),
-                                            SizedBox(
-                                              width: 285,
-                                              child: Text(
-                                                '${value.docs[index].get('about')}',
-                                                style: const TextStyle(
-                                                  fontSize: 14,
-                                                ),
-                                                overflow: TextOverflow.clip,
-                                                maxLines: 5,
+                                          ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              const SizedBox(
+                                                height: 10,
                                               ),
-                                            )
-                                          ],
-                                        )
-                                      ],
+                                              SizedBox(
+                                                width: 285,
+                                                child: Text(
+                                                  '${value.docs[index].get('about')}',
+                                                  style: const TextStyle(
+                                                    fontSize: 14,
+                                                  ),
+                                                  overflow: TextOverflow.clip,
+                                                  maxLines: 5,
+                                                ),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
                                     )),
                                 const SizedBox(
                                   height: 10.0,

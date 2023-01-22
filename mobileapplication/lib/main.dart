@@ -38,26 +38,24 @@ void main() async {
     ),
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/planner',
+        initialRoute: '/login',
         routes: {
           '/weather': (context) => CurrentWeatherPage(),
-          'eventForm': (context) => eventForm(),
           '/testScreen': (context) => testScreen(),
           '/DestinationCarousel': (context) => DestinationCarousel(),
           '/raiting': (context) => const raiting(),
           '/welcome': (context) => const Welcome(),
+          //darba
           '/EditProfilePage': (context) => EditProfilePage(),
           '/CrudPlace': (context) => CrudPlace(),
           '/HomeScreenn': (context) => HomeScreenn(),
           '/planner': (context) => PlannerPanel(),
-          '/': (context) => const HomeScreenn(),
           '/login': (context) => const Login(),
           '/register': (context) => const Register(),
           '/admin': (context) => const AdminPanel(),

@@ -19,7 +19,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('EgyMania Sightseeing Places'),
-        backgroundColor: Color.fromARGB(255, 28, 128, 150),
+        backgroundColor: Colors.blue,
       ),
       body: plcRead.when(
         data: (value) => SafeArea(
@@ -138,7 +138,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                           height: 10,
                                         ),
                                         Text(
-                                          '${value.docs[index].get('price')}',
+                                          '${value.docs[index].get('price')} LE',
                                           style: const TextStyle(
                                             fontSize: 13,
                                             fontWeight: FontWeight.bold,
@@ -167,8 +167,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                         style: ElevatedButton.styleFrom(
                                             backgroundColor:
                                                 // ignore: prefer_const_constructors
-                                                Color.fromARGB(
-                                                    255, 28, 128, 150),
+                                                Colors.blue,
                                             minimumSize: Size(150, 40)),
                                         // ignore: prefer_const_constructors
                                         child: Text(
@@ -194,8 +193,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                                     Navigator.of(ctx).pop();
                                                   },
                                                   child: Container(
-                                                    color: const Color.fromARGB(
-                                                        255, 184, 195, 184),
+                                                    color: Colors.blue,
                                                     padding:
                                                         const EdgeInsets.all(
                                                             14),
@@ -221,9 +219,7 @@ class _CrudPlaceState extends ConsumerState<CrudPlace> {
                                         },
                                         style: ElevatedButton.styleFrom(
                                             // ignore: prefer_const_constructors
-                                            backgroundColor: Color.fromARGB(
-                                                255, 28, 128, 150),
-                                            minimumSize: Size(150, 40)),
+                                            backgroundColor: Colors.blue),
                                         // ignore: prefer_const_constructors
                                         child: Text(
                                           "Delete",

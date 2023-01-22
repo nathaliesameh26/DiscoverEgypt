@@ -166,8 +166,7 @@ class _RegisterState extends State<Register> {
                                           .format(pickedDate);
                                   print(formattedDate);
                                   setState(() {
-                                    DOB.text =
-                                        formattedDate; 
+                                    DOB.text = formattedDate;
                                   });
                                 } else {}
                               },
@@ -332,8 +331,7 @@ class _RegisterState extends State<Register> {
                                       Navigator.pushNamed(context, '/');
                                     },
                                     style: TextButton.styleFrom(
-                                        backgroundColor:
-                                            Color.fromARGB(255, 255, 115, 0)),
+                                        backgroundColor: Colors.blue),
                                     child: const Text(
                                       "Sign Up ",
                                       style: TextStyle(color: Colors.white),

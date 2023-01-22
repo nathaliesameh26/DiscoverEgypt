@@ -14,7 +14,8 @@ class EvntDestinationScreen extends ConsumerStatefulWidget {
   EvntDestinationScreen({required this.envdestination});
 
   @override
-  ConsumerState<EvntDestinationScreen> createState() => _EvntDestinationScreenState();
+  ConsumerState<EvntDestinationScreen> createState() =>
+      _EvntDestinationScreenState();
 }
 
 class _EvntDestinationScreenState extends ConsumerState<EvntDestinationScreen> {
@@ -36,7 +37,7 @@ class _EvntDestinationScreenState extends ConsumerState<EvntDestinationScreen> {
     //final
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blue,
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.arrow_back),
@@ -101,7 +102,7 @@ class _EvntDestinationScreenState extends ConsumerState<EvntDestinationScreen> {
                               FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: ListView.builder(
-                                  itemCount: value.docs.length,
+                                    itemCount: value.docs.length,
                                     scrollDirection: Axis.vertical,
                                     shrinkWrap: true,
                                     itemBuilder:
@@ -192,7 +193,8 @@ class _EvntDestinationScreenState extends ConsumerState<EvntDestinationScreen> {
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   maxLines: 2,
-                                                ),),
+                                                ),
+                                              ),
                                               SingleChildScrollView(
                                                 child: Column(
                                                   children: [
@@ -204,21 +206,21 @@ class _EvntDestinationScreenState extends ConsumerState<EvntDestinationScreen> {
                                                             FontWeight.w600,
                                                       ),
                                                     ),
-                                                LikeButton(
-                                                    onTap: (isLiked) async {
-                                                  Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              WishlistScreen(
-                                                                  value.docs[
-                                                                      index],
-                                                                  value.docs[
-                                                                          index]
-                                                                      .get(
-                                                                          'id')
-                                                                          )));
-                                                }),
+                                                    LikeButton(
+                                                        onTap: (isLiked) async {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  WishlistScreen(
+                                                                      value.docs[
+                                                                          index],
+                                                                      value
+                                                                          .docs[
+                                                                              index]
+                                                                          .get(
+                                                                              'id'))));
+                                                    }),
                                                     ElevatedButton(
                                                         onPressed: () {
                                                           Navigator.pushNamed(
@@ -286,7 +288,7 @@ class _EvntDestinationScreenState extends ConsumerState<EvntDestinationScreen> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20.0),
                                   child: Image.asset(
-                                   envdestination.imageUrl,
+                                    envdestination.imageUrl,
                                     width: 110.0,
                                     fit: BoxFit.cover,
                                   ),

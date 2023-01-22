@@ -13,7 +13,7 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final firestoreInstance = FirebaseFirestore.instance;
-    Widget homePageManager = Login();
+    Widget homePageManager = ProfilePage();
     return Scaffold(
       body: StreamBuilder<User?>(
           stream: FirebaseAuth.instance.authStateChanges(),
@@ -29,14 +29,15 @@ class AuthPage extends StatelessWidget {
                 final role = data['role'];
                 print(role);
                 if (role == 'admin') {
+                  return homePageManager = const AdminPanel();
                   print('into admin');
-                  homePageManager = const AdminPanel();
                 } else if (role == 'planner') {
-                  homePageManager = PlannerPanel();
-                } else {
-                  homePageManager = ProfilePage();
+                  return homePageManager = PlannerPanel();
+                } else if (role == 'user') {
+                  return homePageManager = ProfilePage();
                 }
               });
+              print('target');
               return homePageManager;
             }
 

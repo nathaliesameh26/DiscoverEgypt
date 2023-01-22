@@ -90,7 +90,7 @@ class _AdminPanelState extends State<AdminPanel> {
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 28, 128, 150),
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(12)),
                     child: Row(
                       children: [
@@ -195,7 +195,7 @@ class _AdminPanelState extends State<AdminPanel> {
                             Navigator.pushNamed(context, '/placeList');
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 28, 128, 150),
+                            backgroundColor: Colors.blue,
                           ),
                           child:
                               const Text('Edit & Delete Sightseeing Places')),
@@ -204,7 +204,7 @@ class _AdminPanelState extends State<AdminPanel> {
                             Navigator.pushNamed(context, '/eventList');
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 28, 128, 150),
+                            backgroundColor: Colors.blue,
                           ),
                           child: const Text('Edit & Delete Events')),
                       ElevatedButton(
@@ -212,7 +212,7 @@ class _AdminPanelState extends State<AdminPanel> {
                             Navigator.pushNamed(context, '/pending');
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 28, 128, 150),
+                            backgroundColor: Colors.blue,
                           ),
                           child: const Text('Events Pending List')),
                       ElevatedButton(
@@ -220,7 +220,7 @@ class _AdminPanelState extends State<AdminPanel> {
                             Navigator.pushNamed(context, '/addedevent');
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 28, 128, 150),
+                            backgroundColor: Colors.blue,
                           ),
                           child: const Text('Add An Events')),
                       ElevatedButton(
@@ -228,7 +228,7 @@ class _AdminPanelState extends State<AdminPanel> {
                             Navigator.pushNamed(context, '/addedplace');
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 28, 128, 150),
+                            backgroundColor: Colors.blue,
                           ),
                           child: const Text('Add A Sightseeing Place')),
                     ],

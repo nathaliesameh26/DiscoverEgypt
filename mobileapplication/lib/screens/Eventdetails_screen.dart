@@ -5,7 +5,8 @@ import 'package:mobileapplication/data/repo/events_provider.dart';
 
 class EventDetailsPage extends ConsumerStatefulWidget {
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _EventDetailsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _EventDetailsPageState();
   //static final String path = "lib/src/pages/hotel/details.dart";
 }
 

@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         //    color: Theme.of(context).primaryColor,
-        initialRoute: '/admineventForm',
+        initialRoute: '/HomeScreenn',
         routes: {
           '/weather': (context) => CurrentWeatherPage(),
           '/admineventForm': (context) => const eventForm(),

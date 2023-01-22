@@ -16,6 +16,7 @@ import 'package:mobileapplication/screens/edit_place.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/myplan_screen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
+import 'package:mobileapplication/screens/planner_events.dart';
 import 'package:mobileapplication/screens/profile_page.dart';
 import 'package:mobileapplication/screens/register_screen.dart';
 import 'package:mobileapplication/screens/adminpanel.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
           '/splash': (context) => const Splash(),
           '/pending': (context) => PendingScreen(),
           '/booking': (context) => BookingScreen(),
+          '/PlannerEvents': (context) => PlannerEvents(),
 
           '/addedevent': (context) => const eventForm(),
           '/search': (context) => const SearchPage(),

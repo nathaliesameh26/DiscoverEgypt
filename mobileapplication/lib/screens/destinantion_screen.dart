@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:like_button/like_button.dart';
 import 'package:mobileapplication/data/repo/places_provider.dart';
+import 'package:mobileapplication/model/des_model.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import '../data/dataApp/wishlist_data.dart';
@@ -37,8 +38,6 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
     //final
     return Scaffold(
         appBar: AppBar(
-          //leading: new Icon(Icons.arrow_back),
-          //title: const Text('SnapNews'),
           backgroundColor: Colors.black,
           actions: <Widget>[
             IconButton(
@@ -73,48 +72,13 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                         child: ClipRRect(
                           //borderRadius: BorderRadius.circular(30.0),
                           child: Image.asset(
-                            'assets/alex.jpg',
+                            'assets/background.jpg',
                             fit: BoxFit.cover,
                             height: 100,
                             width: 430,
                           ),
                         ),
                       ),
-                      // Padding(
-                      //   padding: const EdgeInsets.symmetric(
-                      //       horizontal: 10.0, vertical: 40.0),
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //     children: <Widget>[
-                      //       IconButton(
-                      //         icon: Icon(Icons.arrow_back),
-                      //         iconSize: 30.0,
-                      //         color: Colors.black,
-                      //         onPressed: () => Navigator.pop(context),
-                      //       ),
-                      //       Row(
-                      //         children: <Widget>[
-                      //           IconButton(
-                      //             icon: Icon(Icons.search),
-                      //             iconSize: 30.0,
-                      //             color: Colors.black,
-                      //             onPressed: () => Navigator.pop(context),
-                      //           ),
-                      //           Row(
-                      //             children: <Widget>[
-                      //               IconButton(
-                      //                 icon: Icon(Icons.sort),
-                      //                 iconSize: 25.0,
-                      //                 color: Colors.black,
-                      //                 onPressed: () => Navigator.pop(context),
-                      //               ),
-                      //             ],
-                      //           )
-                      //         ],
-                      //       )
-                      //     ],
-                      //   ),
-                      // ),
                       Positioned(
                         left: 20.0,
                         bottom: 20.0,
@@ -139,6 +103,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                               FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: ListView.builder(
+                                  itemCount: value.docs.length,
                                     scrollDirection: Axis.vertical,
                                     shrinkWrap: true,
                                     itemBuilder:
@@ -186,6 +151,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                       padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
                       // itemCount: widget.destination.activities.length,
                       itemBuilder: (BuildContext context, index) {
+                        imgDestination destination = des[index];
                         // Activity activity =
                         //     widget.destination.activities[index];
 
@@ -240,24 +206,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                             FontWeight.w600,
                                                       ),
                                                     ),
-                                                    LikeButton(
-                                                        //     // onTap: (isLiked) => WishList.addToWishlist(),
-                                                        //     onTap: (isLiked) async {
-                                                        //   Navigator.push(
-                                                        //       context,
-                                                        //       MaterialPageRoute(
-                                                        //           builder: (context) =>
-                                                        //               WishlistScreen(
-                                                        //                   value.docs[
-                                                        //                       index],
-                                                        //                   value.docs[
-                                                        //                           index]
-                                                        //                       .get(
-                                                        //                           'id'))));
-                                                        // }
-                                                        ),
                                                 LikeButton(
-                                                    // onTap: (isLiked) => WishList.addToWishlist(),
                                                     onTap: (isLiked) async {
                                                   Navigator.push(
                                                       context,
@@ -269,7 +218,8 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                                   value.docs[
                                                                           index]
                                                                       .get(
-                                                                          'id'))));
+                                                                          'id')
+                                                                          )));
                                                 }),
                                                     ElevatedButton(
                                                         onPressed: () {
@@ -281,22 +231,12 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                                         child: Text(
                                                           'Details',
                                                         ))
-                                                    // const Text(
-                                                    //   'per pax',
-                                                    //   style: TextStyle(
-                                                    //     color: Colors.grey,
-                                                    //     fontSize: 22.0,
-                                                    //     fontWeight: FontWeight.w600,
-                                                    //   ),
-                                                    // ),
                                                   ],
                                                 ),
                                               ),
                                             ],
                                           ),
                                         ),
-                                        //Text(activity.type, style: TextStyle()),
-                                        //_buildRatingStars(activity.rating),
                                         SizedBox(
                                           height: 1.0,
                                         ),
@@ -348,7 +288,7 @@ class _DestinationScreenState extends ConsumerState<DestinationScreen> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20.0),
                                   child: Image.asset(
-                                    'assets/Egypt.jpg',
+                                   destination.imageUrl,
                                     width: 110.0,
                                     fit: BoxFit.cover,
                                   ),

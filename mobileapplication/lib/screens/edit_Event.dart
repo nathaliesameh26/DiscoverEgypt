@@ -55,7 +55,7 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 103, 58, 209),
+          backgroundColor: Colors.blue,
           elevation: 0,
           title: Text(
             'Update Event',
@@ -108,7 +108,7 @@ class _EditEventPageState extends ConsumerState<EditEventPage> {
                     controller: plannerNameController,
                     // ignore: prefer_const_constructors
                     decoration: InputDecoration(
-                        labelText: 'Planeer Name',
+                        labelText: 'Planner Name',
                         border: const OutlineInputBorder(
                             borderSide: BorderSide(
                           width: 10,

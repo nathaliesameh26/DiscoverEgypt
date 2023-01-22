@@ -298,7 +298,7 @@ class _eventFormState extends State<eventForm> {
                                 child: const Text('Submit'),
                                 onPressed: () async {
                                   if (formkey.currentState!.validate()) {
-                                    await eventdata.EventAdded(
+                                    await eventdata.eventAdded(
                                       name: nameController.text,
                                       about: aboutController.text,
                                       city: cityController.text,

@@ -22,6 +22,14 @@ class UserData {
         .snapshots();
   }
 
+  Future<Object> getUserRole() async {
+    final user = FirebaseAuth.instance.currentUser!;
+    String userIds = user.uid;
+    final DocumentSnapshot documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(userIds).get();
+    return documentSnapshot;
+  }
+
   Future updateUserDetails(
       String userName, String userEmail, String password, String ln) async {
     final updateUser =

@@ -4,6 +4,7 @@ import 'package:mobileapplication/screens/Event_form.dart';
 import 'package:mobileapplication/screens/Place_form.dart';
 import 'package:mobileapplication/screens/Planner_panel.dart';
 import 'package:mobileapplication/screens/Search_screen.dart';
+import 'package:mobileapplication/screens/auth_page.dart';
 import 'package:mobileapplication/screens/booking_screen.dart';
 import 'package:mobileapplication/screens/destination_carousel.dart';
 import 'package:mobileapplication/screens/detail_screen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/login',
+        initialRoute: '/profile',
         routes: {
           '/weather': (context) => CurrentWeatherPage(),
           '/testScreen': (context) => testScreen(),
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
           '/HomeScreenn': (context) => HomeScreenn(),
           '/planner': (context) => PlannerPanel(),
           '/': (context) => const HomeScreenn(),
-          '/login': (context) => const Login(),
+          '/login': (context) => Login(),
           '/register': (context) => const Register(),
           '/admin': (context) => const AdminPanel(),
           '/wishList': (context) => WishlistScreen(),
@@ -69,7 +70,7 @@ class MyApp extends StatelessWidget {
           '/booking': (context) => BookingScreen(),
           '/addedevent': (context) => const eventForm(),
           '/search': (context) => SearchPage(),
-          '/profile': (context) => ProfilePage(),
+          '/profile': (context) => AuthPage(),
           '/plans': (context) => MyPlansScreen(),
           // '/DestinationScreen': (context) => DestinationScreen(),
           // '/updatePlace': (context) => EditPlacePage(),

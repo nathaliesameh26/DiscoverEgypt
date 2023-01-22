@@ -31,7 +31,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Booking'),
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blue,
         ),
         body: Card(
             child: PlacesData.when(
@@ -276,7 +276,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                                         Navigator.pushNamed(context, '/');
                                       },
                                       style: ElevatedButton.styleFrom(
-                                          primary: Colors.black,
+                                          primary: Colors.blue,
                                           minimumSize: Size(150, 40)),
                                       child: Text(
                                         "Book",

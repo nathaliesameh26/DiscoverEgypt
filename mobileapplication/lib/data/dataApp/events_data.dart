@@ -105,4 +105,11 @@ class EventsData {
       "closingTime": closingTime,
     });
   }
+
+  Stream<QuerySnapshot> getMyEvents() {
+    return FirebaseFirestore.instance
+        .collection('events')
+        .where('plannerName', isEqualTo: 'ahmed')
+        .snapshots();
+  }
 }

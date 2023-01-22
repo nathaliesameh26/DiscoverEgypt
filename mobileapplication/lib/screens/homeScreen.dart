@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:mobileapplication/data/dataApp/myplans_data.dart';
 import 'package:mobileapplication/data/dataApp/wishlist_data.dart';
+import 'package:mobileapplication/screens/auth_page.dart';
 import 'package:mobileapplication/screens/events_carousel.dart';
 import 'package:mobileapplication/screens/wishlist_screen.dart';
 import '../data/dataApp/place_data.dart';
@@ -30,12 +31,11 @@ class HomeScreenn extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreenn> {
   // final cityobject = PlacesData.placecity();
-  // int index = 0;
+  // int currentIndex = 0;
   // final screens = [
   //   const HomeScreenn(),
   //   MyPlansScreen(),
-  //   MyPlansScreen(),
-  //   MyPlansScreen(),
+  //   const AuthPage(),
   // ];
   int _selectedIndex = 0;
   final List<IconData> _icons = [
@@ -123,37 +123,37 @@ class _HomeScreenState extends State<HomeScreenn> {
       //       //   ],
       //       // ),
       //     )),
-      appBar: AppBar(
-        title: Consumer(
-          builder: (_, ref, __) {
-            return ref.watch(userDataProvider).when(
-              data: (value) {
-                return Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 25),
-                    child: Text(
-                      // ignore: prefer_adjacent_string_concatenation
-                      '${value.get('firstname')} ${value.get('lastname')}',
+      // appBar: AppBar(
+      //   title: Consumer(
+      //     builder: (_, ref, __) {
+      //       return ref.watch(userDataProvider).when(
+      //         data: (value) {
+      //           return Center(
+      //             child: Padding(
+      //               padding: const EdgeInsets.only(right: 25),
+      //               child: Text(
+      //                 // ignore: prefer_adjacent_string_concatenation
+      //                 '${value.get('firstname')} ${value.get('lastname')}',
 
-                      style: const TextStyle(fontSize: 15),
-                    ),
-                  ),
-                );
-              },
-              error: (Object error, StackTrace stackTrace) {
-                return const Text(
-                  'User',
-                  style: TextStyle(fontSize: 20),
-                );
-              },
-              loading: () {
-                return const CircularProgressIndicator();
-              },
-            );
-          },
-        ),
-        backgroundColor: Colors.blue,
-      ),
+      //                 style: const TextStyle(fontSize: 15),
+      //               ),
+      //             ),
+      //           );
+      //         },
+      //         error: (Object error, StackTrace stackTrace) {
+      //           return const Text(
+      //             'User',
+      //             style: TextStyle(fontSize: 20),
+      //           );
+      //         },
+      //         loading: () {
+      //           return const CircularProgressIndicator();
+      //         },
+      //       );
+      //     },
+      //   ),
+      //   backgroundColor: Colors.blue,
+      // ),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 30.0),
@@ -191,6 +191,120 @@ class _HomeScreenState extends State<HomeScreenn> {
           ],
         ),
       ),
+
+      // bottomNavigationBar: BottomNavigationBar(
+      //     currentIndex: currentIndex,
+      //     type: BottomNavigationBarType.fixed,
+      //     backgroundColor: Colors.blue,
+      //     selectedItemColor: Colors.white,
+      //     showUnselectedLabels: false,
+      //     unselectedItemColor: Colors.white70,
+      //     onTap: (index) => setState(() => currentIndex = index),
+      //     items: [
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.home),
+      //         label: 'Home',
+      //         backgroundColor: Colors.blue,
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.trip_origin),
+      //         label: 'Event',
+      //         backgroundColor: Colors.blue,
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.person),
+      //         label: 'Profile',
+      //         backgroundColor: Colors.blue,
+      //       ),
+      //     ]),
     );
   }
 }
+
+// BottomNavigationBar buildNavBar(BuildContext context) {
+//
+// class MyNavigationBar extends StatefulWidget {
+//   const MyNavigationBar({Key? key}) : super(key: key);
+
+//   @override
+//   _MyNavigationBarState createState() => _MyNavigationBarState();
+// }
+
+// class _MyNavigationBarState extends State<MyNavigationBar> {
+//   int index = 0;
+//   final screens = [
+//     const Center(
+//       child: Text(
+//         'Page 1',
+//         style: TextStyle(fontSize: 72),
+//       ),
+//     ),
+//     const Center(
+//       child: Text(
+//         'Page 2',
+//         style: TextStyle(fontSize: 72),
+//       ),
+//     ),
+//     const Center(
+//       child: Text(
+//         'Page 3',
+//         style: TextStyle(fontSize: 72),
+//       ),
+//     ),
+//     const Center(
+//       child: Text(
+//         'Page 4',
+//         style: TextStyle(fontSize: 72),
+//       ),
+//     ),
+//     const Center(
+//       child: Text(
+//         'Page 5',
+//         style: TextStyle(fontSize: 72),
+//       ),
+//     ),
+//   ];
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: screens[index],
+//       bottomNavigationBar: NavigationBarTheme(
+//           data: NavigationBarThemeData(
+//               indicatorColor: Colors.orange,
+//               labelTextStyle: MaterialStateProperty.all(
+//                 const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+//               )),
+//           child: NavigationBar(
+//             height: 60,
+//             backgroundColor: Colors.transparent,
+//             labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+//             selectedIndex: index,
+//             onDestinationSelected: (index) =>
+//                 setState(() => this.index = index),
+//             // ignore: prefer_const_literals_to_create_immutables
+//             destinations: [
+//               const NavigationDestination(
+//                   icon: Icon(Icons.tour_outlined),
+//                   selectedIcon: Icon(Icons.tour_rounded),
+//                   label: 'Explore'),
+//               const NavigationDestination(
+//                   icon: Icon(Icons.event_available_outlined),
+//                   selectedIcon: Icon(Icons.event_available_rounded),
+//                   label: 'Events'),
+//               const NavigationDestination(
+//                   icon: Icon(Icons.favorite_border_outlined),
+//                   selectedIcon: Icon(Icons.favorite),
+//                   label: 'Wish List'),
+//               const NavigationDestination(
+//                   icon: Icon(Icons.map_outlined),
+//                   selectedIcon: Icon(Icons.map),
+//                   label: 'My Plans'),
+//               const NavigationDestination(
+//                   icon: Icon(Icons.account_box_outlined),
+//                   selectedIcon: Icon(Icons.account_box_rounded),
+//                   label: 'Account'),
+//             ],
+//           )),
+//     );
+//   }
+// }

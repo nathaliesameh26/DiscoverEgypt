@@ -13,6 +13,11 @@ final userDataProvider = StreamProvider(
     //bagyb beh aldata,byt3amel my al-ui
     //ui byklem provider
     (ref) => ref.watch(userDataProviderRepository));
-    //listens to the data
-  
+//listens to the data
 
+Future userRole = UserData().getUserRole();
+final userRoleProviderRepository = StateProvider<Future>((ref) => userRole);
+
+final userRoleProvider = FutureProvider((ref) async {
+  return ref.watch(userRoleProviderRepository);
+});

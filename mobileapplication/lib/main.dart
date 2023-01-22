@@ -13,6 +13,7 @@ import 'package:mobileapplication/screens/detail_screen.dart';
 import 'package:mobileapplication/screens/edit_delete_events.dart';
 import 'package:mobileapplication/screens/edit_delete_places.dart';
 import 'package:mobileapplication/screens/edit_profile_page.dart';
+import 'package:mobileapplication/screens/home.dart';
 import 'package:mobileapplication/screens/homeScreen.dart';
 import 'package:mobileapplication/screens/myplan_screen.dart';
 import 'package:mobileapplication/screens/pending_screen.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         //    color: Theme.of(context).primaryColor,
-        initialRoute: '/planner',
+        initialRoute: '/',
         routes: {
           '/weather': (context) => CurrentWeatherPage(),
           '/admineventForm': (context) => const eventForm(),
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
           '/HomeScreenn': (context) => const HomeScreenn(),
           '/planner': (context) => PlannerPanel(),
           '/login': (context) => Login(),
-          '/': (context) => const HomeScreenn(),
+          '/': (context) => const Home(),
           '/eventdetails': (context) => EventDetailsPage(),
           '/register': (context) => const Register(),
           '/admin': (context) => const AdminPanel(),
